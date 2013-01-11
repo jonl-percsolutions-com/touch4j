@@ -1,0 +1,268 @@
+
+<html>
+<head>
+<link rel="stylesheet" href="./syntaxhighlighter/Styles/SyntaxHighlighter.css" type="text/css" />
+<script src="./syntaxhighlighter/Scripts/shCore.js"></script>
+<script src="./syntaxhighlighter/Scripts/shBrushJava.js"></script>
+<script>
+    window.onload = function() {
+      dp.SyntaxHighlighter.HighlightAll("code");
+    }
+</script>
+<style>
+* {
+font-family:monospace;
+  padding: 0px;
+  margin: 0px;
+  white-space: nowrap;
+  font-size: 11px;
+}
+body {
+  border: none;
+}
+.dp-highlighter {
+  white-space: nowrap;
+  overflow: visible;
+  font-size: 11px;  
+  font-family:monospace;
+}
+.dp-highlighter ol, .dp-highlighter ol li {
+  font-family:monospace;
+}
+</style>
+</head>
+<body>
+<textarea name="code" class="java:nocontrols" rows="15" cols="100">
+/**
+ * Gwt4Touch - Java API for Sencha Touch
+ * Copyright (c) 2011 Emitrom LLC. All rights reserved.
+ * http://www.emitrom.com
+ */
+package com.emitrom.gwt4.touch.demo.client;
+
+import com.emitrom.gwt4.touch.client.containers.FormPanel;
+import com.emitrom.gwt4.touch.client.containers.MessageBox;
+import com.emitrom.gwt4.touch.client.containers.Panel;
+import com.emitrom.gwt4.touch.client.containers.TabPanel;
+import com.emitrom.gwt4.touch.client.containers.ToolBar;
+import com.emitrom.gwt4.touch.client.core.EventObject;
+import com.emitrom.gwt4.touch.client.core.Ext;
+import com.emitrom.gwt4.touch.client.core.TouchEntryPoint;
+import com.emitrom.gwt4.touch.client.core.TouchRootPanel;
+import com.emitrom.gwt4.touch.client.core.config.Dock;
+import com.emitrom.gwt4.touch.client.core.handlers.button.TapHandler;
+import com.emitrom.gwt4.touch.client.core.handlers.list.ItemDisclosureHandler;
+import com.emitrom.gwt4.touch.client.data.Record;
+import com.emitrom.gwt4.touch.client.data.Store;
+import com.emitrom.gwt4.touch.client.data.handlers.GroupingHandler;
+import com.emitrom.gwt4.touch.client.dataview.DisclosureList;
+import com.emitrom.gwt4.touch.client.field.CheckBox;
+import com.emitrom.gwt4.touch.client.field.DatePicker;
+import com.emitrom.gwt4.touch.client.field.Email;
+import com.emitrom.gwt4.touch.client.field.Password;
+import com.emitrom.gwt4.touch.client.field.Radio;
+import com.emitrom.gwt4.touch.client.field.Select;
+import com.emitrom.gwt4.touch.client.field.Slider;
+import com.emitrom.gwt4.touch.client.field.Spinner;
+import com.emitrom.gwt4.touch.client.field.Text;
+import com.emitrom.gwt4.touch.client.field.TextArea;
+import com.emitrom.gwt4.touch.client.field.Toggle;
+import com.emitrom.gwt4.touch.client.field.Url;
+import com.emitrom.gwt4.touch.client.form.FieldSet;
+import com.emitrom.gwt4.touch.client.laf.Alignement;
+import com.emitrom.gwt4.touch.client.laf.UI;
+import com.emitrom.gwt4.touch.client.layout.FitLayout;
+import com.emitrom.gwt4.touch.client.tab.TabItem;
+import com.emitrom.gwt4.touch.client.widgets.Button;
+import com.emitrom.gwt4.touch.client.widgets.Map;
+import com.emitrom.gwt4.touch.client.widgets.Spacer;
+import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsDate;
+
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class Demo extends TouchEntryPoint {
+
+    private final String TEMPLATE = "{" + User.FIRSTNAME + "} - {" + User.LASTNAME + "}";
+    private TabPanel tabPanel;
+    private ToolBar toolBar;
+    private FormPanel form;
+
+    @Override
+    public void onLoad() {
+        Ext.regModel();
+        createForm();
+
+        toolBar = new ToolBar();
+        Button sourceButton = new Button("Source", UI.CONFIRM);
+        sourceButton.addTapHandler(new TapHandler() {
+            @Override
+            public void onTap(Button button, EventObject event) {
+                SourceCodeController.displaySource();
+            }
+        });
+        toolBar.add(sourceButton);
+        toolBar.add(new Spacer());
+        toolBar.add(new Button("About", UI.ACTION, new TapHandler() {
+            @Override
+            public void onTap(Button button, EventObject event) {
+                MessageBox.alert("<a href=http://www.emitrom.com><font color=white>Emitrom</font></a>",
+                                "Powered By Gwt4Touch");
+            }
+        }));
+
+        Map map = new Map(true);
+
+        Panel panel = new Panel(new FitLayout());
+        panel.add(toolBar);
+        panel.add(map);
+
+        tabPanel = new TabPanel(Alignement.BOTTOM);
+        tabPanel.setFullScreen(true);
+
+        TabItem homeItem = new TabItem("Home");
+        homeItem.setIconCls("home");
+        homeItem.add(panel);
+        tabPanel.add(homeItem);
+
+        TabItem userItem = new TabItem("Users");
+        userItem.setIconCls("user");
+
+        Store store = new Store(User.createUserList());
+        store.setSorter(User.FIRSTNAME);
+        store.addGroupingHandler(new GroupingHandler() {
+            @Override
+            public String forEachRecord(Record record) {
+                String firstLetter = record.get(User.FIRSTNAME).charAt(0) + "";
+                return firstLetter;
+            }
+        });
+        DisclosureList list = new DisclosureList(TEMPLATE, store);
+        list.setIndexBar(true);
+        list.setGrouped(true);
+        list.setOnItemDisclosure(new ItemDisclosureHandler() {
+            @Override
+            public void onItemDisclosure(Record record, JavaScriptObject node, int index) {
+                String userName = record.get(User.FIRSTNAME) + " , " + record.get(User.LASTNAME);
+                MessageBox.alert("You selected", userName);
+            }
+        });
+
+        userItem.add(list);
+        tabPanel.add(userItem);
+
+        TabItem item = new TabItem("Register");
+        item.setIconCls("team");
+        item.add(form);
+        tabPanel.add(item);
+
+        TouchRootPanel.setRootComponent(tabPanel);
+
+    }
+
+    private void createForm() {
+        form = new FormPanel();
+
+        ToolBar toolBar = new ToolBar(Dock.TOP);
+        toolBar.add(new Spacer());
+        toolBar.add(new Button("Reset", UI.ACTION));
+        toolBar.add(new Button("Save", UI.CONFIRM));
+        form.add(toolBar);
+
+        FieldSet personalInfo = new FieldSet("Personal Info");
+        personalInfo.setInstructions("Please enter the information above");
+
+        Text text = new Text();
+        text.setName("name");
+        text.setLabel("Name");
+        text.setRequired(true);
+        text.setClearIcon(true);
+        text.setAutoCapitalize(false);
+        personalInfo.add(text);
+
+        Password passWord = new Password();
+        passWord.setName("password");
+        passWord.setLabel("Password");
+        passWord.setRequired(true);
+        personalInfo.add(passWord);
+
+        Password repeatPassword = new Password();
+        repeatPassword.setName("passwordRepeat");
+        repeatPassword.setLabel("Disabled");
+        repeatPassword.setDisabled(true);
+        repeatPassword.setClearIcon(true);
+        personalInfo.add(repeatPassword);
+
+        Email eMail = new Email();
+        eMail.setName("Email");
+        eMail.setLabel("Email");
+        eMail.setPlaceHolder("you@emitrom.com");
+        eMail.setClearIcon(true);
+        personalInfo.add(eMail);
+
+        Url url = new Url();
+        url.setName("url");
+        url.setLabel("Url");
+        url.setPlaceHolder("http://emitrom.com");
+        personalInfo.add(url);
+
+        CheckBox checkBox = new CheckBox();
+        checkBox.setLabel("Coool");
+        checkBox.setName("cool");
+        checkBox.setValue(true);
+        personalInfo.add(checkBox);
+
+        Spinner spinner = new Spinner();
+        spinner.setName("spinner");
+        spinner.setLabel("Spinner");
+        personalInfo.add(spinner);
+
+        Select select = new Select(Rank.getStore());
+        select.setName("rank");
+        select.setLabel("Rank");
+        select.setDisplayField(Rank.TITLE);
+        select.setValueField(Rank.RANK);
+        personalInfo.add(select);
+
+        DatePicker datePicker = new DatePicker();
+        datePicker.setName("date");
+        datePicker.setLabel("Date");
+        datePicker.setValue(JsDate.create());
+        personalInfo.add(datePicker);
+
+        TextArea textArea = new TextArea();
+        textArea.setName("bio");
+        textArea.setLabel("Bio");
+        textArea.setMaxLength(60);
+        textArea.setMaxRows(10);
+        personalInfo.add(textArea);
+
+        Slider slider = new Slider();
+        slider.setName("slider");
+        slider.setLabel("Slider");
+        personalInfo.add(slider);
+
+        Toggle toggle = new Toggle();
+        toggle.setLabel("Security Mode");
+        toggle.setName("toggle");
+        personalInfo.add(toggle);
+
+        Radio radio = new Radio();
+        radio.setName("blue");
+        radio.setLabel("Blue Team");
+        personalInfo.add(radio);
+
+        radio = new Radio();
+        radio.setName("red");
+        radio.setLabel("Red Team");
+        personalInfo.add(radio);
+
+        form.add(personalInfo);
+    }
+
+}
+
+</textarea>
+</body>
+</html>

@@ -1,0 +1,156 @@
+================================================================================
+#  Copyright (c) 2011-2012 Emitrom, LLC
+#  All rights reserved.
+================================================================================
+
+                         Touch4j 3.0 Installation
+                         ------------------------
+                         
+For any questions or details about Touch4j, please visit us in the forum:
+
+    http://www.emitrom.com/forum
+ 
+Touch4j 3.0 is distributed as a single Jar file.
+
+Requirements
+------------
+
+- Google Web Toolkit 2.4 or higher
+- Sencha Touch 2.0.1.1
+- Sencha Touch Charts
+- Cordova 2.0*
+- Ext.ux.touch.grid** (https://github.com/mitchellsimoens/Ext.ux.touch.grid)
+- Java Development Kit 1.6 or higher in your path.
+  
+  * Only required if you need device access, see step 7
+ ** Only required if you want multi-column grid support, see step 10
+
+
+Steps
+-----
+
+>> Option A: download the Touch4j Kitchen Sink (a GPLv3, Eclipse project) from svn and 
+             import it into Eclipse.  You will need to download the touch4j-xxx.jar file
+             and add it to the project's classpath.
+
+             http://svn.emitrom.com/gwt4touch2ks/trunk/kitchensink/
+    
+    
+>> Option B: follow all the steps below.
+
+1. Create a new Web Application Project (GWT) project in your IDE. Enter your 
+   project's details as appropriate.
+   
+2. Add the touch4j-xxx.jar file to the project's classpath.
+
+3. Edit your project's .gwt.xml file and leave only the following inherits statements:
+     <inherits name='com.google.gwt.user.UserAgent' />
+     <inherits name='com.google.gwt.user.User' />
+     <inherits name="com.emitrom.gwt4.touch.Touch4j" />
+     
+   In this same file, add the webkit user-agent to speed up compilation:
+     <set-property name="user.agent" value="safari" />
+          
+4. In your GWT .html page, include the following in the <head> section:
+     <!-- Fill the device's screen -->
+     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;" />
+
+     <!-- Google Maps support -->
+     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+     
+     <!-- Sencha Touch Charts -->
+     <script type="text/javascript" charset="utf-8" src="{your-project}/touch-charts/touch-charts.js"></script>
+     <link type="text/css" rel="stylesheet" href="{your-project}/touch-charts/resources/css/touch-charts-demo.css" />
+     
+     <!-- Sencha Touch CSS -->
+     <link type="text/css" rel="stylesheet" href="{your-project}/touch/resources/css/sencha-touch.css" />
+     <script type="text/javascript" charset="utf-8" src="{your-project}/touch/sencha-touch-all.js"></script>
+     
+   You should be able to find the sencha-touch-all.* files in a folder called 'builds'.  
+   In this same .html file, remove the GWT-generated HTML table, and change the title if you desire.
+     
+5. Create a folder called public of your GWT project, and underneath it create a directory 
+   called 'touch'; copy the resources and the Sencha .js file into it.  This will allow 
+   the instructions in the previous step to work correctly.
+   
+   Also, create a directory called 'touch-charts', and copy touch-charts.js to it. You will also 
+   need to copy the 'resources' directory in 'touch-charts'. 
+   
+6. Modify your GWT client .java file to extend TouchEntryPoint, instead of implementing
+   EntryPoint:
+     public class YourGWTProject extends TouchEntryPoint {
+         @Override
+         public void onLoad() {
+            // ...your code here
+         }
+     }
+  
+  
+--    
+Optional, if your application will need device support:
+ 
+7. Add to your project's .gwt.xml file, in addition to the other entries from step 3:
+     <inherits name='com.emitrom.gwt4.touch.device.Device' />
+     
+   This will allow you to do checks such as:
+   
+     if (Device.isReady()) {
+          // do device specific actions, such
+          // as taking a picture, or use the accelerometer...
+     } 
+     
+8. In your GWT .html page, include the following in the <head> section:
+     <!-- Cordova -->
+     <script type="text/javascript" charset="utf-8" src="{your-project}/cordova/cordova-2.0.0.js"></script>
+      
+9. In the public folder of your GWT project, create a directory called 'cordova', and
+   copy cordova-2.0.0.js to it.  This will allow the instructions in the previous step to work correctly.
+   
+   Please follow the Cordova instructions appropriate for your target platforms.
+    
+    
+--   
+Optional, as well, if you plan on using the Ext.ux.touch.grid functionality:
+
+10. Add to your project's .gwt.xml file, in addition to the other entries from step 3:
+     <inherits name='com.emitrom.gwt4.touch.ux.grid.Grid' />
+     
+11. In your GWT .html page, include the following in the <head> section:
+     <!-- Ext.ux.touch.grid -->
+     <script type="text/javascript" charset="utf-8" src="{your-project}/grid/Ext.ux.touch.grid/feature/Abstract.js"></script>
+     <script type="text/javascript" charset="utf-8" src="{your-project}/grid/Ext.ux.touch.grid/feature/Feature.js"></script>
+     <script type="text/javascript" charset="utf-8" src="{your-project}/grid/Ext.ux.touch.grid/feature/Editable.js"></script>
+     <script type="text/javascript" charset="utf-8" src="{your-project}/grid/Ext.ux.touch.grid/feature/Sorter.js"></script>
+     <script type="text/javascript" charset="utf-8" src="{your-project}/grid/Ext.ux.touch.grid/feature/Paging.js"></script>
+     <script type="text/javascript" charset="utf-8" src="{your-project}/grid/Ext.ux.touch.grid/View.js"></script>
+     <link type="text/css" rel="stylesheet" href="{your-project}/grid/resources/css/Ext.ux.grid.View.css" />
+
+12. Create a directory called 'grid' in the public folder of your GWT project, and copy the 'Ext.ux.touch.grid' and
+    'resources' directories from the Ext.ux.touch.grid site.  This will allow the instructions in the previous step to 
+    work correctly.
+    
+--
+Optional, if you would like pull-to-refresh functionality:
+
+13. Add to your project's .gwt.xml file, in addition to the other entries from step 3:
+     <inherits name='com.emitrom.gwt4.touch.ux.dataview.pullrefresh.PullRefresh' />
+     
+14. In your GWT .html page, include the following in the <head> section:
+     <!-- Pull to refresh -->
+     <script type="text/javascript" language="javascript" src="{your-project}/pr.js"></script>
+
+--
+Optional, if you would like to use the rating widget:
+
+15. Add to your project's .gwt.xml file, in addition to the other entries from step 3:
+     <inherits name="com.emitrom.gwt4.touch.ux.rating.Rating" />
+     
+16. In your GWT .html page, include the following in the <head> section:
+     <!-- Rating Plugin -->
+     <script type="text/javascript" language="javascript" src="{your-project}/rating/Ext.ux.touch.Rating.js"></script>
+          
+          
+Enjoy!
+ 
+The Emitrom Team
+ 

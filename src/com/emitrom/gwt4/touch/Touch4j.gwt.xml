@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<inherits name='com.google.gwt.user.User' />
+	<inherits name="com.emitrom.platform.maps.Maps" />
+	<inherits name="com.emitrom.gwt4.touch.charts.Charts" />
+</module>
