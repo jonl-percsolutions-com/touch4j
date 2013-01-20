@@ -15,6 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.client.core.config;
 
+import com.emitrom.gwt4.touch.client.fx.layout.card.Animation;
 import com.emitrom.gwt4.touch.client.ui.MessageBox;
 import com.emitrom.platform.util.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -119,6 +120,10 @@ public class MessageBoxConfig extends BaseConfig {
      */
     public void setButtons(boolean buttons) {
         JsoHelper.setAttribute(jsObj, Attribute.BUTTONS.getValue(), buttons);
+    }
+
+    public void stAnimation(Animation animation) {
+        JsoHelper.setAttribute(jsObj, "animation", animation.getJSO());
     }
 
     /**

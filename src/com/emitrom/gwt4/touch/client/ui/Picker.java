@@ -1,24 +1,23 @@
 /**************************************************************************
-   Picker.java is part of Touch4j 3.0.  Copyright 2012 Emitrom LLC
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+ * Picker.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  **************************************************************************/
 package com.emitrom.gwt4.touch.client.ui;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.emitrom.gwt4.touch.client.core.HasUi;
 import com.emitrom.gwt4.touch.client.core.config.Attribute;
 import com.emitrom.gwt4.touch.client.core.config.Event;
 import com.emitrom.gwt4.touch.client.core.config.XType;
@@ -45,6 +44,9 @@ import com.google.gwt.core.client.JsArray;
  * 
  */
 public class Picker extends Sheet {
+
+    private Button doneButton;
+    private Button cancelButton;
 
     @Override
     protected native void init()/*-{
@@ -98,27 +100,43 @@ public class Picker extends Sheet {
     /**
      * Returns the value of cancelButton.
      * 
-     * @param <T>
      * @return
      */
-    public native <T> T getCancelButton() /*-{
+    public Button getCancelButton() {
+        JavaScriptObject peer = _getCancelButton();
+        if (peer != null) {
+            this.cancelButton = Button.instance(peer);
+        }
+        return this.cancelButton;
+    }
+
+    private native JavaScriptObject _getCancelButton() /*-{
 		var picker = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
 		if (picker != null) {
 			return picker.getCancelButton();
 		}
+		return null;
     }-*/;
 
     /**
      * Returns the value of doneButton.
      * 
-     * @param <T>
      * @return
      */
-    public native <T> T getDoneButton() /*-{
+    public Button getDoneButton() {
+        JavaScriptObject peer = _getDoneButton();
+        if (peer != null) {
+            this.doneButton = Button.instance(peer);
+        }
+        return this.doneButton;
+    }
+
+    private native JavaScriptObject _getDoneButton() /*-{
 		var picker = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
 		if (picker != null) {
 			return picker.getDoneButton();
 		}
+		return null;
     }-*/;
 
     /**
@@ -138,10 +156,11 @@ public class Picker extends Sheet {
      * 
      * @return
      */
-    public native HasUi getToolBar() /*-{
+    public native ToolBar getToolBar() /*-{
 		var picker = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
 		if (picker != null) {
-			return picker.getToolBar();
+			var tb = picker.getToolbar();
+			return @com.emitrom.gwt4.touch.client.ui.ToolBar::new(Lcom/google/gwt/core/client/JavaScriptObject;)(tb);
 		}
     }-*/;
 
@@ -186,9 +205,11 @@ public class Picker extends Sheet {
     }
 
     /**
-     * Sets the value of cancelButton.
+     * Sets the value of cancelButton. This method is deprecated. Use
+     * setCancelButtonText instead.
      * 
      * @param value
+     * @deprecated
      */
     public native void setCancelButton(String value) /*-{
 		var picker = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
@@ -196,6 +217,29 @@ public class Picker extends Sheet {
 			picker.setCancelButton(value);
 		}
     }-*/;
+
+    /**
+     * Sets the value of cancelButton.
+     * 
+     * @param value
+     */
+    public native void setCancelButtonText(String value) /*-{
+		var picker = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
+		if (picker != null) {
+			picker.setCancelButton(value);
+		}
+    }-*/;
+
+    /**
+     * Sets the cancel button to this button
+     * 
+     * @param button
+     *            , the new cancel button
+     */
+    public void setCancelButton(Button button) {
+        this.cancelButton = button;
+        setCancelButton(button.getOrCreateJsObj());
+    }
 
     /**
      * Sets the value of cancelButton.
@@ -236,9 +280,11 @@ public class Picker extends Sheet {
     }-*/;
 
     /**
-     * Sets the value of doneButton.
+     * Sets the value of doneButton. This method is deprecated. use
+     * setDoneButtonText instead
      * 
      * @param value
+     * @deprecated
      */
     public native void setDoneButton(String value) /*-{
 		var picker = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
@@ -246,6 +292,29 @@ public class Picker extends Sheet {
 			picker.setDoneButton(value);
 		}
     }-*/;
+
+    /**
+     * Sets the value of the text on the done button.
+     * 
+     * @param value
+     */
+    public native void setDoneButtonText(String value) /*-{
+		var picker = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
+		if (picker != null) {
+			picker.setDoneButton(value);
+		}
+    }-*/;
+
+    /**
+     * Sets the done button to this button
+     * 
+     * @param button
+     *            , the new done button
+     */
+    public void setDoneButton(Button button) {
+        this.doneButton = button;
+        setDoneButton(button.getOrCreateJsObj());
+    }
 
     /**
      * Sets the value of doneButton.

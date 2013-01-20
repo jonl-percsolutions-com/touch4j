@@ -494,6 +494,10 @@ public class Button extends Component implements HasUi, HasIcon, HasTapHandlers,
         setRenderedUi(value);
     }
 
+    public static Button cast(Component component) {
+        return new Button(component.getOrCreateJsObj());
+    }
+
     /**
      * Gets the text of this button.
      * 

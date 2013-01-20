@@ -16,6 +16,7 @@
 package com.emitrom.gwt4.touch.client.ui;
 
 import com.emitrom.gwt4.touch.client.core.config.MessageBoxConfig;
+import com.emitrom.gwt4.touch.client.fx.layout.card.Animation;
 import com.emitrom.gwt4.touch.client.laf.UI;
 import com.emitrom.platform.util.client.core.JsObject;
 import com.emitrom.platform.util.client.core.JsoHelper;
@@ -351,6 +352,27 @@ public class MessageBox extends Sheet {
     public static native void show(MessageBoxConfig config) /*-{
 		$wnd.Ext.Msg
 				.show(config.@com.emitrom.platform.util.client.core.JsObject::getJsObj()());
+    }-*/;
+
+    /**
+     * Hides this MessageBox
+     * 
+     * @param animation
+     *            the animation to use while closing this messagebox
+     */
+    public static native void close(Animation animation) /*-{
+		$wnd.Ext.Msg
+				.hide(animation.@com.emitrom.platform.util.client.core.JsObject::getJsObj()());
+    }-*/;
+
+    /**
+     * Hides this MessageBox
+     * 
+     * @param animation
+     *            the animation to use while closing this messagebox
+     */
+    public static native void close() /*-{
+		$wnd.Ext.Msg.hide();
     }-*/;
 
     private static native String INFO()/*-{
