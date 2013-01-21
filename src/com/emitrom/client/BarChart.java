@@ -15,35 +15,35 @@
  **************************************************************************/
 package com.emitrom.client;
 
-import com.emitrom.gwt4.touch.charts.client.Animation;
-import com.emitrom.gwt4.touch.charts.client.Chart;
-import com.emitrom.gwt4.touch.charts.client.ChartPanel;
-import com.emitrom.gwt4.touch.charts.client.Legend;
-import com.emitrom.gwt4.touch.charts.client.axis.CategoryAxis;
-import com.emitrom.gwt4.touch.charts.client.axis.NumericAxis;
-import com.emitrom.gwt4.touch.charts.client.handlers.ItemCompareInteractionHandler;
-import com.emitrom.gwt4.touch.charts.client.handlers.ItemShowHandler;
-import com.emitrom.gwt4.touch.charts.client.interactions.ChartItem;
-import com.emitrom.gwt4.touch.charts.client.interactions.ItemCompare;
-import com.emitrom.gwt4.touch.charts.client.interactions.ItemHighlight;
-import com.emitrom.gwt4.touch.charts.client.interactions.ItemInfo;
-import com.emitrom.gwt4.touch.charts.client.interactions.OffsetValue;
-import com.emitrom.gwt4.touch.charts.client.interactions.PanZoom;
-import com.emitrom.gwt4.touch.charts.client.interactions.Reset;
-import com.emitrom.gwt4.touch.charts.client.interactions.ToggleStacked;
-import com.emitrom.gwt4.touch.charts.client.series.BarSeries;
-import com.emitrom.gwt4.touch.client.core.EventObject;
-import com.emitrom.gwt4.touch.client.core.handlers.button.TapHandler;
-import com.emitrom.gwt4.touch.client.data.Store;
-import com.emitrom.gwt4.touch.client.fx.layout.card.AnimationType;
-import com.emitrom.gwt4.touch.client.fx.layout.card.Easing;
-import com.emitrom.gwt4.touch.client.laf.Alignment;
-import com.emitrom.gwt4.touch.client.laf.Position;
-import com.emitrom.gwt4.touch.client.laf.UI;
-import com.emitrom.gwt4.touch.client.ui.Button;
-import com.emitrom.gwt4.touch.client.ui.Panel;
-import com.emitrom.gwt4.touch.client.ui.ToolBar;
-import com.emitrom.gwt4.touch.client.utils.TouchIcons;
+import com.emitrom.touch4j.charts.client.Animation;
+import com.emitrom.touch4j.charts.client.Chart;
+import com.emitrom.touch4j.charts.client.ChartPanel;
+import com.emitrom.touch4j.charts.client.Legend;
+import com.emitrom.touch4j.charts.client.axis.CategoryAxis;
+import com.emitrom.touch4j.charts.client.axis.NumericAxis;
+import com.emitrom.touch4j.charts.client.handlers.ItemCompareInteractionHandler;
+import com.emitrom.touch4j.charts.client.handlers.ItemShowHandler;
+import com.emitrom.touch4j.charts.client.interactions.ChartItem;
+import com.emitrom.touch4j.charts.client.interactions.ItemCompare;
+import com.emitrom.touch4j.charts.client.interactions.ItemHighlight;
+import com.emitrom.touch4j.charts.client.interactions.ItemInfo;
+import com.emitrom.touch4j.charts.client.interactions.OffsetValue;
+import com.emitrom.touch4j.charts.client.interactions.PanZoom;
+import com.emitrom.touch4j.charts.client.interactions.Reset;
+import com.emitrom.touch4j.charts.client.interactions.ToggleStacked;
+import com.emitrom.touch4j.charts.client.series.BarSeries;
+import com.emitrom.touch4j.client.core.EventObject;
+import com.emitrom.touch4j.client.core.handlers.button.TapHandler;
+import com.emitrom.touch4j.client.data.Store;
+import com.emitrom.touch4j.client.fx.layout.card.AnimationType;
+import com.emitrom.touch4j.client.fx.layout.card.Easing;
+import com.emitrom.touch4j.client.laf.Alignment;
+import com.emitrom.touch4j.client.laf.Position;
+import com.emitrom.touch4j.client.laf.UI;
+import com.emitrom.touch4j.client.ui.Button;
+import com.emitrom.touch4j.client.ui.Panel;
+import com.emitrom.touch4j.client.ui.ToolBar;
+import com.emitrom.touch4j.client.utils.TouchIcons;
 
 public class BarChart {
 

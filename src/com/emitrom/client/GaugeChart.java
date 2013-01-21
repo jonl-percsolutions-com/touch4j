@@ -15,22 +15,22 @@
  **************************************************************************/
 package com.emitrom.client;
 
-import com.emitrom.gwt4.touch.charts.client.Animation;
-import com.emitrom.gwt4.touch.charts.client.Chart;
-import com.emitrom.gwt4.touch.charts.client.axis.GaugeAxis;
-import com.emitrom.gwt4.touch.charts.client.series.GaugeSeries;
-import com.emitrom.gwt4.touch.client.core.EventObject;
-import com.emitrom.gwt4.touch.client.core.handlers.button.TapHandler;
-import com.emitrom.gwt4.touch.client.data.Store;
-import com.emitrom.gwt4.touch.client.fx.layout.card.Easing;
-import com.emitrom.gwt4.touch.client.laf.Color;
-import com.emitrom.gwt4.touch.client.laf.UI;
-import com.emitrom.gwt4.touch.client.layout.FitLayout;
-import com.emitrom.gwt4.touch.client.ui.Button;
-import com.emitrom.gwt4.touch.client.ui.Panel;
-import com.emitrom.gwt4.touch.client.ui.Spacer;
-import com.emitrom.gwt4.touch.client.ui.ToolBar;
-import com.emitrom.gwt4.touch.client.utils.TouchIcons;
+import com.emitrom.touch4j.charts.client.Animation;
+import com.emitrom.touch4j.charts.client.Chart;
+import com.emitrom.touch4j.charts.client.axis.GaugeAxis;
+import com.emitrom.touch4j.charts.client.series.GaugeSeries;
+import com.emitrom.touch4j.client.core.EventObject;
+import com.emitrom.touch4j.client.core.handlers.button.TapHandler;
+import com.emitrom.touch4j.client.data.Store;
+import com.emitrom.touch4j.client.fx.layout.card.Easing;
+import com.emitrom.touch4j.client.laf.Color;
+import com.emitrom.touch4j.client.laf.UI;
+import com.emitrom.touch4j.client.layout.FitLayout;
+import com.emitrom.touch4j.client.ui.Button;
+import com.emitrom.touch4j.client.ui.Panel;
+import com.emitrom.touch4j.client.ui.Spacer;
+import com.emitrom.touch4j.client.ui.ToolBar;
+import com.emitrom.touch4j.client.utils.TouchIcons;
 
 public class GaugeChart {
 

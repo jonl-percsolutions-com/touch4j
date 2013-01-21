@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.client;
 
-import com.emitrom.gwt4.touch.charts.client.data.BaseChartModel;
+import com.emitrom.touch4j.charts.client.data.BaseChartModel;
 
 public class ColumnChartValue extends BaseChartModel {
 

@@ -15,15 +15,15 @@
  **************************************************************************/
 package com.emitrom.client;
 
-import com.emitrom.gwt4.touch.client.core.EventObject;
-import com.emitrom.gwt4.touch.client.core.config.Dock;
-import com.emitrom.gwt4.touch.client.core.handlers.button.TapHandler;
-import com.emitrom.gwt4.touch.client.laf.UI;
-import com.emitrom.gwt4.touch.client.layout.FitLayout;
-import com.emitrom.gwt4.touch.client.ui.Button;
-import com.emitrom.gwt4.touch.client.ui.ListDataView;
-import com.emitrom.gwt4.touch.client.ui.Panel;
-import com.emitrom.gwt4.touch.client.ui.ToolBar;
+import com.emitrom.touch4j.client.core.EventObject;
+import com.emitrom.touch4j.client.core.config.Dock;
+import com.emitrom.touch4j.client.core.handlers.button.TapHandler;
+import com.emitrom.touch4j.client.laf.UI;
+import com.emitrom.touch4j.client.layout.FitLayout;
+import com.emitrom.touch4j.client.ui.Button;
+import com.emitrom.touch4j.client.ui.ListDataView;
+import com.emitrom.touch4j.client.ui.Panel;
+import com.emitrom.touch4j.client.ui.ToolBar;
 import com.google.gwt.user.client.Timer;
 
 public class ListDataViewTest {

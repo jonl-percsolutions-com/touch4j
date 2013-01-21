@@ -15,28 +15,28 @@
  **************************************************************************/
 package com.emitrom.client;
 
-import com.emitrom.gwt4.touch.charts.client.Animation;
-import com.emitrom.gwt4.touch.charts.client.Chart;
-import com.emitrom.gwt4.touch.charts.client.ChartPanel;
-import com.emitrom.gwt4.touch.charts.client.axis.CategoryAxis;
-import com.emitrom.gwt4.touch.charts.client.axis.NumericAxis;
-import com.emitrom.gwt4.touch.charts.client.laf.BarAttribute;
-import com.emitrom.gwt4.touch.charts.client.laf.Gradient;
-import com.emitrom.gwt4.touch.charts.client.laf.Label;
-import com.emitrom.gwt4.touch.charts.client.series.ColumnSeries;
-import com.emitrom.gwt4.touch.charts.client.series.renderers.SeriesRenderer;
-import com.emitrom.gwt4.touch.client.core.EventObject;
-import com.emitrom.gwt4.touch.client.core.handlers.button.TapHandler;
-import com.emitrom.gwt4.touch.client.data.BaseModel;
-import com.emitrom.gwt4.touch.client.data.Store;
-import com.emitrom.gwt4.touch.client.draw.Sprite;
-import com.emitrom.gwt4.touch.client.fx.layout.card.Easing;
-import com.emitrom.gwt4.touch.client.laf.Color;
-import com.emitrom.gwt4.touch.client.laf.Position;
-import com.emitrom.gwt4.touch.client.laf.RGB;
-import com.emitrom.gwt4.touch.client.laf.UI;
-import com.emitrom.gwt4.touch.client.ui.Button;
-import com.emitrom.gwt4.touch.client.utils.TouchIcons;
+import com.emitrom.touch4j.charts.client.Animation;
+import com.emitrom.touch4j.charts.client.Chart;
+import com.emitrom.touch4j.charts.client.ChartPanel;
+import com.emitrom.touch4j.charts.client.axis.CategoryAxis;
+import com.emitrom.touch4j.charts.client.axis.NumericAxis;
+import com.emitrom.touch4j.charts.client.laf.BarAttribute;
+import com.emitrom.touch4j.charts.client.laf.Gradient;
+import com.emitrom.touch4j.charts.client.laf.Label;
+import com.emitrom.touch4j.charts.client.series.ColumnSeries;
+import com.emitrom.touch4j.charts.client.series.renderers.SeriesRenderer;
+import com.emitrom.touch4j.client.core.EventObject;
+import com.emitrom.touch4j.client.core.handlers.button.TapHandler;
+import com.emitrom.touch4j.client.data.BaseModel;
+import com.emitrom.touch4j.client.data.Store;
+import com.emitrom.touch4j.client.draw.Sprite;
+import com.emitrom.touch4j.client.fx.layout.card.Easing;
+import com.emitrom.touch4j.client.laf.Color;
+import com.emitrom.touch4j.client.laf.Position;
+import com.emitrom.touch4j.client.laf.RGB;
+import com.emitrom.touch4j.client.laf.UI;
+import com.emitrom.touch4j.client.ui.Button;
+import com.emitrom.touch4j.client.utils.TouchIcons;
 
 public class ColumnChart {
 

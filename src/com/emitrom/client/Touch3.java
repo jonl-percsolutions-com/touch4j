@@ -1,6 +1,6 @@
 package com.emitrom.client;
 
-import com.emitrom.gwt4.touch.client.core.TouchEntryPoint;
+import com.emitrom.touch4j.client.core.TouchEntryPoint;
 
 public class Touch3 extends TouchEntryPoint {
 
