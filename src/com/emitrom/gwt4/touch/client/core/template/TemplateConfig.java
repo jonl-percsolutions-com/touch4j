@@ -15,8 +15,8 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.client.core.template;
 
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 
 /**
  * Configuration object for Template
@@ -34,7 +34,7 @@ public class TemplateConfig extends JsObject {
      * @param disable true to disable format functions
      */
     public native void setDisableFormats(boolean value) /*-{
-		var templateConfig = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var templateConfig = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		templateConfig.disableFormats = disable;
     }-*/;
 
@@ -44,7 +44,7 @@ public class TemplateConfig extends JsObject {
      * @param disable true to disable format functions
      */
     public native void setCompiled(boolean value) /*-{
-		var templateConfig = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var templateConfig = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		templateConfig.compiled = value;
     }-*/;
 

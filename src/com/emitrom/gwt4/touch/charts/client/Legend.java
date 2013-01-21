@@ -17,8 +17,8 @@ package com.emitrom.gwt4.touch.charts.client;
 
 import com.emitrom.gwt4.touch.charts.client.laf.LegendPosition;
 import com.emitrom.gwt4.touch.client.laf.Position;
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 
 public class Legend extends JsObject {
 

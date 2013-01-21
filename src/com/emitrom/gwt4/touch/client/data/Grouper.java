@@ -15,7 +15,6 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.client.data;
 
-import com.emitrom.platform.util.client.core.BaseModel;
 
 public interface Grouper {
     public String onGroup(BaseModel record);

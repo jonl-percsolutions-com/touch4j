@@ -16,7 +16,7 @@
 package com.emitrom.gwt4.touch.charts.client.series;
 
 import com.emitrom.gwt4.touch.charts.client.marker.MarkerConfig;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 
 public class LineSeries extends CartesianSeries {
 
@@ -31,7 +31,7 @@ public class LineSeries extends CartesianSeries {
     }
     
     public native void showMarkers(boolean value) /*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.showMarkers = value;
 	}-*/;
     

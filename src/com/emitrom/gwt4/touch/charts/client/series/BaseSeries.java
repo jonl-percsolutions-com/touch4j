@@ -32,42 +32,42 @@ public abstract class BaseSeries extends AbstractSerie {
     }
 
     public native void setHighlight(boolean value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.highlight = value;
     }-*/;
 
     public native void setType(String value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.type = value;
     }-*/;
 
     public native void setShadowAttributes(JavaScriptObject value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.shadowAttributes = value;
     }-*/;
 
     public native void setShowInLegend(boolean value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.showInLegend = value;
     }-*/;
 
     public native void setTip(ToolTip value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
-		jso.tip = value.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
+		jso.tip = value.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
     }-*/;
 
     public native void setTitle(String value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.title = value;
     }-*/;
 
     public native void clearCombination()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.clearCombination();
     }-*/;
 
     public native void combine(int index1, int index2)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.combine(index1, index2);
     }-*/;
 
@@ -76,34 +76,34 @@ public abstract class BaseSeries extends AbstractSerie {
     }-*/;
 
     public native void eachRecord(RecordHandler callback)/*-{
-		var jso = jso.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = jso.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso
 				.eachRecord(
 						function(record) {
-							var model = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
-							callback.@com.emitrom.gwt4.touch.charts.client.handlers.RecordHandler::execute(Lcom/emitrom/platform/util/client/core/BaseModel;)(model);
+							var model = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
+							callback.@com.emitrom.gwt4.touch.charts.client.handlers.RecordHandler::execute(Lcom/emitrom/gwt4/touch/client/data/BaseModel;)(model);
 						}, jso);
     }-*/;
 
     public native ChartItem getItemForPoint(double x, double y)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var obj = jso.getItemForPoint(x, y);
 		var toReturn = @com.emitrom.gwt4.touch.charts.client.interactions.ChartItem::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
     }-*/;
 
     private native <T> T getLegendColor(Object value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return jso.getLegendColor(value);
     }-*/;
 
     private native <T> T getLegendLabels()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return jso.getLegendLabels();
     }-*/;
 
     public native int getRecordCount()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return jso.getRecordCount();
     }-*/;
 
@@ -112,22 +112,22 @@ public abstract class BaseSeries extends AbstractSerie {
     }-*/;
 
     public native boolean isExcluded(int index)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return jso.isExcluded(index);
     }-*/;
 
     public native void reset()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.reset();
     }-*/;
 
     public native void setTitle(int index, String title)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.setTitle(index, title);
     }-*/;
 
     public native void shawAll()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.shawAll();
     }-*/;
 
@@ -145,12 +145,12 @@ public abstract class BaseSeries extends AbstractSerie {
     }
 
     private native void _setTips(JavaScriptObject value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.tips = value;
     }-*/;
 
     public native void setHightlight(boolean value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.hightlight = value;
     }-*/;
 }

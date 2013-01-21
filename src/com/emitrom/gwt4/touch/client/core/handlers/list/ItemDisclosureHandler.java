@@ -16,7 +16,7 @@
 package com.emitrom.gwt4.touch.client.core.handlers.list;
 
 import com.emitrom.gwt4.touch.client.core.handlers.AbstractHandler;
-import com.emitrom.platform.util.client.core.BaseModel;
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -27,8 +27,8 @@ public abstract class ItemDisclosureHandler extends AbstractHandler {
 
     private static native JavaScriptObject createPeer(ItemDisclosureHandler listener) /*-{
 		return function(record, node, index) {
-			var model = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
-			listener.@com.emitrom.gwt4.touch.client.core.handlers.list.ItemDisclosureHandler::fireOnEvent(Lcom/emitrom/platform/util/client/core/BaseModel;Lcom/google/gwt/core/client/JavaScriptObject;I)(model, node, index);
+			var model = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
+			listener.@com.emitrom.gwt4.touch.client.core.handlers.list.ItemDisclosureHandler::fireOnEvent(Lcom/emitrom/gwt4/touch/client/data/BaseModel;Lcom/google/gwt/core/client/JavaScriptObject;I)(model, node, index);
 		};
     }-*/;
 

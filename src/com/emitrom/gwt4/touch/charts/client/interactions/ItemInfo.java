@@ -17,7 +17,7 @@ package com.emitrom.gwt4.touch.charts.client.interactions;
 
 import com.emitrom.gwt4.touch.charts.client.handlers.ItemShowHandler;
 import com.emitrom.gwt4.touch.client.core.config.PanelConfig;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class ItemInfo extends AbstractInteraction {
@@ -33,12 +33,12 @@ public class ItemInfo extends AbstractInteraction {
     }
 
     public native void setPanelConfiguration(PanelConfig config)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
-		jso.panel = config.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
+		jso.panel = config.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
     }-*/;
 
     public native void addItemShowHandler(ItemShowHandler handler)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.listeners = {
 			show : function(itemInfo, item, panel) {
 				var info = @com.emitrom.gwt4.touch.charts.client.interactions.ItemInfo::new(Lcom/google/gwt/core/client/JavaScriptObject;)(itemInfo);

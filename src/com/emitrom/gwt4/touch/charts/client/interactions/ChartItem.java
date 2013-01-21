@@ -18,8 +18,8 @@ package com.emitrom.gwt4.touch.charts.client.interactions;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.emitrom.platform.util.client.core.BaseModel;
-import com.emitrom.platform.util.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayMixed;
@@ -31,14 +31,14 @@ public class ChartItem extends JsObject {
     }
 
     public native BaseModel getStoreItem()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var item = jso.storeItem;
-		var toReturn = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
+		var toReturn = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
 		return toReturn;
     }-*/;
 
     public native JsArrayMixed getValue()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return jso.value;
     }-*/;
 

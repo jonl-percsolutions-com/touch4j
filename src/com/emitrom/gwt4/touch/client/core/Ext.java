@@ -1,24 +1,23 @@
 /**************************************************************************
-   Ext.java is part of Touch4j 3.0.  Copyright 2012 Emitrom LLC
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+ * Ext.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  **************************************************************************/
 package com.emitrom.gwt4.touch.client.core;
 
 import java.util.Set;
 
 import com.emitrom.gwt4.touch.client.data.Store;
-import com.emitrom.platform.util.client.core.Function;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.user.client.Element;
@@ -34,7 +33,8 @@ public class Ext {
      * onReady src to prevent the IE insecure content warning (defaults to
      * javascript:false).
      * 
-     * @param url the url
+     * @param url
+     *            the url
      */
     public static native void setSslSecureUrl(String url)/*-{
 		$wnd.Ext.SSL_SECURE_URL = url;
@@ -44,7 +44,8 @@ public class Ext {
      * True to automatically uncache orphaned Ext.Elements periodically
      * (defaults to true).
      * 
-     * @param enableGarbageCollector true to enable GC
+     * @param enableGarbageCollector
+     *            true to enable GC
      */
     public static native void setEnableGarbageCollector(boolean enableGarbageCollector)/*-{
 		$wnd.Ext.enableGarbageCollector = enableGarbageCollector;
@@ -64,7 +65,8 @@ public class Ext {
      * (defaults to false). Note: this only happens if enableGarbageCollector is
      * true.
      * 
-     * @param enableListenerCollection true to enable listener collection
+     * @param enableListenerCollection
+     *            true to enable listener collection
      */
     public static native void setEnableListenerCollection(boolean enableListenerCollection)/*-{
 		$wnd.Ext.enableListenerCollection = enableListenerCollection;
@@ -195,7 +197,8 @@ public class Ext {
      * By default, Ext intelligently decides whether floating elements should be
      * shimmed. If you are using flash, you may want to set this to true.
      * 
-     * @param useShims true to use shims
+     * @param useShims
+     *            true to use shims
      */
     public static native void setUseShims(boolean useShims)/*-{
 		$wnd.Ext.useShims = useShims;
@@ -211,7 +214,8 @@ public class Ext {
     /**
      * Escapes the passed string for use in a regular expression.
      * 
-     * @param str the String to escape
+     * @param str
+     *            the String to escape
      * @return escaped String
      */
     public static native String escapeRe(String str)/*-{
@@ -230,7 +234,8 @@ public class Ext {
      * return the same object. Automatically fixes if an object was recreated
      * with the same id via AJAX or DOM.
      * 
-     * @param id element ID
+     * @param id
+     *            element ID
      * @return the element
      */
     public static native ExtElement get(String id) /*-{
@@ -244,7 +249,8 @@ public class Ext {
      * return the same object. Automatically fixes if an object was recreated
      * with the same id via AJAX or DOM.
      * 
-     * @param element the element
+     * @param element
+     *            the element
      * @return the element
      */
     public static native ExtElement get(Element element) /*-{
@@ -258,10 +264,11 @@ public class Ext {
      * them from the DOM (if applicable) and calling their destroy functions (if
      * available).
      * 
-     * @param element the element to destroy
+     * @param element
+     *            the element to destroy
      */
     public static native void destroy(ExtElement element) /*-{
-		var el = element.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var el = element.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		$wnd.Ext.destroy(el);
     }-*/;
 
@@ -270,7 +277,8 @@ public class Ext {
      * listeners, removing them from the DOM (if applicable) and calling their
      * destroy functions (if available).
      * 
-     * @param component the component to destroy
+     * @param component
+     *            the component to destroy
      */
     public static native void destroy(Component component) /*-{
 		var comp = component.@com.emitrom.gwt4.touch.client.core.Component::getJsObj()();
@@ -303,7 +311,8 @@ public class Ext {
      * Returns a component by id. Shorthand for
      * {@link ComponentMgr#getComponent(String)}.
      * 
-     * @param id the component ID
+     * @param id
+     *            the component ID
      * @return the Component
      */
     public static Component getCmp(String id) {
@@ -314,7 +323,8 @@ public class Ext {
      * Returns a component that the passed element represents. Shorthand for
      * {@link ComponentMgr#getComponent(Element)}.
      * 
-     * @param element the component's element
+     * @param element
+     *            the component's element
      * @return the Component
      */
     public static Component getCmp(Element element) {
@@ -325,7 +335,8 @@ public class Ext {
      * Returns a component that the passed element represents. Shorthand for
      * {@link ComponentMgr#getComponent(ExtElement)}.
      * 
-     * @param element the component's element
+     * @param element
+     *            the component's element
      * @return the Component
      */
     public static Component getCmp(ExtElement element) {
@@ -337,7 +348,8 @@ public class Ext {
      * the active element. Do not store a reference to this element - the dom
      * node can be overwritten by other code.
      * 
-     * @param id the element ID
+     * @param id
+     *            the element ID
      * @return the ExtElement
      */
     public static native ExtElement fly(String id) /*-{
@@ -351,8 +363,10 @@ public class Ext {
      * the active element. Do not store a reference to this element - the dom
      * node can be overwritten by other code.
      * 
-     * @param id the element ID
-     * @param named allows for creation of named reusable flyweights to prevent
+     * @param id
+     *            the element ID
+     * @param named
+     *            allows for creation of named reusable flyweights to prevent
      *            conflicts (e.g. internally Ext uses "_internal")
      * @return the ExtElement
      */
@@ -367,7 +381,8 @@ public class Ext {
      * the active element. Do not store a reference to this element - the dom
      * node can be overwritten by other code.
      * 
-     * @param element the element
+     * @param element
+     *            the element
      * @return the ExtElement
      */
     public static native ExtElement fly(Element element) /*-{
@@ -381,8 +396,10 @@ public class Ext {
      * the active element. Do not store a reference to this element - the dom
      * node can be overwritten by other code.
      * 
-     * @param element the element
-     * @param named allows for creation of named reusable flyweights to prevent
+     * @param element
+     *            the element
+     * @param named
+     *            allows for creation of named reusable flyweights to prevent
      *            conflicts (e.g. internally Ext uses "_internal")
      * @return the ExtElement
      */
@@ -404,7 +421,8 @@ public class Ext {
     /**
      * Generates unique ids.
      * 
-     * @param prefix Id prefix (defaults "ext-gen")
+     * @param prefix
+     *            Id prefix (defaults "ext-gen")
      * @return a unique ID
      */
     public static native String generateId(String prefix)/*-{
@@ -415,11 +433,12 @@ public class Ext {
      * Fires when the document is ready (before onload and before images are
      * loaded). Can alternatively use the GWT entry point mechanism.
      * 
-     * @param cb callback to execute
+     * @param cb
+     *            callback to execute
      */
     public static native void onReady(Function cb) /*-{
 		$wnd.Ext.onReady(function() {
-			cb.@com.emitrom.platform.util.client.core.Function::execute()();
+			cb.@com.emitrom.gwt4.touch.client.core.Function::execute()();
 		});
     }-*/;
 
@@ -545,6 +564,17 @@ public class Ext {
         createModel(name, fieldsDefinition);
 
     }
+
+    /**
+     * Convenient method to detect if the application is running in the browser
+     * Useful when Mobile web app are running inside a webview of a native
+     * mobile application like Apache Cordova or Titanium
+     * 
+     * @return true if we are running in the regular browser
+     */
+    public native static boolean isWebMode()/*-{
+		return ((typeof ($wnd) != 'undefined') || (typeof (window) != 'undefined'));
+    }-*/;
 
     private static native void createModel(String name, JsArray<FieldDefinition> f)/*-{
 		$wnd.Ext.define(name, {

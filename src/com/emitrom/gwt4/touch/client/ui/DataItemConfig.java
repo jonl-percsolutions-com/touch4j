@@ -17,8 +17,8 @@ package com.emitrom.gwt4.touch.client.ui;
 
 import com.emitrom.gwt4.touch.client.core.config.XType;
 import com.emitrom.gwt4.touch.client.layout.AbstractLayout;
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 
 public class DataItemConfig extends JsObject {
 

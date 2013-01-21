@@ -17,8 +17,8 @@ package com.emitrom.gwt4.touch.client.core.template;
 
 import com.emitrom.gwt4.touch.client.core.ExtElement;
 import com.emitrom.gwt4.touch.client.core.NameValuePair;
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -330,7 +330,7 @@ public class Template extends JsObject {
      * overhead.
      */
     public native void compile() /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		template.compile();
     }-*/;
 
@@ -338,7 +338,7 @@ public class Template extends JsObject {
      * Sets the HTML used as the template.
      */
     public native Template set(String html) /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		template.set(html);
 		return this;
     }-*/;
@@ -347,7 +347,7 @@ public class Template extends JsObject {
      * Sets the HTML used as the template and compiles it
      */
     public native Template set(String html, boolean compile) /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		template.set(html, compile);
 		return this;
     }-*/;
@@ -357,90 +357,90 @@ public class Template extends JsObject {
      * subclass thereof.
      */
     public native boolean isTemplate() /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return template.isTemplate;
     }-*/;
 
     protected native String applyTemplate(JavaScriptObject values) /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return template.applyTemplate(values);
     }-*/;
 
     protected native ExtElement append(String target, JavaScriptObject values) /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var obj = template.append(target, values);
 		var toReturn = @com.emitrom.gwt4.touch.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
     }-*/;
 
     protected native ExtElement append(ExtElement target, JavaScriptObject values) /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var obj = template.append(target
-				.@com.emitrom.platform.util.client.core.JsObject::getJsObj(),
+				.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj(),
 				values);
 		var toReturn = @com.emitrom.gwt4.touch.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
     }-*/;
 
     protected native ExtElement insertAfter(String target, JavaScriptObject values) /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var obj = template.insertAfter(target, values);
 		var toReturn = @com.emitrom.gwt4.touch.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
     }-*/;
 
     protected native ExtElement insertAfter(ExtElement target, JavaScriptObject values) /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var obj = template.insertAfter(target
-				.@com.emitrom.platform.util.client.core.JsObject::getJsObj(),
+				.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj(),
 				values);
 		var toReturn = @com.emitrom.gwt4.touch.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
     }-*/;
 
     protected native ExtElement insertBefore(String target, JavaScriptObject values) /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var obj = template.insertBefore(target, values);
 		var toReturn = @com.emitrom.gwt4.touch.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
     }-*/;
 
     protected native ExtElement insertBefore(ExtElement target, JavaScriptObject values) /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var obj = template.insertBefore(target
-				.@com.emitrom.platform.util.client.core.JsObject::getJsObj(),
+				.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj(),
 				values);
 		var toReturn = @com.emitrom.gwt4.touch.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
     }-*/;
 
     protected native ExtElement insertFirst(String target, JavaScriptObject values) /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var obj = template.insertFirst(target, values);
 		var toReturn = @com.emitrom.gwt4.touch.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
     }-*/;
 
     protected native ExtElement insertFirst(ExtElement target, JavaScriptObject values) /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var obj = template.insertFirst(target
-				.@com.emitrom.platform.util.client.core.JsObject::getJsObj(),
+				.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj(),
 				values);
 		var toReturn = @com.emitrom.gwt4.touch.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
     }-*/;
 
     protected native ExtElement overwrite(String target, JavaScriptObject values) /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var obj = template.overwrite(target, values);
 		var toReturn = @com.emitrom.gwt4.touch.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
     }-*/;
 
     protected native ExtElement overwrite(ExtElement target, JavaScriptObject values) /*-{
-		var template = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var template = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var obj = template.overwrite(target
-				.@com.emitrom.platform.util.client.core.JsObject::getJsObj(),
+				.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj(),
 				values);
 		var toReturn = @com.emitrom.gwt4.touch.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;

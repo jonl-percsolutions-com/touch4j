@@ -17,7 +17,7 @@ package com.emitrom.gwt4.touch.charts.client;
 
 import com.emitrom.gwt4.touch.client.core.config.BaseConfig;
 import com.emitrom.gwt4.touch.client.fx.layout.card.Easing;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 
 public class Animation extends BaseConfig {
 

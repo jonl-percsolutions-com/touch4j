@@ -22,7 +22,7 @@ import com.emitrom.gwt4.touch.ux.touchcalendar.client.core.TouchCalendarViewMode
 import com.emitrom.gwt4.touch.ux.touchcalendar.client.core.handlers.PeriodChangeHandler;
 import com.emitrom.gwt4.touch.ux.touchcalendar.client.core.handlers.SelectionChangeHandler;
 import com.emitrom.gwt4.touch.ux.touchcalendar.client.events.CalendarEventType;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsDate;
 

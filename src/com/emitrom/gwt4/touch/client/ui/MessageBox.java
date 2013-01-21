@@ -18,8 +18,8 @@ package com.emitrom.gwt4.touch.client.ui;
 import com.emitrom.gwt4.touch.client.core.config.MessageBoxConfig;
 import com.emitrom.gwt4.touch.client.fx.layout.card.Animation;
 import com.emitrom.gwt4.touch.client.laf.UI;
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 
 /**
  * Utility class for generating different styles of message boxes. <br/>
@@ -114,31 +114,31 @@ public class MessageBox extends Sheet {
 
     public static Button CANCEL = new Button(ButtonLabels.CANCEL.getLabel()) {
         protected native void init() /*-{
-			this.@com.emitrom.platform.util.client.core.JsObject::jsObj = $wnd.Ext.Msg.CANCEL;
+			this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj = $wnd.Ext.Msg.CANCEL;
         }-*/;
     };
 
     public static Button OK = new Button(ButtonLabels.OK.getLabel()) {
         protected native void init() /*-{
-			this.@com.emitrom.platform.util.client.core.JsObject::jsObj = $wnd.Ext.Msg.OK;
+			this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj = $wnd.Ext.Msg.OK;
         }-*/;
     };
 
     public static Button OKCANCEL = new Button(ButtonLabels.OKCANCEL.getLabel()) {
         protected native void init() /*-{
-			this.@com.emitrom.platform.util.client.core.JsObject::jsObj = $wnd.Ext.Msg.OKCANCEL;
+			this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj = $wnd.Ext.Msg.OKCANCEL;
         }-*/;
     };
 
     public static Button YESNO = new Button(ButtonLabels.YESNO.getLabel()) {
         protected native void init() /*-{
-			this.@com.emitrom.platform.util.client.core.JsObject::jsObj = $wnd.Ext.Msg.YESNO;
+			this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj = $wnd.Ext.Msg.YESNO;
         }-*/;
     };
 
     public static Button YESNOCANCEL = new Button(ButtonLabels.YESNOCANCEL.getLabel()) {
         protected native void init() /*-{
-			this.@com.emitrom.platform.util.client.core.JsObject::jsObj = $wnd.Ext.Msg.YESNOCANCEL;
+			this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj = $wnd.Ext.Msg.YESNOCANCEL;
         }-*/;
     };
 
@@ -351,7 +351,7 @@ public class MessageBox extends Sheet {
      */
     public static native void show(MessageBoxConfig config) /*-{
 		$wnd.Ext.Msg
-				.show(config.@com.emitrom.platform.util.client.core.JsObject::getJsObj()());
+				.show(config.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()());
     }-*/;
 
     /**
@@ -362,7 +362,7 @@ public class MessageBox extends Sheet {
      */
     public static native void close(Animation animation) /*-{
 		$wnd.Ext.Msg
-				.hide(animation.@com.emitrom.platform.util.client.core.JsObject::getJsObj()());
+				.hide(animation.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()());
     }-*/;
 
     /**

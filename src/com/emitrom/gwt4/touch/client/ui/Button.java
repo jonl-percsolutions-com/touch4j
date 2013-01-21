@@ -28,8 +28,8 @@ import com.emitrom.gwt4.touch.client.core.config.XType;
 import com.emitrom.gwt4.touch.client.core.handlers.button.BeforeTapHandler;
 import com.emitrom.gwt4.touch.client.core.handlers.button.TapHandler;
 import com.emitrom.gwt4.touch.client.laf.UI;
-import com.emitrom.platform.util.client.core.Function;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.Function;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 
@@ -406,7 +406,7 @@ public class Button extends Component implements HasUi, HasIcon, HasTapHandlers,
 		var button = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
 		button
 				.setHandler(function() {
-					handler.@com.emitrom.platform.util.client.core.Function::execute()();
+					handler.@com.emitrom.gwt4.touch.client.core.Function::execute()();
 				});
     }-*/;
 

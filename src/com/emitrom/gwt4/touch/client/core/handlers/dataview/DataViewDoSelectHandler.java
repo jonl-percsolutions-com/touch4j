@@ -17,8 +17,8 @@
 package com.emitrom.gwt4.touch.client.core.handlers.dataview;
 
 import com.emitrom.gwt4.touch.client.core.handlers.AbstractHandler;
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 import com.emitrom.gwt4.touch.client.ui.DataView;
-import com.emitrom.platform.util.client.core.BaseModel;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -30,8 +30,8 @@ public abstract class DataViewDoSelectHandler extends AbstractHandler {
     private static native JavaScriptObject createPeer(DataViewDoSelectHandler listener) /*-{
 		return function(source, record, supressed, eOpts) {
 			var dataView = @com.emitrom.gwt4.touch.client.ui.DataView::new(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
-			var model = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
-			listener.@com.emitrom.gwt4.touch.client.core.handlers.dataview.DataViewDoSelectHandler::fireOnEvent(Lcom/emitrom/gwt4/touch/client/ui/DataView;Lcom/emitrom/platform/util/client/core/BaseModel;Ljava/lang/Boolean;Ljava/lang/Object;)(dataView,model, supressed, eOpts);
+			var model = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
+			listener.@com.emitrom.gwt4.touch.client.core.handlers.dataview.DataViewDoSelectHandler::fireOnEvent(Lcom/emitrom/gwt4/touch/client/ui/DataView;Lcom/emitrom/gwt4/touch/client/data/BaseModel;Ljava/lang/Boolean;Ljava/lang/Object;)(dataView,model, supressed, eOpts);
 		};
     }-*/;
 

@@ -43,7 +43,7 @@ public class ToolBar extends Container implements HasUi, HasTitle {
 
     protected native JavaScriptObject create(JavaScriptObject config) /*-{
                                                                       if (!config.items) {
-                                                                      config.items = @com.emitrom.platform.util.client.core.JsoHelper::createJavaScriptArray()();
+                                                                      config.items = @com.emitrom.gwt4.touch.client.core.JsoHelper::createJavaScriptArray()();
                                                                       }
                                                                       return new $wnd.Ext.Toolbar(config);
                                                                       }-*/;

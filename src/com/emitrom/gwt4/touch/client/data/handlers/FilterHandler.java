@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.client.data.handlers;
 
-import com.emitrom.platform.util.client.core.BaseModel;
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 
 public interface FilterHandler {
     public boolean onFilter(BaseModel record);

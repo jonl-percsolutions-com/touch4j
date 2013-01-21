@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.ux.grid.client.core;
 
-import com.emitrom.platform.util.client.core.BaseModel;
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 
 public interface ColumnRenderer {
     public String onRender(String value, BaseModel model);

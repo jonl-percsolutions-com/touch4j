@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.charts.client.interactions;
 
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class PanZoom extends AbstractInteraction {
@@ -39,17 +39,17 @@ public class PanZoom extends AbstractInteraction {
     }
 
     private native void _setAxes(JavaScriptObject value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.axes = value;
     }-*/;
 
     public native void setshowOverflowArrows(boolean value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.showOverflowArrows = value;
     }-*/;
 
     public native void setOverflowArrowOptions(JavaScriptObject value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.overflowArrowOptions = value;
     }-*/;
 

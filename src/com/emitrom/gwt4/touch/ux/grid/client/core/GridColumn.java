@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.emitrom.gwt4.touch.client.core.config.Attribute;
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
@@ -201,17 +201,17 @@ public class GridColumn extends JsObject {
     }
 
     public native void setRenderer(GridColumnRenderer renderer)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.renderer = $entry(function(value, values) {
 			return renderer.@com.emitrom.gwt4.touch.ux.grid.client.core.GridColumnRenderer::onRender(Ljava/lang/String;)(value);
 		});
     }-*/;
 
     public native void setRenderer(ColumnRenderer renderer)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.renderer = $entry(function(value, model) {
-			var modelObject = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(model);
-			return renderer.@com.emitrom.gwt4.touch.ux.grid.client.core.ColumnRenderer::onRender(Ljava/lang/String;Lcom/emitrom/platform/util/client/core/BaseModel;)(value, modelObject);
+			var modelObject = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(model);
+			return renderer.@com.emitrom.gwt4.touch.ux.grid.client.core.ColumnRenderer::onRender(Ljava/lang/String;Lcom/emitrom/gwt4/touch/client/data/BaseModel;)(value, modelObject);
 		});
     }-*/;
 

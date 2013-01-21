@@ -15,8 +15,8 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.client.core;
 
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -50,7 +50,7 @@ public class TouchConfig extends JsObject {
      * @param value
      */
     public native void setFullScreen(boolean value)/*-{
-		var peer = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var peer = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		peer.fullscreen = value;
     }-*/;
 
@@ -63,7 +63,7 @@ public class TouchConfig extends JsObject {
      * @param value
      */
     public native void setTabletStartupScreen(String value)/*-{
-		var peer = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var peer = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		peer.tabletStartupScreen = value;
     }-*/;
 
@@ -75,7 +75,7 @@ public class TouchConfig extends JsObject {
      * @param value
      */
     public native void setPhoneStartupScreen(String value)/*-{
-		var peer = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var peer = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		peer.phoneStartupScreen = value;
     }-*/;
 
@@ -87,7 +87,7 @@ public class TouchConfig extends JsObject {
      * @param value
      */
     public native void setIcon(String value)/*-{
-		var peer = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var peer = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		peer.icon = value;
     }-*/;
 
@@ -99,7 +99,7 @@ public class TouchConfig extends JsObject {
      * @param value
      */
     public native void setTabletIcon(String value)/*-{
-		var peer = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var peer = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		peer.tabletIcon = value;
     }-*/;
 
@@ -111,7 +111,7 @@ public class TouchConfig extends JsObject {
      * @param value
      */
     public native void setPhoneIcon(String value)/*-{
-		var peer = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var peer = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		peer.phoneIcon = value;
     }-*/;
 
@@ -122,7 +122,7 @@ public class TouchConfig extends JsObject {
      * @param value
      */
     public native void setGlossIcon(boolean value)/*-{
-		var peer = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var peer = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		peer.glossIcon = value;
     }-*/;
 
@@ -137,12 +137,12 @@ public class TouchConfig extends JsObject {
     }
 
     private native void _setStatusBarStyle(String value)/*-{
-		var peer = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var peer = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		peer.statusBarStyle = value;
     }-*/;
 
     private native void _setOnReady(JavaScriptObject handler)/*-{
-		var peer = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var peer = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		peer.onReady = handler;
     }-*/;
 

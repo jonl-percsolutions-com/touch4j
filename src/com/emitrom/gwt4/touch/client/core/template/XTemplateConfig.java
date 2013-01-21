@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.client.core.template;
 
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -29,7 +29,7 @@ public class XTemplateConfig extends TemplateConfig {
     }
 
     public native void addFunction(String name, JavaScriptObject impl)/*-{
-		var config = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var config = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		config.name = impl;
     }-*/;
 

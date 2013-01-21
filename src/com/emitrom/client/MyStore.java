@@ -17,8 +17,8 @@ package com.emitrom.client;
 
 import java.util.List;
 
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 import com.emitrom.gwt4.touch.client.data.Store;
-import com.emitrom.platform.util.client.core.BaseModel;
 import com.google.gwt.user.client.Window;
 
 public class MyStore extends Store {

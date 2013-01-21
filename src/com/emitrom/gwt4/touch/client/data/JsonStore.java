@@ -17,8 +17,7 @@ package com.emitrom.gwt4.touch.client.data;
 
 import java.util.ArrayList;
 
-import com.emitrom.platform.util.client.core.BaseModel;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class JsonStore extends Store {
@@ -40,11 +39,11 @@ public class JsonStore extends Store {
     }
 
     private native void create()/*-{
-		this.@com.emitrom.platform.util.client.core.JsObject::jsObj = new $wnd.Ext.data.JsonStore();
+		this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj = new $wnd.Ext.data.JsonStore();
     }-*/;
 
     private native void create(JavaScriptObject values)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso = new $wnd.Ext.data.JsonStore({
 			model : "Emitrom",
 			data : values

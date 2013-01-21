@@ -15,8 +15,8 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.charts.client.marker;
 
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 
 public abstract class MarkerConfig extends JsObject {
 

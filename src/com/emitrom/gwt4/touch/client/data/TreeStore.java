@@ -40,7 +40,7 @@ public class TreeStore extends Store {
     }
 
     public native void setDefaultRootProperty(String value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.setDefaultRootProperty(value);
     }-*/;
 
@@ -52,7 +52,7 @@ public class TreeStore extends Store {
     }
 
     private native void create(String modelName, JavaScriptObject values) /*-{
-		this.@com.emitrom.platform.util.client.core.JsObject::jsObj = new $wnd.Ext.data.TreeStore(
+		this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj = new $wnd.Ext.data.TreeStore(
 				{
 					model : modelName,
 					defaultRootProperty : 'items',

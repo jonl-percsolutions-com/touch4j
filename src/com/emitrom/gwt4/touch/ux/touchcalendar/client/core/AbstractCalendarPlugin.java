@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.ux.touchcalendar.client.core;
 
-import com.emitrom.platform.util.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsObject;
 
 /**
  * Base class for calendar plugins

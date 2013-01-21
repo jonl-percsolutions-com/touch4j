@@ -418,7 +418,7 @@ public abstract class ComplexContainer extends Component implements HasWidgets, 
     private native void addPreCreate(JavaScriptObject componentJS) /*-{
                                                                    var config = this.@com.emitrom.gwt4.touch.client.core.TouchWidget::config;
                                                                    if (!config.items) {
-                                                                   config.items = @com.emitrom.platform.util.client.core.JsoHelper::createJavaScriptArray()();
+                                                                   config.items = @com.emitrom.gwt4.touch.client.core.JsoHelper::createJavaScriptArray()();
                                                                    }
                                                                    config.items.push(componentJS);
                                                                    }-*/;

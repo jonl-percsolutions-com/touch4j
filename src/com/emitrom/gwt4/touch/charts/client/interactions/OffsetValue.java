@@ -15,8 +15,8 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.charts.client.interactions;
 
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 
 public class OffsetValue extends JsObject {
 
@@ -35,12 +35,12 @@ public class OffsetValue extends JsObject {
     }
 
     public native void setX(double value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.x = value;
     }-*/;
 
     public native void setY(double value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.y = value;
     }-*/;
 

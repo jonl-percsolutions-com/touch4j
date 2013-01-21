@@ -16,7 +16,7 @@
 package com.emitrom.gwt4.touch.charts.client.axis;
 
 import com.emitrom.gwt4.touch.client.laf.Position;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 
 /**
  * Gauge Axis is the axis to be used with a Gauge series. The Gauge axis

@@ -16,7 +16,7 @@
 package com.emitrom.gwt4.touch.charts.client.laf;
 
 import com.emitrom.gwt4.touch.client.laf.Color;
-import com.emitrom.platform.util.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsObject;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class BarAttribute extends JsObject {
@@ -30,7 +30,7 @@ public class BarAttribute extends JsObject {
     }
 
     private native void _setFill(Object value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.fill = value;
     }-*/;
 }

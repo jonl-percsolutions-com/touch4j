@@ -16,7 +16,7 @@
 package com.emitrom.gwt4.touch.client.core.config;
 
 import com.emitrom.gwt4.touch.client.ui.NumberField;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 
 /**
  * Configuration object that may be used to initialize {@link NumberField}

@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.charts.client.interactions;
 
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class ToggleStacked extends AbstractInteraction {
@@ -30,12 +30,12 @@ public class ToggleStacked extends AbstractInteraction {
     }
 
     public final native void setEvent(String value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.event = value;
     }-*/;
 
     public final native void setAnimateDirect(boolean value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.animateDirect = value;
     }-*/;
 

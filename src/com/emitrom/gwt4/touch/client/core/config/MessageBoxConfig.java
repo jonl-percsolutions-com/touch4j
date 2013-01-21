@@ -17,7 +17,7 @@ package com.emitrom.gwt4.touch.client.core.config;
 
 import com.emitrom.gwt4.touch.client.fx.layout.card.Animation;
 import com.emitrom.gwt4.touch.client.ui.MessageBox;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
@@ -108,7 +108,7 @@ public class MessageBoxConfig extends BaseConfig {
     }
 
     private native void _setButtons(JsArray<JavaScriptObject> values)/*-{
-		var config = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var config = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		config.buttons = values;
     }-*/;
 
@@ -143,7 +143,7 @@ public class MessageBoxConfig extends BaseConfig {
     }
 
     private native void _setPromptCallback(MessageBox.PromptCallback cb)/*-{
-		var config = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var config = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		config['fn'] = function(btnID, text) {
 			if (btnID === undefined)
 				btnID = null;

@@ -17,7 +17,7 @@ package com.emitrom.gwt4.touch.client.layout;
 
 import com.emitrom.gwt4.touch.client.fx.layout.card.Animation;
 import com.emitrom.gwt4.touch.client.fx.layout.card.AnimationType;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**

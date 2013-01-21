@@ -34,8 +34,8 @@ import com.emitrom.gwt4.touch.client.core.handlers.component.TopChangeHandler;
 import com.emitrom.gwt4.touch.client.core.handlers.component.WidthChangeHandler;
 import com.emitrom.gwt4.touch.client.fx.layout.card.Animation;
 import com.emitrom.gwt4.touch.client.fx.layout.card.AnimationType;
-import com.emitrom.platform.util.client.core.Function;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.Function;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
@@ -1408,7 +1408,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
 				.addListener(
 						event,
 						function() {
-							return fn.@com.emitrom.platform.util.client.core.Function::execute()();
+							return fn.@com.emitrom.gwt4.touch.client.core.Function::execute()();
 						});
     }-*/;
 

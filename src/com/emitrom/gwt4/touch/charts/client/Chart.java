@@ -502,7 +502,7 @@ public class Chart extends Component {
     public native void bindStore(Store store)/*-{
 		var component = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
 		component
-				.bindStore(store.@com.emitrom.platform.util.client.core.JsObject::getJsObj()());
+				.bindStore(store.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()());
     }-*/;
 
     /**

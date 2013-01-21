@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.client.core;
 
-import com.emitrom.platform.util.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsObject;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -37,7 +37,7 @@ public class EventObject extends JsObject {
      * This is only available when the event type is rotate
      */
     public native int getAngle() /*-{
-		var e = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var e = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return e.angle;
     }-*/;
 
@@ -48,7 +48,7 @@ public class EventObject extends JsObject {
      * This is only available when the event type is swipe
      */
     public native int getDirection() /*-{
-		var e = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var e = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return e.direction;
     }-*/;
 
@@ -58,7 +58,7 @@ public class EventObject extends JsObject {
      * This is only available when the event type is swipe and pinch
      */
     public native int getDistance() /*-{
-		var e = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var e = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return e.distance;
     }-*/;
 
@@ -68,7 +68,7 @@ public class EventObject extends JsObject {
      * This is only available when the event type is swipe
      */
     public native double getDuration() /*-{
-		var e = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var e = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return e.duration;
     }-*/;
 
@@ -78,7 +78,7 @@ public class EventObject extends JsObject {
      * @return
      */
     public native double getPageX() /*-{
-		var e = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var e = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return e.pageX;
     }-*/;
 
@@ -88,7 +88,7 @@ public class EventObject extends JsObject {
      * @return the y coordinate of the event.
      */
     public native int getPageY() /*-{
-		var e = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var e = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return e.pageY;
     }-*/;
 
@@ -98,7 +98,7 @@ public class EventObject extends JsObject {
      * This is only available when the event type is rotate
      */
     public native double getRotation() /*-{
-		var e = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var e = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return e.rotation;
     }-*/;
 
@@ -108,7 +108,7 @@ public class EventObject extends JsObject {
      * This is only available when the event type is pinch
      */
     public native double getScale() /*-{
-		var e = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var e = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return e.scale;
     }-*/;
 
@@ -116,7 +116,7 @@ public class EventObject extends JsObject {
      * Stop the event (preventDefault and stopPropagation)
      */
     public native void stopEvent() /*-{
-		var e = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var e = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		e.stopEvent();
     }-*/;
 
@@ -124,7 +124,7 @@ public class EventObject extends JsObject {
      * Cancels bubbling of the event.
      */
     public native void stopPropagation() /*-{
-		var e = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var e = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		e.stopPropagation();
     }-*/;
 
@@ -132,7 +132,7 @@ public class EventObject extends JsObject {
      * Cancels the default behavior of the event.
      */
     public native void preventDefault() /*-{
-		var e = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var e = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		e.preventDefault();
     }-*/;
 

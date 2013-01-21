@@ -16,8 +16,8 @@
 package com.emitrom.gwt4.touch.client.draw;
 
 import com.emitrom.gwt4.touch.charts.client.laf.SpriteConfig;
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -91,12 +91,12 @@ public class Sprite extends JsObject {
     }
 
     private native void setAttributes(JavaScriptObject value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.setAttributes(value);
     }-*/;
 
     private native void setAttributes(JavaScriptObject value, boolean update)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.setAttributes(value, update);
     }-*/;
 

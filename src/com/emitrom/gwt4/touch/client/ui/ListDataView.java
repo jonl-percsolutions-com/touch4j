@@ -189,8 +189,8 @@ public class ListDataView extends DataView implements ListElement {
 		var list = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
 		list
 				.setOnItemDisclosure(function(record, node, index) {
-					var model = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
-					handler.@com.emitrom.gwt4.touch.client.core.handlers.list.ItemDisclosureHandler::onItemDisclosure(Lcom/emitrom/platform/util/client/core/BaseModel;Lcom/google/gwt/core/client/JavaScriptObject;I)(model,node,index);
+					var model = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
+					handler.@com.emitrom.gwt4.touch.client.core.handlers.list.ItemDisclosureHandler::onItemDisclosure(Lcom/emitrom/gwt4/touch/client/data/BaseModel;Lcom/google/gwt/core/client/JavaScriptObject;I)(model,node,index);
 				});
     }-*/;
 

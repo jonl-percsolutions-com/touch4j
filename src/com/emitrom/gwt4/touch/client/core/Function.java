@@ -1,5 +1,5 @@
-/**************************************************************************
-   ValueHandler.java is part of Touch4j 3.0.  Copyright 2012 Emitrom LLC
+/**********************************************************************************
+   Function.java is part of Emitrom Platform Core 1.0.  Copyright 2012 Emitrom LLC
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -12,11 +12,12 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
- **************************************************************************/
-package com.emitrom.gwt4.touch.charts.client.handlers;
+ **********************************************************************************/
+package com.emitrom.gwt4.touch.client.core;
 
-import com.emitrom.gwt4.touch.client.data.BaseModel;
-
-public interface ValueHandler {
-    public void execute(BaseModel record);
+/**
+ * Generic interface to use as callback
+ */
+public interface Function {
+    public void execute();
 }

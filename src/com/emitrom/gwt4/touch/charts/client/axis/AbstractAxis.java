@@ -22,8 +22,8 @@ import com.emitrom.gwt4.touch.charts.client.laf.Label;
 import com.emitrom.gwt4.touch.charts.client.laf.SpriteConfig;
 import com.emitrom.gwt4.touch.client.laf.Color;
 import com.emitrom.gwt4.touch.client.laf.Position;
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayString;
 

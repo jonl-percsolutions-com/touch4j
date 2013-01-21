@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.charts.client.interactions;
 
-import com.emitrom.platform.util.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsObject;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class PanzoomAxis extends JsObject {

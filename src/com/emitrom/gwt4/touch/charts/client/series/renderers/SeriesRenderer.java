@@ -16,9 +16,9 @@
 package com.emitrom.gwt4.touch.charts.client.series.renderers;
 
 import com.emitrom.gwt4.touch.charts.client.laf.BarAttribute;
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 import com.emitrom.gwt4.touch.client.data.Store;
 import com.emitrom.gwt4.touch.client.draw.Sprite;
-import com.emitrom.platform.util.client.core.BaseModel;
 
 public interface SeriesRenderer {
     public void onRender(Sprite sprite, BaseModel record, BarAttribute attributes, int index, Store store);

@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.client.core.config;
 
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 

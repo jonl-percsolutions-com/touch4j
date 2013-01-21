@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.charts.client.axis;
 
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 
 /**
  * RadialAxis Axis is the axis to be used with a Radar Series. The RadialAxis

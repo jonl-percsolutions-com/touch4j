@@ -79,7 +79,7 @@ public class DatePicker extends Picker {
     public native JsArray<JavaScriptObject> getSlotOrder() /*-{
 		var date = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
 		if (date != null) {
-		    return @com.emitrom.platform.util.client.core.JsoHelper::convertToJavaScriptArray([Ljava/lang/Object;)(date.getSlotOrder());
+		    return @com.emitrom.gwt4.touch.client.core.JsoHelper::convertToJavaScriptArray([Ljava/lang/Object;)(date.getSlotOrder());
 		}
     }-*/;
 
@@ -162,7 +162,7 @@ public class DatePicker extends Picker {
      */
     public native void setSlotOrder(JsArray<JavaScriptObject> orderArray) /*-{
 		var date = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
-		var order = @com.emitrom.platform.util.client.core.JsoHelper::convertToJavaScriptArray([Ljava/lang/Object;)(orderArray);
+		var order = @com.emitrom.gwt4.touch.client.core.JsoHelper::convertToJavaScriptArray([Ljava/lang/Object;)(orderArray);
 		if (date != null) {
 			date.setSlotOrder(order);
 		}

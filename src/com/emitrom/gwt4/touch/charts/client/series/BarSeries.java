@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.charts.client.series;
 
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 
 public class BarSeries extends CartesianSeries {
 
@@ -25,32 +25,32 @@ public class BarSeries extends CartesianSeries {
     }
 
     public native void setGroupGutter(double value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.groupGutter = value;
     }-*/;
 
     public native void setGutter(double value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.gutter = value;
     }-*/;
 
     public native void setStyle(Object value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.style = value;
     }-*/;
 
     public native void setXPadding(double value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.xPadding = value;
     }-*/;
 
     public native void setYPadding(double value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.yPadding = value;
     }-*/;
 
     public native <T> T getLegendColor()/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return series.getLegendColor();
     }-*/;
 

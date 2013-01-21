@@ -16,7 +16,7 @@
 package com.emitrom.gwt4.touch.charts.client;
 
 
-import com.emitrom.platform.util.client.core.BaseModel;
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public interface ChartItemRenderer {

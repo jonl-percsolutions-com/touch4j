@@ -16,8 +16,8 @@
 package com.emitrom.gwt4.touch.charts.client;
 
 import com.emitrom.gwt4.touch.charts.client.laf.ToolTipRenderer;
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -65,11 +65,11 @@ public class ToolTip extends JsObject {
     }
 
     public native void setRenderer(ToolTipRenderer renderer)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.renderer = function(sroteItem, item) {
-			var model = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(storeItem);
+			var model = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(storeItem);
 			var chartItem = @com.emitrom.gwt4.touch.charts.client.interactions.ChartItem::new(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
-			renderer.@com.emitrom.gwt4.touch.charts.client.laf.ToolTipRenderer::onRender(Lcom/emitrom/platform/util/client/core/BaseModel;Lcom/emitrom/gwt4/touch/charts/client/interactions/ChartItem;)(model, chartItem);
+			renderer.@com.emitrom.gwt4.touch.charts.client.laf.ToolTipRenderer::onRender(Lcom/emitrom/gwt4/touch/client/data/BaseModel;Lcom/emitrom/gwt4/touch/charts/client/interactions/ChartItem;)(model, chartItem);
 		};
     }-*/;
 

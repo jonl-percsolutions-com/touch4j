@@ -16,7 +16,7 @@
 package com.emitrom.gwt4.touch.charts.client.laf;
 
 import com.emitrom.gwt4.touch.charts.client.interactions.ChartItem;
-import com.emitrom.platform.util.client.core.BaseModel;
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 
 public interface ToolTipRenderer {
     public void onRender(BaseModel record, ChartItem item);

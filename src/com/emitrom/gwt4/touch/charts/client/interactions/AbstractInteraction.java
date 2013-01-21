@@ -15,8 +15,8 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.charts.client.interactions;
 
-import com.emitrom.platform.util.client.core.Function;
-import com.emitrom.platform.util.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.Function;
+import com.emitrom.gwt4.touch.client.core.JsObject;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class AbstractInteraction extends JsObject {
@@ -30,24 +30,24 @@ public class AbstractInteraction extends JsObject {
     }
 
     public native void setGesture(String value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.gesture = value;
     }-*/;
 
     public native void addChartListener(Object name, Function fn)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.addChartListener(name, $entry(function() {
-			fn.@com.emitrom.platform.util.client.core.Function::execute()();
+			fn.@com.emitrom.gwt4.touch.client.core.Function::execute()();
 		}));
     }-*/;
 
     public native void initEvents()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.initEvents();
     }-*/;
 
     private native void _setType(String value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.type = value;
     }-*/;
 

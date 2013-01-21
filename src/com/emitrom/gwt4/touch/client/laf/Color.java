@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.client.laf;
 
-import com.emitrom.platform.util.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsObject;
 
 /**
  * Represent a color in RBG format

@@ -32,10 +32,9 @@ import com.emitrom.gwt4.touch.client.data.handlers.EachCallBack;
 import com.emitrom.gwt4.touch.client.data.handlers.FilterHandler;
 import com.emitrom.gwt4.touch.client.data.handlers.RemoveHandler;
 import com.emitrom.gwt4.touch.client.data.handlers.UpdateHandler;
-import com.emitrom.platform.util.client.core.BaseModel;
-import com.emitrom.platform.util.client.core.Function;
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.Function;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayString;
@@ -149,7 +148,7 @@ public class Store extends JsObject {
      * @return
      */
     public native JavaScriptObject average(String field) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.average(field);
     }-*/;
 
@@ -159,7 +158,7 @@ public class Store extends JsObject {
      * @param suppressEvent
      */
     public native void clearFilter(boolean suppressEvent) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.clearFilter(suppressEvent);
     }-*/;
 
@@ -169,7 +168,7 @@ public class Store extends JsObject {
      * @param suppressEvent
      */
     public native void clearFilter() /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.clearFilter();
     }-*/;
 
@@ -179,7 +178,7 @@ public class Store extends JsObject {
      * @param suppressEvent
      */
     public native void filter(String filters) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.filter(filters);
     }-*/;
 
@@ -189,7 +188,7 @@ public class Store extends JsObject {
      * @param suppressEvent
      */
     public native void filter(String filters, String value) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.filter(filters, value);
     }-*/;
 
@@ -199,7 +198,7 @@ public class Store extends JsObject {
      * @param suppressEvent
      */
     public native void filter(String filters, String value, boolean anyMatch) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.filter(filters, value, anyMatch);
     }-*/;
 
@@ -209,16 +208,16 @@ public class Store extends JsObject {
      * @param suppressEvent
      */
     public native void filter(String filters, String value, boolean anyMatch, boolean caseInsensitive) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.filter(filters, value, anyMatch, caseInsensitive);
     }-*/;
 
     public native void filterBy(FilterHandler handler) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso
 				.filterBy(function(record) {
-					var model = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
-					return handler.@com.emitrom.gwt4.touch.client.data.handlers.FilterHandler::onFilter(Lcom/emitrom/platform/util/client/core/BaseModel;)(model);
+					var model = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
+					return handler.@com.emitrom.gwt4.touch.client.data.handlers.FilterHandler::onFilter(Lcom/emitrom/gwt4/touch/client/data/BaseModel;)(model);
 				});
     }-*/;
 
@@ -229,16 +228,16 @@ public class Store extends JsObject {
      * @param callback
      */
     public native boolean each(EachCallBack callback)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso
 				.each(function(record) {
-					var model = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record)
-					callback.@com.emitrom.gwt4.touch.client.data.handlers.EachCallBack::onEachRecord(Lcom/emitrom/platform/util/client/core/BaseModel;)(model);
+					var model = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record)
+					callback.@com.emitrom.gwt4.touch.client.data.handlers.EachCallBack::onEachRecord(Lcom/emitrom/gwt4/touch/client/data/BaseModel;)(model);
 				});
     }-*/;
 
     public native int count()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.count();
     }-*/;
 
@@ -251,7 +250,7 @@ public class Store extends JsObject {
      * @return
      */
     public native JsArray<JavaScriptObject> collect(String dataIndex, boolean allowNull, boolean bypassFilter) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.collect(dataIndex, allowNull, bypassFilter);
     }-*/;
 
@@ -263,9 +262,9 @@ public class Store extends JsObject {
     }
 
     private native JavaScriptObject _getAt(int index)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.getAt(index);
-		//return @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(value);
+		//return @com.emitrom.gwt4.touch.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(value);
     }-*/;
 
     /**
@@ -288,7 +287,7 @@ public class Store extends JsObject {
      * @return, The page that the Store has most recently loaded.
      */
     private native void _setData(JavaScriptObject obj)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.setData(obj);
     }-*/;
 
@@ -297,12 +296,12 @@ public class Store extends JsObject {
      * @return, The page that the Store has most recently loaded.
      */
     public native int getCurrentPage()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.currentPage;
     }-*/;
 
     public native void setCurrentPage(int value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.currentPage = value;
     }-*/;
 
@@ -343,12 +342,12 @@ public class Store extends JsObject {
      * @param value
      */
     public native void setGroupField(String value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.groupField = value;
     }-*/;
 
     public native String getGroupField()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.groupField;
     }-*/;
 
@@ -362,7 +361,7 @@ public class Store extends JsObject {
      * @return
      */
     public native int findExact(String fieldName, Object value, int startIndex) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.findExact(fieldName, value, startIndex);
     }-*/;
 
@@ -387,7 +386,7 @@ public class Store extends JsObject {
      */
     public native <T extends BaseModel> T findRecord(String fieldName, String value, int startIndex, boolean anyMatch,
                     boolean caseSensitive, boolean exactMatch) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.findExact(fieldName, value, startIndex, anyMatch,
 				caseSensitive, exactMatch);
     }-*/;
@@ -400,7 +399,7 @@ public class Store extends JsObject {
      * @return
      */
     public native <T extends BaseModel> T first(boolean grouped) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.first(grouped);
     }-*/;
 
@@ -412,7 +411,7 @@ public class Store extends JsObject {
      * @return
      */
     public native <T extends BaseModel> T getById(String id) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.getById(id);
     }-*/;
 
@@ -425,7 +424,7 @@ public class Store extends JsObject {
      * @return
      */
     public native String getGroupString(BaseModel instance) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.getGroupString(instance);
     }-*/;
 
@@ -437,7 +436,7 @@ public class Store extends JsObject {
      * @return
      */
     public native JsArray<JavaScriptObject> getGroups(String groupName) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.getGroups(groupName);
     }-*/;
 
@@ -450,7 +449,7 @@ public class Store extends JsObject {
      * @return
      */
     public native <T extends BaseModel> T getRange(int startIndex, int endIndex) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.getRange(startIndex, endIndex);
     }-*/;
 
@@ -461,7 +460,7 @@ public class Store extends JsObject {
      * @param direction
      */
     public native void group(String groupers, String direction) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.group(groupers, direction);
     }-*/;
 
@@ -472,7 +471,7 @@ public class Store extends JsObject {
      * @param direction
      */
     public native void group(JsArray<JavaScriptObject> groupers, String direction) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.group(groupers, direction);
     }-*/;
 
@@ -487,7 +486,7 @@ public class Store extends JsObject {
     }
 
     private native int _indexOf(BaseModel model) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.indexOf(model);
     }-*/;
 
@@ -498,7 +497,7 @@ public class Store extends JsObject {
      * @return
      */
     public native int indexOfId(String id) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.indexOfId(id);
     }-*/;
 
@@ -509,7 +508,7 @@ public class Store extends JsObject {
      * @return
      */
     public native int indexOfTotal(BaseModel model) /*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.indexOfTotal(model);
     }-*/;
 
@@ -519,7 +518,7 @@ public class Store extends JsObject {
      * @return
      */
     public native boolean isSortable()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.isSortable;
     }-*/;
 
@@ -531,7 +530,7 @@ public class Store extends JsObject {
      * @return
      */
     public native boolean isDestroyed()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.isDestroyed;
     }-*/;
 
@@ -541,7 +540,7 @@ public class Store extends JsObject {
      * @param value
      */
     public native void setSorter(String value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.sorters = value;
     }-*/;
 
@@ -551,12 +550,12 @@ public class Store extends JsObject {
      * @param callback
      */
     public native void addListener(String eventName, Function callback)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso
 				.addListener(
 						eventName,
 						function() {
-							callback.@com.emitrom.platform.util.client.core.Function::execute()();
+							callback.@com.emitrom.gwt4.touch.client.core.Function::execute()();
 						});
     }-*/;
 
@@ -564,7 +563,7 @@ public class Store extends JsObject {
      * Clear any groupers in the store
      */
     public native void clearGrouping()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.clearGrouping();
     }-*/;
 
@@ -572,7 +571,7 @@ public class Store extends JsObject {
      * Removes all listeners for this object.
      */
     public native void clearListeners()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.clearListeners();
     }-*/;
 
@@ -580,7 +579,7 @@ public class Store extends JsObject {
      * Gets the number of cached records.
      */
     public native int getCount()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.getCount();
     }-*/;
 
@@ -592,11 +591,11 @@ public class Store extends JsObject {
      */
 
     public native String setGrouper(Grouper grouper)/*-{
-		var j = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var j = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		j
 				.setGrouper(function(record) {
-					var model = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
-					return grouper.@com.emitrom.gwt4.touch.client.data.Grouper::onGroup(Lcom/emitrom/platform/util/client/core/BaseModel;)(model);
+					var model = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
+					return grouper.@com.emitrom.gwt4.touch.client.data.Grouper::onGroup(Lcom/emitrom/gwt4/touch/client/data/BaseModel;)(model);
 				});
 
     }-*/;
@@ -609,7 +608,7 @@ public class Store extends JsObject {
      * into the Store if the Store contained all data
      */
     public native int getTotalCount()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.getTotalCount();
     }-*/;
 
@@ -620,7 +619,7 @@ public class Store extends JsObject {
      * @return
      */
     public native int getPageFromRecordIndex(int index)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.getPageFromRecordIndex();
     }-*/;
 
@@ -631,7 +630,7 @@ public class Store extends JsObject {
      * @return
      */
     public native boolean hasListener(int index)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.hasListener();
     }-*/;
 
@@ -642,9 +641,9 @@ public class Store extends JsObject {
      * @return
      */
     public native <T extends BaseModel> T last()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		var value = jso.last();
-		return @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(value);
+		return @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(value);
     }-*/;
 
     /**
@@ -654,21 +653,21 @@ public class Store extends JsObject {
      * @return
      */
     public native <T extends BaseModel> T last(boolean grouped)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		var value = jso.last(grouped);
-		return @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(value);
+		return @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(value);
     }-*/;
 
     /**
      * Loads the next 'page' in the current data set
      */
     public native void nextPage()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.nextPage();
     }-*/;
 
     public native void nextPage(Object options)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.nextPage(options);
     }-*/;
 
@@ -676,12 +675,12 @@ public class Store extends JsObject {
      * Loads the next 'page' in the current data set
      */
     public native void previousPage()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.previousPage();
     }-*/;
 
     public native void previousPage(Object options)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.previousPage(options);
     }-*/;
 
@@ -706,8 +705,8 @@ public class Store extends JsObject {
      * @param models
      */
     private native void _insertNative(int index, List<BaseModel> models)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
-		var values = @com.emitrom.platform.util.client.core.BaseModel::fromList(Ljava/util/List;)(models);
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
+		var values = @com.emitrom.gwt4.touch.client.data.BaseModel::fromList(Ljava/util/List;)(models);
 		jso.insert(index, values);
     }-*/;
 
@@ -764,7 +763,7 @@ public class Store extends JsObject {
     }
 
     private native void removeAllNative()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.removeAll();
     }-*/;
 
@@ -774,12 +773,12 @@ public class Store extends JsObject {
     }
 
     private native void removeAtNative(int index)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.removeAt(index);
     }-*/;
 
     public native void resumeEvents()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.resumentEvents();
     }-*/;
 
@@ -789,7 +788,7 @@ public class Store extends JsObject {
     }
 
     private native void removeAllNative(boolean silent)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.removeAll(silent);
     }-*/;
 
@@ -828,12 +827,12 @@ public class Store extends JsObject {
      * @param options
      */
     public native void loadPage(int page, Object options)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.loadPage(page, options);
     }-*/;
 
     public native void addDataAddedHandler(DataAddedHandler handler)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso
 				.addListener(
 						@com.emitrom.gwt4.touch.client.data.Store::ADD,
@@ -844,7 +843,7 @@ public class Store extends JsObject {
     }-*/;
 
     public native void addBeforeLoadHandler(BeforeLoadHandler handler)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso
 				.addListener(
 						@com.emitrom.gwt4.touch.client.data.Store::BEFORE_LOAD,
@@ -855,7 +854,7 @@ public class Store extends JsObject {
     }-*/;
 
     public native void addBeforePrefetch(BeforePrefetchHandler handler)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso
 				.addListener(
 						@com.emitrom.gwt4.touch.client.data.Store::BEFORE_PREFETCH,
@@ -866,7 +865,7 @@ public class Store extends JsObject {
     }-*/;
 
     public native void addClearHandler(ClearHandler handler)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso
 				.addListener(
 						@com.emitrom.gwt4.touch.client.data.Store::CLEAR,
@@ -877,7 +876,7 @@ public class Store extends JsObject {
     }-*/;
 
     public native void addDataChangedHandler(DataChangedHandler handler)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso
 				.addListener(
 						@com.emitrom.gwt4.touch.client.data.Store::DATACHANGED,
@@ -888,7 +887,7 @@ public class Store extends JsObject {
     }-*/;
 
     public native void addRemoveHandler(RemoveHandler handler)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso
 				.addListener(
 						"remove",
@@ -899,7 +898,7 @@ public class Store extends JsObject {
     }-*/;
 
     public native void addUpdateHandler(UpdateHandler handler)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso
 				.addListener(
 						@com.emitrom.gwt4.touch.client.data.Store::UPDATE,
@@ -910,12 +909,12 @@ public class Store extends JsObject {
     }-*/;
 
     private native void _setSorters(JavaScriptObject values)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.sorters = values;
     }-*/;
 
     private native void create(String modelName, JavaScriptObject values)/*-{
-		this.@com.emitrom.platform.util.client.core.JsObject::jsObj = new $wnd.Ext.data.Store(
+		this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj = new $wnd.Ext.data.Store(
 				{
 					model : modelName,
 					data : values
@@ -923,44 +922,44 @@ public class Store extends JsObject {
     }-*/;
 
     private native void create()/*-{
-		this.@com.emitrom.platform.util.client.core.JsObject::jsObj = new $wnd.Ext.data.Store(
+		this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj = new $wnd.Ext.data.Store(
 				{
 					model : "Emitrom"
 				});
     }-*/;
 
     private native void setDefaultSortDirection(String value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.defaultSortDirection = value;
     }-*/;
 
     private native String _getDefaultSortDirection()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.defaultSortDirection;
     }-*/;
 
     private native void setGroupDir(String value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.groupDir = value;
     }-*/;
 
     private native String _getGroupDir()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		return jso.groupDir;
     }-*/;
 
     private native void add(JavaScriptObject value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.add(value);
     }-*/;
 
     private native void remove(JavaScriptObject value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.remove(value);
     }-*/;
 
     private native void loadData(JavaScriptObject values, boolean append)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::jsObj;
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::jsObj;
 		jso.loadData(values, append);
     }-*/;
 

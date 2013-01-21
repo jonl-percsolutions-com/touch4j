@@ -27,6 +27,7 @@ import com.emitrom.gwt4.touch.charts.client.series.ColumnSeries;
 import com.emitrom.gwt4.touch.charts.client.series.renderers.SeriesRenderer;
 import com.emitrom.gwt4.touch.client.core.EventObject;
 import com.emitrom.gwt4.touch.client.core.handlers.button.TapHandler;
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 import com.emitrom.gwt4.touch.client.data.Store;
 import com.emitrom.gwt4.touch.client.draw.Sprite;
 import com.emitrom.gwt4.touch.client.fx.layout.card.Easing;
@@ -36,7 +37,6 @@ import com.emitrom.gwt4.touch.client.laf.RGB;
 import com.emitrom.gwt4.touch.client.laf.UI;
 import com.emitrom.gwt4.touch.client.ui.Button;
 import com.emitrom.gwt4.touch.client.utils.TouchIcons;
-import com.emitrom.platform.util.client.core.BaseModel;
 
 public class ColumnChart {
 

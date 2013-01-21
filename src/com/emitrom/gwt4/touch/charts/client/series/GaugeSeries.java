@@ -16,7 +16,7 @@
 package com.emitrom.gwt4.touch.charts.client.series;
 
 import com.emitrom.gwt4.touch.client.laf.Color;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JsArrayString;
 
 /**
@@ -35,42 +35,42 @@ public class GaugeSeries extends BaseSeries {
     }
 
     public native void setAngleField(String value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.angleField = value;
     }-*/;
 
     public native void setDonut(boolean value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.donut = value;
     }-*/;
 
     public native void setDonut(double value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.donut = value;
     }-*/;
 
     public native void setNeedle(boolean value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.needle = value;
     }-*/;
 
     public native void showInLegend(boolean value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.showInLegend = value;
     }-*/;
 
     public native void setStyle(Object value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.style = value;
     }-*/;
 
     public native <T> T getLegendColor()/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return series.getLegendColor();
     }-*/;
 
     public native void setValue(Object value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.setValue(value);
     }-*/;
 
@@ -83,7 +83,7 @@ public class GaugeSeries extends BaseSeries {
     }
 
     private native void _setColorSet(JsArrayString colorSet)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.colorSet = colorSet;
     }-*/;
 

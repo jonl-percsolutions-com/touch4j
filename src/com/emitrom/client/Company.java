@@ -17,7 +17,7 @@ package com.emitrom.client;
 
 import java.util.ArrayList;
 
-import com.emitrom.platform.util.client.core.BaseModel;
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class Company extends BaseModel {

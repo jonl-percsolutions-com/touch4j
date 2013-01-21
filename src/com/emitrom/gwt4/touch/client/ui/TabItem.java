@@ -23,7 +23,7 @@ import com.emitrom.gwt4.touch.client.core.Icons;
 import com.emitrom.gwt4.touch.client.core.config.Attribute;
 import com.emitrom.gwt4.touch.client.layout.AbstractLayout;
 import com.emitrom.gwt4.touch.client.layout.FitLayout;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasWidgets;

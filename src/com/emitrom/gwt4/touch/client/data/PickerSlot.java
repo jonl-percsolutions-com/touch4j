@@ -19,8 +19,8 @@ import java.util.List;
 
 import com.emitrom.gwt4.touch.client.core.config.Attribute;
 import com.emitrom.gwt4.touch.client.laf.Alignment;
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class PickerSlot extends JsObject {

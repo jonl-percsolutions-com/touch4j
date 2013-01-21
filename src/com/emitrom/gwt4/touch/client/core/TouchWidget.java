@@ -23,7 +23,7 @@ import java.util.Map;
 
 import com.emitrom.gwt4.touch.client.core.handlers.AbstractHandler;
 import com.emitrom.gwt4.touch.client.ui.MessageBox;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;

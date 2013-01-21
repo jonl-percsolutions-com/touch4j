@@ -19,8 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.emitrom.gwt4.touch.client.core.config.Attribute;
-import com.emitrom.platform.util.client.core.BaseModel;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public abstract class TreeModel extends BaseModel {

@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.client.core;
 
-import com.emitrom.platform.util.client.core.Function;
+import com.emitrom.gwt4.touch.client.core.Function;
 import com.google.gwt.user.client.Element;
 
 /**
@@ -33,7 +33,7 @@ public class ComponentMgr {
    */
   public native void onAvailable(String id, Function fn)/*-{
 		$wnd.Ext.ComponentMgr.onAvailable(id, function() {
-			fn.@com.emitrom.platform.util.client.core.Function::execute()();
+			fn.@com.emitrom.gwt4.touch.client.core.Function::execute()();
 		});
   }-*/;
 

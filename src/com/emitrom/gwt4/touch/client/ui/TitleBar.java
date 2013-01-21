@@ -50,7 +50,7 @@ public class TitleBar extends Container implements HasUi, HasTitle {
     @Override
     protected native JavaScriptObject create(JavaScriptObject config) /*-{
         if (!config.items)
-            config.items = @com.emitrom.platform.util.client.core.JsoHelper::createJavaScriptArray()();
+            config.items = @com.emitrom.gwt4.touch.client.core.JsoHelper::createJavaScriptArray()();
         return new $wnd.Ext.TitleBar(config);
     }-*/;
 

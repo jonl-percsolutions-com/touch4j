@@ -19,8 +19,8 @@ import com.emitrom.gwt4.touch.charts.client.HighLight;
 import com.emitrom.gwt4.touch.charts.client.laf.Label;
 import com.emitrom.gwt4.touch.charts.client.marker.MarkerConfig;
 import com.emitrom.gwt4.touch.charts.client.series.renderers.SeriesRenderer;
-import com.emitrom.platform.util.client.core.JsObject;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsObject;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class AbstractSerie extends JsObject {
@@ -102,23 +102,23 @@ public class AbstractSerie extends JsObject {
     }
 
     public native void setTitle(int index, String title)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.setTitle(index, title);
     }-*/;
 
     public native void showAll()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.showAll(index, title);
     }-*/;
 
     public native void setRenderer(SeriesRenderer renderer)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.renderer = function(sprite, record, attr, index, store) {
 			var s = @com.emitrom.gwt4.touch.client.draw.Sprite::new(Lcom/google/gwt/core/client/JavaScriptObject;)(sprite);
 			var st = @com.emitrom.gwt4.touch.client.data.Store::new(Lcom/google/gwt/core/client/JavaScriptObject;)(store);
-			var model = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
+			var model = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
 			var attribute = @com.emitrom.gwt4.touch.charts.client.laf.BarAttribute::new(Lcom/google/gwt/core/client/JavaScriptObject;)(attr);
-			renderer.@com.emitrom.gwt4.touch.charts.client.series.renderers.SeriesRenderer::onRender(Lcom/emitrom/gwt4/touch/client/draw/Sprite;Lcom/emitrom/platform/util/client/core/BaseModel;Lcom/emitrom/gwt4/touch/charts/client/laf/BarAttribute;ILcom/emitrom/gwt4/touch/client/data/Store;)(s,model,attribute, index,st);
+			renderer.@com.emitrom.gwt4.touch.charts.client.series.renderers.SeriesRenderer::onRender(Lcom/emitrom/gwt4/touch/client/draw/Sprite;Lcom/emitrom/gwt4/touch/client/data/BaseModel;Lcom/emitrom/gwt4/touch/charts/client/laf/BarAttribute;ILcom/emitrom/gwt4/touch/client/data/Store;)(s,model,attribute, index,st);
 			return attr;
 		};
     }-*/;

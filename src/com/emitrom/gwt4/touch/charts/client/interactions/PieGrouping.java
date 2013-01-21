@@ -16,8 +16,8 @@
 package com.emitrom.gwt4.touch.charts.client.interactions;
 
 import com.emitrom.gwt4.touch.charts.client.handlers.SelectionChangeHandler;
-import com.emitrom.platform.util.client.core.Function;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.Function;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class PieGrouping extends AbstractInteraction {
@@ -32,24 +32,24 @@ public class PieGrouping extends AbstractInteraction {
     }
 
     public native void onSelectionChange(Function callback)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.onSelectionChange($entry(function() {
-			callback.@com.emitrom.platform.util.client.core.Function::execute()();
+			callback.@com.emitrom.gwt4.touch.client.core.Function::execute()();
 		}));
     }-*/;
 
     public native void setOutSet(double value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.outSet = value;
     }-*/;
 
     public native void setSnapWhileDragging(boolean value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.snapWhileDragging = value;
     }-*/;
 
     public native void addSelectionChangeHandler(SelectionChangeHandler handler)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso
 				.addChartListener(
 						"selectionchange",

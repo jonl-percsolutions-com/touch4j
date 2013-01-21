@@ -17,7 +17,7 @@ package com.emitrom.gwt4.touch.charts.client.series;
 
 import com.emitrom.gwt4.touch.charts.client.handlers.ValueHandler;
 import com.emitrom.gwt4.touch.client.laf.Alignment;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.client.JsArrayString;
@@ -42,32 +42,32 @@ public abstract class CartesianSeries extends BaseSeries {
     }
 
     private native void setAxis(String value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.axis = value;
     }-*/;
 
     private native void setAxis(JsArrayString value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.axis = value;
     }-*/;
 
     public native void eachYValue(ValueHandler callback)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series
 				.eachYValue(
 						function(model) {
-							var modelObject = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(model);
-							callback.@com.emitrom.gwt4.touch.charts.client.handlers.ValueHandler::execute(Lcom/emitrom/platform/util/client/core/BaseModel;)(modelObject);
+							var modelObject = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(model);
+							callback.@com.emitrom.gwt4.touch.charts.client.handlers.ValueHandler::execute(Lcom/emitrom/gwt4/touch/client/data/BaseModel;)(modelObject);
 						}, this);
     }-*/;
 
     public native JsArrayNumber getMinMaxXValues()/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return series.getMinMaxXValues();
     }-*/;
 
     public native JsArrayNumber getMinMaxYValues()/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return series.getMinMaxYValues();
     }-*/;
 

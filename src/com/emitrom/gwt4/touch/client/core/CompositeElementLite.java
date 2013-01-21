@@ -37,7 +37,7 @@ public class CompositeElementLite extends CompositeElement {
      * @return the element at index
      */
     public native ExtElement item(int index) /*-{
-		var cel = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var cel = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var el = cel.item();
 		return el == null ? null
 				: @com.emitrom.gwt4.touch.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);

@@ -23,7 +23,7 @@ import com.emitrom.gwt4.touch.client.core.TouchJsoHelper;
 import com.emitrom.gwt4.touch.client.core.config.Event;
 import com.emitrom.gwt4.touch.client.core.config.XType;
 import com.emitrom.gwt4.touch.client.core.handlers.segmentedbutton.ToggleHandler;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**

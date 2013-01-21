@@ -17,7 +17,7 @@ package com.emitrom.gwt4.touch.charts.client.interactions;
 
 import com.emitrom.gwt4.touch.charts.client.handlers.ItemCompareInteractionHandler;
 import com.emitrom.gwt4.touch.client.draw.Sprite;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class ItemCompare extends AbstractInteraction {
@@ -32,47 +32,47 @@ public class ItemCompare extends AbstractInteraction {
     }
 
     public native void setArrow(Sprite value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
-		jso.arrow = value.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
+		jso.arrow = value.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
     }-*/;
 
     public native void setCircle(Sprite value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
-		jso.circle = value.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
+		jso.circle = value.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		;
     }-*/;
 
     public native void setLine(Sprite value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
-		jso.line = value.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
+		jso.line = value.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
     }-*/;
 
     public native void setOffset(OffsetValue value)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
-		jso.offset = value.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
+		jso.offset = value.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
     }-*/;
 
     public native ChartItem getFirtsItem()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var obj = jso.item1;
 		var toReturn = @com.emitrom.gwt4.touch.charts.client.interactions.ChartItem::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
     }-*/;
 
     public native ChartItem getSecondItem()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		var obj = jso.item2;
 		var toReturn = @com.emitrom.gwt4.touch.charts.client.interactions.ChartItem::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
     }-*/;
 
     public native void reset()/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.reset();
     }-*/;
 
     public native void addInteractionHandler(ItemCompareInteractionHandler handler)/*-{
-		var jso = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var jso = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		jso.listeners = {
 			show : function(itemcompare) {
 				var itemCompareObject = @com.emitrom.gwt4.touch.charts.client.interactions.ItemCompare::new(Lcom/google/gwt/core/client/JavaScriptObject;)(itemcompare);

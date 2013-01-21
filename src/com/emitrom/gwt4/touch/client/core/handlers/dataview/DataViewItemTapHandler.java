@@ -18,7 +18,7 @@ package com.emitrom.gwt4.touch.client.core.handlers.dataview;
 
 import com.emitrom.gwt4.touch.client.core.handlers.AbstractHandler;
 import com.emitrom.gwt4.touch.client.ui.DataView;
-import com.emitrom.platform.util.client.core.BaseModel;
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -31,8 +31,8 @@ public abstract class DataViewItemTapHandler extends AbstractHandler {
     private static native JavaScriptObject createPeer(DataViewItemTapHandler listener) /*-{
 		return function(source, index, element, record, eventObject, eOpts) {
 			var dataView = @com.emitrom.gwt4.touch.client.ui.DataView::new(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
-			var model = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
-			listener.@com.emitrom.gwt4.touch.client.core.handlers.dataview.DataViewItemTapHandler::fireOnEvent(Lcom/emitrom/gwt4/touch/client/ui/DataView;ILcom/google/gwt/user/client/Element;Lcom/emitrom/platform/util/client/core/BaseModel;Ljava/lang/Object;Ljava/lang/Object;)(dataView, index, element, model, eventObject, eOpts);
+			var model = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
+			listener.@com.emitrom.gwt4.touch.client.core.handlers.dataview.DataViewItemTapHandler::fireOnEvent(Lcom/emitrom/gwt4/touch/client/ui/DataView;ILcom/google/gwt/user/client/Element;Lcom/emitrom/gwt4/touch/client/data/BaseModel;Ljava/lang/Object;Ljava/lang/Object;)(dataView, index, element, model, eventObject, eOpts);
 		};
     }-*/;
 

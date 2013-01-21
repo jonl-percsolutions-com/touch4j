@@ -24,10 +24,10 @@ import com.emitrom.gwt4.touch.client.core.config.XType;
 import com.emitrom.gwt4.touch.client.core.handlers.picker.PickerCancelHandler;
 import com.emitrom.gwt4.touch.client.core.handlers.picker.PickerChangeHandler;
 import com.emitrom.gwt4.touch.client.core.handlers.picker.PickerPickHandler;
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 import com.emitrom.gwt4.touch.client.data.PickerSlot;
 import com.emitrom.gwt4.touch.client.data.PickerSlotData;
-import com.emitrom.platform.util.client.core.BaseModel;
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 

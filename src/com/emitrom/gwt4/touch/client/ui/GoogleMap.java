@@ -1,17 +1,17 @@
 /**************************************************************************
-   GoogleMap.java is part of Touch4j 3.0.  Copyright 2012 Emitrom LLC
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+ * GoogleMap.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  **************************************************************************/
 package com.emitrom.gwt4.touch.client.ui;
 
@@ -20,7 +20,6 @@ import com.emitrom.gwt4.touch.client.core.config.XType;
 import com.emitrom.gwt4.touch.client.core.handlers.map.MapCenterChangeHandler;
 import com.emitrom.gwt4.touch.client.core.handlers.map.MapTypeChangeHandler;
 import com.emitrom.gwt4.touch.client.core.handlers.map.MapZoomChangeHandler;
-import com.emitrom.platform.maps.client.GMap;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -50,10 +49,10 @@ public class GoogleMap extends Component implements MapElement {
 		var c = new $wnd.Ext.Map();
 		this.@com.emitrom.gwt4.touch.client.core.Component::configPrototype = c.initialConfig;
     }-*/;
-    
+
     @Override
     protected native JavaScriptObject create(JavaScriptObject config) /*-{
-        return new $wnd.Ext.Map(config);
+		return new $wnd.Ext.Map(config);
     }-*/;
 
     public String getXType() {
@@ -91,11 +90,9 @@ public class GoogleMap extends Component implements MapElement {
      * 
      * @return Map
      */
-    public native GMap getMap() /*-{
+    public native JavaScriptObject getMap() /*-{
 		var map = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
-		var obj = map.getMap();
-		var toReturn = @com.emitrom.platform.maps.client.GMap::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
-		return toReturn;
+		return map.getMap();
     }-*/;
 
     /**
@@ -132,17 +129,6 @@ public class GoogleMap extends Component implements MapElement {
     }-*/;
 
     /**
-     * Sets the value of map.
-     * 
-     * @param value
-     */
-    public native void setMap(GMap value) /*-{
-		var map = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
-		var gmap = @com.emitrom.platform.maps.client.GMap::new(Lcom/google/gwt/core/client/JavaScriptObject;)(value);
-		map.setMap(gmap);
-    }-*/;
-
-    /**
      * Sets the value of mapOptions.
      * 
      * @param value
@@ -151,7 +137,6 @@ public class GoogleMap extends Component implements MapElement {
 		var map = this.@com.emitrom.gwt4.touch.client.core.Component::getOrCreateJsObj()();
 		map.setMapOptions(value);
     }-*/;
-
 
     /**
      * Sets the value of useCurrentLocation

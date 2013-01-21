@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.gwt4.touch.charts.client.series;
 
-import com.emitrom.platform.util.client.core.JsoHelper;
+import com.emitrom.gwt4.touch.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class RadarSeries extends BaseSeries {
@@ -26,47 +26,47 @@ public class RadarSeries extends BaseSeries {
     }
 
     public native void setMarkerConfig(JavaScriptObject value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.markerConfig = value;
     }-*/;
 
     public native void showMarkers(boolean value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.showMarkers = value;
     }-*/;
 
     public native void setDonut(double value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.donut = value;
     }-*/;
 
     public native void setNeedle(boolean value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.needle = value;
     }-*/;
 
     public native void setStyle(Object value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.style = value;
     }-*/;
 
     public native <T> T getLegendColor()/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		return series.getLegendColor();
     }-*/;
 
     public native void setValue(Object value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.setValue(value);
     }-*/;
 
     public native void setXField(String value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.xField = value;
     }-*/;
 
     public native void setYField(String value)/*-{
-		var series = this.@com.emitrom.platform.util.client.core.JsObject::getJsObj()();
+		var series = this.@com.emitrom.gwt4.touch.client.core.JsObject::getJsObj()();
 		series.yField = value;
     }-*/;
 

@@ -20,7 +20,7 @@ import com.emitrom.gwt4.touch.client.core.EventObject;
 import com.emitrom.gwt4.touch.client.core.handlers.AbstractHandler;
 import com.emitrom.gwt4.touch.client.ui.ListDataView;
 import com.emitrom.gwt4.touch.client.ui.NestedListDataView;
-import com.emitrom.platform.util.client.core.BaseModel;
+import com.emitrom.gwt4.touch.client.data.BaseModel;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -33,10 +33,10 @@ public abstract class NestedListItemTapHandler extends AbstractHandler {
     private static native JavaScriptObject createPeer(NestedListItemTapHandler listener) /*-{
 		return function(source, list, index, target, record, event, eOpts) {
 			var nestedList = @com.emitrom.gwt4.touch.client.ui.NestedListDataView::new(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
-			var model = @com.emitrom.platform.util.client.core.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
+			var model = @com.emitrom.gwt4.touch.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
 			var listJso = @com.emitrom.gwt4.touch.client.ui.ListDataView::new(Lcom/google/gwt/core/client/JavaScriptObject;)(list);
 			var eventObject = @com.emitrom.gwt4.touch.client.core.EventObject::new(Lcom/google/gwt/core/client/JavaScriptObject;)(event);
-			listener.@com.emitrom.gwt4.touch.client.core.handlers.nestedlist.NestedListItemTapHandler::fireOnEvent(Lcom/emitrom/gwt4/touch/client/ui/NestedListDataView;Lcom/emitrom/gwt4/touch/client/ui/ListDataView;ILcom/google/gwt/dom/client/Element;Lcom/emitrom/platform/util/client/core/BaseModel;Lcom/emitrom/gwt4/touch/client/core/EventObject;Ljava/lang/Object;)(nestedList, listJso, index, target, model, eventObject, eOpts);
+			listener.@com.emitrom.gwt4.touch.client.core.handlers.nestedlist.NestedListItemTapHandler::fireOnEvent(Lcom/emitrom/gwt4/touch/client/ui/NestedListDataView;Lcom/emitrom/gwt4/touch/client/ui/ListDataView;ILcom/google/gwt/dom/client/Element;Lcom/emitrom/gwt4/touch/client/data/BaseModel;Lcom/emitrom/gwt4/touch/client/core/EventObject;Ljava/lang/Object;)(nestedList, listJso, index, target, model, eventObject, eOpts);
 		};
     }-*/;
 
