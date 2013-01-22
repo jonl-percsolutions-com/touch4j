@@ -1,23 +1,26 @@
 /**************************************************************************
-   Chart.java is part of Touch4j 3.0.  Copyright 2012 Emitrom LLC
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+ * Chart.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  **************************************************************************/
-package com.emitrom.touch4j.charts.client;
+package com.emitrom.touch4j.client.ui;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.emitrom.touch4j.charts.client.Animation;
+import com.emitrom.touch4j.charts.client.Legend;
+import com.emitrom.touch4j.charts.client.Toolbar;
 import com.emitrom.touch4j.charts.client.axis.AbstractAxis;
 import com.emitrom.touch4j.charts.client.handlers.BeforeRefreshHandler;
 import com.emitrom.touch4j.charts.client.handlers.ChartChangeHandler;
@@ -80,7 +83,7 @@ public class Chart extends Component {
 
     protected native void init()/*-{
 		var c = new $wnd.Ext.chart.Chart();
-		@com.emitrom.touch4j.charts.client.Chart::configPrototype = c.initialConfig;
+		@com.emitrom.touch4j.client.ui.Chart::configPrototype = c.initialConfig;
     }-*/;
 
     protected JavaScriptObject getConfigPrototype() {
@@ -574,10 +577,10 @@ public class Chart extends Component {
 		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		component
 				.addEventListener(
-						@com.emitrom.touch4j.charts.client.Chart::BEFORE_REFRESH,
+						@com.emitrom.touch4j.client.ui.Chart::BEFORE_REFRESH,
 						$entry(function(chart) {
-							chartObject = @com.emitrom.touch4j.charts.client.Chart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
-							handler.@com.emitrom.touch4j.charts.client.handlers.BeforeRefreshHandler::onBeforeRefresh(Lcom/emitrom/touch4j/charts/client/Chart;)(chartObject);
+							chartObject = @com.emitrom.touch4j.client.ui.Chart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
+							handler.@com.emitrom.touch4j.charts.client.handlers.BeforeRefreshHandler::onBeforeRefresh(Lcom/emitrom/touch4j/client/ui/Chart;)(chartObject);
 						}));
     }-*/;
 
@@ -857,7 +860,7 @@ public class Chart extends Component {
 							var seriesObject = @com.emitrom.touch4j.charts.client.series.AbstractSerie::new(Lcom/google/gwt/core/client/JavaScriptObject;)(series);
 							var chartItem = @com.emitrom.touch4j.charts.client.interactions.ChartItem::new(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
 							var eventObject = @com.emitrom.touch4j.client.core.EventObject::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-							chartObject = @com.emitrom.touch4j.charts.client.Chart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
+							chartObject = @com.emitrom.touch4j.client.ui.Chart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
 
 							handler.@com.emitrom.touch4j.charts.client.handlers.ChartEventHandler::onEvent(Lcom/emitrom/touch4j/charts/client/series/BaseSeries;Lcom/emitrom/touch4j/charts/client/interactions/ChartItem;Lcom/emitrom/touch4j/client/core/EventObject;)(seriesObject, chartItem, eventObject);
 						}));
@@ -869,8 +872,8 @@ public class Chart extends Component {
 				.addEventListener(
 						event,
 						$entry(function(chart) {
-							chartObject = @com.emitrom.touch4j.charts.client.Chart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
-							handler.@com.emitrom.touch4j.charts.client.handlers.ChartChangeHandler::onEvent(Lcom/emitrom/touch4j/charts/client/Chart;)(chartObject);
+							chartObject = @com.emitrom.touch4j.client.ui.Chart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
+							handler.@com.emitrom.touch4j.charts.client.handlers.ChartChangeHandler::onEvent(Lcom/emitrom/touch4j/client/ui/Chart;)(chartObject);
 						}));
     }-*/;
 

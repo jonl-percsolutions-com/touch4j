@@ -16,8 +16,6 @@
 package com.emitrom.client;
 
 import com.emitrom.touch4j.charts.client.Animation;
-import com.emitrom.touch4j.charts.client.Chart;
-import com.emitrom.touch4j.charts.client.ChartPanel;
 import com.emitrom.touch4j.charts.client.axis.CategoryAxis;
 import com.emitrom.touch4j.charts.client.axis.NumericAxis;
 import com.emitrom.touch4j.charts.client.laf.BarAttribute;
@@ -36,6 +34,8 @@ import com.emitrom.touch4j.client.laf.Position;
 import com.emitrom.touch4j.client.laf.RGB;
 import com.emitrom.touch4j.client.laf.UI;
 import com.emitrom.touch4j.client.ui.Button;
+import com.emitrom.touch4j.client.ui.Chart;
+import com.emitrom.touch4j.client.ui.ChartPanel;
 import com.emitrom.touch4j.client.utils.TouchIcons;
 
 public class ColumnChart {

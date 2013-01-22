@@ -15,7 +15,7 @@
  **************************************************************************/
 package com.emitrom.touch4j.charts.client.handlers;
 
-import com.emitrom.touch4j.charts.client.Chart;
+import com.emitrom.touch4j.client.ui.Chart;
 
 public interface BeforeRefreshHandler {
     public boolean onBeforeRefresh(Chart chart);

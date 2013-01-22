@@ -15,7 +15,6 @@
  **************************************************************************/
 package com.emitrom.client;
 
-import com.emitrom.touch4j.charts.client.Chart;
 import com.emitrom.touch4j.charts.client.axis.CategoryAxis;
 import com.emitrom.touch4j.charts.client.axis.NumericAxis;
 import com.emitrom.touch4j.charts.client.series.ScatterSeries;
@@ -28,6 +27,7 @@ import com.emitrom.touch4j.client.laf.Position;
 import com.emitrom.touch4j.client.laf.UI;
 import com.emitrom.touch4j.client.layout.FitLayout;
 import com.emitrom.touch4j.client.ui.Button;
+import com.emitrom.touch4j.client.ui.Chart;
 import com.emitrom.touch4j.client.ui.Panel;
 import com.emitrom.touch4j.client.ui.Spacer;
 import com.emitrom.touch4j.client.ui.ToolBar;

@@ -16,6 +16,7 @@
 package com.emitrom.touch4j.client.core;
 
 import com.emitrom.touch4j.client.core.JsoHelper;
+import com.emitrom.touch4j.client.ui.ComponentFactory;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**

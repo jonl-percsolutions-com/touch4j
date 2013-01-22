@@ -13,16 +13,12 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  **************************************************************************/
-package com.emitrom.touch4j.charts.client;
+package com.emitrom.touch4j.client.ui;
 
 import com.emitrom.touch4j.client.core.config.Dock;
 import com.emitrom.touch4j.client.layout.Align;
 import com.emitrom.touch4j.client.layout.CardLayout;
 import com.emitrom.touch4j.client.layout.FitLayout;
-import com.emitrom.touch4j.client.ui.Button;
-import com.emitrom.touch4j.client.ui.Container;
-import com.emitrom.touch4j.client.ui.Panel;
-import com.emitrom.touch4j.client.ui.Spacer;
 
 public class ChartPanel extends Container {
     

@@ -39,6 +39,10 @@ public class ActionSheet extends Sheet {
     public ActionSheet() {
     }
 
+    protected ActionSheet(JavaScriptObject jsObj) {
+        super(jsObj);
+    }
+
     @Override
     public String getXType() {
         return XType.ACTONSHEET.getValue();

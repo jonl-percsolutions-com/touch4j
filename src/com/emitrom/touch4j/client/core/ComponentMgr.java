@@ -46,7 +46,7 @@ public class ComponentMgr {
   public static native Component getComponent(String id) /*-{
 		var comp = $wnd.Ext.ComponentMgr.get(id);
 		return comp == null || comp === undefined ? null
-				: @com.emitrom.touch4j.client.core.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(comp);
+				: @com.emitrom.touch4j.client.ui.ComponentFactory::getComponent(Lcom/google/gwt/core/client/JavaScriptObject;)(comp);
   }-*/;
 
   /**

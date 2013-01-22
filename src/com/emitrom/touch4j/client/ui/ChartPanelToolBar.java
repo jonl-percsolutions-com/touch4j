@@ -13,14 +13,13 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  **************************************************************************/
-package com.emitrom.touch4j.charts.client;
+package com.emitrom.touch4j.client.ui;
 
 import com.emitrom.touch4j.client.core.HasTitle;
 import com.emitrom.touch4j.client.core.HasUi;
 import com.emitrom.touch4j.client.core.config.Dock;
 import com.emitrom.touch4j.client.core.config.XType;
 import com.emitrom.touch4j.client.laf.UI;
-import com.emitrom.touch4j.client.ui.Container;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
