@@ -375,6 +375,24 @@ public class MessageBox extends Sheet {
 		$wnd.Ext.Msg.hide();
     }-*/;
 
+    /**
+     * Sets the value of iconCls.
+     * 
+     * @param value
+     */
+    public static native void setIconCls(String value)/*-{
+		$wnd.Ext.Msg.setIconCls(value);
+    }-*/;
+
+    /**
+     * Return the underlying MessageBox Widget
+     * 
+     * @return
+     */
+    public static native Sheet getWidget()/*-{
+		return $wnd.Ext.Msg;
+    }-*/;
+
     private static native String INFO()/*-{
 		return $wnd.Ext.MessageBox.INFO;
     }-*/;

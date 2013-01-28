@@ -17,6 +17,7 @@ package com.emitrom.touch4j.client.ui;
 
 import com.emitrom.touch4j.client.core.config.Event;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.navigation.NavigationViewEventHandler;
 import com.google.gwt.core.client.JavaScriptObject;
 
@@ -248,8 +249,8 @@ public class NavigationView extends Container {
      * 
      * @param handler
      */
-    public void addPopHandler(NavigationViewEventHandler handler) {
-        this.addWidgetListener(Event.POP.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addPopHandler(NavigationViewEventHandler handler) {
+        return this.addWidgetListener(Event.POP.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -257,8 +258,8 @@ public class NavigationView extends Container {
      * 
      * @param handler
      */
-    public void addPushHandler(NavigationViewEventHandler handler) {
-        this.addWidgetListener(Event.PUSH.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addPushHandler(NavigationViewEventHandler handler) {
+        return this.addWidgetListener(Event.PUSH.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -266,8 +267,8 @@ public class NavigationView extends Container {
      * 
      * @param handler
      */
-    public void addBackHandler(NavigationViewEventHandler handler) {
-        this.addWidgetListener(Event.BACK.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addBackHandler(NavigationViewEventHandler handler) {
+        return this.addWidgetListener(Event.BACK.getValue(), handler.getJsoPeer());
     }
 
 }

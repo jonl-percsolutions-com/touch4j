@@ -17,6 +17,7 @@ package com.emitrom.touch4j.client.ui;
 
 import com.emitrom.touch4j.client.core.Component;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.map.MapCenterChangeHandler;
 import com.emitrom.touch4j.client.core.handlers.map.MapTypeChangeHandler;
 import com.emitrom.touch4j.client.core.handlers.map.MapZoomChangeHandler;
@@ -108,8 +109,7 @@ public class GoogleMap extends Component implements MapElement {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.widgets.MapElement#isUseCurrentLocation()
+     * @see com.emitrom.touch4j.client.widgets.MapElement#isUseCurrentLocation()
      */
     @Override
     public native boolean isUseCurrentLocation() /*-{
@@ -150,36 +150,33 @@ public class GoogleMap extends Component implements MapElement {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.widgets.MapElement#addCenterChangeHandler
+     * @see com.emitrom.touch4j.client.widgets.MapElement#addCenterChangeHandler
      * (com.emitrom.touch4j.client.core.handlers.map.MapCenterChangeHandler)
      */
     @Override
-    public void addCenterChangeHandler(MapCenterChangeHandler handler) {
-        addWidgetListener(CENTER_CHANGE, handler.getJsoPeer());
+    public CallbackRegistration addCenterChangeHandler(MapCenterChangeHandler handler) {
+        return addWidgetListener(CENTER_CHANGE, handler.getJsoPeer());
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.widgets.MapElement#addTypeChangeHandler
+     * @see com.emitrom.touch4j.client.ui.MapElement#addTypeChangeHandler
      * (com.emitrom.touch4j.client.core.handlers.map.MapTypeChangeHandler)
      */
     @Override
-    public void addTypeChangeHandler(MapTypeChangeHandler handler) {
-        addWidgetListener(TYPE_CHANGE, handler.getJsoPeer());
+    public CallbackRegistration addTypeChangeHandler(MapTypeChangeHandler handler) {
+        return addWidgetListener(TYPE_CHANGE, handler.getJsoPeer());
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.widgets.MapElement#addZoomChangeHandler
+     * @see com.emitrom.touch4j.client.widgets.MapElement#addZoomChangeHandler
      * (com.emitrom.touch4j.client.core.handlers.map.MapZoomChangeHandler)
      */
     @Override
-    public void addZoomChangeHandler(MapZoomChangeHandler handler) {
-        addWidgetListener(ZOOM_CHANGE, handler.getJsoPeer());
+    public CallbackRegistration addZoomChangeHandler(MapZoomChangeHandler handler) {
+        return addWidgetListener(ZOOM_CHANGE, handler.getJsoPeer());
     }
 }

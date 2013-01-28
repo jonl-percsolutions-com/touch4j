@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  **************************************************************************/
-package com.emitrom.touch4j.charts.client.laf;
+package com.emitrom.touch4j.client.draw;
 
 import com.emitrom.touch4j.client.core.JsoHelper;
 import com.emitrom.touch4j.client.core.config.BaseConfig;

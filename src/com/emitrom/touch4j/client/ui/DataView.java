@@ -1,23 +1,24 @@
 /**************************************************************************
-   DataView.java is part of Touch4j 3.0.  Copyright 2012 Emitrom LLC
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+ * DataView.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  **************************************************************************/
 package com.emitrom.touch4j.client.ui;
 
 import com.emitrom.touch4j.client.core.config.Attribute;
 import com.emitrom.touch4j.client.core.config.Event;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.dataview.DataViewDoSelectHandler;
 import com.emitrom.touch4j.client.core.handlers.dataview.DataViewItemDoubleTapHandler;
 import com.emitrom.touch4j.client.core.handlers.dataview.DataViewItemSwipeHandler;
@@ -270,8 +271,7 @@ public class DataView extends Container implements HasStore, ListView {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.dataview.ListView#setPressedCls(java.lang
+     * @see com.emitrom.touch4j.client.dataview.ListView#setPressedCls(java.lang
      * .String)
      */
     @Override
@@ -283,8 +283,7 @@ public class DataView extends Container implements HasStore, ListView {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.dataview.ListView#setPressedDelay(double)
+     * @see com.emitrom.touch4j.client.dataview.ListView#setPressedDelay(double)
      */
     @Override
     public native void setPressedDelay(double value)/*-{
@@ -355,8 +354,7 @@ public class DataView extends Container implements HasStore, ListView {
      * (non-Javadoc)
      * 
      * @see
-     * com.emitrom.touch4j.client.dataview.ListView#setDeferEmptyText(boolean
-     * )
+     * com.emitrom.touch4j.client.dataview.ListView#setDeferEmptyText(boolean )
      */
     @Override
     public void setDeferEmptyText(boolean value) {
@@ -376,8 +374,7 @@ public class DataView extends Container implements HasStore, ListView {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.dataview.ListView#setEmptyText(java.lang
+     * @see com.emitrom.touch4j.client.dataview.ListView#setEmptyText(java.lang
      * .String)
      */
     @Override
@@ -398,8 +395,7 @@ public class DataView extends Container implements HasStore, ListView {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.dataview.ListView#setItemTpl(java.lang.
+     * @see com.emitrom.touch4j.client.dataview.ListView#setItemTpl(java.lang.
      * String)
      */
     @Override
@@ -411,8 +407,7 @@ public class DataView extends Container implements HasStore, ListView {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.dataview.ListView#setItemTpl(com.emitrom
+     * @see com.emitrom.touch4j.client.dataview.ListView#setItemTpl(com.emitrom
      * .gwt4.touch.client.core.template.Template)
      */
     @Override
@@ -457,8 +452,7 @@ public class DataView extends Container implements HasStore, ListView {
      * (non-Javadoc)
      * 
      * @see
-     * com.emitrom.touch4j.client.dataview.ListView#deselectOnContainerClick
-     * ()
+     * com.emitrom.touch4j.client.dataview.ListView#deselectOnContainerClick ()
      */
     @Override
     public native boolean deselectOnContainerClick()/*-{
@@ -476,8 +470,8 @@ public class DataView extends Container implements HasStore, ListView {
      * 
      * @param handler
      */
-    public void addDoSelectHandler(DataViewDoSelectHandler handler) {
-        this.addWidgetListener(Event.DO_SELECT.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addDoSelectHandler(DataViewDoSelectHandler handler) {
+        return this.addWidgetListener(Event.DO_SELECT.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -485,8 +479,8 @@ public class DataView extends Container implements HasStore, ListView {
      * 
      * @param handler
      */
-    public void addItemDoubleTapHandler(DataViewItemDoubleTapHandler handler) {
-        this.addWidgetListener(Event.ITEM_DOUBLE_TAP.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addItemDoubleTapHandler(DataViewItemDoubleTapHandler handler) {
+        return this.addWidgetListener(Event.ITEM_DOUBLE_TAP.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -494,8 +488,8 @@ public class DataView extends Container implements HasStore, ListView {
      * 
      * @param handler
      */
-    public void addItemSwipeHandler(DataViewItemSwipeHandler handler) {
-        this.addWidgetListener(Event.ITEM_SWIPE.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addItemSwipeHandler(DataViewItemSwipeHandler handler) {
+        return this.addWidgetListener(Event.ITEM_SWIPE.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -503,8 +497,8 @@ public class DataView extends Container implements HasStore, ListView {
      * 
      * @param handler
      */
-    public void addItemTapHandler(DataViewItemTapHandler handler) {
-        this.addWidgetListener(Event.ITEM_TAP.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addItemTapHandler(DataViewItemTapHandler handler) {
+        return this.addWidgetListener(Event.ITEM_TAP.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -512,8 +506,8 @@ public class DataView extends Container implements HasStore, ListView {
      * 
      * @param handler
      */
-    public void addItemTouchEndHandler(DataViewItemTouchEndHandler handler) {
-        this.addWidgetListener(Event.ITEM_TOUCH_END.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addItemTouchEndHandler(DataViewItemTouchEndHandler handler) {
+        return this.addWidgetListener(Event.ITEM_TOUCH_END.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -521,8 +515,8 @@ public class DataView extends Container implements HasStore, ListView {
      * 
      * @param handler
      */
-    public void addItemTouchStartHandler(DataViewItemTouchStartHandler handler) {
-        this.addWidgetListener(Event.ITEM_TOUCH_START.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addItemTouchStartHandler(DataViewItemTouchStartHandler handler) {
+        return this.addWidgetListener(Event.ITEM_TOUCH_START.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -530,8 +524,8 @@ public class DataView extends Container implements HasStore, ListView {
      * 
      * @param handler
      */
-    public void addRefreshHandler(DataViewRefreshHandler handler) {
-        this.addWidgetListener(Event.REFRESH.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addRefreshHandler(DataViewRefreshHandler handler) {
+        return this.addWidgetListener(Event.REFRESH.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -539,8 +533,8 @@ public class DataView extends Container implements HasStore, ListView {
      * 
      * @param handler
      */
-    public void addSelectHandler(DataViewSelectHandler handler) {
-        this.addWidgetListener(Event.SELECT.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addSelectHandler(DataViewSelectHandler handler) {
+        return this.addWidgetListener(Event.SELECT.getValue(), handler.getJsoPeer());
     }
 
     private native void _setItemTpl(String value)/*-{

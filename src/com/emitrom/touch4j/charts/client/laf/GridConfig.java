@@ -17,6 +17,7 @@ package com.emitrom.touch4j.charts.client.laf;
 
 import com.emitrom.touch4j.client.core.JsoHelper;
 import com.emitrom.touch4j.client.core.config.BaseConfig;
+import com.emitrom.touch4j.client.draw.SpriteConfig;
 
 public class GridConfig extends BaseConfig {
 

@@ -15,13 +15,12 @@
  **************************************************************************/
 package com.emitrom.touch4j.client.core;
 
-import com.emitrom.touch4j.client.core.Function;
-import com.emitrom.touch4j.client.core.JsoHelper;
 import com.emitrom.touch4j.client.core.config.Attribute;
 import com.emitrom.touch4j.client.core.config.ComponentConfig;
 import com.emitrom.touch4j.client.core.config.Dock;
 import com.emitrom.touch4j.client.core.config.Event;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.component.BottomChangeHandler;
 import com.emitrom.touch4j.client.core.handlers.component.CenteredChangeHandler;
 import com.emitrom.touch4j.client.core.handlers.component.DisabledChangeHandler;
@@ -773,8 +772,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
      * (non-Javadoc)
      * 
      * @see
-     * com.emitrom.touch4j.client.core.FocusWidget#setBaseCls(java.lang.String
-     * )
+     * com.emitrom.touch4j.client.core.FocusWidget#setBaseCls(java.lang.String )
      */
     @Override
     public native void setBaseCls(String baseCls) /*-{
@@ -884,8 +882,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.FocusWidget#setDisabledCls(java.lang
+     * @see com.emitrom.touch4j.client.core.FocusWidget#setDisabledCls(java.lang
      * .String)
      */
     @Override
@@ -912,8 +909,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.FocusWidget#setDraggable(java.lang
+     * @see com.emitrom.touch4j.client.core.FocusWidget#setDraggable(java.lang
      * .Object)
      */
     @Override
@@ -1059,8 +1055,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.FocusWidget#setRenderTo(com.google
+     * @see com.emitrom.touch4j.client.core.FocusWidget#setRenderTo(com.google
      * .gwt.user.client.Element)
      */
     @Override
@@ -1074,8 +1069,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.FocusWidget#setRenderTpl(java.lang
+     * @see com.emitrom.touch4j.client.core.FocusWidget#setRenderTpl(java.lang
      * .Object)
      */
     @Override
@@ -1133,8 +1127,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.BoxWidget#setSize(com.emitrom.gwt4
+     * @see com.emitrom.touch4j.client.core.BoxWidget#setSize(com.emitrom.gwt4
      * .touch.client.core.Size)
      */
     @Override
@@ -1165,8 +1158,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.HasHtml#setStyle(java.lang.Object)
+     * @see com.emitrom.touch4j.client.core.HasHtml#setStyle(java.lang.Object)
      */
     @Override
     public native void setStyle(Object value) /*-{
@@ -1179,8 +1171,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.HasHtml#setStyleHtmlCls(java.lang.
+     * @see com.emitrom.touch4j.client.core.HasHtml#setStyleHtmlCls(java.lang.
      * String)
      */
     @Override
@@ -1194,8 +1185,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.HasHtml#setStyleHtmlContent(boolean)
+     * @see com.emitrom.touch4j.client.core.HasHtml#setStyleHtmlContent(boolean)
      */
     @Override
     public native void setStyleHtmlContent(boolean value) /*-{
@@ -1246,8 +1236,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.HasHtml#setTplWriteMode(java.lang.
+     * @see com.emitrom.touch4j.client.core.HasHtml#setTplWriteMode(java.lang.
      * String)
      */
     @Override
@@ -1351,8 +1340,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.HasHtml#updateStyleHtmlCls(java.lang
+     * @see com.emitrom.touch4j.client.core.HasHtml#updateStyleHtmlCls(java.lang
      * .Object, java.lang.Object)
      */
     @Override
@@ -1404,12 +1392,9 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
      */
     public native void addListener(String event, Function fn)/*-{
 		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		component
-				.addListener(
-						event,
-						function() {
-							return fn.@com.emitrom.touch4j.client.core.Function::execute()();
-						});
+		component.addListener(event, function() {
+			return fn.@com.emitrom.touch4j.client.core.Function::execute()();
+		});
     }-*/;
 
     /**
@@ -1456,8 +1441,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.FocusWidget#setRenderToID(java.lang
+     * @see com.emitrom.touch4j.client.core.FocusWidget#setRenderToID(java.lang
      * .String)
      */
     @Override
@@ -1506,22 +1490,21 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
      * .emitrom.gwt4.touch.client.core.handlers.component.BottomChangeHandler)
      */
     @Override
-    public void addBottomChangeHandler(BottomChangeHandler handler) {
-        this.addListener(Event.BOTTOM_CHANGE.getValue(), handler);
+    public CallbackRegistration addBottomChangeHandler(BottomChangeHandler handler) {
+        return this.addListener(Event.BOTTOM_CHANGE.getValue(), handler);
     }
 
     /*
      * (non-Javadoc)
      * 
      * @see
-     * com.emitrom.touch4j.client.core.HasBoxHandlers#addCenteredChangeHandler
-     * (
+     * com.emitrom.touch4j.client.core.HasBoxHandlers#addCenteredChangeHandler (
      * com.emitrom.touch4j.client.core.handlers.component.CenteredChangeHandler
      * )
      */
     @Override
-    public void addCenteredChangeHandler(CenteredChangeHandler handler) {
-        this.addListener(Event.CENTERED_CHANGED.getValue(), handler);
+    public CallbackRegistration addCenteredChangeHandler(CenteredChangeHandler handler) {
+        return this.addListener(Event.CENTERED_CHANGED.getValue(), handler);
     }
 
     /*
@@ -1534,21 +1517,20 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
      * )
      */
     @Override
-    public void addDisabledChangeHandler(DisabledChangeHandler handler) {
-        this.addListener(Event.DISABLED_CHANGE.getValue(), handler);
+    public CallbackRegistration addDisabledChangeHandler(DisabledChangeHandler handler) {
+        return this.addListener(Event.DISABLED_CHANGE.getValue(), handler);
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.HasBoxHandlers#addDockChangeHandler
+     * @see com.emitrom.touch4j.client.core.HasBoxHandlers#addDockChangeHandler
      * (com
      * .emitrom.gwt4.touch.client.core.handlers.component.DockedChangeHandler)
      */
     @Override
-    public void addDockChangeHandler(DockedChangeHandler handler) {
-        this.addListener(Event.DOCKED_CHANGE.getValue(), handler);
+    public CallbackRegistration addDockChangeHandler(DockedChangeHandler handler) {
+        return this.addListener(Event.DOCKED_CHANGE.getValue(), handler);
     }
 
     /*
@@ -1560,45 +1542,42 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
      * .emitrom.gwt4.touch.client.core.handlers.component.HeightChangeHandler)
      */
     @Override
-    public void addHeightChangeHandler(HeightChangeHandler handler) {
-        this.addListener(Event.HEIGHT_CHANGE.getValue(), handler);
+    public CallbackRegistration addHeightChangeHandler(HeightChangeHandler handler) {
+        return this.addListener(Event.HEIGHT_CHANGE.getValue(), handler);
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.HasFocusHandlers#addHideHandler(com
+     * @see com.emitrom.touch4j.client.core.HasFocusHandlers#addHideHandler(com
      * .emitrom.gwt4.touch.client.core.handlers.component.HideHandler)
      */
     @Override
-    public void addHideHandler(HideHandler handler) {
-        this.addListener(Event.HIDE.getValue(), handler);
+    public CallbackRegistration addHideHandler(HideHandler handler) {
+        return this.addListener(Event.HIDE.getValue(), handler);
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.HasBoxHandlers#addLeftChangeHandler
+     * @see com.emitrom.touch4j.client.core.HasBoxHandlers#addLeftChangeHandler
      * (com.emitrom.touch4j.client.core.handlers.component.LeftChangeHandler)
      */
     @Override
-    public void addLeftChangeHandler(LeftChangeHandler handler) {
-        this.addListener(Event.LEFT_CHANGE.getValue(), handler);
+    public CallbackRegistration addLeftChangeHandler(LeftChangeHandler handler) {
+        return this.addListener(Event.LEFT_CHANGE.getValue(), handler);
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.HasBoxHandlers#addRightChangeHandler
+     * @see com.emitrom.touch4j.client.core.HasBoxHandlers#addRightChangeHandler
      * (com
      * .emitrom.gwt4.touch.client.core.handlers.component.RightChangeHandler)
      */
     @Override
-    public void addRightChangeHandler(RightChangeHandler handler) {
-        this.addListener(Event.RIGHT_CHANGE.getValue(), handler);
+    public CallbackRegistration addRightChangeHandler(RightChangeHandler handler) {
+        return this.addListener(Event.RIGHT_CHANGE.getValue(), handler);
     }
 
     /**
@@ -1609,44 +1588,41 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
      * Instead 'resize' only fires if you explicily add at least one listener to
      * it, due to performance reason.
      */
-    public void addResizeHandler(ResizeHandler handler) {
-        this.addListener(Event.RESIZE.getValue(), handler);
+    public CallbackRegistration addResizeHandler(ResizeHandler handler) {
+        return this.addListener(Event.RESIZE.getValue(), handler);
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.HasFocusHandlers#addShowHandler(com
+     * @see com.emitrom.touch4j.client.core.HasFocusHandlers#addShowHandler(com
      * .emitrom.gwt4.touch.client.core.handlers.component.ShowHandler)
      */
     @Override
-    public void addShowHandler(ShowHandler handler) {
-        this.addListener(Event.SHOW.getValue(), handler);
+    public CallbackRegistration addShowHandler(ShowHandler handler) {
+        return this.addListener(Event.SHOW.getValue(), handler);
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.HasBoxHandlers#addTopChangeHandler
+     * @see com.emitrom.touch4j.client.core.HasBoxHandlers#addTopChangeHandler
      * (com.emitrom.touch4j.client.core.handlers.component.TopChangeHandler)
      */
     @Override
-    public void addTopChangeHandler(TopChangeHandler handler) {
-        this.addListener(Event.TOP_CHANGE.getValue(), handler);
+    public CallbackRegistration addTopChangeHandler(TopChangeHandler handler) {
+        return this.addListener(Event.TOP_CHANGE.getValue(), handler);
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.HasBoxHandlers#addWidthHandler(com
+     * @see com.emitrom.touch4j.client.core.HasBoxHandlers#addWidthHandler(com
      * .emitrom.gwt4.touch.client.core.handlers.component.WidthChangeHandler)
      */
     @Override
-    public void addWidthHandler(WidthChangeHandler handler) {
-        this.addListener(Event.WIDTH_CHANGE.getValue(), handler);
+    public CallbackRegistration addWidthHandler(WidthChangeHandler handler) {
+        return this.addListener(Event.WIDTH_CHANGE.getValue(), handler);
     }
 
     /**

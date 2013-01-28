@@ -18,6 +18,7 @@ package com.emitrom.touch4j.client.ui;
 import com.emitrom.touch4j.client.core.Component;
 import com.emitrom.touch4j.client.core.JsoHelper;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.draw.Sprite;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -66,5 +67,27 @@ public class ComponentFactory {
 		var xtype = jsObj.getXType ? jsObj.getXType() : null;
 		return xtype === undefined ? null : xtype;
     }-*/;
+
+    public static JavaScriptObject fromArray(Component[] components) {
+        JavaScriptObject array = JsoHelper.createJavaScriptArray();
+        for (int i = 0; i < components.length; i++) {
+            JavaScriptObject c = components[i].getOrCreateJsObj();
+            JsoHelper.setArrayValue(array, i, c);
+        }
+        return array;
+    }
+
+    public static JavaScriptObject fromArrayOfSprite(Sprite[] components) {
+        JavaScriptObject array = JsoHelper.createJavaScriptArray();
+        for (int i = 0; i < components.length; i++) {
+            JavaScriptObject c = components[i].getJsObj();
+            JsoHelper.setArrayValue(array, i, c);
+        }
+        return array;
+    }
+
+    public static Component cast(Component component) {
+        return getComponent(component.getOrCreateJsObj());
+    }
 
 }

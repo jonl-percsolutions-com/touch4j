@@ -22,6 +22,7 @@ import com.emitrom.touch4j.client.core.JsoHelper;
 import com.emitrom.touch4j.client.core.config.Attribute;
 import com.emitrom.touch4j.client.core.config.Event;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.picker.PickerCancelHandler;
 import com.emitrom.touch4j.client.core.handlers.picker.PickerChangeHandler;
 import com.emitrom.touch4j.client.core.handlers.picker.PickerPickHandler;
@@ -402,8 +403,8 @@ public class Picker extends Sheet {
      * 
      * @param handler
      */
-    public void addCancelHandler(PickerCancelHandler handler) {
-        this.addWidgetListener(Event.CANCEL.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addCancelHandler(PickerCancelHandler handler) {
+        return this.addWidgetListener(Event.CANCEL.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -411,8 +412,8 @@ public class Picker extends Sheet {
      * 
      * @param handler
      */
-    public void addChangeHandler(PickerChangeHandler handler) {
-        this.addWidgetListener(Event.CHANGE.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addChangeHandler(PickerChangeHandler handler) {
+        return this.addWidgetListener(Event.CHANGE.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -420,8 +421,8 @@ public class Picker extends Sheet {
      * 
      * @param handler
      */
-    public void addPickerHandler(PickerPickHandler handler) {
-        this.addWidgetListener(Event.PICK.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addPickerHandler(PickerPickHandler handler) {
+        return this.addWidgetListener(Event.PICK.getValue(), handler.getJsoPeer());
     }
 
     private native void setToolBar(JavaScriptObject value) /*-{

@@ -33,6 +33,7 @@ import com.emitrom.touch4j.charts.client.series.AbstractSerie;
 import com.emitrom.touch4j.charts.client.theme.Theme;
 import com.emitrom.touch4j.client.core.Component;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.data.Store;
 import com.emitrom.touch4j.client.laf.Color;
 import com.emitrom.touch4j.client.laf.Position;
@@ -589,8 +590,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemClickHandler(ChartEventHandler handler) {
-        addHandler(ITEM_CLICK, handler);
+    public CallbackRegistration addItemClickHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_CLICK, handler);
     }
 
     /**
@@ -598,8 +599,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemDoubleClickHandler(ChartEventHandler handler) {
-        addHandler(ITEM_DOUBLE_CLICK, handler);
+    public CallbackRegistration addItemDoubleClickHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_DOUBLE_CLICK, handler);
     }
 
     /**
@@ -607,8 +608,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemDoubleTapHandler(ChartEventHandler handler) {
-        addHandler(ITEM_DOUBLE_TAP, handler);
+    public CallbackRegistration addItemDoubleTapHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_DOUBLE_TAP, handler);
     }
 
     /**
@@ -616,8 +617,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemDraHandler(ChartEventHandler handler) {
-        addHandler(ITEM_DRAG, handler);
+    public CallbackRegistration addItemDraHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_DRAG, handler);
     }
 
     /**
@@ -625,8 +626,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemDragEndHandler(ChartEventHandler handler) {
-        addHandler(ITEM_DRAG_END, handler);
+    public CallbackRegistration addItemDragEndHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_DRAG_END, handler);
     }
 
     /**
@@ -634,8 +635,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemDragStartHandler(ChartEventHandler handler) {
-        addHandler(ITEM_DRAG_START, handler);
+    public CallbackRegistration addItemDragStartHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_DRAG_START, handler);
     }
 
     /**
@@ -643,8 +644,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemMouseDownHandler(ChartEventHandler handler) {
-        addHandler(ITEM_MOUSE_DOWN, handler);
+    public CallbackRegistration addItemMouseDownHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_MOUSE_DOWN, handler);
     }
 
     /**
@@ -652,8 +653,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemMouseMoveHandler(ChartEventHandler handler) {
-        addHandler(ITEM_MOUSE_MOVE, handler);
+    public CallbackRegistration addItemMouseMoveHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_MOUSE_MOVE, handler);
     }
 
     /**
@@ -661,8 +662,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemMouseOutHandler(ChartEventHandler handler) {
-        addHandler(ITEM_MOUSE_OUT, handler);
+    public CallbackRegistration addItemMouseOutHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_MOUSE_OUT, handler);
     }
 
     /**
@@ -670,8 +671,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemMouseOverHandler(ChartEventHandler handler) {
-        addHandler(ITEM_MOUSE_OVER, handler);
+    public CallbackRegistration addItemMouseOverHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_MOUSE_OVER, handler);
     }
 
     /**
@@ -679,8 +680,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemMouseUpHandler(ChartEventHandler handler) {
-        addHandler(ITEM_MOUSE_UP, handler);
+    public CallbackRegistration addItemMouseUpHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_MOUSE_UP, handler);
     }
 
     /**
@@ -688,8 +689,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemPinchHandler(ChartEventHandler handler) {
-        addHandler(ITEM_PINCH, handler);
+    public CallbackRegistration addItemPinchHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_PINCH, handler);
     }
 
     /**
@@ -697,8 +698,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemPinchEndHandler(ChartEventHandler handler) {
-        addHandler(ITEM_PINCH_END, handler);
+    public CallbackRegistration addItemPinchEndHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_PINCH_END, handler);
     }
 
     /**
@@ -706,8 +707,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemPinchStartHandler(ChartEventHandler handler) {
-        addHandler(ITEM_PINCH_START, handler);
+    public CallbackRegistration addItemPinchStartHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_PINCH_START, handler);
     }
 
     /**
@@ -715,8 +716,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemSingleTapHandler(ChartEventHandler handler) {
-        addHandler(ITEM_SINGLE_TAP, handler);
+    public CallbackRegistration addItemSingleTapHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_SINGLE_TAP, handler);
     }
 
     /**
@@ -724,8 +725,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemSwipeHandler(ChartEventHandler handler) {
-        addHandler(ITEM_SWIPE, handler);
+    public CallbackRegistration addItemSwipeHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_SWIPE, handler);
     }
 
     /**
@@ -733,8 +734,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemTapHandler(ChartEventHandler handler) {
-        addHandler(ITEM_TAP, handler);
+    public CallbackRegistration addItemTapHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_TAP, handler);
     }
 
     /**
@@ -742,8 +743,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemTapCancelHandler(ChartEventHandler handler) {
-        addHandler(ITEM_TAP_CANCEL, handler);
+    public CallbackRegistration addItemTapCancelHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_TAP_CANCEL, handler);
     }
 
     /**
@@ -751,8 +752,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemTapEndHandler(ChartEventHandler handler) {
-        addHandler(ITEM_TAP_END, handler);
+    public CallbackRegistration addItemTapEndHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_TAP_END, handler);
     }
 
     /**
@@ -760,8 +761,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemTapHoldHandler(ChartEventHandler handler) {
-        addHandler(ITEM_TAP_HOLD, handler);
+    public CallbackRegistration addItemTapHoldHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_TAP_HOLD, handler);
     }
 
     /**
@@ -769,8 +770,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemTapStartHandler(ChartEventHandler handler) {
-        addHandler(ITEM_TAP_START, handler);
+    public CallbackRegistration addItemTapStartHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_TAP_START, handler);
     }
 
     /**
@@ -778,8 +779,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemTouchEndHandler(ChartEventHandler handler) {
-        addHandler(ITEM_TOUCH_END, handler);
+    public CallbackRegistration addItemTouchEndHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_TOUCH_END, handler);
     }
 
     /**
@@ -787,8 +788,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemTouchMoveHandler(ChartEventHandler handler) {
-        addHandler(ITEM_TOUCH_MOVE, handler);
+    public CallbackRegistration addItemTouchMoveHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_TOUCH_MOVE, handler);
     }
 
     /**
@@ -796,8 +797,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addItemTouchStartHandler(ChartEventHandler handler) {
-        addHandler(ITEM_TOUCH_START, handler);
+    public CallbackRegistration addItemTouchStartHandler(ChartEventHandler handler) {
+        return addHandler(ITEM_TOUCH_START, handler);
     }
 
     /**
@@ -805,8 +806,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addRedrawHandler(ChartChangeHandler handler) {
-        addChangeHandler(REDRAW, handler);
+    public CallbackRegistration addRedrawHandler(ChartChangeHandler handler) {
+        return addChangeHandler(REDRAW, handler);
     }
 
     /**
@@ -814,8 +815,8 @@ public class Chart extends Component {
      * 
      * @param handler
      */
-    public void addRefreshHandler(ChartChangeHandler handler) {
-        addChangeHandler(REFRESH, handler);
+    public CallbackRegistration addRefreshHandler(ChartChangeHandler handler) {
+        return addChangeHandler(REFRESH, handler);
     }
 
     private native void _save(JavaScriptObject type)/*-{
@@ -851,30 +852,32 @@ public class Chart extends Component {
 		};
     }-*/;
 
-    private native void addHandler(String event, ChartEventHandler handler)/*-{
+    private native CallbackRegistration addHandler(String event, ChartEventHandler handler)/*-{
 		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		component
-				.addEventListener(
-						event,
-						$entry(function(series, item, e) {
-							var seriesObject = @com.emitrom.touch4j.charts.client.series.AbstractSerie::new(Lcom/google/gwt/core/client/JavaScriptObject;)(series);
-							var chartItem = @com.emitrom.touch4j.charts.client.interactions.ChartItem::new(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
-							var eventObject = @com.emitrom.touch4j.client.core.EventObject::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-							chartObject = @com.emitrom.touch4j.client.ui.Chart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
+		var widget = this.@com.emitrom.touch4j.client.core.AbstractBaseWidget::widget;
+		var fn = $entry(function(series, item, e) {
+			var seriesObject = @com.emitrom.touch4j.charts.client.series.AbstractSerie::new(Lcom/google/gwt/core/client/JavaScriptObject;)(series);
+			var chartItem = @com.emitrom.touch4j.charts.client.interactions.ChartItem::new(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
+			var eventObject = @com.emitrom.touch4j.client.core.EventObject::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+			chartObject = @com.emitrom.touch4j.client.ui.Chart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
 
-							handler.@com.emitrom.touch4j.charts.client.handlers.ChartEventHandler::onEvent(Lcom/emitrom/touch4j/charts/client/series/BaseSeries;Lcom/emitrom/touch4j/charts/client/interactions/ChartItem;Lcom/emitrom/touch4j/client/core/EventObject;)(seriesObject, chartItem, eventObject);
-						}));
+			handler.@com.emitrom.touch4j.charts.client.handlers.ChartEventHandler::onEvent(Lcom/emitrom/touch4j/charts/client/series/BaseSeries;Lcom/emitrom/touch4j/charts/client/interactions/ChartItem;Lcom/emitrom/touch4j/client/core/EventObject;)(seriesObject, chartItem, eventObject);
+		});
+		component.addListener(event, fn);
+		var toReturn = @com.emitrom.touch4j.client.core.handlers.CallbackRegistration::new(Lcom/emitrom/touch4j/client/core/TouchWidget;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(widget,event,fn);
+		return toReturn;
     }-*/;
 
-    private native void addChangeHandler(String event, ChartChangeHandler handler)/*-{
+    private native CallbackRegistration addChangeHandler(String event, ChartChangeHandler handler)/*-{
 		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		component
-				.addEventListener(
-						event,
-						$entry(function(chart) {
-							chartObject = @com.emitrom.touch4j.client.ui.Chart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
-							handler.@com.emitrom.touch4j.charts.client.handlers.ChartChangeHandler::onEvent(Lcom/emitrom/touch4j/client/ui/Chart;)(chartObject);
-						}));
+		var widget = this.@com.emitrom.touch4j.client.core.AbstractBaseWidget::widget;
+		var fn = $entry(function(chart) {
+			chartObject = @com.emitrom.touch4j.client.ui.Chart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
+			handler.@com.emitrom.touch4j.charts.client.handlers.ChartChangeHandler::onEvent(Lcom/emitrom/touch4j/client/ui/Chart;)(chartObject);
+		});
+		component.addListener(event, fn);
+		var toReturn = @com.emitrom.touch4j.client.core.handlers.CallbackRegistration::new(Lcom/emitrom/touch4j/client/core/TouchWidget;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(widget,event,fn);
+		return toReturn;
     }-*/;
 
 }

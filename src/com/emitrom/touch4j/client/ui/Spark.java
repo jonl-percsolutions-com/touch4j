@@ -23,8 +23,10 @@ import com.google.gwt.core.client.JavaScriptObject;
 /**
  * The Spark Chart provides small sized charts. This class extends the
  * {@link com.emitrom.touch4j.client.ui.Chart} class with default configuration
- * options needed to create word-sized charts.
+ * options needed to create word-sized charts. <br/>
+ * This class will be removed from the library. Please do not use !
  */
+@Deprecated
 public class Spark extends Chart {
 
     private static JavaScriptObject configPrototype;

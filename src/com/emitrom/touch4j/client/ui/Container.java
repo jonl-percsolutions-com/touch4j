@@ -28,6 +28,7 @@ import com.emitrom.touch4j.client.core.Scroller;
 import com.emitrom.touch4j.client.core.config.Attribute;
 import com.emitrom.touch4j.client.core.config.ContainerConfig;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.component.RenderChangeHandler;
 import com.emitrom.touch4j.client.core.handlers.layout.card.ActiveItemChangeHandler;
 import com.emitrom.touch4j.client.fx.layout.card.Animation;
@@ -264,18 +265,7 @@ public class Container extends ComplexContainer implements HasLayout, Resizable 
      * @param scroller
      */
     public void setScroller(Scroller scroller) {
-        setScrollable(scroller.getJso());
-    }
-
-    /**
-     * Sets the value of scrollable
-     * 
-     * @param scrollable
-     * @deprecated Deprecated since version 2.1. Use setScroller() instead.
-     */
-    @Deprecated
-    public void setScrollable(Scroller scrollable) {
-        setScroller(scrollable);
+        setScrollable(scroller.getJsObj());
     }
 
     @Override
@@ -378,12 +368,12 @@ public class Container extends ComplexContainer implements HasLayout, Resizable 
      * 
      * @param handler
      */
-    public void addRenderChangeHandler(RenderChangeHandler handler) {
-        this.addWidgetListener(Attribute.RENDERED_CHANGE.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addRenderChangeHandler(RenderChangeHandler handler) {
+        return this.addWidgetListener(Attribute.RENDERED_CHANGE.getValue(), handler.getJsoPeer());
     }
 
-    public void addActiveItemChangeHandler(ActiveItemChangeHandler handler) {
-        this.addWidgetListener("activeitemchange", handler.getJsoPeer());
+    public CallbackRegistration addActiveItemChangeHandler(ActiveItemChangeHandler handler) {
+        return this.addWidgetListener("activeitemchange", handler.getJsoPeer());
     }
 
     private native void setScrollable(JavaScriptObject scrollable) /*-{

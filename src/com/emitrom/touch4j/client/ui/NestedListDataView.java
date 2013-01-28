@@ -18,6 +18,7 @@ package com.emitrom.touch4j.client.ui;
 
 import com.emitrom.touch4j.client.core.config.Event;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.nestedlist.NestedListBeforeLoadHandler;
 import com.emitrom.touch4j.client.core.handlers.nestedlist.NestedListBeforeSelectHandler;
 import com.emitrom.touch4j.client.core.handlers.nestedlist.NestedListChangeHandler;
@@ -259,8 +260,8 @@ public class NestedListDataView extends Container {
      * 
      * @param handler
      */
-    public void addBeforeLoadHandler(NestedListBeforeLoadHandler handler) {
-        this.addWidgetListener(Event.BEFORE_LOAD.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addBeforeLoadHandler(NestedListBeforeLoadHandler handler) {
+        return this.addWidgetListener(Event.BEFORE_LOAD.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -268,8 +269,8 @@ public class NestedListDataView extends Container {
      * 
      * @param handler
      */
-    public void addBeforeSelectHandler(NestedListBeforeSelectHandler handler) {
-        this.addWidgetListener(Event.BEFORE_SELECT.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addBeforeSelectHandler(NestedListBeforeSelectHandler handler) {
+        return this.addWidgetListener(Event.BEFORE_SELECT.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -277,8 +278,8 @@ public class NestedListDataView extends Container {
      * 
      * @param handler
      */
-    public void addListChangeHandler(NestedListChangeHandler handler) {
-        this.addWidgetListener(Event.LIST_CHANGE.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addListChangeHandler(NestedListChangeHandler handler) {
+        return this.addWidgetListener(Event.LIST_CHANGE.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -286,8 +287,8 @@ public class NestedListDataView extends Container {
      * 
      * @param handler
      */
-    public void addListItemDoubleTapHandler(NestedListItemDoubleTapHandler handler) {
-        this.addWidgetListener(Event.ITEM_DOUBLE_TAP.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addListItemDoubleTapHandler(NestedListItemDoubleTapHandler handler) {
+        return this.addWidgetListener(Event.ITEM_DOUBLE_TAP.getValue(), handler.getJsoPeer());
     }
 
     /**
@@ -295,8 +296,8 @@ public class NestedListDataView extends Container {
      * 
      * @param handler
      */
-    public void addListItemTapHandler(NestedListItemTapHandler handler) {
-        this.addWidgetListener(Event.ITEM_TAP.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addListItemTapHandler(NestedListItemTapHandler handler) {
+        return this.addWidgetListener(Event.ITEM_TAP.getValue(), handler.getJsoPeer());
     }
 
     private native void setStore(JavaScriptObject value)/*-{

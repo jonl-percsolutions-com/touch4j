@@ -27,7 +27,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Touch {
 
-    private static final String VERSION = "3.1.0";
+    private static final String VERSION = "4.0.0";
 
     public static void init(InitHandler handler) {
         init(handler.getJsoPeer());

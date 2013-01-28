@@ -86,6 +86,16 @@ public abstract class ComplexContainer extends Component implements HasWidgets, 
      * @param widget
      *            the widget to add
      */
+    public void add(IsComponent widget) {
+        add(widget.asComponent());
+    }
+
+    /**
+     * Add a widget to the Container.
+     * 
+     * @param widget
+     *            the widget to add
+     */
     @Override
     public void add(Widget widget) {
 
@@ -202,9 +212,9 @@ public abstract class ComplexContainer extends Component implements HasWidgets, 
      */
     @Override
     public native Component getComponent(String id) /*-{
-                                                    var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                                    return container.getComponent(id);
-                                                    }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		return container.getComponent(id);
+    }-*/;
 
     /**
      * Examines this container's items property and gets a direct child
@@ -215,22 +225,22 @@ public abstract class ComplexContainer extends Component implements HasWidgets, 
      */
     @Override
     public native Component getComponent(int index) /*-{
-                                                    var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                                    return container.getComponent(index);
-                                                    }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		return container.getComponent(index);
+    }-*/;
 
     @Override
     public native Component[] getComponents()/*-{
-                                             var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                             var items = container.items;
-                                             if (items === undefined || items == null) {
-                                             items = null;
-                                             } else {
-                                             //FormPanel doesn't use MixedCollection
-                                             items = container.items.items || container.items;
-                                             }
-                                             return @com.emitrom.touch4j.client.core.TouchJsoHelper::convertToJavaComponentArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
-                                             }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		var items = container.items;
+		if (items === undefined || items == null) {
+			items = null;
+		} else {
+			//FormPanel doesn't use MixedCollection
+			items = container.items.items || container.items;
+		}
+		return @com.emitrom.touch4j.client.core.TouchJsoHelper::convertToJavaComponentArray(Lcom/google/gwt/core/client/JavaScriptObject;)(items);
+    }-*/;
 
     @Override
     public void setActiveItem(int activeItem) {
@@ -242,9 +252,9 @@ public abstract class ComplexContainer extends Component implements HasWidgets, 
     }
 
     public native <T> T getActiveItem() /*-{
-                                        var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                        return container.getActiveItem();
-                                        }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		return container.getActiveItem();
+    }-*/;
 
     public void setItems(List<Component> components) {
         JsArray<JavaScriptObject> values = JsArray.createArray().cast();
@@ -264,18 +274,18 @@ public abstract class ComplexContainer extends Component implements HasWidgets, 
 
     @Override
     public native void setItems(JsArray<JavaScriptObject> items) /*-{
-                                                                 var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                                                 container.setItems(items);
-                                                                 }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		container.setItems(items);
+    }-*/;
 
     /**
      * Returns the value of items.
      */
     @Override
     public native <T> T getItems() /*-{
-                                   var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                   return container.getItems();
-                                   }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		return container.getItems();
+    }-*/;
 
     /**
      * Finalize the attachment of a Widget to this Panel. This method is the
@@ -411,76 +421,76 @@ public abstract class ComplexContainer extends Component implements HasWidgets, 
     }
 
     private native void addPostCreate(JavaScriptObject componentJS) /*-{
-                                                                    var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                                                    container.add(componentJS);
-                                                                    }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		container.add(componentJS);
+    }-*/;
 
     private native void addPreCreate(JavaScriptObject componentJS) /*-{
-                                                                   var config = this.@com.emitrom.touch4j.client.core.TouchWidget::config;
-                                                                   if (!config.items) {
-                                                                   config.items = @com.emitrom.touch4j.client.core.JsoHelper::createJavaScriptArray()();
-                                                                   }
-                                                                   config.items.push(componentJS);
-                                                                   }-*/;
+		var config = this.@com.emitrom.touch4j.client.core.TouchWidget::config;
+		if (!config.items) {
+			config.items = @com.emitrom.touch4j.client.core.JsoHelper::createJavaScriptArray()();
+		}
+		config.items.push(componentJS);
+    }-*/;
 
     private native void remove(String id) /*-{
-                                          var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                          container.remove(id);
-                                          }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		container.remove(id);
+    }-*/;
 
     private native void remove(String id, boolean autoDestroy) /*-{
-                                                               var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                                               container.remove(id, autoDestroy);
-                                                               }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		container.remove(id, autoDestroy);
+    }-*/;
 
     private native void remove(Component component, boolean autoDestroy) /*-{
-                                                                         var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                                                         var componentJS = component.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                                                         container.remove(componentJS, autoDestroy);
-                                                                         }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		var componentJS = component.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		container.remove(componentJS, autoDestroy);
+    }-*/;
 
     private native void _removeAll() /*-{
-                                     var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                     if (container.items) {
-                                     var cs = container.items.items;
-                                     var len = cs.length;
-                                     for ( var i = 0; i < len; i++) {
-                                     cs[0].hide();
-                                     container.remove(cs[0], false);
-                                     }
-                                     }
-                                     }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		if (container.items) {
+			var cs = container.items.items;
+			var len = cs.length;
+			for ( var i = 0; i < len; i++) {
+				cs[0].hide();
+				container.remove(cs[0], false);
+			}
+		}
+    }-*/;
 
     private native void _removeAll(boolean autoDestroy) /*-{
-                                                        var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                                        if (container.items) {
-                                                        var cs = container.items.items;
-                                                        var len = cs.length
-                                                        for ( var i = 0; i < len; i++) {
-                                                        if (!autoDestroy)
-                                                        cs[0].hide();
-                                                        container.remove(cs[0], autoDestroy);
-                                                        }
-                                                        }
-                                                        }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		if (container.items) {
+			var cs = container.items.items;
+			var len = cs.length
+			for ( var i = 0; i < len; i++) {
+				if (!autoDestroy)
+					cs[0].hide();
+				container.remove(cs[0], autoDestroy);
+			}
+		}
+    }-*/;
 
     private native void adopt(Widget widget, ComplexContainer parent) /*-{
-                                                                      widget.@com.google.gwt.user.client.ui.Widget::setParent(Lcom/google/gwt/user/client/ui/Widget;)(parent);
-                                                                      }-*/;
+		widget.@com.google.gwt.user.client.ui.Widget::setParent(Lcom/google/gwt/user/client/ui/Widget;)(parent);
+    }-*/;
 
     private native void setParent(Widget child, Widget parent) /*-{
-                                                               child.@com.google.gwt.user.client.ui.Widget::setParent(Lcom/google/gwt/user/client/ui/Widget;)(parent);
-                                                               }-*/;
+		child.@com.google.gwt.user.client.ui.Widget::setParent(Lcom/google/gwt/user/client/ui/Widget;)(parent);
+    }-*/;
 
     private native void setActiveItemRendered(int item) /*-{
-                                                        var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                                        container.setActiveItem(item);
-                                                        }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		container.setActiveItem(item);
+    }-*/;
 
     private native void setActiveItemRendered(JavaScriptObject item) /*-{
-                                                                     var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                                                     container.setActiveItem(item);
-                                                                     }-*/;
+		var container = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		container.setActiveItem(item);
+    }-*/;
 
     /**
      * Add a component.

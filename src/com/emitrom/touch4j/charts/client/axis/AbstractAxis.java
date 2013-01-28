@@ -19,9 +19,9 @@ import java.util.ArrayList;
 
 import com.emitrom.touch4j.charts.client.laf.GridConfig;
 import com.emitrom.touch4j.charts.client.laf.Label;
-import com.emitrom.touch4j.charts.client.laf.SpriteConfig;
 import com.emitrom.touch4j.client.core.JsObject;
 import com.emitrom.touch4j.client.core.JsoHelper;
+import com.emitrom.touch4j.client.draw.SpriteConfig;
 import com.emitrom.touch4j.client.laf.Color;
 import com.emitrom.touch4j.client.laf.Position;
 import com.google.gwt.core.client.JavaScriptObject;

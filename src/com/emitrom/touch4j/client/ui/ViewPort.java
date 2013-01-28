@@ -20,6 +20,7 @@ import java.util.List;
 
 import com.emitrom.touch4j.client.core.Component;
 import com.emitrom.touch4j.client.core.config.Event;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.component.OrientationChangeHandler;
 import com.emitrom.touch4j.client.fx.layout.card.Animation;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -210,8 +211,8 @@ public class ViewPort extends Container implements AcceptsOneWidget {
      * 
      * @param handler
      */
-    public void addOrientationChangeHandler(OrientationChangeHandler handler) {
-        viewPort.addWidgetListener(Event.ORIENTATION_CHANGE.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addOrientationChangeHandler(OrientationChangeHandler handler) {
+        return viewPort.addWidgetListener(Event.ORIENTATION_CHANGE.getValue(), handler.getJsoPeer());
     }
 
 }

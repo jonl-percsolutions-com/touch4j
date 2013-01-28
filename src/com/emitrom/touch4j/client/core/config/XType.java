@@ -22,7 +22,7 @@ public enum XType {
     AUDIO("audio"), ACTONSHEET("actionsheet"), BOX("box"), BUTTON("button"), CHART("chart"), CALENDAR("calendar"), CHECKBOX_FIELD(
                     "checkboxfield"), CAROUSEL("carousel"), COMPONENT("component"), CONTAINER("container"), CROSSCUT(
                     "crosscut"), DATAVIEW("dataview"), DATAITEM("dataitem"), DATEPICKER("datepicker"), DATEPICKER_FIELD(
-                    "datepickerfield"), EMAIL_FIELD("emailfield"), FIELD("field"), FIELDSET("fieldset"), FORMPANEL(
+                    "datepickerfield"), DRAW("draw"), EMAIL_FIELD("emailfield"), FIELD("field"), FIELDSET("fieldset"), FORMPANEL(
                     "formpanel"), GWT_WIDGET("gwtwidget"), HIDDEN_FIELD("hiddenfield"), IMAGE("image"), INPUT_FIELD(
                     "input"), LABEL("label"), LIST("list"), LOADMASK("loadmask"), MAP("map"), MASK("mask"), MEDIA(
                     "media"), NAVIGATION_VIEW("navigationview"), NESTEDLIST("nestedlist"), NUMBER_FIELD("numberfield"), PANEL(

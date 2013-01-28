@@ -1,17 +1,17 @@
 /**************************************************************************
-   TouchWidget.java is part of Touch4j 3.0.  Copyright 2012 Emitrom LLC
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+ * TouchWidget.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  **************************************************************************/
 package com.emitrom.touch4j.client.core;
 
@@ -21,8 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.emitrom.touch4j.client.core.JsoHelper;
 import com.emitrom.touch4j.client.core.handlers.AbstractHandler;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.ui.MessageBox;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -53,20 +53,16 @@ public abstract class TouchWidget extends Widget implements EventDispatcher {
     protected abstract JavaScriptObject getConfigPrototype();
 
     protected static native JavaScriptObject getComponentJS(String id)/*-{
-        var cmp = $wnd.Ext.ComponentMgr.get(id);
-        return (cmp === undefined || cmp == null) ? null : cmp;
+		var cmp = $wnd.Ext.ComponentMgr.get(id);
+		return (cmp === undefined || cmp == null) ? null : cmp;
     }-*/;
 
-    protected void addListener(String event, JavaScriptObject fn) {
-        if (!isCreated()) {
-            addConfigListener(event, fn);
-        } else {
-            addWidgetListener(event, fn);
-        }
+    protected CallbackRegistration addListener(String event, JavaScriptObject fn) {
+        return addWidgetListener(event, fn);
     }
 
-    protected void addWidgetListener(String event, JavaScriptObject fn) {
-        delegate.addWidgetListener(event, fn);
+    protected CallbackRegistration addWidgetListener(String event, JavaScriptObject fn) {
+        return delegate.addWidgetListener(event, fn);
     }
 
     public JavaScriptObject getJsObj() {
@@ -77,7 +73,7 @@ public abstract class TouchWidget extends Widget implements EventDispatcher {
     public JavaScriptObject getOrCreateJsObj() {
         return delegate.getOrCreateJsObj();
     }
-    
+
     public JavaScriptObject getConfig() {
         return config;
     }
@@ -354,15 +350,14 @@ public abstract class TouchWidget extends Widget implements EventDispatcher {
      * .String, com.emitrom.touch4j.client.core.handlers.AbstractHandler)
      */
     @Override
-    public void addListener(String event, AbstractHandler handler) {
-        this.addListener(event, handler.getJsoPeer());
+    public CallbackRegistration addListener(String event, AbstractHandler handler) {
+        return this.addListener(event, handler.getJsoPeer());
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.EventDispatcher#addEvent(java.lang
+     * @see com.emitrom.touch4j.client.core.EventDispatcher#addEvent(java.lang
      * .String)
      */
     @Override
@@ -373,8 +368,7 @@ public abstract class TouchWidget extends Widget implements EventDispatcher {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.core.EventDispatcher#fireEvent(java.lang
+     * @see com.emitrom.touch4j.client.core.EventDispatcher#fireEvent(java.lang
      * .String)
      */
     @Override
@@ -412,7 +406,7 @@ public abstract class TouchWidget extends Widget implements EventDispatcher {
         delegate.suspendEvents();
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     private void addConfigListener(String event, JavaScriptObject fn) {
         List listeners = (List) configListeners.get(event);
         if (listeners == null)
@@ -420,9 +414,9 @@ public abstract class TouchWidget extends Widget implements EventDispatcher {
         listeners.add(fn);
         configListeners.put(event, listeners);
     }
-    
+
     protected static native boolean doIsCreated(String id)/*-{
-        var cmp = $wnd.Ext.ComponentMgr.get(id);
-        return cmp == null || cmp === undefined ? false : true;
+		var cmp = $wnd.Ext.ComponentMgr.get(id);
+		return cmp == null || cmp === undefined ? false : true;
     }-*/;
 }

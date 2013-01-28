@@ -2,7 +2,7 @@
  * Scroller.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
+ * use peer file except in compliance with the License. You may obtain a copy of
  * the License at
  * 
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -16,86 +16,71 @@
 package com.emitrom.touch4j.client.core;
 
 import com.emitrom.touch4j.client.laf.Direction;
-import com.google.gwt.core.client.JavaScriptObject;
 
-public class Scroller {
-
-    private ScrollerJSO jso;
+public class Scroller extends JsObject {
 
     public Scroller() {
-        jso = ScrollerJSO.getJSO();
+        jsObj = JsoHelper.createObject();
     }
 
     public Scroller(Direction direction) {
         this();
-        setDirection(direction);
+        setDirection(direction.getValue());
     }
 
-    public void setDirection(Direction direction) {
-        jso.setDirection(direction.getValue());
-    }
+    public final native String getDirection() /*-{
+		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		return peer.direction;
+    }-*/;
 
-    public Direction getDirection() {
-        return Direction.fromValue(jso.getDirection());
-    }
+    public final native boolean getDirectionLock() /*-{
+		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		return peer.directionLock;
+    }-*/;
 
-    public ScrollerJSO getJso() {
-        return jso;
-    }
+    public final native boolean getDisabled() /*-{
+		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		return peer.disabled;
+    }-*/;
 
-    static class ScrollerJSO extends JavaScriptObject {
+    public final native <T> T getMomentumEasing() /*-{
+		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		return peer.momentumEasing;
+    }-*/;
 
-        protected ScrollerJSO() {
-        }
+    public final native <T> T getSlotSnapSize() /*-{
+		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		return peer.slotSnapSize;
+    }-*/;
 
-        public static native ScrollerJSO getJSO() /*-{
-			return {};
-        }-*/;
+    public final native boolean isAxisEnabled(String axis) /*-{
+		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		return peer.isAxisEnabled(axis);
+    }-*/;
 
-        public final native String getDirection() /*-{
-			return this.direction;
-        }-*/;
+    public final native void scrollBy(int x, int y) /*-{
+		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		peer.scrollBy(x, y);
+    }-*/;
 
-        public final native boolean getDirectionLock() /*-{
-			return this.directionLock;
-        }-*/;
+    public final native void setDirection(String direction) /*-{
+		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		peer.direction = direction;
+    }-*/;
 
-        public final native boolean getDisabled() /*-{
-			return this.disabled;
-        }-*/;
+    public final native void setDirectionLock(boolean lock) /*-{
+		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		peer.directionLock = lock;
+    }-*/;
 
-        public final native <T> T getMomentumEasing() /*-{
-			return this.momentumEasing;
-        }-*/;
+    public final native void setDisabled(boolean value) /*-{
+		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		peer.setDisabled = value;
+    }-*/;
 
-        public final native <T> T getSlotSnapSize() /*-{
-			return this.slotSnapSize;
-        }-*/;
-
-        public final native boolean isAxisEnabled(String axis) /*-{
-			return this.isAxisEnabled(axis);
-        }-*/;
-
-        public final native void scrollBy(int x, int y) /*-{
-			this.scrollBy(x, y);
-        }-*/;
-
-        public final native void setDirection(String direction) /*-{
-			this.direction = direction;
-        }-*/;
-
-        public final native void setDirectionLock(boolean lock) /*-{
-			this.directionLock = lock;
-        }-*/;
-
-        public final native void setDisabled(boolean value) /*-{
-			this.setDisabled = value;
-        }-*/;
-
-        public final native void setOutOfBoundRestrictFactor(double value) /*-{
-			this.outOfBoundRestrictFactor = value;
-        }-*/;
-
-    }
+    public final native void setOutOfBoundRestrictFactor(double value) /*-{
+		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		peer.outOfBoundRestrictFactor = value;
+    }-*/;
 
 }

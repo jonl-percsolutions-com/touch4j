@@ -20,6 +20,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * A class to replicate the behavior of the Contextual menu in BlackBerry 10.
+ * <p>
  */
 public class CrossCut extends Sheet {
 

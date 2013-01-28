@@ -18,6 +18,7 @@ package com.emitrom.touch4j.client.ui;
 import com.emitrom.touch4j.client.core.config.Event;
 import com.emitrom.touch4j.client.core.config.FieldSetConfig;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.form.BeforeSubmitFormHandler;
 import com.emitrom.touch4j.client.core.handlers.form.SubmitFormHandler;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -182,12 +183,12 @@ public class FormPanel extends Panel {
      * 
      * @param handler
      */
-    public void addOnBeforeSubmitFormHandler(BeforeSubmitFormHandler handler) {
-        this.addWidgetListener(Event.BEFORE_SUBMIT.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addOnBeforeSubmitFormHandler(BeforeSubmitFormHandler handler) {
+        return this.addWidgetListener(Event.BEFORE_SUBMIT.getValue(), handler.getJsoPeer());
     }
 
-    public void addSubmitFormHandler(SubmitFormHandler handler) {
-        this.addWidgetListener(Event.SUBMIT.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addSubmitFormHandler(SubmitFormHandler handler) {
+        return this.addWidgetListener(Event.SUBMIT.getValue(), handler.getJsoPeer());
     }
 
 }

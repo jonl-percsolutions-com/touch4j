@@ -1,17 +1,17 @@
 /**************************************************************************
-   Select.java is part of Touch4j 3.0.  Copyright 2012 Emitrom LLC
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+ * Select.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  **************************************************************************/
 package com.emitrom.touch4j.client.ui;
 
@@ -20,6 +20,7 @@ import java.util.List;
 import com.emitrom.touch4j.client.core.config.Event;
 import com.emitrom.touch4j.client.core.config.SelectConfig;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.field.select.SelectChangeHandler;
 import com.emitrom.touch4j.client.data.Store;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -197,8 +198,8 @@ public class Select<T> extends Text<T> implements HasStore {
      * 
      * @param handler
      */
-    public void addChangeHandler(SelectChangeHandler handler) {
-        this.addWidgetListener(Event.CHANGE.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addChangeHandler(SelectChangeHandler handler) {
+        return this.addWidgetListener(Event.CHANGE.getValue(), handler.getJsoPeer());
     }
 
     public void setStore(Store store) {

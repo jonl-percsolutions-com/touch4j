@@ -19,6 +19,7 @@ import java.util.Iterator;
 
 import com.emitrom.touch4j.client.core.HasUi;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.layout.card.ActiveItemChangeHandler;
 import com.emitrom.touch4j.client.core.handlers.tabitem.TabItemAddEvent;
 import com.emitrom.touch4j.client.core.handlers.tabitem.TabItemChangeEvent;
@@ -129,9 +130,9 @@ public class TabPanel extends Container implements HasUi {
         return UI.fromValue(_getUi());
     }
 
-    public void onTabItemChangeHandler(TabItemChangeEvent.Handler handler) {
-        addItemChangeHandler();
+    public CallbackRegistration onTabItemChangeHandler(TabItemChangeEvent.Handler handler) {
         eventBus.addHandler(TabItemChangeEvent.TYPE, handler);
+        return addItemChangeHandler();
     }
 
     public void onTabItemAddHandler(TabItemAddEvent.Handler handler) {
@@ -195,8 +196,8 @@ public class TabPanel extends Container implements HasUi {
 		tabPanel.remove(jso);
     }-*/;
 
-    private void addItemChangeHandler() {
-        addActiveItemChangeHandler(new ActiveItemChangeHandler() {
+    private CallbackRegistration addItemChangeHandler() {
+        return addActiveItemChangeHandler(new ActiveItemChangeHandler() {
             @Override
             public void onActiveItemChange(Container container, Container newTab, Container oldValue, Object eOpts) {
                 Iterator<Widget> iterator = getChildren().iterator();

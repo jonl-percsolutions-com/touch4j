@@ -1,23 +1,24 @@
 /**************************************************************************
-   Spinner.java is part of Touch4j 3.0.  Copyright 2012 Emitrom LLC
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+ * Spinner.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  **************************************************************************/
 package com.emitrom.touch4j.client.ui;
 
 import com.emitrom.touch4j.client.core.config.Event;
 import com.emitrom.touch4j.client.core.config.SpinnerConfig;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.field.spinner.SpinnerSpinDownHandler;
 import com.emitrom.touch4j.client.core.handlers.field.spinner.SpinnerSpinHandler;
 import com.emitrom.touch4j.client.core.handlers.field.spinner.SpinnerSpinUpHandler;
@@ -27,7 +28,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  * Wraps an HTML5 number field
  */
 public class Spinner<T> extends NumberField<T> {
-   
+
     @Override
     protected native void init()/*-{
 		var c = new $wnd.Ext.field.Spinner();
@@ -90,7 +91,7 @@ public class Spinner<T> extends NumberField<T> {
 			return field.getIncrement();
 		}
     }-*/;
-    
+
     /**
      * Sets the value of accelerateOnTapHold.
      * 
@@ -132,8 +133,8 @@ public class Spinner<T> extends NumberField<T> {
      * 
      * @param handler
      */
-    public void addSpinHandler(SpinnerSpinHandler handler) {
-        this.addListener(Event.SPIN.getValue(), handler);
+    public CallbackRegistration addSpinHandler(SpinnerSpinHandler handler) {
+        return this.addListener(Event.SPIN.getValue(), handler);
     }
 
     /**
@@ -141,8 +142,8 @@ public class Spinner<T> extends NumberField<T> {
      * 
      * @param handler
      */
-    public void addSpinDownHandler(SpinnerSpinDownHandler handler) {
-        this.addListener(Event.SPIN_DOWN.getValue(), handler);
+    public CallbackRegistration addSpinDownHandler(SpinnerSpinDownHandler handler) {
+        return this.addListener(Event.SPIN_DOWN.getValue(), handler);
     }
 
     /**
@@ -150,8 +151,8 @@ public class Spinner<T> extends NumberField<T> {
      * 
      * @param handler
      */
-    public void addSpinUpHandler(SpinnerSpinUpHandler handler) {
-        this.addListener(Event.SPIN_UP.getValue(), handler);
+    public CallbackRegistration addSpinUpHandler(SpinnerSpinUpHandler handler) {
+        return this.addListener(Event.SPIN_UP.getValue(), handler);
     }
 
 }

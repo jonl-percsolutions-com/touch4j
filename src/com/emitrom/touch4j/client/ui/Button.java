@@ -27,6 +27,7 @@ import com.emitrom.touch4j.client.core.JsoHelper;
 import com.emitrom.touch4j.client.core.config.Attribute;
 import com.emitrom.touch4j.client.core.config.Event;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.button.BeforeTapHandler;
 import com.emitrom.touch4j.client.core.handlers.button.TapHandler;
 import com.emitrom.touch4j.client.laf.UI;
@@ -316,13 +317,12 @@ public class Button extends Component implements HasUi, HasIcon, HasTapHandlers,
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.widgets.HasTapHandlers#addTapHandler(com
+     * @see com.emitrom.touch4j.client.widgets.HasTapHandlers#addTapHandler(com
      * .emitrom.gwt4.touch.client.core.handlers.button.TapHandler)
      */
     @Override
-    public void addTapHandler(final TapHandler handler) {
-        this.addWidgetListener(Event.TAP.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addTapHandler(final TapHandler handler) {
+        return this.addWidgetListener(Event.TAP.getValue(), handler.getJsoPeer());
     }
 
     /*
@@ -333,8 +333,8 @@ public class Button extends Component implements HasUi, HasIcon, HasTapHandlers,
      * (com.emitrom.touch4j.client.core.handlers.button.BeforeTapHandler)
      */
     @Override
-    public void addBeforeTapHandler(final BeforeTapHandler handler) {
-        this.addWidgetListener(Event.BEFORE_TAP.getValue(), handler.getJsoPeer());
+    public CallbackRegistration addBeforeTapHandler(final BeforeTapHandler handler) {
+        return this.addWidgetListener(Event.BEFORE_TAP.getValue(), handler.getJsoPeer());
     }
 
     @Override
@@ -404,10 +404,9 @@ public class Button extends Component implements HasUi, HasIcon, HasTapHandlers,
      */
     public native void setHandler(Function handler) /*-{
 		var button = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		button
-				.setHandler(function() {
-					handler.@com.emitrom.touch4j.client.core.Function::execute()();
-				});
+		button.setHandler(function() {
+			handler.@com.emitrom.touch4j.client.core.Function::execute()();
+		});
     }-*/;
 
     /**

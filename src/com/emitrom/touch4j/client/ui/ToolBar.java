@@ -37,16 +37,16 @@ public class ToolBar extends Container implements HasUi, HasTitle {
 
     @Override
     protected native void init()/*-{
-                                var c = new $wnd.Ext.Toolbar();
-                                this.@com.emitrom.touch4j.client.core.Component::configPrototype = c.initialConfig;
-                                }-*/;
+		var c = new $wnd.Ext.Toolbar();
+		this.@com.emitrom.touch4j.client.core.Component::configPrototype = c.initialConfig;
+    }-*/;
 
     protected native JavaScriptObject create(JavaScriptObject config) /*-{
-                                                                      if (!config.items) {
-                                                                      config.items = @com.emitrom.touch4j.client.core.JsoHelper::createJavaScriptArray()();
-                                                                      }
-                                                                      return new $wnd.Ext.Toolbar(config);
-                                                                      }-*/;
+		if (!config.items) {
+			config.items = @com.emitrom.touch4j.client.core.JsoHelper::createJavaScriptArray()();
+		}
+		return new $wnd.Ext.Toolbar(config);
+    }-*/;
 
     protected ToolBar(JavaScriptObject jsObj) {
         super(jsObj);
@@ -120,9 +120,9 @@ public class ToolBar extends Container implements HasUi, HasTitle {
      *            the title
      */
     private native void setTitleRendered(String title) /*-{
-                                                       var panel = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                                       panel.setTitle(title);
-                                                       }-*/;
+		var panel = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		panel.setTitle(title);
+    }-*/;
 
     /*
      * (non-Javadoc)
@@ -135,16 +135,15 @@ public class ToolBar extends Container implements HasUi, HasTitle {
     }
 
     public native Title getTitleComponent() /*-{
-                                            var panel = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                            var obj = panel.getTitle();
-                                            return @com.emitrom.touch4j.client.core.Title::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
-                                            }-*/;
+		var panel = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		var obj = panel.getTitle();
+		return @com.emitrom.touch4j.client.core.Title::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
+    }-*/;
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.containers.HasTitle#setTitle(java.lang.
+     * @see com.emitrom.touch4j.client.containers.HasTitle#setTitle(java.lang.
      * String)
      */
     @Override
@@ -158,8 +157,7 @@ public class ToolBar extends Container implements HasUi, HasTitle {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.containers.HasUi#setUi(com.emitrom.gwt4
+     * @see com.emitrom.touch4j.client.containers.HasUi#setUi(com.emitrom.gwt4
      * .touch.client.laf.UI)
      */
     @Override
@@ -181,9 +179,9 @@ public class ToolBar extends Container implements HasUi, HasTitle {
      * Shows the title if it exists
      */
     public native void showTitle()/*-{
-                                  var toolBar = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                  toolBar.hideTitle();
-                                  }-*/;
+		var toolBar = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		toolBar.hideTitle();
+    }-*/;
 
     /**
      * The layout of the toolBar can not be changed. Instead of throwing an
@@ -198,17 +196,17 @@ public class ToolBar extends Container implements HasUi, HasTitle {
      * Hides the title if it exists.
      */
     public native void hideTitle()/*-{
-                                  var toolBar = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                  toolBar.showTitle();
-                                  }-*/;
+		var toolBar = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		toolBar.showTitle();
+    }-*/;
 
     private native void setUi(String ui)/*-{
-                                        var toolBar = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                        toolBar.setUi(ui);
-                                        }-*/;
+		var toolBar = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		toolBar.setUi(ui);
+    }-*/;
 
     private native String _getUi()/*-{
-                                  var toolBar = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-                                  return toolBar.getUi();
-                                  }-*/;
+		var toolBar = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		return toolBar.getUi();
+    }-*/;
 }

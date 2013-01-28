@@ -1,17 +1,17 @@
 /**************************************************************************
-   ListDataView.java is part of Touch4j 3.0.  Copyright 2012 Emitrom LLC
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+ * ListDataView.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  **************************************************************************/
 package com.emitrom.touch4j.client.ui;
 
@@ -109,8 +109,7 @@ public class ListDataView extends DataView implements ListElement {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.dataview.ListElement#setGrouped(boolean)
+     * @see com.emitrom.touch4j.client.dataview.ListElement#setGrouped(boolean)
      */
     @Override
     public native void setGrouped(boolean value)/*-{
@@ -132,8 +131,7 @@ public class ListDataView extends DataView implements ListElement {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.dataview.ListElement#setIndexBar(boolean)
+     * @see com.emitrom.touch4j.client.dataview.ListElement#setIndexBar(boolean)
      */
     @Override
     public native void setIndexBar(boolean value)/*-{
@@ -180,8 +178,7 @@ public class ListDataView extends DataView implements ListElement {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * com.emitrom.touch4j.client.dataview.ListElement#setOnItemDisclosure
+     * @see com.emitrom.touch4j.client.ui.ListElement#setOnItemDisclosure
      * (com.emitrom.touch4j.client.core.handlers.list.ItemDisclosureHandler)
      */
     @Override

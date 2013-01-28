@@ -1,17 +1,17 @@
 /**************************************************************************
-   NativeGrid.java is part of Touch4j 3.0.  Copyright 2012 Emitrom LLC
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+ * NativeGrid.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  **************************************************************************/
 package com.emitrom.touch4j.ux.grid.client.core;
 
@@ -19,84 +19,80 @@ import java.util.List;
 
 import com.emitrom.touch4j.client.core.config.XType;
 import com.emitrom.touch4j.client.data.Store;
-import com.emitrom.touch4j.client.ui.DataView;
+import com.emitrom.touch4j.client.ui.ListDataView;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayString;
 
-public class NativeGrid extends DataView {
+public class NativeGrid extends ListDataView {
 
-	protected NativeGrid(JavaScriptObject config) {
-		super(config);
-	}
+    protected NativeGrid(JavaScriptObject config) {
+        super(config);
+    }
 
-	@Override
-	protected native void init()/*-{
-		var c = new $wnd.Ext.ux.touch.grid.View({
+    @Override
+    protected native void init()/*-{
+		var c = new $wnd.Ext.ux.touch.grid.List({
 			columns : []
 		});
 		this.@com.emitrom.touch4j.client.core.Component::configPrototype = c.initialConfig;
-	}-*/;
+    }-*/;
 
-	protected NativeGrid() {
-	}
+    protected NativeGrid() {
+    }
 
-	@Override
-	protected native JavaScriptObject create(JavaScriptObject config) /*-{
-		return new $wnd.Ext.ux.touch.grid.View(config);
-	}-*/;
+    @Override
+    protected native JavaScriptObject create(JavaScriptObject config) /*-{
+		return new $wnd.Ext.ux.touch.grid.List(config);
+    }-*/;
 
-	public static NativeGrid newInstance(Store store, List<GridColumn> cols) {
-		JavaScriptObject obj = _createNative(store.getJsObj(),
-				GridColumn.fromValues(cols));
-		return new NativeGrid(obj);
-	}
+    public static NativeGrid newInstance(Store store, List<GridColumn> cols) {
+        JavaScriptObject obj = _createNative(store.getJsObj(), GridColumn.fromValues(cols));
+        return new NativeGrid(obj);
+    }
 
-	public static NativeGrid newInstance(Store store, List<GridColumn> cols,
-			List<String> features) {
-		JsArrayString values = JsArrayString.createArray().cast();
-		for (String s : features) {
-			values.push(s);
-		}
-		JavaScriptObject obj = _createNative(store.getJsObj(),
-				GridColumn.fromList(cols), values);
-		return new NativeGrid(obj);
-	}
+    public static NativeGrid newInstance(Store store, List<GridColumn> cols, List<String> features) {
+        JsArrayString values = JsArrayString.createArray().cast();
+        for (String s : features) {
+            values.push(s);
+        }
+        JavaScriptObject obj = _createNative(store.getJsObj(), GridColumn.fromList(cols), values);
+        return new NativeGrid(obj);
+    }
 
-	@Override
-	public String getXType() {
-		return XType.TOUCH_GRID.getValue();
-	}
+    @Override
+    public String getXType() {
+        return XType.TOUCH_GRID.getValue();
+    }
 
-	public native GridColumn getColumn(int index)/*-{
+    public native GridColumn getColumn(int index)/*-{
 		var dataView = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		var obj = dataView.getColumn(index);
 		var toReturn = @com.emitrom.touch4j.ux.grid.client.core.GridColumn::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
 		return toReturn;
-	}-*/;
+    }-*/;
 
-	public native void toggleColumn(int index)/*-{
+    public native void toggleColumn(int index)/*-{
 		var dataView = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		dataView.toggleColumn(index);
-	}-*/;
+    }-*/;
 
-	public native void hideColumn(int index)/*-{
+    public native void hideColumn(int index)/*-{
 		var dataView = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		dataView.hideColumn(index);
-	}-*/;
+    }-*/;
 
-	public native void showColumn(int index)/*-{
+    public native void showColumn(int index)/*-{
 		var dataView = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		dataView.showColumn(index);
-	}-*/;
+    }-*/;
 
-	public List<GridColumn> getColumns() {
-		return GridColumn.fromJsArray(_getColumns());
-	}
+    public List<GridColumn> getColumns() {
+        return GridColumn.fromJsArray(_getColumns());
+    }
 
-	private static native JavaScriptObject _createNative(
-			JavaScriptObject store, JavaScriptObject cols)/*-{
-		var grid = $wnd.Ext.create('Ext.ux.touch.grid.View', {
+    private static native JavaScriptObject _createNative(JavaScriptObject store, JavaScriptObject cols)/*-{
+		var grid = $wnd.Ext.create('Ext.ux.touch.grid.List', {
 			store : store,
 			columns : cols,
 			features : [ {
@@ -105,10 +101,10 @@ public class NativeGrid extends DataView {
 			} ]
 		});
 		return grid;
-	}-*/;
+    }-*/;
 
-	private static native JavaScriptObject _createNative(
-			JavaScriptObject store, JavaScriptObject cols, JsArrayString array)/*-{
+    private static native JavaScriptObject _createNative(JavaScriptObject store, JavaScriptObject cols,
+                    JsArrayString array)/*-{
 		var myFeatures = [];
 		var config = {};
 		config.store = store;
@@ -125,16 +121,16 @@ public class NativeGrid extends DataView {
 
 		}
 		config.features = myFeatures;
-		var grid = $wnd.Ext.create('Ext.ux.touch.grid.View', config);
+		var grid = $wnd.Ext.create('Ext.ux.touch.grid.List', config);
 		return grid;
-	}-*/;
+    }-*/;
 
-	private native JsArray<JavaScriptObject> _getColumns()/*-{
+    private native JsArray<JavaScriptObject> _getColumns()/*-{
 		var dataView = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		return dataView.getColumns();
-	}-*/;
+    }-*/;
 
-	private static native JavaScriptObject createFeatureFrom(String value)/*-{
+    private static native JavaScriptObject createFeatureFrom(String value)/*-{
 		if (value == 'Ext.ux.touch.grid.feature.Sorter') {
 			return ({
 				ftype : 'Ext.ux.touch.grid.feature.Sorter',
@@ -151,6 +147,6 @@ public class NativeGrid extends DataView {
 				launchFn : 'initialize'
 			});
 		}
-	}-*/;
+    }-*/;
 
 }
