@@ -1,8 +1,8 @@
 /**************************************************************************
- * Scroller.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * Scroller.java is part of Touch4j 4.0. Copyright 2012 Emitrom LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use peer file except in compliance with the License. You may obtain a copy of
+ * use this file except in compliance with the License. You may obtain a copy of
  * the License at
  * 
  * http://www.apache.org/licenses/LICENSE-2.0
