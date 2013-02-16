@@ -25,7 +25,7 @@ public class ChartPanel extends Container {
     private Panel headerPanel;
     private ChartPanelToolBar descriptionToolBar;
     private ChartPanelToolBar contentToolBar;
-    private Chart chart;
+    private CartesianChart chart;
 
     public ChartPanel() {
 
@@ -48,14 +48,14 @@ public class ChartPanel extends Container {
 
     }
 
-    public ChartPanel(Chart chart) {
+    public ChartPanel(CartesianChart chart) {
         this();
         this.chart = chart;
         this.setTitle("");
         this.add(chart);
     }
 
-    public ChartPanel(String title, Chart chart) {
+    public ChartPanel(String title, CartesianChart chart) {
         this(chart);
         setTitle(title);
     }
@@ -76,7 +76,7 @@ public class ChartPanel extends Container {
         this.contentToolBar.add(button);
     }
 
-    public Chart getChart() {
+    public CartesianChart getChart() {
         return this.chart;
     }
 }

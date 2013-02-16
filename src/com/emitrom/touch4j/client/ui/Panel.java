@@ -15,6 +15,7 @@
  **************************************************************************/
 package com.emitrom.touch4j.client.ui;
 
+import com.emitrom.touch4j.client.core.Component;
 import com.emitrom.touch4j.client.core.Floatable;
 import com.emitrom.touch4j.client.core.config.XType;
 import com.emitrom.touch4j.client.layout.AbstractLayout;
@@ -28,8 +29,8 @@ import com.google.gwt.user.client.Element;
  * user interfaces.
  * <p>
  * Panels are, by virtue of their inheritance from
- * com.emitrom.touch4j.client.core.Container, capable of being configured
- * with a layout, and containing child Components.
+ * com.emitrom.touch4j.client.core.Container, capable of being configured with a
+ * layout, and containing child Components.
  * <p>
  * When either specifying child items of a Panel, or dynamically adding
  * Components to a Panel, remember to consider how you wish the Panel to arrange
@@ -91,6 +92,10 @@ public class Panel extends Container implements Floatable {
      */
     public Panel(Element element) {
         super(element);
+    }
+
+    public static Panel cast(Component c) {
+        return new Panel(c.getOrCreateJsObj());
     }
 
 }

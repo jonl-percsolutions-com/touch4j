@@ -1,6 +1,5 @@
 package com.emitrom.touch4j.client.ui;
 
-import com.emitrom.touch4j.client.core.Component;
 import com.emitrom.touch4j.client.core.config.XType;
 import com.emitrom.touch4j.client.draw.Sprite;
 import com.emitrom.touch4j.client.draw.Surface;
@@ -14,7 +13,7 @@ import com.google.gwt.user.client.Element;
  * can be appended.
  * 
  */
-public class DrawComponent extends Component {
+public class DrawComponent extends Container {
 
     private static JavaScriptObject configPrototype;
 

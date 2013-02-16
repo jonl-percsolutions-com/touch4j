@@ -22,17 +22,52 @@ import com.emitrom.touch4j.client.core.Component;
 import com.emitrom.touch4j.client.core.IsComponent;
 import com.emitrom.touch4j.client.data.Store;
 import com.emitrom.touch4j.client.ui.Container;
-import com.emitrom.touch4j.client.ui.DataView;
 import com.emitrom.touch4j.ux.grid.client.core.GridColumn;
 import com.emitrom.touch4j.ux.grid.client.core.GridFeature;
 import com.emitrom.touch4j.ux.grid.client.core.NativeGrid;
 
 public class Grid implements IsComponent {
 
+    private Store store;
+    private List<GridColumn> columns;
+    private List<GridFeature> features;
+    private boolean gridWasCreated = false;
+    private boolean useItemDisclosure;
+
     private NativeGrid widget;
+
+    public Grid() {
+        columns = new ArrayList<GridColumn>();
+        features = new ArrayList<GridFeature>();
+    }
+
+    public void addColumn(GridColumn column) {
+        if (this.gridWasCreated) {
+            throw new IllegalStateException(
+                            "The columns for this widgets are allready set. Dis you use a constructor with columns arguments ?");
+        }
+        this.columns.add(column);
+    }
+
+    public void setStore(Store store) {
+        if (this.gridWasCreated) {
+            throw new IllegalStateException(
+                            "The store for this widgets is allready set. Dis you use a constructor with store argument ?");
+        }
+        this.store = store;
+    }
+
+    public void addFeatures(GridFeature feature) {
+        if (this.gridWasCreated) {
+            throw new IllegalStateException(
+                            "The features for this widgets are allready set. Dis you use a constructor with features arguments ?");
+        }
+        this.features.add(feature);
+    }
 
     public Grid(Store store, List<GridColumn> cols) {
         widget = NativeGrid.newInstance(store, cols);
+        gridWasCreated = true;
     }
 
     public Grid(Store store, List<GridFeature> features, GridColumn... cols) {
@@ -42,9 +77,15 @@ public class Grid implements IsComponent {
             columns.add(column);
         }
         for (GridFeature feature : features) {
-            values.add(feature.getValue());
+            if (feature == GridFeature.ITEM_DISCLOSURE) {
+                this.useItemDisclosure = true;
+            } else {
+                values.add(feature.getValue());
+            }
+
         }
         widget = NativeGrid.newInstance(store, columns, values);
+        gridWasCreated = true;
     }
 
     public Grid(Store store, List<GridColumn> cols, List<GridFeature> features) {
@@ -52,17 +93,24 @@ public class Grid implements IsComponent {
         for (GridFeature feature : features) {
             values.add(feature.getValue());
         }
-        widget = NativeGrid.newInstance(store, cols, values);
+        widget = NativeGrid.newInstance(store, cols, values, this.useItemDisclosure);
+        gridWasCreated = true;
     }
 
     public Grid(Store store, List<GridColumn> cols, GridFeature... features) {
         List<String> values = new ArrayList<String>();
         for (GridFeature feature : features) {
-            values.add(feature.getValue());
+            if (feature == GridFeature.ITEM_DISCLOSURE) {
+                this.useItemDisclosure = true;
+            } else {
+                values.add(feature.getValue());
+            }
         }
-        widget = NativeGrid.newInstance(store, cols, values);
+        widget = NativeGrid.newInstance(store, cols, values, this.useItemDisclosure);
+        gridWasCreated = true;
     }
 
+    @Deprecated
     public void addTo(Container container) {
         container.add(this.widget);
     }
@@ -75,8 +123,8 @@ public class Grid implements IsComponent {
         return widget.getColumns();
     }
 
-    public DataView getView() {
-        return this.widget;
+    public NativeGrid getView() {
+        return (NativeGrid) this.asComponent();
     }
 
     public void toggleColumn(int index) {
@@ -93,6 +141,33 @@ public class Grid implements IsComponent {
 
     @Override
     public Component asComponent() {
+        if (this.gridWasCreated) {
+            return this.widget;
+        }
+        return create(this.store, this.columns, this.features);
+    }
+
+    private Component create(Store s, List<GridColumn> cols, List<GridFeature> fts) {
+        if (s == null || s.getCount() == 0) {
+            throw new IllegalStateException("The store for this grid  seems to be null or empty");
+        } else if (cols.size() <= 0) {
+            throw new IllegalStateException("The columns for this grid  seems to be null or empty");
+        }
+
+        if (fts.size() > 0) {
+            List<String> values = new ArrayList<String>();
+            for (GridFeature feature : features) {
+                if (feature == GridFeature.ITEM_DISCLOSURE) {
+                    this.useItemDisclosure = true;
+                } else {
+                    values.add(feature.getValue());
+                }
+            }
+            this.widget = NativeGrid.newInstance(s, cols, values, this.useItemDisclosure);
+        } else {
+            this.widget = NativeGrid.newInstance(s, cols, this.useItemDisclosure);
+        }
+        this.gridWasCreated = true;
         return this.widget;
     }
 

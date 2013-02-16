@@ -1,7 +1,7 @@
 /**************************************************************************
  * LineSeries.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
  * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * Licensed under the Apache License, Versin 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
  * 
@@ -15,39 +15,41 @@
  **************************************************************************/
 package com.emitrom.touch4j.charts.client.series;
 
-import com.emitrom.touch4j.charts.client.marker.MarkerConfig;
-import com.emitrom.touch4j.client.core.JsoHelper;
+public abstract class PolarSeries extends AbstractSeries {
 
-public class LineSeries extends CartesianSeries {
-
-    public LineSeries() {
-        jsObj = JsoHelper.createObject();
-        this.setType("Line");
-    }
-
-    public LineSeries(MarkerConfig markerConfig) {
-        this();
-        JsoHelper.setAttribute(jsObj, "markerConfig", markerConfig.getJsObj());
-    }
-
-    public native void showMarkers(boolean value) /*-{
+    public native void setOffsetX(double value) /*-{
 		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.showMarkers = value;
+		series.offsetX = value;
     }-*/;
 
-    public native void setFill(boolean value) /*-{
+    public native void setOffsetY(boolean value) /*-{
 		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.fill = value;
+		series.offsetY = value;
     }-*/;
 
-    public native void setSelectionTolerance(double value) /*-{
+    public native void setRadius(double value) /*-{
 		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.selectionTolerance = value;
+		series.radius = value;
     }-*/;
 
-    public native void setSmooth(double value) /*-{
+    public native void setRotation(double value) /*-{
 		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.smooth = value;
+		series.rotation = value;
+    }-*/;
+
+    public native void setShowInLegend(boolean value) /*-{
+		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		series.showInLegend = value;
+    }-*/;
+
+    public native void setXField(String value) /*-{
+		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		series.xField = value;
+    }-*/;
+
+    public native void setYField(String value) /*-{
+		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		series.yField = value;
     }-*/;
 
 }

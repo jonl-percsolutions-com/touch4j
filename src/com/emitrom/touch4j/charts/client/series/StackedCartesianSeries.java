@@ -1,5 +1,5 @@
 /**************************************************************************
- * GridFeature.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * CartesianSeries.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -13,22 +13,19 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  **************************************************************************/
-package com.emitrom.touch4j.ux.grid.client.core;
+package com.emitrom.touch4j.charts.client.series;
 
-public enum GridFeature {
+import com.emitrom.touch4j.client.core.JsoHelper;
 
-    EDITABLE("Ext.ux.touch.grid.feature.Editable"), HORIZONTAL_SCROLL("horizontal"), PAGING(
-                    "Ext.ux.touch.grid.feature.Paging"), ITEM_DISCLOSURE("itemdisclosure"), SORTER(
-                    "Ext.ux.touch.grid.feature.Sorter");
+/**
+ * Abstract base class for series implementations which plot values using x/y
+ * coordinates.
+ * 
+ */
+public abstract class StackedCartesianSeries extends CartesianSeries {
 
-    private String value;
-
-    private GridFeature(String feature) {
-        this.value = feature;
-    }
-
-    public String getValue() {
-        return value;
+    public void setStacked(boolean value) {
+        JsoHelper.setAttribute(jsObj, "stacked", value);
     }
 
 }

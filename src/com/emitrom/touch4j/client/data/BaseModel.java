@@ -334,23 +334,6 @@ public class BaseModel extends JsObject {
     }-*/;
 
     /**
-     * Sets the fields value.
-     * 
-     * @param field
-     *            the field name
-     * @param value
-     *            the field value
-     */
-    public native void set(String field, String value) /*-{
-		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		if (jso.set) {
-			jso.set(field, value);
-		} else {
-			jso[field] = value;
-		}
-    }-*/;
-
-    /**
      * Returns the BaseModels value as an integer.
      * 
      * @param field
@@ -369,23 +352,6 @@ public class BaseModel extends JsObject {
     }-*/;
 
     /**
-     * Sets the fields value.
-     * 
-     * @param field
-     *            the field name
-     * @param value
-     *            the field value
-     */
-    public native void set(String field, int value) /*-{
-		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		if (jso.set) {
-			jso.set(field, value);
-		} else {
-			jso[field] = value;
-		}
-    }-*/;
-
-    /**
      * Returns the BaseModels value as a float.
      * 
      * @param field
@@ -401,23 +367,6 @@ public class BaseModel extends JsObject {
 			value = record[field];
 		}
 		return (value === undefined || value == null) ? 0 : parseFloat(value);
-    }-*/;
-
-    /**
-     * Sets the fields value.
-     * 
-     * @param field
-     *            the field name
-     * @param value
-     *            the field value
-     */
-    public native void set(String field, float value) /*-{
-		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		if (jso.set) {
-			jso.set(field, value);
-		} else {
-			jso[field] = value;
-		}
     }-*/;
 
     /**
@@ -460,23 +409,6 @@ public class BaseModel extends JsObject {
     }-*/;
 
     /**
-     * Sets the fields value.
-     * 
-     * @param field
-     *            the field name
-     * @param value
-     *            the field value
-     */
-    public native void set(String field, boolean value) /*-{
-		var record = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		if (record.set) {
-			record.set(property, value);
-		} else {
-			record[property] = value;
-		}
-    }-*/;
-
-    /**
      * Set the BaseModel's ID.
      * 
      * @param id
@@ -507,32 +439,6 @@ public class BaseModel extends JsObject {
         } else {
             return @com.emitrom.touch4j.client.utils.DateUtil::create(D)(val.getTime());
         }
-    }-*/;
-
-    /**
-     * Sets the fields value.
-     * 
-     * @param field
-     *            the field name
-     * @param value
-     *            the field value
-     */
-    public native void set(String field, Date value) /*-{
-		var record = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		if (value == null) {
-			if (record.set) {
-				record.set(field, null);
-			} else {
-				record[field] = null;
-			}
-		} else {
-			var millis = @com.emitrom.touch4j.client.utils.DateUtil::getTime(Ljava/util/Date;)(value);
-			if (record.set) {
-				record.set(field, new $wnd.Date(millis));
-			} else {
-				record[field] = new $wnd.Date(millis);
-			}
-		}
     }-*/;
 
     /**

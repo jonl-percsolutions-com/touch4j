@@ -1,5 +1,5 @@
 /**************************************************************************
- * Chart.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * AbstractChart.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -13,14 +13,11 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  **************************************************************************/
-package com.emitrom.touch4j.client.ui;
+package com.emitrom.touch4j.charts.client;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.emitrom.touch4j.charts.client.Animation;
-import com.emitrom.touch4j.charts.client.Legend;
-import com.emitrom.touch4j.charts.client.Toolbar;
 import com.emitrom.touch4j.charts.client.axis.AbstractAxis;
 import com.emitrom.touch4j.charts.client.handlers.BeforeRefreshHandler;
 import com.emitrom.touch4j.charts.client.handlers.ChartChangeHandler;
@@ -29,23 +26,23 @@ import com.emitrom.touch4j.charts.client.interactions.AbstractInteraction;
 import com.emitrom.touch4j.charts.client.interactions.SavingType;
 import com.emitrom.touch4j.charts.client.laf.Gradient;
 import com.emitrom.touch4j.charts.client.laf.Shadow;
-import com.emitrom.touch4j.charts.client.series.AbstractSerie;
+import com.emitrom.touch4j.charts.client.series.AbstractSeries;
 import com.emitrom.touch4j.charts.client.theme.Theme;
-import com.emitrom.touch4j.client.core.Component;
-import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.JsoHelper;
 import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.data.Store;
 import com.emitrom.touch4j.client.laf.Color;
 import com.emitrom.touch4j.client.laf.Position;
+import com.emitrom.touch4j.client.ui.DrawComponent;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayString;
 
 /**
- * The Chart component provides the capability to visualize data. Each chart
- * binds directly to a Store enabling automatic updates of the chart.
+ * The AbstractChart component provides the capability to visualize data. Each
+ * chart binds directly to a Store enabling automatic updates of the chart.
  */
-public class Chart extends Component {
+public abstract class AbstractChart extends DrawComponent {
 
     private static final String BEFORE_REFRESH = "beforerefresh";
     private static final String ITEM_CLICK = "itemclick";
@@ -75,50 +72,27 @@ public class Chart extends Component {
     private static final String REDRAW = "redraw";
     private static final String REFRESH = "refresh";
 
-    private static JavaScriptObject configPrototype;
-    private Store store;
-    private List<AbstractSerie> series = new ArrayList<AbstractSerie>();
-    private List<AbstractAxis> axis = new ArrayList<AbstractAxis>();
-    private List<AbstractInteraction> interactions = new ArrayList<AbstractInteraction>();
-    private List<Gradient> gradients = new ArrayList<Gradient>();
-
-    protected native void init()/*-{
-		var c = new $wnd.Ext.chart.Chart();
-		@com.emitrom.touch4j.client.ui.Chart::configPrototype = c.initialConfig;
-    }-*/;
+    protected static JavaScriptObject configPrototype;
+    protected Store store;
+    protected List<AbstractSeries> series = new ArrayList<AbstractSeries>();
+    protected List<AbstractAxis> axis = new ArrayList<AbstractAxis>();
+    protected List<AbstractInteraction> interactions = new ArrayList<AbstractInteraction>();
+    protected List<Gradient> gradients = new ArrayList<Gradient>();
 
     protected JavaScriptObject getConfigPrototype() {
         return configPrototype;
     }
 
-    public String getXType() {
-        return XType.CHART.getValue();
-    }
-
     /**
-     * Create a new Chart Panel.
+     * Create a new AbstractChart Panel.
      */
-    public Chart() {
+    protected AbstractChart() {
 
     }
 
-    public Chart(Store store) {
-        setStore(store);
-        setTheme(Theme.BASE);
+    protected AbstractChart(JavaScriptObject obj) {
+        super(obj);
     }
-
-    public Chart(Store store, Theme theme) {
-        setStore(store);
-        setTheme(theme);
-    }
-
-    protected Chart(JavaScriptObject jsObj) {
-        super(jsObj);
-    }
-
-    protected native JavaScriptObject create(JavaScriptObject config) /*-{
-		return new $wnd.Ext.chart.Chart(config);
-    }-*/;
 
     /**
      * The name of the theme to be used. A theme defines the colors and other
@@ -153,6 +127,36 @@ public class Chart extends Component {
     }
 
     /**
+     * Get the axis of this chart
+     * 
+     * @return
+     */
+    public List<AbstractAxis> getAxis() {
+        return _getAxisPeers();
+    }
+
+    private List<AbstractAxis> _getAxisPeers() {
+        List<AbstractAxis> toReturn = new ArrayList<AbstractAxis>();
+        JavaScriptObject nativePeers = _getAxis();
+        if (nativePeers != null) {
+            int size = JsoHelper.getArrayLength(nativePeers);
+            for (int i = 0; i < size; i++) {
+                AbstractAxis serie = AbstractAxis.create(JsoHelper.getValueFromJavaScriptObjectArray(nativePeers, i));
+                toReturn.add(serie);
+            }
+        }
+        return toReturn;
+    }
+
+    private native JavaScriptObject _getAxis()/*-{
+		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		if (component) {
+			return component.axis.items;
+		}
+		return null;
+    }-*/;
+
+    /**
      * set a list of AbstractAxis instances.
      * 
      * @param axes
@@ -179,7 +183,7 @@ public class Chart extends Component {
      * 
      * @param series
      */
-    public void addSeries(AbstractSerie series) {
+    public void addSeries(AbstractSeries series) {
         this.series.add(series);
     }
 
@@ -194,21 +198,51 @@ public class Chart extends Component {
     }
 
     /**
+     * Get the series of this chart
+     * 
+     * @return
+     */
+    public List<AbstractSeries> getSeries() {
+        return _getSeriesNativePeers();
+    }
+
+    private List<AbstractSeries> _getSeriesNativePeers() {
+        List<AbstractSeries> toReturn = new ArrayList<AbstractSeries>();
+        JavaScriptObject nativePeers = _getSeries();
+        if (nativePeers != null) {
+            int size = JsoHelper.getArrayLength(nativePeers);
+            for (int i = 0; i < size; i++) {
+                AbstractSeries serie = AbstractSeries.create(JsoHelper.getValueFromJavaScriptObjectArray(nativePeers, i));
+                toReturn.add(serie);
+            }
+        }
+        return toReturn;
+    }
+
+    private native JavaScriptObject _getSeries()/*-{
+		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		if (component) {
+			return component.series.items;
+		}
+		return null;
+    }-*/;
+
+    /**
      * set a list of Series instances or config objects
      * 
      * @param series
      */
-    public void setSeries(List<AbstractSerie> series) {
+    public void setSeries(List<AbstractSeries> series) {
         JsArray<JavaScriptObject> jsos = JsArray.createArray().cast();
-        for (AbstractSerie serie : series) {
+        for (AbstractSeries serie : series) {
             jsos.push(serie.getJsObj());
         }
         setAttribute("series", jsos, true);
     }
 
-    public void setSeries(AbstractSerie... series) {
+    public void setSeries(AbstractSeries... series) {
         JsArray<JavaScriptObject> jsos = JsArray.createArray().cast();
-        for (AbstractSerie serie : series) {
+        for (AbstractSeries serie : series) {
             jsos.push(serie.getJsObj());
         }
         setAttribute("series", jsos, true);
@@ -578,10 +612,10 @@ public class Chart extends Component {
 		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		component
 				.addEventListener(
-						@com.emitrom.touch4j.client.ui.Chart::BEFORE_REFRESH,
+						@com.emitrom.touch4j.charts.client.AbstractChart::BEFORE_REFRESH,
 						$entry(function(chart) {
-							chartObject = @com.emitrom.touch4j.client.ui.Chart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
-							handler.@com.emitrom.touch4j.charts.client.handlers.BeforeRefreshHandler::onBeforeRefresh(Lcom/emitrom/touch4j/client/ui/Chart;)(chartObject);
+							chartObject = @com.emitrom.touch4j.charts.client.AbstractChart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
+							handler.@com.emitrom.touch4j.charts.client.handlers.BeforeRefreshHandler::onBeforeRefresh(Lcom/emitrom/touch4j/charts/client/AbstractChart;)(chartObject);
 						}));
     }-*/;
 
@@ -856,10 +890,10 @@ public class Chart extends Component {
 		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		var widget = this.@com.emitrom.touch4j.client.core.AbstractBaseWidget::widget;
 		var fn = $entry(function(series, item, e) {
-			var seriesObject = @com.emitrom.touch4j.charts.client.series.AbstractSerie::new(Lcom/google/gwt/core/client/JavaScriptObject;)(series);
+			var seriesObject = @com.emitrom.touch4j.charts.client.series.AbstractSeries::new(Lcom/google/gwt/core/client/JavaScriptObject;)(series);
 			var chartItem = @com.emitrom.touch4j.charts.client.interactions.ChartItem::new(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
 			var eventObject = @com.emitrom.touch4j.client.core.EventObject::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
-			chartObject = @com.emitrom.touch4j.client.ui.Chart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
+			chartObject = @com.emitrom.touch4j.charts.client.AbstractChart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
 
 			handler.@com.emitrom.touch4j.charts.client.handlers.ChartEventHandler::onEvent(Lcom/emitrom/touch4j/charts/client/series/BaseSeries;Lcom/emitrom/touch4j/charts/client/interactions/ChartItem;Lcom/emitrom/touch4j/client/core/EventObject;)(seriesObject, chartItem, eventObject);
 		});
@@ -872,8 +906,8 @@ public class Chart extends Component {
 		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		var widget = this.@com.emitrom.touch4j.client.core.AbstractBaseWidget::widget;
 		var fn = $entry(function(chart) {
-			chartObject = @com.emitrom.touch4j.client.ui.Chart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
-			handler.@com.emitrom.touch4j.charts.client.handlers.ChartChangeHandler::onEvent(Lcom/emitrom/touch4j/client/ui/Chart;)(chartObject);
+			chartObject = @com.emitrom.touch4j.charts.client.AbstractChart::new(Lcom/google/gwt/core/client/JavaScriptObject;)(chart);
+			handler.@com.emitrom.touch4j.charts.client.handlers.ChartChangeHandler::onEvent(Lcom/emitrom/touch4j/charts/client/AbstractChart;)(chartObject);
 		});
 		component.addListener(event, fn);
 		var toReturn = @com.emitrom.touch4j.client.core.handlers.CallbackRegistration::new(Lcom/emitrom/touch4j/client/core/TouchWidget;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(widget,event,fn);

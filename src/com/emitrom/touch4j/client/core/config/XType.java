@@ -26,13 +26,13 @@ public enum XType {
                     "formpanel"), GWT_WIDGET("gwtwidget"), HIDDEN_FIELD("hiddenfield"), IMAGE("image"), INPUT_FIELD(
                     "input"), LABEL("label"), LIST("list"), LOADMASK("loadmask"), MAP("map"), MASK("mask"), MEDIA(
                     "media"), NAVIGATION_VIEW("navigationview"), NESTEDLIST("nestedlist"), NUMBER_FIELD("numberfield"), PANEL(
-                    "panel"), PASSWORD_FIELD("passwordfield"), PICKER("picker"), RADIO_FIELD("radiofield"), RATING(
-                    "rating"), SEARCH_FIELD("searchfield"), SEGMENTED_BUTTON("segmentedbutton"), SELECT_FIELD(
+                    "panel"), PASSWORD_FIELD("passwordfield"), PICKER("picker"), POLAR_CHART("polar"), RADIO_FIELD(
+                    "radiofield"), RATING("rating"), SEARCH_FIELD("searchfield"), SEGMENTED_BUTTON("segmentedbutton"), SELECT_FIELD(
                     "selectfield"), SHEET("sheet"), SLIDER_FIELD("sliderfield"), SPACER("spacer"), SPINNER_FIELD(
-                    "spinnerfield"), TAB_PANEL("tabpanel"), TEXT_FIELD("textfield"), TEXTAREA_FIELD("textareafield"), TEXTAREA_INPUT_FIELD(
-                    "textareainput"), TITLEBAR("titlebar"), TOGGLE_FIELD("togglefield"), TOOLBAR("toolbar"), URL_FIELD(
-                    "urlfield"), VIDEO("video"), TITLE("title"), TOUCH_GRID("touchgridpanel"), WIDGET_COMPONENT(
-                    "widgetComponent"), TABAR("tabbar");
+                    "spinnerfield"), SPACE_FILLING_CHART("spacefilling"), TAB_PANEL("tabpanel"), TEXT_FIELD("textfield"), TEXTAREA_FIELD(
+                    "textareafield"), TEXTAREA_INPUT_FIELD("textareainput"), TITLEBAR("titlebar"), TOGGLE_FIELD(
+                    "togglefield"), TOOLBAR("toolbar"), URL_FIELD("urlfield"), VIDEO("video"), TITLE("title"), TOUCH_GRID(
+                    "touchgridpanel"), WIDGET_COMPONENT("widgetComponent"), TABAR("tabbar");
 
     private String value;
 

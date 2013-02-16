@@ -21,13 +21,13 @@ import com.emitrom.touch4j.client.data.Store;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * The Spark Chart provides small sized charts. This class extends the
- * {@link com.emitrom.touch4j.client.ui.Chart} class with default configuration
+ * The Spark AbstractChart provides small sized charts. This class extends the
+ * {@link com.emitrom.touch4j.client.ui.CartesianChart} class with default configuration
  * options needed to create word-sized charts. <br/>
  * This class will be removed from the library. Please do not use !
  */
 @Deprecated
-public class Spark extends Chart {
+public class Spark extends CartesianChart {
 
     private static JavaScriptObject configPrototype;
     private Store store;

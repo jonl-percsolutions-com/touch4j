@@ -17,41 +17,35 @@ package com.emitrom.touch4j.charts.client.series;
 
 import com.emitrom.touch4j.client.core.JsoHelper;
 
-public class BarSeries extends StackedCartesianSeries {
+/**
+ * Creates a candlestick or OHLC Chart.
+ * 
+ */
+public class CandleStrickSeries extends CartesianSeries {
 
-    public BarSeries() {
+    public CandleStrickSeries() {
         jsObj = JsoHelper.createObject();
-        setType("bar");
+        setType("candlestick");
     }
 
-    public native void setGroupGutter(double value)/*-{
+    public native void setCloseField(String value)/*-{
 		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.groupGutter = value;
+		series.closeField = value;
     }-*/;
 
-    public native void setGutter(double value)/*-{
+    public native void setHighField(String value)/*-{
 		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.gutter = value;
+		series.highField = value;
     }-*/;
 
-    public native void setStyle(Object value)/*-{
+    public native void lowField(String value)/*-{
 		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.style = value;
+		series.lowField = value;
     }-*/;
 
-    public native void setXPadding(double value)/*-{
+    public native void setOpenField(double value)/*-{
 		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.xPadding = value;
-    }-*/;
-
-    public native void setYPadding(double value)/*-{
-		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.yPadding = value;
-    }-*/;
-
-    public native <T> T getLegendColor()/*-{
-		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		return series.getLegendColor();
+		series.openField = value;
     }-*/;
 
 }

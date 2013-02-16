@@ -21,7 +21,7 @@ import com.emitrom.touch4j.charts.client.handlers.TitleChangeHandler;
 import com.emitrom.touch4j.charts.client.interactions.ChartItem;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public abstract class BaseSeries extends AbstractSerie {
+public abstract class BaseSeries extends AbstractSeries {
 
     BaseSeries() {
 

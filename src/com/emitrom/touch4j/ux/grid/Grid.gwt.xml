@@ -11,4 +11,17 @@
      <script type="text/javascript" language="javascript" src="yourgwtproject/Ext.ux.touch.grid/feature/Paging.js"></script>
 	 <script type="text/javascript" language="javascript" src="yourgwtproject/Ext.ux.touch.grid/View.js"></script>
 	 -->
+	 
+	<stylesheet src="resources/css/Ext.ux.grid.View.css"/>
+	  
+	 <script src="Ext.ux.touch.grid/feature/Abstract.js"/>
+	 <script src="Ext.ux.touch.grid/feature/Feature.js"/>
+	 <script src="Ext.ux.touch.grid/feature/Paging.js"/>
+	  <script src="Ext.ux.touch.grid/feature/Editable.js"/>
+	  <script src="Ext.ux.touch.grid/feature/Sorter.js"/>
+	  <script src="Ext.ux.touch.grid/feature/CheckboxSelection.js"/>
+	   <script src="Ext.ux.touch.grid/List.js"/>
+	   <script src="Ext.ux.touch.grid/View.js"/>
+	     
+	      
 </module>

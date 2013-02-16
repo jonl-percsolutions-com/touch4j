@@ -1,5 +1,5 @@
 /**************************************************************************
- * AreaSeries.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * PanZoom.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -13,25 +13,34 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  **************************************************************************/
-package com.emitrom.touch4j.charts.client.series;
+package com.emitrom.touch4j.charts.client.interactions;
 
 import com.emitrom.touch4j.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
-/**
- * Creates a Stacked Area AbstractChart. The stacked area chart is useful when
- * displaying multiple aggregated layers of information. As with all other
- * series, the Area Series must be appended in the *series* AbstractChart array
- * configuration.
- */
-public class AreaSeries extends StackedCartesianSeries {
+public class CrossZoom extends AbstractInteraction {
 
-    public AreaSeries() {
+    public CrossZoom() {
         jsObj = JsoHelper.createObject();
-        setType("Area");
+        setType(InteractionType.CROSS_ZOOM);
     }
 
-    AreaSeries(JavaScriptObject obj) {
+    public CrossZoom(PanzoomAxis axes) {
+        this();
+        setAxes(axes);
+    }
+
+    CrossZoom(JavaScriptObject obj) {
         jsObj = obj;
     }
+
+    public void setAxes(PanzoomAxis value) {
+        _setAxes(value.getJsObj());
+    }
+
+    private native void _setAxes(JavaScriptObject value)/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		jso.axes = value;
+    }-*/;
+
 }

@@ -56,7 +56,7 @@ public class ComponentFactory {
         } else if (xtype.equalsIgnoreCase(XType.CHECKBOX_FIELD.getValue())) {
             return new CheckBox(jsObj);
         } else if (xtype.equalsIgnoreCase(XType.CHART.getValue())) {
-            return new Chart(jsObj);
+            return new CartesianChart(jsObj);
         } else if (xtype.equalsIgnoreCase(XType.CONTAINER.getValue())) {
             return new Container(jsObj);
         }
@@ -90,4 +90,5 @@ public class ComponentFactory {
         return getComponent(component.getOrCreateJsObj());
     }
 
+    // TODO Finish me
 }

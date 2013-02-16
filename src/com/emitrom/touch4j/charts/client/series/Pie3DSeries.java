@@ -1,5 +1,5 @@
 /**************************************************************************
- * BarSeries.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * GaugeSeries.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -17,41 +17,34 @@ package com.emitrom.touch4j.charts.client.series;
 
 import com.emitrom.touch4j.client.core.JsoHelper;
 
-public class BarSeries extends StackedCartesianSeries {
+/**
+ * Creates a Gauge AbstractChart. Gauge Charts are used to show progress in a
+ * certain variable. There are two ways of using the Gauge chart. One is setting
+ * a store element into the Gauge and selecting the field to be used from that
+ * store. Another one is instantiating the visualization and using the setValue
+ * method to adjust the value you want.
+ * 
+ */
+public class Pie3DSeries extends PolarSeries {
 
-    public BarSeries() {
+    public Pie3DSeries() {
         jsObj = JsoHelper.createObject();
-        setType("bar");
+        setType("pie3D");
+
     }
 
-    public native void setGroupGutter(double value)/*-{
+    public native void setDonut(boolean value)/*-{
 		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.groupGutter = value;
+		series.donut = value;
     }-*/;
 
-    public native void setGutter(double value)/*-{
+    public native void setDonut(double value)/*-{
 		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.gutter = value;
+		series.donut = value;
     }-*/;
 
-    public native void setStyle(Object value)/*-{
-		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.style = value;
-    }-*/;
-
-    public native void setXPadding(double value)/*-{
-		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.xPadding = value;
-    }-*/;
-
-    public native void setYPadding(double value)/*-{
-		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		series.yPadding = value;
-    }-*/;
-
-    public native <T> T getLegendColor()/*-{
-		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		return series.getLegendColor();
-    }-*/;
+    public void setField(String value) {
+        JsoHelper.setAttribute(jsObj, "field", value);
+    }
 
 }

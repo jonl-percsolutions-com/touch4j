@@ -1,5 +1,5 @@
 /**************************************************************************
- * GridFeature.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
+ * PieRotate.java is part of Touch4j 3.0. Copyright 2012 Emitrom LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -13,22 +13,20 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  **************************************************************************/
-package com.emitrom.touch4j.ux.grid.client.core;
+package com.emitrom.touch4j.charts.client.interactions;
 
-public enum GridFeature {
+import com.emitrom.touch4j.client.core.JsoHelper;
+import com.google.gwt.core.client.JavaScriptObject;
 
-    EDITABLE("Ext.ux.touch.grid.feature.Editable"), HORIZONTAL_SCROLL("horizontal"), PAGING(
-                    "Ext.ux.touch.grid.feature.Paging"), ITEM_DISCLOSURE("itemdisclosure"), SORTER(
-                    "Ext.ux.touch.grid.feature.Sorter");
+public class RotatePie3D extends AbstractInteraction {
 
-    private String value;
-
-    private GridFeature(String feature) {
-        this.value = feature;
+    public RotatePie3D() {
+        jsObj = JsoHelper.createObject();
+        setType(InteractionType.ROTATE_3D);
     }
 
-    public String getValue() {
-        return value;
+    RotatePie3D(JavaScriptObject obj) {
+        jsObj = obj;
     }
 
 }

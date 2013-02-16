@@ -51,12 +51,27 @@ public class NativeGrid extends ListDataView {
         return new NativeGrid(obj);
     }
 
+    public static NativeGrid newInstance(Store store, List<GridColumn> cols, boolean itemDisclosure) {
+        JavaScriptObject obj = _createNative(store.getJsObj(), GridColumn.fromValues(cols), itemDisclosure);
+        return new NativeGrid(obj);
+    }
+
     public static NativeGrid newInstance(Store store, List<GridColumn> cols, List<String> features) {
         JsArrayString values = JsArrayString.createArray().cast();
         for (String s : features) {
             values.push(s);
         }
         JavaScriptObject obj = _createNative(store.getJsObj(), GridColumn.fromList(cols), values);
+        return new NativeGrid(obj);
+    }
+
+    public static NativeGrid newInstance(Store store, List<GridColumn> cols, List<String> features,
+                    boolean itemDisclosure) {
+        JsArrayString values = JsArrayString.createArray().cast();
+        for (String s : features) {
+            values.push(s);
+        }
+        JavaScriptObject obj = _createNative(store.getJsObj(), GridColumn.fromList(cols), values, itemDisclosure);
         return new NativeGrid(obj);
     }
 
@@ -104,6 +119,20 @@ public class NativeGrid extends ListDataView {
     }-*/;
 
     private static native JavaScriptObject _createNative(JavaScriptObject store, JavaScriptObject cols,
+                    boolean useItemDisclosure)/*-{
+		var grid = $wnd.Ext.create('Ext.ux.touch.grid.List', {
+			store : store,
+			columns : cols,
+			onItemDisclosure : useItemDisclosure,
+			features : [ {
+				ftype : 'Ext.ux.touch.grid.feature.Sorter',
+				launchFn : 'initialize'
+			} ]
+		});
+		return grid;
+    }-*/;
+
+    private static native JavaScriptObject _createNative(JavaScriptObject store, JavaScriptObject cols,
                     JsArrayString array)/*-{
 		var myFeatures = [];
 		var config = {};
@@ -121,6 +150,29 @@ public class NativeGrid extends ListDataView {
 
 		}
 		config.features = myFeatures;
+		var grid = $wnd.Ext.create('Ext.ux.touch.grid.List', config);
+		return grid;
+    }-*/;
+
+    private static native JavaScriptObject _createNative(JavaScriptObject store, JavaScriptObject cols,
+                    JsArrayString array, boolean useItemDisclosure)/*-{
+		var myFeatures = [];
+		var config = {};
+		config.store = store;
+		config.columns = cols;
+
+		for ( var i = 0; i < array.length; i++) {
+			var string = array[i];
+			if (string == 'horizontal') {
+				config.scrollable = 'horizontal';
+			} else {
+				var feature = @com.emitrom.touch4j.ux.grid.client.core.NativeGrid::createFeatureFrom(Ljava/lang/String;)(string);
+				myFeatures.push(feature);
+			}
+
+		}
+		config.features = myFeatures;
+		config.onItemDisclosure = useItemDisclosure;
 		var grid = $wnd.Ext.create('Ext.ux.touch.grid.List', config);
 		return grid;
     }-*/;
