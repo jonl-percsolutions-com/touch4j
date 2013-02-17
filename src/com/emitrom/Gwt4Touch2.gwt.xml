@@ -6,13 +6,12 @@
 	<inherits name="com.google.gwt.activity.Activity"/>
 	
 	<inherits name='com.emitrom.touch4j.Touch4j' />
-	<inherits name='com.emitrom.platform.maps.Maps' />
-	<inherits name='com.emitrom.platform.device.Device' />
 	<inherits name='com.emitrom.touch4j.charts.Charts' />
 	<inherits name='com.emitrom.touch4j.ux.grid.Grid' />
 	<inherits name="com.emitrom.touch4j.ux.rating.Rating" />
+	<inherits name="com.emitrom.touch4j.ux.slidenavigation.SlideNavigation" />
 	
-	<entry-point class='com.emitrom.client.Touch4j' />
+	<entry-point class='com.emitrom.client.Touch3' />
 
 	<set-property name='user.agent' value='safari'/>
 	
