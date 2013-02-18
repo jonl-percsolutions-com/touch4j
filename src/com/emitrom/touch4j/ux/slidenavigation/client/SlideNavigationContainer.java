@@ -1,5 +1,6 @@
 /**************************************************************************
- * SlideNavigationContainer.java is part of Touch4j 4.0. Copyright 2012 Emitrom LLC
+ * SlideNavigationContainer.java is part of Touch4j 4.0. Copyright 2012 Emitrom
+ * LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -148,7 +149,7 @@ public class SlideNavigationContainer extends Container {
 
     private native ContainerCallbackRegistration _addStateChangeListener(String event,
                     SlideNavigationStateHandler handler) /*-{
-		var component = this.@com.emitrom.touch4j.client.core.AbstractBaseWidget::getOrCreateJsObj()();
+		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		var fn = function(v, x, y) {
 			var comp = @com.emitrom.touch4j.ux.slidenavigation.client.SlideNavigationContainer::new(Lcom/google/gwt/core/client/JavaScriptObject;)(v);
 			handler.@com.emitrom.touch4j.ux.slidenavigation.client.SlideNavigationStateHandler::onEvent(Lcom/emitrom/touch4j/ux/slidenavigation/client/SlideNavigationContainer;DD)(comp,x,y);

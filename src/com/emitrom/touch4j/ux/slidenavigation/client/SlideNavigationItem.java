@@ -118,26 +118,26 @@ public class SlideNavigationItem extends JsObject {
 
     public native String getTitle()/*-{
 		var item = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()()
-		var c = item.raw.title;
-		return @com.emitrom.touch4j.client.ui.Container::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+		var title = item.raw.title;
+		return title;
     }-*/;
 
     public native int getIndex()/*-{
 		var item = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()()
-		var c = item.raw.index;
-		return @com.emitrom.touch4j.client.ui.Container::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+		var index = item.raw.index;
+		return index;
     }-*/;
 
     public native String getGroup()/*-{
 		var item = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()()
-		var c = item.raw.group;
-		return @com.emitrom.touch4j.client.ui.Container::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+		var group = item.raw.group;
+		return group;
     }-*/;
 
     public native int getOrder()/*-{
 		var item = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()()
-		var c = item.data.order;
-		return @com.emitrom.touch4j.client.ui.Container::new(Lcom/google/gwt/core/client/JavaScriptObject;)(c);
+		var order = item.data.order;
+		return order;
     }-*/;
 
 }

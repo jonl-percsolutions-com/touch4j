@@ -36,6 +36,10 @@ public class SlideNavigation implements IsComponent {
     public static final String LEFT = "left";
     public static final String RIGHT = "right";
 
+    /**
+     * Creates a SlideNavigation Note that the widget is not yet created. You
+     * muss add some SlideNavigationItems first.
+     */
     public SlideNavigation() {
         config = new SlideNavigationConfig();
         setSlideButtonDefaultComponent("toolbar");
