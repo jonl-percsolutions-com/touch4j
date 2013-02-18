@@ -41,7 +41,7 @@ public class Audio extends Media {
     }
 
     /**
-     * Create a new Sheet.
+     * Create a new Audio.
      */
     public Audio() {
     }
