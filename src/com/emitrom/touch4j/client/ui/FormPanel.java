@@ -43,7 +43,7 @@ public class FormPanel extends Panel {
 
     @Override
     protected native void init()/*-{
-		var c = new $wnd.Ext.field.Panel();
+		var c = new $wnd.Ext.form.Panel();
 		this.@com.emitrom.touch4j.client.core.Component::configPrototype = c.initialConfig;
     }-*/;
 
