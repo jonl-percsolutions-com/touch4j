@@ -67,6 +67,11 @@ public class Scroller extends JsObject {
 		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
 		peer.direction = direction;
     }-*/;
+    
+    public final native void setDirection(Direction direction) /*-{
+		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		peer.direction = direction;
+    }-*/;
 
     public final native void setDirectionLock(boolean lock) /*-{
 		var peer = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();

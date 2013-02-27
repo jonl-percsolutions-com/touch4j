@@ -149,7 +149,10 @@ public class TabPanel extends Container implements HasUi {
             throw new IllegalStateException(
                             "TabPanel can only contain a child of type com.emitrom.touch4j.client.ui.TabItem ");
         }
-        add((TabItem) w);
+    }
+    
+    public void setToolBar(ToolBar toolbar) {
+    	super.add(toolbar);
     }
 
     public native void setUi(String ui)/*-{
