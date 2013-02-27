@@ -1,9 +1,6 @@
 Ext.define('Ext.ux.touch.grid.View', {
     extend : 'Ext.dataview.DataView',
 
-    requires : [
-        'Ext.ux.touch.grid.List'
-    ],
 
     constructor: function(config) {
         //<debug>

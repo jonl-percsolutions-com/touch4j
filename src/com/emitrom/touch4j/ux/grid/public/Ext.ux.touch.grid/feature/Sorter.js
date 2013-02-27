@@ -1,6 +1,5 @@
 Ext.define('Ext.ux.touch.grid.feature.Sorter', {
     extend   : 'Ext.ux.touch.grid.feature.Abstract',
-    requires : 'Ext.ux.touch.grid.feature.Abstract',
 
     config : {
         events : {
