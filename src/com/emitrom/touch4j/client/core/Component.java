@@ -900,6 +900,22 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
      */
     public void setDocked(Dock dock) {
         setDocked(dock.getValue());
+        /**
+         * TODO
+         * This is a work around for a Sencha Bug.
+         * Documented as issue #1 in github.
+         */
+        if (dock == Dock.BOTTOM) {
+        	Scheduler.get().scheduleDeferred(new ScheduledCommand() {
+				@Override
+				public void execute() {
+					com.google.gwt.dom.client.Element parent = getElement().getParentElement();
+					Element child = getElement();
+					getElement().removeFromParent();
+					parent.appendChild(child);
+				}
+			});
+        }
     }
 
     public Dock getDocked() {
