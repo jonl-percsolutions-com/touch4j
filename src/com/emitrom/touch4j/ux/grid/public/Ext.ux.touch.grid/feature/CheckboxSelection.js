@@ -1,7 +1,5 @@
 Ext.define('Ext.ux.touch.grid.feature.CheckboxSelection', {
     extend   : 'Ext.ux.touch.grid.feature.Abstract',
-    requires : 'Ext.ux.touch.grid.feature.Abstract',
-
     config : {
         events : {
             headerEl : {

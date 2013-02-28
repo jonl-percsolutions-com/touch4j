@@ -1,11 +1,6 @@
 Ext.define('Ext.ux.touch.grid.List', {
     extend : 'Ext.dataview.List',
     xtype  : 'touchgridpanel',
-
-    requires : [
-        'Ext.ux.touch.grid.feature.Feature',
-        'Ext.Toolbar'
-    ],
     mixins   : ['Ext.ux.touch.grid.feature.Feature'],
 
     config : {

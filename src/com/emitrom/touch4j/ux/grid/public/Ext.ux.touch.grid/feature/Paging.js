@@ -1,11 +1,5 @@
 Ext.define('Ext.ux.touch.grid.feature.Paging', {
     extend   : 'Ext.ux.touch.grid.feature.Abstract',
-    requires : [
-        'Ext.ux.touch.grid.feature.Abstract',
-        'Ext.Toolbar',
-        'Ext.Button',
-        'Ext.Panel'
-    ],
 
     config : {
         events : {
