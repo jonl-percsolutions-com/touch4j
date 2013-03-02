@@ -16,7 +16,7 @@
 package com.emitrom.touch4j.client.ui;
 
 import com.emitrom.touch4j.client.core.config.XType;
-import com.emitrom.touch4j.client.layout.AbstractLayout;
+import com.emitrom.touch4j.client.layout.Layout;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 
@@ -58,14 +58,14 @@ public class ModalPanel extends Panel {
      * Create a new Panel.
      */
     public ModalPanel() {
-
+    	
     }
 
     public ModalPanel(boolean fullScreen) {
         setFullScreen(fullScreen);
     }
 
-    public ModalPanel(AbstractLayout layout) {
+    public ModalPanel(Layout layout) {
         setLayout(layout);
     }
 
