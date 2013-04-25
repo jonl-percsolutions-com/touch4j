@@ -1,5 +1,6 @@
 /**************************************************************************
- * UbergridColumnRenderer.java is part of Touch4j 4.0. Copyright 2012 Emitrom LLC
+ * UberGridColumnRenderer.java is part of Touch4j 4.0. Copyright 2012 Emitrom
+ * LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -15,8 +16,10 @@
  **************************************************************************/
 package com.emitrom.touch4j.ux.ubergrid.client.core;
 
-import com.emitrom.touch4j.client.data.BaseModel;
+import com.emitrom.touch4j.client.data.Store;
+import com.emitrom.touch4j.ux.ubergrid.client.data.UberGridModel;
 
-public interface UbergridColumnRenderer {
-    public String onRender(String value, BaseModel model);
+public interface UberGridColumnRenderer {
+    public String onRender(String value, CellMetaData meta, UberGridModel record, int rowIndex, int colIndex,
+                    Store store, UberGridColumn column);
 }

@@ -41,17 +41,17 @@ public class NativeUberGrid extends Container {
 		return new $wnd.UberGrid.Panel(config);
     }-*/;
 
-    public static NativeUberGrid newInstance(Store store, List<UbergridColumn> cols) {
-        JavaScriptObject obj = _createNative(store.getJsObj(), UbergridColumn.fromValues(cols));
+    public static NativeUberGrid newInstance(Store store, List<UberGridColumn> cols) {
+        JavaScriptObject obj = _createNative(store.getJsObj(), UberGridColumn.fromValues(cols));
         return new NativeUberGrid(obj);
     }
 
-    public static NativeUberGrid newInstance(Store store, List<UbergridColumn> cols, List<String> features) {
+    public static NativeUberGrid newInstance(Store store, List<UberGridColumn> cols, List<String> features) {
         JsArrayString values = JsArrayString.createArray().cast();
         for (String s : features) {
             values.push(s);
         }
-        JavaScriptObject obj = _createNative(store.getJsObj(), UbergridColumn.fromList(cols), values);
+        JavaScriptObject obj = _createNative(store.getJsObj(), UberGridColumn.fromList(cols), values);
         return new NativeUberGrid(obj);
     }
 
@@ -75,9 +75,9 @@ public class NativeUberGrid extends Container {
 		grid.showColumn(index);
     }-*/;
 
-    public List<UbergridColumn> getColumns() {
+    public List<UberGridColumn> getColumns() {
         return null;
-        // return UbergridColumn.fromJsArray(_getColumns());
+        // return UberGridColumn.fromJsArray(_getColumns());
     }
 
     private static native JavaScriptObject _createNative(JavaScriptObject store, JavaScriptObject cols)/*-{

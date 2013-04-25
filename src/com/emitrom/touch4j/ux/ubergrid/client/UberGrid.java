@@ -22,22 +22,22 @@ import com.emitrom.touch4j.client.core.Component;
 import com.emitrom.touch4j.client.core.IsComponent;
 import com.emitrom.touch4j.client.data.Store;
 import com.emitrom.touch4j.ux.ubergrid.client.core.NativeUberGrid;
-import com.emitrom.touch4j.ux.ubergrid.client.core.UbergridColumn;
+import com.emitrom.touch4j.ux.ubergrid.client.core.UberGridColumn;
 
 public class UberGrid implements IsComponent {
 
     private Store store;
-    private List<UbergridColumn> columns;
+    private List<UberGridColumn> columns;
     private boolean gridWasCreated = false;
 
     private NativeUberGrid widget;
 
     public UberGrid() {
-        columns = new ArrayList<UbergridColumn>();
+        columns = new ArrayList<UberGridColumn>();
 
     }
 
-    public void addColumn(UbergridColumn column) {
+    public void addColumn(UberGridColumn column) {
         if (this.gridWasCreated) {
             throw new IllegalStateException(
                             "The columns for this widgets are allready set. Dis you use a constructor with columns arguments ?");
@@ -53,15 +53,15 @@ public class UberGrid implements IsComponent {
         this.store = store;
     }
 
-    public UberGrid(Store store, List<UbergridColumn> cols) {
+    public UberGrid(Store store, List<UberGridColumn> cols) {
         widget = NativeUberGrid.newInstance(store, cols);
         gridWasCreated = true;
     }
 
-    public UberGrid(Store store, UbergridColumn... cols) {
-        List<UbergridColumn> columns = new ArrayList<UbergridColumn>();
+    public UberGrid(Store store, UberGridColumn... cols) {
+        List<UberGridColumn> columns = new ArrayList<UberGridColumn>();
         List<String> values = new ArrayList<String>();
-        for (UbergridColumn column : cols) {
+        for (UberGridColumn column : cols) {
             columns.add(column);
         }
 
@@ -69,12 +69,12 @@ public class UberGrid implements IsComponent {
         gridWasCreated = true;
     }
 
-    public UbergridColumn getColumn(int index) {
+    public UberGridColumn getColumn(int index) {
         return null;
         // return widget.getColumn(index);
     }
 
-    public List<UbergridColumn> getColumns() {
+    public List<UberGridColumn> getColumns() {
         return widget.getColumns();
     }
 
@@ -102,7 +102,7 @@ public class UberGrid implements IsComponent {
         return create(this.store, this.columns);
     }
 
-    private Component create(Store s, List<UbergridColumn> cols) {
+    private Component create(Store s, List<UberGridColumn> cols) {
         if (s == null || s.getCount() == 0) {
             throw new IllegalStateException("The store for this grid  seems to be null or empty");
         } else if (cols.size() <= 0) {

@@ -1,5 +1,5 @@
 /**************************************************************************
- * GridColumn.java is part of Touch4j 4.0. Copyright 2012 Emitrom LLC
+ * UberGridColumn.java is part of Touch4j 4.0. Copyright 2012 Emitrom LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -193,7 +193,7 @@ public class GridColumn extends JsObject {
      * @param value
      */
     public void setFilter(GridColumnFilter value) {
-        JsoHelper.setAttribute(jsObj, Attribute.STYLE.getValue(), value.getJsObj());
+        JsoHelper.setAttribute(jsObj, Attribute.FILTER.getValue(), value.getJsObj());
     }
 
     /**
