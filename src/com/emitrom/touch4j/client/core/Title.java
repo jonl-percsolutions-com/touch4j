@@ -68,4 +68,14 @@ public class Title extends Component {
         return getAttribute(Attribute.TITLE.getValue());
     }
 
+    @Override
+    public String getText() {
+        return this.getTitle();
+    }
+
+    @Override
+    public void setText(String text) {
+        this.setTitle(text);
+    }
+
 }

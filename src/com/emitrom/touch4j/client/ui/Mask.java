@@ -74,4 +74,16 @@ public class Mask extends Component {
         return this.addWidgetListener(Event.TAP.getValue(), handler.getJsoPeer());
     }
 
+    @Override
+    public String getText() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void setText(String text) {
+        // TODO Auto-generated method stub
+
+    }
+
 }

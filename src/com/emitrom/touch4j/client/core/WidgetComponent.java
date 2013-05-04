@@ -15,7 +15,6 @@
  **************************************************************************/
 package com.emitrom.touch4j.client.core;
 
-import com.emitrom.touch4j.client.core.JsoHelper;
 import com.emitrom.touch4j.client.core.config.XType;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -23,8 +22,8 @@ import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Adapter between GWT {@link com.google.gwt.user.client.ui.Widget}'s and
- * {@link com.emitrom.touch4j.client.core.Component}'s. This class enables
- * the use of pure GWT component inside Touch4j panels
+ * {@link com.emitrom.touch4j.client.core.Component}'s. This class enables the
+ * use of pure GWT component inside Touch4j panels
  */
 public class WidgetComponent extends Component {
 
@@ -103,6 +102,15 @@ public class WidgetComponent extends Component {
 
     @Override
     protected void init() {
+    }
+
+    @Override
+    public String getText() {
+        return "";
+    }
+
+    @Override
+    public void setText(String text) {
     }
 
 }

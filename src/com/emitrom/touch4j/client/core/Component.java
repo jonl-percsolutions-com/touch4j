@@ -39,6 +39,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.user.client.Element;
+import com.google.gwt.user.client.ui.HasHTML;
 
 /**
  * <p>
@@ -103,7 +104,7 @@ import com.google.gwt.user.client.Element;
  *      </a>
  */
 public abstract class Component extends TouchWidget implements BoxWidget, HasBoxHandlers, HasFocusHandlers,
-                FocusWidget, HasHtml {
+                FocusWidget, HasHtml, HasHTML {
 
     protected JavaScriptObject configPrototype;
     private boolean initHidden = false;
@@ -254,6 +255,16 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
         } else {
             enableRendered();
         }
+    }
+
+    @Override
+    public String getHTML() {
+        return this.getHtml();
+    }
+
+    @Override
+    public void setHTML(String html) {
+        this.setHtml(html);
     }
 
     /**
@@ -901,20 +912,19 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
     public void setDocked(Dock dock) {
         setDocked(dock.getValue());
         /**
-         * TODO
-         * This is a work around for a Sencha Bug.
-         * Documented as issue #1 in github.
+         * TODO This is a work around for a Sencha Bug. Documented as issue #1
+         * in github.
          */
         if (dock == Dock.BOTTOM) {
-        	Scheduler.get().scheduleDeferred(new ScheduledCommand() {
-				@Override
-				public void execute() {
-					com.google.gwt.dom.client.Element parent = getElement().getParentElement();
-					Element child = getElement();
-					getElement().removeFromParent();
-					parent.appendChild(child);
-				}
-			});
+            Scheduler.get().scheduleDeferred(new ScheduledCommand() {
+                @Override
+                public void execute() {
+                    com.google.gwt.dom.client.Element parent = getElement().getParentElement();
+                    Element child = getElement();
+                    getElement().removeFromParent();
+                    parent.appendChild(child);
+                }
+            });
         }
     }
 

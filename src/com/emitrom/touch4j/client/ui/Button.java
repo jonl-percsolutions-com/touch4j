@@ -20,7 +20,6 @@ import com.emitrom.touch4j.client.core.Function;
 import com.emitrom.touch4j.client.core.HasBadge;
 import com.emitrom.touch4j.client.core.HasIcon;
 import com.emitrom.touch4j.client.core.HasTapHandlers;
-import com.emitrom.touch4j.client.core.HasText;
 import com.emitrom.touch4j.client.core.HasUi;
 import com.emitrom.touch4j.client.core.Icons;
 import com.emitrom.touch4j.client.core.JsoHelper;
@@ -28,11 +27,13 @@ import com.emitrom.touch4j.client.core.config.Attribute;
 import com.emitrom.touch4j.client.core.config.Event;
 import com.emitrom.touch4j.client.core.config.XType;
 import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
+import com.emitrom.touch4j.client.core.handlers.ComponentHandlerRegistration;
 import com.emitrom.touch4j.client.core.handlers.button.BeforeTapHandler;
 import com.emitrom.touch4j.client.core.handlers.button.TapHandler;
 import com.emitrom.touch4j.client.laf.UI;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
+import com.google.gwt.user.client.ui.HasText;
 
 /**
  * A simple class to display different styles of buttons.
@@ -324,6 +325,21 @@ public class Button extends Component implements HasUi, HasIcon, HasTapHandlers,
     public CallbackRegistration addTapHandler(final TapHandler handler) {
         return this.addWidgetListener(Event.TAP.getValue(), handler.getJsoPeer());
     }
+
+    public native ComponentHandlerRegistration addTapHandler(
+                    com.emitrom.touch4j.client.events.handlers.TapHandler handler)/*-{
+		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		var fn = function(source, event) {
+			var btn = @com.emitrom.touch4j.client.ui.Button::new(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
+			var eventObject = @com.emitrom.touch4j.client.events.TapEvent::new(Lcom/emitrom/touch4j/client/ui/Button;Lcom/google/gwt/core/client/JavaScriptObject;)(btn,event);
+			handler.@com.emitrom.touch4j.client.events.handlers.TapHandler::onTap(Lcom/emitrom/touch4j/client/events/TapEvent;)(eventObject);
+		};
+		var eventName = @com.emitrom.touch4j.client.events.TapEvent::EVENT_NAME;
+		component.addListener(eventName, fn);
+		var listener = fn;
+		var toReturn = @com.emitrom.touch4j.client.core.handlers.ComponentHandlerRegistration::new(Lcom/emitrom/touch4j/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,listener);
+		return toReturn;
+    }-*/;
 
     /*
      * (non-Javadoc)

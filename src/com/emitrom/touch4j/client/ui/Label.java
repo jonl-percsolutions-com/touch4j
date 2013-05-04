@@ -26,7 +26,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  * 
  * @see <a href=http://docs.sencha.com/touch/2-0/#!/api/Ext.Label>Ext.Label</a>
  */
-public class Label extends Component  implements HasHtml {
+public class Label extends Component implements HasHtml {
 
     private Label(JavaScriptObject config) {
         super(config);
@@ -56,8 +56,20 @@ public class Label extends Component  implements HasHtml {
      * The label of this component
      */
     public native void setHtml(String value) /*-{
-        var label = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-        label.setHtml(value);
+		var label = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		label.setHtml(value);
     }-*/;
+
+    @Override
+    public String getText() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void setText(String text) {
+        // TODO Auto-generated method stub
+
+    }
 
 }

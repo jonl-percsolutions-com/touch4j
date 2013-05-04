@@ -70,4 +70,13 @@ public class Audio extends Media {
 		audio.setUrl(value);
     }-*/;
 
+    @Override
+    public String getText() {
+        return "";
+    }
+
+    @Override
+    public void setText(String text) {
+    }
+
 }

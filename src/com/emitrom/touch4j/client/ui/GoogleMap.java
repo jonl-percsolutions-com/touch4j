@@ -179,4 +179,16 @@ public class GoogleMap extends Component implements MapElement {
     public CallbackRegistration addZoomChangeHandler(MapZoomChangeHandler handler) {
         return addWidgetListener(ZOOM_CHANGE, handler.getJsoPeer());
     }
+
+    @Override
+    public String getText() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void setText(String text) {
+        // TODO Auto-generated method stub
+
+    }
 }

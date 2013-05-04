@@ -182,12 +182,13 @@ public class Field extends Component {
      * @return
      */
     // TODO
-//    public native <T> T getValue() /*-{
-//		var field = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-//		if (field != null) {
-//			return field.getValue();
-//		}
-//    }-*/;
+    // public native <T> T getValue() /*-{
+    // var field =
+    // this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+    // if (field != null) {
+    // return field.getValue();
+    // }
+    // }-*/;
 
     /**
      * Returns true if the value of this Field has been changed from its
@@ -342,5 +343,17 @@ public class Field extends Component {
 			field.setPlaceHolder(value);
 		}
     }-*/;
+
+    @Override
+    public String getText() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void setText(String text) {
+        // TODO Auto-generated method stub
+
+    }
 
 }

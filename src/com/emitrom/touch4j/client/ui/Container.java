@@ -405,4 +405,16 @@ public class Container extends ComplexContainer implements HasLayout, Resizable 
 		container.insert(index, component);
     }-*/;
 
+    @Override
+    public String getText() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void setText(String text) {
+        // TODO Auto-generated method stub
+
+    }
+
 }
