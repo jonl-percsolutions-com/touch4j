@@ -2,4 +2,9 @@
 <module>
 	<inherits name='com.google.gwt.user.User' />
 	<inherits name="com.emitrom.touch4j.charts.Charts" />
+	<inherits name="com.emitrom.touch4j.formfactor.FormFactor" />
+	
+	<generate-with class="com.emitrom.touch4j.rebind.BeanModelGenerator">
+		<when-type-assignable class="com.emitrom.touch4j.client.data.BeanModelLookup" />
+	</generate-with>
 </module>
