@@ -121,10 +121,24 @@ public class Spinner<T> extends NumberField<T> {
      * 
      * @param value
      */
+    @Deprecated
     public native void setIncrement(double value) /*-{
 		var field = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		if (field != null) {
-			field.setIncrement(value);
+			field.setStepValue(value);
+		}
+    }-*/;
+
+    /**
+     * Value that is added or subtracted from the current value when a spinner
+     * is used.
+     * <p>
+     * Defaults to: 0.1
+     */
+    public native void setStepValue(double value) /*-{
+		var field = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		if (field != null) {
+			field.setStepValue(value);
 		}
     }-*/;
 
