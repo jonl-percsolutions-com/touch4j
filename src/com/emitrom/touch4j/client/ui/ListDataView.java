@@ -31,36 +31,6 @@ public class ListDataView extends DataView implements ListElement {
         super(config);
     }
 
-    /**
-     * This patch is necessary because of a bug introduced on Sencha Touch 2.1
-     * Should be fixed in 2.2 and will be removed once Touch4j official supports
-     * Sencha Touch 2.2 see
-     * http://www.sencha.com/forum/showthread.php?248221-Change
-     * -Template-in-List-(v2.1)
-     */
-    static {
-        patch();
-    }
-
-    private static native void patch()/*-{
-		$wnd.Ext.override($wnd.Ext.dataview.List, {
-			updateListItem : function(item, index, info) {
-				var record = info.store.getAt(index);
-				if (this.isSelected(record)) {
-					item.addCls(info.selectedCls);
-				} else {
-					item.removeCls(info.selectedCls);
-				}
-
-				item.setTpl(this.getItemTpl());
-				item.removeCls([ info.headerCls, info.footerCls, info.firstCls,
-						info.lastCls ]);
-				this.replaceItemContent(item, index, info)
-
-			}
-		});
-    }-*/;
-
     @Override
     protected native void init()/*-{
 		var c = new $wnd.Ext.dataview.List();

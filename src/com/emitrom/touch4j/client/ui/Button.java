@@ -27,12 +27,10 @@ import com.emitrom.touch4j.client.core.config.Attribute;
 import com.emitrom.touch4j.client.core.config.Event;
 import com.emitrom.touch4j.client.core.config.XType;
 import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
-import com.emitrom.touch4j.client.core.handlers.ComponentHandlerRegistration;
 import com.emitrom.touch4j.client.core.handlers.button.BeforeTapHandler;
 import com.emitrom.touch4j.client.core.handlers.button.TapHandler;
 import com.emitrom.touch4j.client.laf.UI;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.HasText;
 
 /**
@@ -301,20 +299,6 @@ public class Button extends Component implements HasUi, HasIcon, HasTapHandlers,
         return super.isDisabled();
     }
 
-    /**
-     * An Ext Button consists of a table that wraps a button element. This
-     * method returns the underlying Button element. <br>
-     * <b>Note:</b> This method should be called only after the Button has been
-     * Rendered.
-     * 
-     * @return the Button Element
-     */
-    public native Element getButtonElement() /*-{
-		var button = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		var but = button.el.child('button:first').dom;
-		return but;
-    }-*/;
-
     /*
      * (non-Javadoc)
      * 
@@ -326,20 +310,33 @@ public class Button extends Component implements HasUi, HasIcon, HasTapHandlers,
         return this.addWidgetListener(Event.TAP.getValue(), handler.getJsoPeer());
     }
 
-    public native ComponentHandlerRegistration addTapHandler(
-                    com.emitrom.touch4j.client.events.handlers.TapHandler handler)/*-{
-		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		var fn = function(source, event) {
-			var btn = @com.emitrom.touch4j.client.ui.Button::new(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
-			var eventObject = @com.emitrom.touch4j.client.events.TapEvent::new(Lcom/emitrom/touch4j/client/ui/Button;Lcom/google/gwt/core/client/JavaScriptObject;)(btn,event);
-			handler.@com.emitrom.touch4j.client.events.handlers.TapHandler::onTap(Lcom/emitrom/touch4j/client/events/TapEvent;)(eventObject);
-		};
-		var eventName = @com.emitrom.touch4j.client.events.TapEvent::EVENT_NAME;
-		component.addListener(eventName, fn);
-		var listener = fn;
-		var toReturn = @com.emitrom.touch4j.client.core.handlers.ComponentHandlerRegistration::new(Lcom/emitrom/touch4j/client/core/Component;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(this,eventName,listener);
-		return toReturn;
-    }-*/;
+    /*
+     * public native ComponentHandlerRegistration addTapHandler(
+     * com.emitrom.touch4j.client.events.handlers.TapHandler handler)/*-{ var
+     * component =
+     * this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+     * var fn = function(source, event) { var btn =
+     * 
+     * @com.emitrom.touch4j.client.ui
+     * .Button::new(Lcom/google/gwt/core/client/JavaScriptObject;)(source); var
+     * eventObject =
+     * 
+     * @com.emitrom.touch4j.client.events.TapEvent::new(Lcom/emitrom
+     * /touch4j/client
+     * /ui/Button;Lcom/google/gwt/core/client/JavaScriptObject;)(btn,event);
+     * handler
+     * .@com.emitrom.touch4j.client.events.handlers.TapHandler::onTap(Lcom
+     * /emitrom/touch4j/client/events/TapEvent;)(eventObject); }; var eventName
+     * = @com.emitrom.touch4j.client.events.TapEvent::EVENT_NAME;
+     * component.addListener(eventName, fn); var listener = fn; var toReturn =
+     * 
+     * @com
+     * .emitrom.touch4j.client.core.handlers.ComponentHandlerRegistration::new
+     * (Lcom
+     * /emitrom/touch4j/client/core/Component;Ljava/lang/String;Lcom/google/
+     * gwt/core/client/JavaScriptObject;)(this,eventName,listener); return
+     * toReturn; }-
+     */
 
     /*
      * (non-Javadoc)
