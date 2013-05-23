@@ -70,12 +70,15 @@ public class UberGrid implements IsComponent {
     }
 
     public UberGridColumn getColumn(int index) {
-        return null;
-        // return widget.getColumn(index);
+        if (this.columns == null) {
+            this.getColumns();
+        }
+        return this.columns.get(index);
     }
 
     public List<UberGridColumn> getColumns() {
-        return widget.getColumns();
+        this.columns = widget.getColumns();
+        return this.columns;
     }
 
     public NativeUberGrid getView() {

@@ -20,6 +20,7 @@ import java.util.List;
 import com.emitrom.touch4j.client.data.Store;
 import com.emitrom.touch4j.client.ui.Container;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayString;
 
 public class NativeUberGrid extends Container {
@@ -60,6 +61,69 @@ public class NativeUberGrid extends Container {
         return "ubergrid";
     }
 
+    public void setBuffered(boolean value) {
+        this.setAttribute("buffered", value, true);
+    }
+
+    public void setColumnLines(boolean value) {
+        this.setAttribute("columnLines", value, true);
+    }
+
+    public void setRowCls(UberGridRowFunction fn) {
+        this.setAttribute("getRowCls", _getRowCls(fn), true);
+    }
+
+    public void setHeaderHeight(double value) {
+        this.setAttribute("headerHeight", value, true);
+    }
+
+    public void setLockedFlex(int value) {
+        this.setAttribute("lockedFlex", value, true);
+    }
+
+    public void setLockedWidth(double value) {
+        this.setAttribute("lockedWidth", value, true);
+    }
+
+    public void setNormalFlex(int value) {
+        this.setAttribute("normalFlex", value, true);
+    }
+
+    public void swrRightFlex(int value) {
+        this.setAttribute("rightFlex", value, true);
+    }
+
+    public void setRightWidth(double value) {
+        this.setAttribute("rightWidth", value, true);
+    }
+
+    public void setRowHeight(double value) {
+        this.setAttribute("rowHeight", value, true);
+    }
+
+    public void setRowHeightIsFixed(boolean value) {
+        this.setAttribute("rowHeightIsFixed", value, true);
+    }
+
+    public void setScrollToTopOnHeaderTap(boolean value) {
+        this.setAttribute("scrollToTopOnHeaderTap", value, true);
+    }
+
+    public void setStripeRows(boolean value) {
+        this.setAttribute("stripeRows", value, true);
+    }
+
+    public void setTabularViewClass(int value) {
+        this.setAttribute("tabularViewClass", value, true);
+    }
+
+    private native JavaScriptObject _getRowCls(UberGridRowFunction fn)/*-{
+		return (function(m) {
+			var ugModel = @com.emitrom.touch4j.ux.ubergrid.client.data.UberGridModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(m);
+			return fn.@com.emitrom.touch4j.ux.ubergrid.client.core.UberGridRowFunction::onRender(Lcom/emitrom/touch4j/ux/ubergrid/client/data/UberGridModel;)(ugModel);
+		});
+    }-*/;
+
     public native void toggleColumn(int index)/*-{
 		var grid = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		grid.toggleColumn(index);
@@ -76,9 +140,13 @@ public class NativeUberGrid extends Container {
     }-*/;
 
     public List<UberGridColumn> getColumns() {
-        return null;
-        // return UberGridColumn.fromJsArray(_getColumns());
+        return UberGridColumn.fromJsArray(_getColums());
     }
+
+    private native JsArray<JavaScriptObject> _getColums()/*-{
+		var grid = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		return grid.columns;
+    }-*/;
 
     private static native JavaScriptObject _createNative(JavaScriptObject store, JavaScriptObject cols)/*-{
 		var grid = $wnd.Ext.create('UberGrid.Panel', {
