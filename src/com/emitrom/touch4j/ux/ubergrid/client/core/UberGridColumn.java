@@ -26,8 +26,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
 /**
- * his a base column class in UberGrid. Column in UberGrid is a model class -
- * its instance does not have any reference to the visual presentation of the
+ * This is a base column class in UberGrid. Column in UberGrid is a model class
+ * - its instance does not have any reference to the visual presentation of the
  * column. All column headers are rendered as a whole by UberGrid.Header.
  * <p>
  * Usually column definitions are provided as an array of column configuration
@@ -133,6 +133,15 @@ public class UberGridColumn extends JsObject {
         setChildren(Arrays.asList(children));
     }
 
+    public List<UberGridColumn> getChildren() {
+        return UberGridColumn.fromJsArray(_getChildren());
+    }
+
+    private native JsArray<JavaScriptObject> _getChildren()/*-{
+		var obj = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		return obj.children;
+    }-*/;
+
     /**
      * A flex value used to calculate the width of the column. All columns with
      * the width specified as flex property will share the remaining width after
@@ -161,40 +170,12 @@ public class UberGridColumn extends JsObject {
         return JsoHelper.getAttribute(jsObj, Attribute.DATAINDEX.getValue());
     }
 
-    /**
-     * The CSS Class of the gridcolumn
-     * 
-     * @param value
-     */
-    public void setCls(String value) {
-        JsoHelper.setAttribute(jsObj, Attribute.CLS.getValue(), value);
+    public void setDefaultWidth(double value) {
+        JsoHelper.setAttribute(jsObj, "defaultWidth", value);
     }
 
-    /**
-     * The CSS Class of the gridcolumn
-     * 
-     * @param value
-     */
-    public String getCls() {
-        return JsoHelper.getAttribute(jsObj, Attribute.CLS.getValue());
-    }
-
-    /**
-     * The css style of the gridcolumn
-     * 
-     * @param value
-     */
-    public void setStyle(String value) {
-        JsoHelper.setAttribute(jsObj, "style", value);
-    }
-
-    /**
-     * The css style of the gridcolumn
-     * 
-     * @param value
-     */
-    public String getStyle() {
-        return JsoHelper.getAttribute(jsObj, Attribute.STYLE.getValue());
+    public double getDefaultWidth() {
+        return JsoHelper.getAttributeAsDouble(jsObj, "defaultWidth");
     }
 
     /**
@@ -206,6 +187,18 @@ public class UberGridColumn extends JsObject {
         JsoHelper.setAttribute(jsObj, "field", value);
     }
 
+    public String getField() {
+        return JsoHelper.getAttribute(jsObj, "field");
+    }
+
+    public void setFlex(int value) {
+        JsoHelper.setAttribute(jsObj, "flex", value);
+    }
+
+    public int getFlex() {
+        return JsoHelper.getAttributeAsInt(jsObj, "field");
+    }
+
     /**
      * 
      * A CSS class to be added to the header cell DOM element of this column.
@@ -215,22 +208,8 @@ public class UberGridColumn extends JsObject {
         JsoHelper.setAttribute(jsObj, "headerCls", value);
     }
 
-    /**
-     * The css height of the gridcolumn
-     * 
-     * @param value
-     */
-    public void setHeight(double value) {
-        JsoHelper.setAttribute(jsObj, Attribute.HEIGHT.getValue(), value);
-    }
-
-    /**
-     * The css height of the gridcolumn
-     * 
-     * @param value
-     */
-    public double getHeight() {
-        return JsoHelper.getAttributeAsFloat(jsObj, Attribute.HEIGHT.getValue());
+    public String getHeaderCls() {
+        return JsoHelper.getAttribute(jsObj, "headerCls");
     }
 
     /**
@@ -538,6 +517,45 @@ public class UberGridColumn extends JsObject {
 		var obj = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
 		if (obj.show) {
 			obj.show();
+		}
+    }-*/;
+
+    /**
+     * This event is fired when a structure of this column is changed - for
+     * example a child column is added / removed or moved to a different
+     * position.
+     * 
+     * @param handler
+     */
+    public native void addColumnChangeHandler(UberGridColumnChangeHandler handler)/*-{
+		var obj = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		if (obj.addEventListener) {
+			obj
+					.addEventListener(
+							'columnchange',
+							function(col) {
+								var ugCol = @com.emitrom.touch4j.ux.ubergrid.client.core.UberGridColumn::new(Lcom/google/gwt/core/client/JavaScriptObject;)(col);
+								handler.@com.emitrom.touch4j.ux.ubergrid.client.core.UberGridColumnChangeHandler::onColumnChange(Lcom/emitrom/touch4j/ux/ubergrid/client/core/UberGridColumn;)(ugCol)
+
+							});
+		}
+    }-*/;
+
+    /**
+     * This event is fired when a width of this column is changed - via setWidth
+     * or setFlex methods.
+     */
+    public native void addColumnWidthChangeHandler(UberGridColumnWidthChangeHandler handler)/*-{
+		var obj = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		if (obj.addEventListener) {
+			obj
+					.addEventListener(
+							'columnwidthchange',
+							function(col, width, flex) {
+								var ugCol = @com.emitrom.touch4j.ux.ubergrid.client.core.UberGridColumn::new(Lcom/google/gwt/core/client/JavaScriptObject;)(col);
+								handler.@com.emitrom.touch4j.ux.ubergrid.client.core.UberGridColumnWidthChangeHandler::onColumnWidthChange(Lcom/emitrom/touch4j/ux/ubergrid/client/core/UberGridColumn;DI)(ugCol, width, flex);
+
+							});
 		}
     }-*/;
 

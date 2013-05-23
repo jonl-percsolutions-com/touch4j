@@ -7,8 +7,6 @@ import com.google.gwt.core.client.JavaScriptObject;
 /**
  * Base class for data to be used with the UberGrid
  * 
- * @author alainekambi
- * 
  */
 public class UberGridModel extends BaseModel {
 

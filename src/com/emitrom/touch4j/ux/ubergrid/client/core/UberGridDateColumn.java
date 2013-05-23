@@ -46,4 +46,8 @@ public class UberGridDateColumn extends UberGridColumn {
         JsoHelper.setAttribute(jsObj, "format", value);
     }
 
+    public String getFormat() {
+        return JsoHelper.getAttribute(jsObj, "format");
+    }
+
 }
