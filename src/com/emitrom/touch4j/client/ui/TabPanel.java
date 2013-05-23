@@ -99,6 +99,10 @@ public class TabPanel extends Container implements HasUi {
         eventBus.fireEvent(new TabItemAddEvent(tab));
     }
 
+    public void add(ToolBar toolBar) {
+        this.setToolBar(toolBar);
+    }
+
     public void remove(TabItem tab) {
         _remove(tab);
         getChildren().remove(tab);
@@ -151,9 +155,9 @@ public class TabPanel extends Container implements HasUi {
         }
         add((TabItem) w);
     }
-    
+
     public void setToolBar(ToolBar toolbar) {
-    	super.add(toolbar);
+        super.add(toolbar);
     }
 
     public native void setUi(String ui)/*-{
