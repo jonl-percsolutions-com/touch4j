@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<!--- 
+	To use this module you need to add the following lines to the hosted html page.
+	Replace 'yourgwtproject' with the name of your project.
+	
+	<script type="text/javascript" language="javascript" src="yourgwtproject/pr.js"></script>
+	 -->
+	<script src="pr.js"></script>
+</module>
