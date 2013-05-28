@@ -1,13 +1,14 @@
 package com.emitrom.touch4j.ux.ubergrid.client.data;
 
 import com.emitrom.touch4j.client.core.JsoHelper;
+import com.emitrom.touch4j.client.data.BaseModel;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Base class for data to be used with the UberGrid
  * 
  */
-public class UberGridModel extends com.pilot.shared.client.data.BaseModel {
+public class UberGridModel extends BaseModel {
 
     protected static final String EVENT_TYPE = "EventType";
 

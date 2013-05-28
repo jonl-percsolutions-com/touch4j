@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.emitrom.touch4j.client.core.FastMap;
-import com.pilot.shared.client.data.BaseModel;
 
 /**
  * A <code>ModelData</code> instance that wraps a bean. BeanModels cannot be

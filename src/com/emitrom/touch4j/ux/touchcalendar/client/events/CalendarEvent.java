@@ -15,8 +15,8 @@
  **************************************************************************/
 package com.emitrom.touch4j.ux.touchcalendar.client.events;
 
+import com.emitrom.touch4j.client.data.BaseModel;
 import com.google.gwt.core.client.JsDate;
-import com.pilot.shared.client.data.BaseModel;
 
 /**
  * Base class for calender event. Extend this class to create custom events
