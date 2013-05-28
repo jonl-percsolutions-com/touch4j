@@ -21,6 +21,7 @@ import java.util.List;
 import com.emitrom.touch4j.client.core.JsoHelper;
 import com.emitrom.touch4j.client.core.config.Attribute;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.pilot.shared.client.data.BaseModel;
 
 public abstract class TreeModel extends BaseModel {
 

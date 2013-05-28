@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.emitrom.touch4j.client.core.FastMap;
+import com.pilot.shared.client.data.BaseModel;
 
 /**
  * A <code>ModelData</code> instance that wraps a bean. BeanModels cannot be
@@ -24,41 +25,41 @@ import com.emitrom.touch4j.client.core.FastMap;
  */
 public class BeanModel extends BaseModel {
 
-	transient protected Object bean;
-	protected Map<String, BeanModel> nestedModels = new FastMap<BeanModel>();
-	protected List<String> beanProperties = new ArrayList<String>();
+    transient protected Object bean;
+    protected Map<String, BeanModel> nestedModels = new FastMap<BeanModel>();
+    protected List<String> beanProperties = new ArrayList<String>();
 
-	protected BeanModel() {
+    protected BeanModel() {
 
-	}
+    }
 
-	/**
-	 * Returns the bean.
-	 * 
-	 * @return the bean
-	 */
-	@SuppressWarnings("unchecked")
-	public <X> X getBean() {
-		return (X) bean;
-	}
+    /**
+     * Returns the bean.
+     * 
+     * @return the bean
+     */
+    @SuppressWarnings("unchecked")
+    public <X> X getBean() {
+        return (X) bean;
+    }
 
-	@Override
-	public String toString() {
-		return ((Object) getBean()).toString();
-	}
+    @Override
+    public String toString() {
+        return ((Object) getBean()).toString();
+    }
 
-	protected Object processValue(Object value) {
-		return value;
-	}
+    protected Object processValue(Object value) {
+        return value;
+    }
 
-	/**
-	 * Sets the bean.
-	 * 
-	 * @param bean
-	 *            the bean
-	 */
-	protected void setBean(Object bean) {
-		this.bean = bean;
-	}
+    /**
+     * Sets the bean.
+     * 
+     * @param bean
+     *            the bean
+     */
+    protected void setBean(Object bean) {
+        this.bean = bean;
+    }
 
 }

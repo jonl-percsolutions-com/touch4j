@@ -551,12 +551,9 @@ public class Store extends JsObject {
      */
     public native void addListener(String eventName, Function callback)/*-{
 		var jso = this.@com.emitrom.touch4j.client.core.JsObject::jsObj;
-		jso
-				.addListener(
-						eventName,
-						function() {
-							callback.@com.emitrom.touch4j.client.core.Function::execute()();
-						});
+		jso.addListener(eventName, function() {
+			callback.@com.emitrom.touch4j.client.core.Function::execute()();
+		});
     }-*/;
 
     /**
