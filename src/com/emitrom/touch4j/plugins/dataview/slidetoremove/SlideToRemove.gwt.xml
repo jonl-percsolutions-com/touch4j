@@ -4,7 +4,8 @@
 	To use this module you need to add the following lines to the hosted html page.
 	Replace 'yourgwtproject' with the name of your project.
 	
-	<script type="text/javascript" language="javascript" src="yourgwtproject/sr.js"></script>
+	<script type="text/javascript" src="yourgwtproject/sr.js"></script>
 	 -->
-	<script src="sr.js"></script>
+	  <inherits name='com.emitrom.touch4j.plugins.core.Core' />
+	<script src="plugins/sr.js"></script>
 </module>

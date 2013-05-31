@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  **************************************************************************/
-package com.emitrom.touch4j.ux.dataview.pullrefresh.client;
+package com.emitrom.touch4j.plugins.dataview.pullrefresh.client;
 
 import com.emitrom.touch4j.client.core.Component;
 import com.emitrom.touch4j.client.core.template.Template;
@@ -152,7 +152,7 @@ public class PullRefresh extends Component {
 		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		pr
 				.setRefreshFn($entry(function(plugin) {
-					callback.@com.emitrom.touch4j.ux.dataview.pullrefresh.client.PullRefreshHandler::onRefresh()();
+					callback.@com.emitrom.touch4j.plugins.dataview.pullrefresh.client.PullRefreshHandler::onRefresh()();
 				}));
     }-*/;
 

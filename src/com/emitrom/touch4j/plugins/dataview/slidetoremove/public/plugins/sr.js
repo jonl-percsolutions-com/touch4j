@@ -5,6 +5,7 @@ Tested: Sencha Touch 2.2
 Author: OhmzTech (www.ohmztech.com)
 */
 
+
 Ext.define('Ext.plugin.SlideToRemove', {
     extend: 'Ext.Component',
     alias: 'plugin.slidetoremove',

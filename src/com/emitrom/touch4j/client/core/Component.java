@@ -36,6 +36,7 @@ import com.emitrom.touch4j.client.core.handlers.component.WidthChangeHandler;
 import com.emitrom.touch4j.client.fx.layout.card.Animation;
 import com.emitrom.touch4j.client.fx.layout.card.AnimationType;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.user.client.Element;
@@ -1657,8 +1658,12 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
      * @param components
      *            , array of plugins
      */
-    public void setPlugins(Component[] components) {
-        _setPlugins(JsoHelper.convertToJavaScriptArray(components));
+    public void setPlugins(Component... components) {
+        JsArray<JavaScriptObject> peers = JsArray.createArray().cast();
+        for (Component c : components) {
+            peers.push(c.getOrCreateJsObj());
+        }
+        _setPlugins(peers);
     }
 
     /**

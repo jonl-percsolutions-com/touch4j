@@ -6,5 +6,6 @@
 	
 	<script type="text/javascript" language="javascript" src="yourgwtproject/pr.js"></script>
 	 -->
+	<inherits name='com.emitrom.touch4j.plugins.core.Core' />
 	<script src="pr.js"></script>
 </module>

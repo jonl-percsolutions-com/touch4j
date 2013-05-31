@@ -1,4 +1,4 @@
-package com.emitrom.touch4j.ux.dataview.slidetoremove.client;
+package com.emitrom.touch4j.plugins.dataview.slidetoremove.client;
 
 import com.emitrom.touch4j.client.core.Component;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -33,7 +33,8 @@ public class SlideToRemove extends Component {
 
     @Override
     protected native JavaScriptObject create(JavaScriptObject config) /*-{
-		return new $Ext.plugin.SlideToRemove(config);
+		alert('');
+		return new $wnd.Ext.plugin.SlideToRemove(config);
     }-*/;
 
 }

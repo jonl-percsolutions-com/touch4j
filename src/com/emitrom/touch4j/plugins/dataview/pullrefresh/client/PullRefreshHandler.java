@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  **************************************************************************/
-package com.emitrom.touch4j.ux.dataview.pullrefresh.client;
+package com.emitrom.touch4j.plugins.dataview.pullrefresh.client;
 
 public interface PullRefreshHandler {
     public void onRefresh();

@@ -20,6 +20,7 @@ import java.util.Iterator;
 import com.emitrom.touch4j.client.core.Component;
 import com.emitrom.touch4j.client.core.Ext;
 import com.emitrom.touch4j.client.core.Icons;
+import com.emitrom.touch4j.client.core.IsComponent;
 import com.emitrom.touch4j.client.core.JsoHelper;
 import com.emitrom.touch4j.client.core.config.Attribute;
 import com.emitrom.touch4j.client.layout.AbstractLayout;
@@ -116,6 +117,10 @@ public class TabItem extends Composite implements HasWidgets {
         JavaScriptObject componentJS = component.isCreated() ? component.getOrCreateJsObj() : component.getConfig();
         _setItems(componentJS);
         widget = component;
+    }
+
+    public void add(IsComponent isComponent) {
+        this.add(isComponent.asComponent());
     }
 
     /**
