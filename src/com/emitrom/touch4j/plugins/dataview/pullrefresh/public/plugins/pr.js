@@ -1,311 +1,438 @@
-/***********************************************************************
- * pr.js is part of Touch4j 2.2
- * 
- * Copyright (c) 2012 Emitrom LLC. All rights reserved.
- * 
- * For licensing questions, please contact us at licensing@emitrom.com
- * 
- * -------- Touch4j is released under a commercial license only --------
+/**
+ * This plugin adds pull to refresh functionality to the List.
  *
- * http://www.emitrom.com/license?q=commercialLicense
- ***********************************************************************/
+ * ## Example
+ *
+ *     @example
+ *     var store = Ext.create('Ext.data.Store', {
+ *         fields: ['name', 'img', 'text'],
+ *         data: [
+ *             {
+ *                 name: 'rdougan',
+ *                 img: 'http://a0.twimg.com/profile_images/1261180556/171265_10150129602722922_727937921_7778997_8387690_o_reasonably_small.jpg',
+ *                 text: 'JavaScript development'
+ *             }
+ *         ]
+ *     });
+ *
+ *     Ext.create('Ext.dataview.List', {
+ *         fullscreen: true,
+ *
+ *         store: store,
+ *
+ *         plugins: [
+ *             {
+ *                 xclass: 'Ext.plugin.PullRefresh',
+ *                 pullRefreshText: 'Pull down for more new Tweets!'
+ *             }
+ *         ],
+ *
+ *         itemTpl: [
+ *             '<img src="{img}" alt="{name} photo" />',
+ *             '<div class="tweet"><b>{name}:</b> {text}</div>'
+ *         ]
+ *     });
+ */
+Ext.define('Ext.plugin.PullRefresh', {
+    extend: 'Ext.Component',
+    alias: 'plugin.pullrefresh',
+   
+    config: {
+        /**
+         * @cfg {Ext.dataview.List} list
+         * The list to which this PullRefresh plugin is connected.
+         * This will usually by set automatically when configuring the list with this plugin.
+         * @accessor
+         */
+        list: null,
 
-Ext
-		.define(
-				'Ext.plugin.PullRefresh',
-				{
-					extend : 'Ext.Component',
-					alias : 'plugin.pullrefresh',
+        /**
+         * @cfg {String} pullRefreshText The text that will be shown while you are pulling down.
+         * @accessor
+         */
+        pullRefreshText: 'Pull down to refresh...',
 
-					config : {
-						/*
-						 * @accessor
-						 */
-						list : null,
+        /**
+         * @cfg {String} releaseRefreshText The text that will be shown after you have pulled down enough to show the release message.
+         * @accessor
+         */
+        releaseRefreshText: 'Release to refresh...',
 
-						/*
-						 * @cfg {String} pullRefreshText The text that will be
-						 * shown while you are pulling down. @accessor
-						 */
-						pullRefreshText : 'Pull down to refresh...',
+        /**
+         * @cfg {String} lastUpdatedText The text to be shown in front of the last updated time.
+         * @accessor
+         */
+        lastUpdatedText: 'Last Updated:',
 
-						/*
-						 * @cfg {String} releaseRefreshText The text that will
-						 * be shown after you have pulled down enough to show
-						 * the release message. @accessor
-						 */
-						releaseRefreshText : 'Release to refresh...',
+        /**
+         * @cfg {String} lastUpdatedDateFormat The format to be used on the last updated date.
+         */
+        lastUpdatedDateFormat: 'm/d/Y h:iA',
 
-						/*
-						 * @cfg {String} loadingText The text that will be shown
-						 * while the list is refreshing. @accessor
-						 */
-						loadingText : 'Loading...',
+        /**
+         * @cfg {String} loadingText The text that will be shown while the list is refreshing.
+         * @accessor
+         */
+        loadingText: 'Loading...',
 
-						lastUpdatedText : '',
+        /**
+         * @cfg {String} loadedText The text that will be when data has been loaded.
+         * @accessor
+         */
+        loadedText: 'Loaded.',
 
-						/*
-						 * @cfg {Number} snappingAnimationDuration The duration
-						 * for snapping back animation after the data has been
-						 * refreshed @accessor
-						 */
-						snappingAnimationDuration : 150,
+        /**
+         * @cfg {Boolean} autoSnapBack Determines whether the pulldown should automatically snap back after data has been loaded.
+         * If false call {@link #snapBack}() to manually snap the pulldown back.
+         */
+        autoSnapBack: true,
+        /**
+         * @cfg {Number} snappingAnimationDuration The duration for snapping back animation after the data has been refreshed
+         * @accessor
+         */
+        snappingAnimationDuration: 300,
 
-						/*
-						 * @cfg {Function} refreshFn The function that will be
-						 * called to refresh the list. If this is not defined,
-						 * the store's load function will be called. The refresh
-						 * function gets called with a reference to this plugin
-						 * instance. @accessor
-						 */
-						refreshFn : null,
+        /**
+         * @cfg {Number} overpullSnapBackDuration The duration for snapping back when pulldown has been lowered further then its height.
+         */
+        overpullSnapBackDuration: 300,
 
-						/*
-						 * @cfg {XTemplate/String/Array} pullTpl The template
-						 * being used for the pull to refresh markup. @accessor
-						 */
-						pullTpl : [
-								'<div class="x-list-pullrefresh">',
-								'<div class="x-list-pullrefresh-arrow"></div>',
-								'<div class="x-loading-spinner">',
-								'<span class="x-loading-top"></span>',
-								'<span class="x-loading-right"></span>',
-								'<span class="x-loading-bottom"></span>',
-								'<span class="x-loading-left"></span>',
-								'</div>',
-								'<div class="x-list-pullrefresh-wrap">',
-								'<h3 class="x-list-pullrefresh-message">{message}</h3>',
-								'<div class="x-list-pullrefresh-updated"><span>{lastUpdatedMessage}</span></div>',
-								'</div>', '</div>' ].join('')
-					},
+        /**
+         * @cfg {Ext.XTemplate/String/Array} pullTpl The template being used for the pull to refresh markup.
+         * @accessor
+         */
+        pullTpl: [
+            '<div class="x-list-pullrefresh">',
+                '<div class="x-list-pullrefresh-arrow"></div>',
+                '<div class="x-loading-spinner">',
+                    '<span class="x-loading-top"></span>',
+                    '<span class="x-loading-right"></span>',
+                    '<span class="x-loading-bottom"></span>',
+                    '<span class="x-loading-left"></span>',
+                '</div>',
+                '<div class="x-list-pullrefresh-wrap">',
+                    '<h3 class="x-list-pullrefresh-message"></h3>',
+                    '<div class="x-list-pullrefresh-updated"></div>',
+                '</div>',
+            '</div>'
+        ].join(''),
 
-					isRefreshing : false,
-					currentViewState : '',
+        translatable: true
+    },
 
-					initialize : function() {
-						this.callParent();
+    /**
+     * @event latestfetched
+     * Fires when the latest data has been fetched
+     */
 
-						this.on({
-							painted : 'onPainted',
-							scope : this
-						});
-					},
+    isRefreshing: false,
+    currentViewState: '',
 
-					init : function(list) {
-						var me = this, store = null, pullTpl = me
-								.getPullTpl(), element = me.element, scroller = list
-								.getScrollable().getScroller();
-						if(list.getStore){
-							store = list.getStore();
-						}
+    initialize: function() {
+        this.callParent();
 
-						me.setList(list);
-						//me.lastUpdated = new Date();
+        this.on({
+            painted: 'onPainted',
+            scope: this
+        });
+    },
 
-						list.insert(0, me);
+    init: function(list) {
+        var me = this;
 
-						// We provide our own load mask so if the Store is
-						// autoLoading already disable the List's mask straight
-						// away,
-						// otherwise if the Store loads later allow the mask to
-						// show once then remove it thereafter
-						if (store) {
-							if (store.isAutoLoading()) {
-								list.setLoadingText(null);
-							} else {
-								store.on({
-									load : {
-										single : true,
-										fn : function() {
-											list.setLoadingText(null);
-										}
-									}
-								});
-							}
-						}
+        me.setList(list);
+        me.initScrollable();
+    },
 
-						pullTpl.overwrite(element, {
-							message : me.getPullRefreshText(),
-							lastUpdatedMessage : me.getLastUpdatedText()
-							//lastUpdated : me.lastUpdated
-						}, true);
+    initScrollable: function() {
+        var me = this,
+            list = me.getList(),
+            store = list.getStore(),
+            pullTpl = me.getPullTpl(),
+            element = me.element,
+            scrollable = list.getScrollable(),
+            scroller;
 
-						me.loadingElement = element.getFirstChild();
-						me.messageEl = element
-								.down('.x-list-pullrefresh-message');
-						me.updatedEl = element
-								.down('.x-list-pullrefresh-updated > span');
+        if (!scrollable) {
+            return;
+        }
 
-						me.maxScroller = scroller.getMaxPosition();
+        scroller = scrollable.getScroller();
+        scroller.setAutoRefresh(false);
 
-						scroller.on({
-							maxpositionchange : me.setMaxScroller,
-							scroll : me.onScrollChange,
-							scope : me
-						});
-					},
+        me.lastUpdated = new Date();
 
-					/**
-					 * @private Attempts to load the newest posts via the
-					 *          attached List's Store's Proxy
-					 */
-					fetchLatest : function() {
-					
-					},
+        list.insert(0, me);
 
-					/**
-					 * @private Called after fetchLatest has finished grabbing
-					 *          data. Matches any returned records against what
-					 *          is already in the Store. If there is an overlap,
-					 *          updates the existing records with the new data
-					 *          and inserts the new items at the front of the
-					 *          Store. If there is no overlap, insert the new
-					 *          records anyway and record that there's a break
-					 *          in the timeline between the new and the old
-					 *          records.
-					 */
-					onLatestFetched : function(operation) {
-						
-					},
+        // We provide our own load mask so if the Store is autoLoading already disable the List's mask straight away,
+        // otherwise if the Store loads later allow the mask to show once then remove it thereafter
+        if (store) {
+            if (store.isAutoLoading()) {
+                list.setLoadingText(null);
+            } else {
+                store.on({
+                    load: {
+                        single: true,
+                        fn: function() {
+                            list.setLoadingText(null);
+                        }
+                    }
+                });
+            }
+        }
 
-					onPainted : function() {
-						this.pullHeight = this.loadingElement.getHeight();
-					},
+        pullTpl.overwrite(element, []);
 
-					setMaxScroller : function(scroller, position) {
-						this.maxScroller = position;
-					},
+        me.loadingElement = element.getFirstChild();
+        me.messageEl = element.down('.x-list-pullrefresh-message');
+        me.updatedEl = element.down('.x-list-pullrefresh-updated');
 
-					onScrollChange : function(scroller, x, y) {
-						if (y < 0) {
-							this.onBounceTop(y);
-						}
-						if (y > this.maxScroller.y) {
-							this.onBounceBottom(y);
-						}
-					},
+        me.maxScroller = scroller.getMaxPosition();
 
-					/**
-					 * @private
-					 */
-					applyPullTpl : function(config) {
-						return (Ext.isObject(config) && config.isTemplate) ? config
-								: new Ext.XTemplate(config);
-					},
+        scroller.on({
+            maxpositionchange: me.setMaxScroller,
+            scroll: me.onScrollChange,
+            scope: me
+        });
 
-					onBounceTop : function(y) {
-						var me = this, list = me.getList(), scroller = list
-								.getScrollable().getScroller();
+        me.resetRefreshState();
+    },
 
-						if (!me.isReleased) {
-							if (!me.isRefreshing && -y >= me.pullHeight + 10) {
-								me.isRefreshing = true;
+    onScrollableChange: function() {
+        this.initScrollable();
+    },
 
-								me.setViewState('release');
+    updateList: function(newList, oldList) {
+        var me = this;
 
-								scroller.getContainer().onBefore({
-									dragend : 'onScrollerDragEnd',
-									single : true,
-									scope : me
-								});
-							} else if (me.isRefreshing
-									&& -y < me.pullHeight + 10) {
-								me.isRefreshing = false;
-								me.setViewState('pull');
-							}
-						}
-					},
+        if (newList && newList != oldList) {
+            newList.on({
+                order: 'after',
+                scrollablechange: me.onScrollableChange,
+                scope: me
+            });
+        } else if (oldList) {
+            oldList.un({
+                order: 'after',
+                scrollablechange: me.onScrollableChange,
+                scope: me
+            });
+        }
+    },
 
-					onScrollerDragEnd : function() {
-						var me = this;
+    /**
+     * @private
+     * Attempts to load the newest posts via the attached List's Store's Proxy
+     */
+    fetchLatest: function() {
+        var store = this.getList().getStore(),
+            proxy = store.getProxy(),
+            operation;
 
-						if (me.isRefreshing) {
-							var list = me.getList(), scroller = list
-									.getScrollable().getScroller();
+        operation = Ext.create('Ext.data.Operation', {
+            page: 1,
+            start: 0,
+            model: store.getModel(),
+            limit: store.getPageSize(),
+            action: 'read',
+            sorters: store.getSorters(),
+            filters: store.getRemoteFilter() ? store.getFilters() : []
+        });
 
-							scroller.minPosition.y = -me.pullHeight;
-							scroller.on({
-								scrollend : 'loadStore',
-								single : true,
-								scope : me
-							});
+        proxy.read(operation, this.onLatestFetched, this);
+    },
 
-							me.isReleased = true;
-						}
-					},
+    /**
+     * @private
+     * Called after fetchLatest has finished grabbing data. Matches any returned records against what is already in the
+     * Store. If there is an overlap, updates the existing records with the new data and inserts the new items at the
+     * front of the Store. If there is no overlap, insert the new records anyway and record that there's a break in the
+     * timeline between the new and the old records.
+     */
+    onLatestFetched: function(operation) {
+        var store      = this.getList().getStore(),
+            list       = this.getList(),
+            scroller   = list.getScrollable().getScroller(),
+            scrollerOffsetX = scroller.position.x,
+            scrollerOffsetY = scroller.position.y,
+            oldRecords = store.getData(),
+            newRecords = operation.getRecords(),
+            length     = newRecords.length,
+            toInsert   = [],
+            newRecord, oldRecord, i;
 
-					loadStore : function() {
-						var me = this, list = me.getList(), scroller = list
-								.getScrollable().getScroller();
+        for (i = 0; i < length; i++) {
+            newRecord = newRecords[i];
+            oldRecord = oldRecords.getByKey(newRecord.getId());
 
-						me.setViewState('loading');
-						me.isReleased = false;
+            if (oldRecord) {
+                oldRecord.set(newRecord.getData());
+            } else {
+                toInsert.push(newRecord);
+            }
 
-						Ext.defer(function() {
-							scroller.on({
-								scrollend : function() {
-									if (me.getRefreshFn) {
-										if (me.getRefreshFn()) {
-											me.getRefreshFn().call(me, me);
-										}
+            oldRecord = undefined;
+        }
 
-									} else {
-										me.fetchLatest();
-									}
-									me.resetRefreshState();
-								},
-								delay : 100,
-								single : true,
-								scope : me
-							});
-							scroller.minPosition.y = 0;
-							scroller.scrollTo(null, 0, true);
-						}, 500, me);
-					},
+       // store.insert(0, toInsert);
+        scroller.scrollTo(scrollerOffsetX, scrollerOffsetY);
 
-					onBounceBottom : Ext.emptyFn,
+        this.setViewState('loaded');
+        this.fireEvent('latestfetched');
+        if (this.getAutoSnapBack()) {
+            this.snapBack();
+        }
+    },
 
-					setViewState : function(state) {
-						var me = this, prefix = Ext.baseCSSPrefix, messageEl = me.messageEl, loadingElement = me.loadingElement;
+    snapBack: function() {
+        var me = this,
+            list = me.getList(),
+            scroller = list.getScrollable().getScroller();
 
-						if (state === me.currentViewState) {
-							return me;
-						}
-						me.currentViewState = state;
+        scroller.on({
+            scrollend: function() {
+                this.resetRefreshState();
+            },
+            single: true,
+            scope: me
+        });
 
-						if (messageEl && loadingElement) {
-							switch (state) {
-							case 'pull':
-								messageEl.setHtml(me.getPullRefreshText());
-								loadingElement.removeCls([
-										prefix + 'list-pullrefresh-release',
-										prefix + 'list-pullrefresh-loading' ]);
-								break;
+        if (scroller.position.y < 0) {
+            scroller.minPosition.y = 0;
+            scroller.scrollTo(null, 0, {duration: scroller.isTouching ? 0 : me.getSnappingAnimationDuration()});
+        }
+    },
 
-							case 'release':
-								messageEl.setHtml(me.getReleaseRefreshText());
-								loadingElement.addCls(prefix
-										+ 'list-pullrefresh-release');
-								break;
+    onPainted: function() {
+        this.pullHeight = this.loadingElement.getHeight();
+    },
 
-							case 'loading':
-								messageEl.setHtml(me.getLoadingText());
-								loadingElement.addCls(prefix
-										+ 'list-pullrefresh-loading');
-								break;
-							}
-						}
+    setMaxScroller: function(scroller, position) {
+        this.maxScroller = position;
+    },
 
-						return me;
-					},
+    onScrollChange: function(scroller, x, y) {
+        if (y <= 0) {
+            this.onBounceTop(y);
+        }
+        if (y > this.maxScroller.y) {
+            this.onBounceBottom(y);
+        }
+    },
 
-					resetRefreshState : function() {
-						var me = this;
+    /**
+     * @private
+     */
+    applyPullTpl: function(config) {
+        return (Ext.isObject(config) && config.isTemplate) ? config : new Ext.XTemplate(config);
+    },
 
-						me.isRefreshing = false;
-						//me.lastUpdated = new Date();
+    onBounceTop: function(y) {
+        var me = this,
+            pullHeight = me.pullHeight,
+            list = me.getList(),
+            scroller = list.getScrollable().getScroller();
 
-						me.setViewState('pull');
-						me.updatedEl.setHtml(me.getLastUpdatedText());
-					}
-				});
+        if (!me.isReleased) {
+            if (!pullHeight) {
+                me.onPainted();
+                pullHeight = me.pullHeight;
+            }
+            if (!me.isRefreshing && -y >= pullHeight + 10) {
+                me.isRefreshing = true;
+
+                me.setViewState('release');
+
+                scroller.getContainer().onBefore({
+                    dragend: 'onScrollerDragEnd',
+                    single: true,
+                    scope: me
+                });
+            }
+            else if (me.isRefreshing && -y < pullHeight + 10) {
+                me.isRefreshing = false;
+                me.setViewState('pull');
+            }
+        }
+
+        me.getTranslatable().translate(0, -y);
+    },
+
+    onScrollerDragEnd: function() {
+        var me = this;
+
+        if (me.isRefreshing) {
+            var list = me.getList(),
+                scroller = list.getScrollable().getScroller(),
+                translateable = scroller.getTranslatable();
+
+            translateable.setEasingY({duration:this.getOverpullSnapBackDuration()});
+            scroller.minPosition.y = -me.pullHeight;
+            scroller.on({
+                scrollend: 'loadStore',
+                single: true,
+                scope: me
+            });
+
+            me.isReleased = true;
+        }
+    },
+
+    loadStore: function() {
+        var me = this;
+
+        me.setViewState('loading');
+        me.isReleased = false;
+       me.fetchLatest();
+    },
+
+    onBounceBottom: Ext.emptyFn,
+
+    setViewState: function(state) {
+        var me = this,
+            prefix = Ext.baseCSSPrefix,
+            messageEl = me.messageEl,
+            loadingElement = me.loadingElement;
+
+        if (state === me.currentViewState) {
+            return me;
+        }
+        me.currentViewState = state;
+
+        if (messageEl && loadingElement) {
+            switch (state) {
+                case 'pull':
+                    messageEl.setHtml(me.getPullRefreshText());
+                    loadingElement.removeCls([prefix + 'list-pullrefresh-release', prefix + 'list-pullrefresh-loading']);
+                break;
+
+                case 'release':
+                    messageEl.setHtml(me.getReleaseRefreshText());
+                    loadingElement.addCls(prefix + 'list-pullrefresh-release');
+                break;
+
+                case 'loading':
+                    messageEl.setHtml(me.getLoadingText());
+                    loadingElement.addCls(prefix + 'list-pullrefresh-loading');
+                break;
+
+                case 'loaded':
+                    messageEl.setHtml(me.getLoadedText());
+                    loadingElement.addCls(prefix + 'list-pullrefresh-loaded');
+                    break;
+            }
+        }
+
+        return me;
+    },
+
+    resetRefreshState: function() {
+        var me = this;
+
+        me.isRefreshing = false;
+        me.lastUpdated = new Date();
+
+        me.setViewState('pull');
+        me.updatedEl.setHtml(this.getLastUpdatedText() + '&nbsp;' + Ext.util.Format.date(me.lastUpdated, me.getLastUpdatedDateFormat()));
+    }
+});

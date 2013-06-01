@@ -15,8 +15,7 @@
  **************************************************************************/
 package com.emitrom.touch4j.client.core;
 
-import com.emitrom.touch4j.client.core.Function;
-import com.emitrom.touch4j.client.core.JsObject;
+import com.emitrom.touch4j.client.core.handlers.ElementEventHandler;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.user.client.Element;
 
@@ -28,7 +27,8 @@ public class ExtElement extends JsObject {
     /**
      * Create an ExtElement using an existing native element.
      * 
-     * @param jsObj native Element object
+     * @param jsObj
+     *            native Element object
      */
     protected ExtElement(JavaScriptObject jsObj) {
         super(jsObj);
@@ -37,7 +37,8 @@ public class ExtElement extends JsObject {
     /**
      * Create an ExtElement wrapper around en existing DOM Element.
      * 
-     * @param elem the DOM Element
+     * @param elem
+     *            the DOM Element
      */
     public ExtElement(Element elem) {
         this(elem, false);
@@ -46,11 +47,13 @@ public class ExtElement extends JsObject {
     /**
      * Create an ExtElement wrapper around an existing DOM Element.
      * 
-     * @param elem the DOM Element
-     * @param forceNew by default the constructor checks to see if there is
-     *            already an instance of this element in the cache and if there
-     *            is it returns the same instance. Passing <code>true</code>
-     *            will skip that check (useful for extending this class)
+     * @param elem
+     *            the DOM Element
+     * @param forceNew
+     *            by default the constructor checks to see if there is already
+     *            an instance of this element in the cache and if there is it
+     *            returns the same instance. Passing <code>true</code> will skip
+     *            that check (useful for extending this class)
      */
     public ExtElement(Element elem, boolean forceNew) {
         jsObj = create(elem, forceNew);
@@ -69,7 +72,8 @@ public class ExtElement extends JsObject {
      * active element. Do not store a reference to this element - the dom node
      * can be overwritten by other code.
      * 
-     * @param id the Element id
+     * @param id
+     *            the Element id
      * @return the shared ExtElement object
      */
     public static native ExtElement fly(String id)/*-{
@@ -83,8 +87,10 @@ public class ExtElement extends JsObject {
      * the active element. Do not store a reference to this element - the dom
      * node can be overwritten by other code.
      * 
-     * @param id the Element id
-     * @param named allows for creation of named reusable flyweights to prevent
+     * @param id
+     *            the Element id
+     * @param named
+     *            allows for creation of named reusable flyweights to prevent
      *            conflicts (e.g. internally Ext uses "_internal")
      * @return the shared ExtElement object
      */
@@ -99,7 +105,8 @@ public class ExtElement extends JsObject {
      * consistently return the same object. Automatically fixes if an object was
      * recreated with the same id via AJAX or DOM.
      * 
-     * @param id the id of Element
+     * @param id
+     *            the id of Element
      * @return the ExtElement object
      */
     public static native ExtElement get(String id)/*-{
@@ -112,7 +119,8 @@ public class ExtElement extends JsObject {
     /**
      * Appends the passed element to this element.
      * 
-     * @param child the child element
+     * @param child
+     *            the child element
      * @return this
      */
     public native ExtElement appendChild(Element child) /*-{
@@ -124,7 +132,8 @@ public class ExtElement extends JsObject {
     /**
      * Appends this element to the passed element.
      * 
-     * @param el the new parent element
+     * @param el
+     *            the new parent element
      * @return this
      */
     public native ExtElement appendTo(Element el) /*-{
@@ -162,9 +171,10 @@ public class ExtElement extends JsObject {
      * by default as a gray container with a gradient background, rounded
      * corners and a 4-way shadow.
      * 
-     * @param boxClass A base CSS class to apply to the containing wrapper
-     *            element (defaults to 'x-box'). Note that there are a number of
-     *            CSS rules that are dependent on this name to make the overall
+     * @param boxClass
+     *            A base CSS class to apply to the containing wrapper element
+     *            (defaults to 'x-box'). Note that there are a number of CSS
+     *            rules that are dependent on this name to make the overall
      *            effect work, so if you supply an alternate base class, make
      *            sure you also supply all of the necessary rules.
      * @return this
@@ -189,7 +199,8 @@ public class ExtElement extends JsObject {
     /**
      * Centers the Element in another Element.
      * 
-     * @param centerIn the element in which to center the element.
+     * @param centerIn
+     *            the element in which to center the element.
      * @return this
      */
     public native ExtElement center(Element centerIn) /*-{
@@ -202,7 +213,8 @@ public class ExtElement extends JsObject {
      * Selects a single child at any depth below this element based on the
      * passed CSS selector (the selector should not contain an id).
      * 
-     * @param selector the CSS selector
+     * @param selector
+     *            the CSS selector
      * @return child element
      */
     public native Element child(String selector) /*-{
@@ -214,7 +226,8 @@ public class ExtElement extends JsObject {
     /**
      * Whether this element is an ancestor of the passed element.
      * 
-     * @param el the element to check
+     * @param el
+     *            the element to check
      * @return true if this element is an ancestor of the passed element
      */
     public native boolean contains(Element el) /*-{
@@ -225,9 +238,10 @@ public class ExtElement extends JsObject {
     /**
      * Creates the passed DomHelper config and appends it to this element
      * 
-     * @param config DomHelper element config object. If no tag is specified
-     *            (e.g., {tag:'input'}) then a div will be automatically
-     *            generated with the specified attributes.
+     * @param config
+     *            DomHelper element config object. If no tag is specified (e.g.,
+     *            {tag:'input'}) then a div will be automatically generated with
+     *            the specified attributes.
      * @return the new child element
      */
     public native ExtElement createChild(DOMConfig config) /*-{
@@ -242,10 +256,12 @@ public class ExtElement extends JsObject {
      * Creates the passed DomHelper config and appends inserts it before the
      * passed child element.
      * 
-     * @param config DomHelper element config object. If no tag is specified
-     *            (e.g., {tag:'input'}) then a div will be automatically
-     *            generated with the specified attributes.
-     * @param insertBefore a child element of this element
+     * @param config
+     *            DomHelper element config object. If no tag is specified (e.g.,
+     *            {tag:'input'}) then a div will be automatically generated with
+     *            the specified attributes.
+     * @param insertBefore
+     *            a child element of this element
      * @return the new child element
      */
     public native ExtElement createChild(DOMConfig config, Element insertBefore) /*-{
@@ -260,7 +276,8 @@ public class ExtElement extends JsObject {
     /**
      * Creates a proxy element of this element.
      * 
-     * @param config DomHelper config object
+     * @param config
+     *            DomHelper config object
      * @return the new proxy element
      */
     public native ExtElement createProxy(DOMConfig config) /*-{
@@ -274,10 +291,13 @@ public class ExtElement extends JsObject {
     /**
      * Creates a proxy element of this element.
      * 
-     * @param config DomHelper config object
-     * @param renderTo The element render the proxy to
-     * @param matchBox true to align and size the proxy to this element now
-     *            (defaults to false)
+     * @param config
+     *            DomHelper config object
+     * @param renderTo
+     *            The element render the proxy to
+     * @param matchBox
+     *            true to align and size the proxy to this element now (defaults
+     *            to false)
      * @return the new proxy element
      */
     public native ExtElement createProxy(DOMConfig config, Element renderTo, boolean matchBox) /*-{
@@ -291,7 +311,8 @@ public class ExtElement extends JsObject {
     /**
      * Creates a proxy element of this element.
      * 
-     * @param cls the class name of the proxy element
+     * @param cls
+     *            the class name of the proxy element
      * @return the new proxy element
      */
     public native ExtElement createProxy(String cls) /*-{
@@ -303,10 +324,13 @@ public class ExtElement extends JsObject {
     /**
      * Creates a proxy element of this element.
      * 
-     * @param cls the class name of the proxy element
-     * @param renderTo The element render the proxy to
-     * @param matchBox true to align and size the proxy to this element now
-     *            (defaults to false)
+     * @param cls
+     *            the class name of the proxy element
+     * @param renderTo
+     *            The element render the proxy to
+     * @param matchBox
+     *            true to align and size the proxy to this element now (defaults
+     *            to false)
      * @return the new proxy element
      */
     public native ExtElement createProxy(String cls, Element renderTo, boolean matchBox) /*-{
@@ -319,7 +343,8 @@ public class ExtElement extends JsObject {
      * Selects a single *direct* child based on the passed CSS selector (the
      * selector should not contain an id).
      * 
-     * @param selector the CSS selector
+     * @param selector
+     *            the CSS selector
      * @return the child element
      */
     public native Element down(String selector) /*-{
@@ -331,7 +356,8 @@ public class ExtElement extends JsObject {
      * Looks at this node and then at parent nodes for a match of the passed
      * simple selector (e.g. div.some-class or span:first-child)
      * 
-     * @param selector the simple selector to test
+     * @param selector
+     *            the simple selector to test
      * @return the matching element of null if no node found
      */
     public native Element findParent(String selector) /*-{
@@ -343,8 +369,10 @@ public class ExtElement extends JsObject {
      * Looks at this node and then at parent nodes for a match of the passed
      * simple selector (e.g. div.some-class or span:first-child)
      * 
-     * @param selector the simple selector to test
-     * @param container search until container element is reached
+     * @param selector
+     *            the simple selector to test
+     * @param container
+     *            search until container element is reached
      * @return the matching element of null if no node found
      */
     public native Element findParent(String selector, Element container) /*-{
@@ -356,8 +384,10 @@ public class ExtElement extends JsObject {
      * Looks at this node and then at parent nodes for a match of the passed
      * simple selector (e.g. div.some-class or span:first-child)
      * 
-     * @param selector the simple selector to test
-     * @param maxDepth the max depth to search as a number (defaults to 10)
+     * @param selector
+     *            the simple selector to test
+     * @param maxDepth
+     *            the max depth to search as a number (defaults to 10)
      * @return the matching element of null if no node found
      */
     public native Element findParent(String selector, int maxDepth) /*-{
@@ -369,8 +399,10 @@ public class ExtElement extends JsObject {
      * Looks at parent nodes for a match of the passed simple selector (e.g.
      * div.some-class or span:first-child)
      * 
-     * @param selector the simple selector to test
-     * @param container search until container element is reached
+     * @param selector
+     *            the simple selector to test
+     * @param container
+     *            search until container element is reached
      * @return the matching element of null if no node found
      */
     public native Element findParentNode(String selector, Element container) /*-{
@@ -382,8 +414,10 @@ public class ExtElement extends JsObject {
      * Looks at parent nodes for a match of the passed simple selector (e.g.
      * div.some-class or span:first-child)
      * 
-     * @param selector the simple selector to test
-     * @param maxDepth the max depth to search as a number (defaults to 10)
+     * @param selector
+     *            the simple selector to test
+     * @param maxDepth
+     *            the max depth to search as a number (defaults to 10)
      * @return the matching element of null if no node found
      */
     public native Element findParentNode(String selector, int maxDepth) /*-{
@@ -405,8 +439,10 @@ public class ExtElement extends JsObject {
     /**
      * Gets the x,y coordinates to align this element with another element.
      * 
-     * @param element The element to align to
-     * @param anchorPosition the element's anchor point
+     * @param element
+     *            The element to align to
+     * @param anchorPosition
+     *            the element's anchor point
      * @return an array containing the element's x and y coordinates
      */
     public native int[] getAlignToXY(Element element, String anchorPosition) /*-{
@@ -418,9 +454,12 @@ public class ExtElement extends JsObject {
     /**
      * Gets the x,y coordinates to align this element with another element.
      * 
-     * @param element The element to align to.
-     * @param anchorPosition the element's anchor point
-     * @param offesets offset the positioning by [x, y]
+     * @param element
+     *            The element to align to.
+     * @param anchorPosition
+     *            the element's anchor point
+     * @param offesets
+     *            offset the positioning by [x, y]
      * @return an array containing the element's x and y coordinates
      */
     public native int[] getAlignToXY(Element element, String anchorPosition, int[] offesets) /*-{
@@ -444,11 +483,15 @@ public class ExtElement extends JsObject {
     /**
      * Gets the x,y coordinates specified by the anchor position on the element.
      * 
-     * @param anchorPosition the specified anchor position.
-     * @param local true to get the local (element top/left-relative) anchor
+     * @param anchorPosition
+     *            the specified anchor position.
+     * @param local
+     *            true to get the local (element top/left-relative) anchor
      *            position instead of page coordinates
-     * @param width width to use for calculating anchor position
-     * @param height height to use for calculating anchor position
+     * @param width
+     *            width to use for calculating anchor position
+     * @param height
+     *            height to use for calculating anchor position
      * @return an array containing the element's x and y coordinates
      */
     public native int[] getAnchorXY(String anchorPosition, boolean local, int width, int height) /*-{
@@ -464,8 +507,10 @@ public class ExtElement extends JsObject {
      * Returns the value of a namespaced attribute from the element's underlying
      * DOM node.
      * 
-     * @param namespace the namespace in which to look for the attribute
-     * @param name the attribute name
+     * @param namespace
+     *            the namespace in which to look for the attribute
+     * @param name
+     *            the attribute name
      * @return the attribute value
      */
     public native String getAttributeNS(String namespace, String name)/*-{
@@ -476,7 +521,8 @@ public class ExtElement extends JsObject {
     /**
      * Gets the width of the border for the specified side.
      * 
-     * @param side the side
+     * @param side
+     *            the side
      * @return width of the side
      */
     public native int getBorderWidth(Side side)/*-{
@@ -489,8 +535,8 @@ public class ExtElement extends JsObject {
      * Gets the bottom Y coordinate of the element (element Y position + element
      * height)
      * 
-     * @param local true to get the local css position instead of page
-     *            coordinate
+     * @param local
+     *            true to get the local css position instead of page coordinate
      * @return the bottom Y coordinate
      */
     public native int getBottom(boolean local)/*-{
@@ -514,9 +560,10 @@ public class ExtElement extends JsObject {
      * Return a Box that can be used to set another elements size/location to
      * match this element.
      * 
-     * @param contentBox if true a box for the content of the element is
-     *            returned.
-     * @param local if true the element's left and top are returned instead of
+     * @param contentBox
+     *            if true a box for the content of the element is returned.
+     * @param local
+     *            if true the element's left and top are returned instead of
      *            page x/y
      * @return the box object
      */
@@ -541,9 +588,10 @@ public class ExtElement extends JsObject {
      * Return the CSS color for the specified CSS attribute. rgb, 3 digit (like
      * #fff) and valid values are convert to standard 6 digit hex color.
      * 
-     * @param attr the css attribute
-     * @param defaultValue the default value to use when a valid color isn't
-     *            found
+     * @param attr
+     *            the css attribute
+     * @param defaultValue
+     *            the default value to use when a valid color isn't found
      * @return the css color
      */
     public native String getColor(String attr, String defaultValue)/*-{
@@ -555,11 +603,13 @@ public class ExtElement extends JsObject {
      * Return the CSS color for the specified CSS attribute. rgb, 3 digit (like
      * #fff) and valid values are convert to standard 6 digit hex color.
      * 
-     * @param attr the css attribute
-     * @param defaultValue the default value to use when a valid color isn't
-     *            found
-     * @param prefix defaults to #. Use an empty string when working with YUI
-     *            color anims.
+     * @param attr
+     *            the css attribute
+     * @param defaultValue
+     *            the default value to use when a valid color isn't found
+     * @param prefix
+     *            defaults to #. Use an empty string when working with YUI color
+     *            anims.
      * @return the css color
      */
     public native String getColor(String attr, String defaultValue, String prefix)/*-{
@@ -607,7 +657,8 @@ public class ExtElement extends JsObject {
     /**
      * Returns the sum width of the padding and borders for the passed side.
      * 
-     * @param side the side
+     * @param side
+     *            the side
      * @return sum of padding and border for the side
      */
     public native int getFrameWidth(Side side)/*-{
@@ -629,7 +680,8 @@ public class ExtElement extends JsObject {
     /**
      * Returns the offset height of the element.
      * 
-     * @param contentHeight true to get the height minus borders and padding
+     * @param contentHeight
+     *            true to get the height minus borders and padding
      * @return the element's height
      */
     public native int getHeight(boolean contentHeight)/*-{
@@ -650,8 +702,8 @@ public class ExtElement extends JsObject {
     /**
      * Gets the left X coordinate.
      * 
-     * @param local true to get the local css position instead of page
-     *            coordinate
+     * @param local
+     *            true to get the local css position instead of page coordinate
      * @return the X cooridinate
      */
     public native int getLeft(boolean local)/*-{
@@ -672,8 +724,8 @@ public class ExtElement extends JsObject {
     /**
      * Gets the next sibling, skipping text nodes.
      * 
-     * @param selector Find the next sibling that matches the passed simple
-     *            selector
+     * @param selector
+     *            Find the next sibling that matches the passed simple selector
      * @return the next sibling or null
      */
     public native Element next(String selector)/*-{
@@ -684,7 +736,8 @@ public class ExtElement extends JsObject {
     /**
      * Gets the width of the padding for the specified side.
      * 
-     * @param side the side
+     * @param side
+     *            the side
      * @return padding
      */
     public native int getPadding(Side side)/*-{
@@ -706,7 +759,8 @@ public class ExtElement extends JsObject {
     /**
      * Gets the previous sibling, skipping text nodes.
      * 
-     * @param selector Find the previous sibling that matches the passed simple
+     * @param selector
+     *            Find the previous sibling that matches the passed simple
      *            selector
      * @return the previous sibling or null
      */
@@ -741,7 +795,8 @@ public class ExtElement extends JsObject {
     /**
      * Normalizes currentStyle and computedStyle.
      * 
-     * @param property the style property whose value is returned
+     * @param property
+     *            the style property whose value is returned
      * @return the current value of the style property for this element,
      *         "undefined" if the style is not applied to the element
      */
@@ -763,8 +818,8 @@ public class ExtElement extends JsObject {
     /**
      * Returns the top Y coordinate.
      * 
-     * @param local true to get the local css position instead of page
-     *            coordinate
+     * @param local
+     *            true to get the local css position instead of page coordinate
      * @return the top Y coordinate
      */
     public native int getTop(boolean local)/*-{
@@ -816,7 +871,8 @@ public class ExtElement extends JsObject {
     /**
      * Returns the offset width of the element.
      * 
-     * @param contentWidth true to get the width minus borders and padding
+     * @param contentWidth
+     *            true to get the width minus borders and padding
      * @return the elemetns width
      */
     public native int getWidth(boolean contentWidth)/*-{
@@ -864,19 +920,21 @@ public class ExtElement extends JsObject {
     /**
      * Checks if the specified CSS class exists on this element's DOM node.
      * 
-     * @param className the CSS class to check for
+     * @param className
+     *            the CSS class to check for
      * @return true if the class exists, else false
      */
     public native boolean hasClass(String className)/*-{
 		var elem = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		return elem.hasClass(className);
+		return elem.hasCls(className);
     }-*/;
 
     // todo initDD, initDDProxy, initDDTarget
     /**
      * Inserts this element after the passed element in the DOM.
      * 
-     * @param el the element to insert after
+     * @param el
+     *            the element to insert after
      * @return this
      */
     public native ExtElement insertAfter(Element el)/*-{
@@ -888,7 +946,8 @@ public class ExtElement extends JsObject {
     /**
      * Inserts this element before the passed element in the DOM.
      * 
-     * @param el the element to insert before
+     * @param el
+     *            the element to insert before
      * @return this
      */
     public native ExtElement insertBefore(Element el)/*-{
@@ -900,7 +959,8 @@ public class ExtElement extends JsObject {
     /**
      * Inserts an element as the first child of the this element.
      * 
-     * @param el the element to insert
+     * @param el
+     *            the element to insert
      * @return this
      */
     public native ExtElement insertFirst(Element el)/*-{
@@ -912,7 +972,8 @@ public class ExtElement extends JsObject {
     /**
      * Creates an element as the first child of the this element.
      * 
-     * @param config DomHelper config to create element
+     * @param config
+     *            DomHelper config to create element
      * @return the new child i
      */
     public native ExtElement insertFirst(DOMConfig config)/*-{
@@ -925,7 +986,8 @@ public class ExtElement extends JsObject {
     /**
      * Inserts an html fragment into this element.
      * 
-     * @param html the html fragment
+     * @param html
+     *            the html fragment
      * @return the inserted node (or nearest related if more than 1 inserted)
      */
     public native Element insertHtmlBeforeBegin(String html)/*-{
@@ -936,7 +998,8 @@ public class ExtElement extends JsObject {
     /**
      * Inserts an html fragment into this element.
      * 
-     * @param html the html fragment
+     * @param html
+     *            the html fragment
      * @return the inserted node (or nearest related if more than 1 inserted)
      */
     public native Element insertHtmlAfterBegin(String html)/*-{
@@ -947,7 +1010,8 @@ public class ExtElement extends JsObject {
     /**
      * Inserts an html fragment into this element.
      * 
-     * @param html the html fragment
+     * @param html
+     *            the html fragment
      * @return the inserted node (or nearest related if more than 1 inserted)
      */
     public native Element insertHtmlBeforeEnd(String html)/*-{
@@ -958,7 +1022,8 @@ public class ExtElement extends JsObject {
     /**
      * Inserts an html fragment into this element.
      * 
-     * @param html the html fragment
+     * @param html
+     *            the html fragment
      * @return the inserted node (or nearest related if more than 1 inserted)
      */
     public native Element insertHtmlAfterEnd(String html)/*-{
@@ -969,7 +1034,8 @@ public class ExtElement extends JsObject {
     /**
      * Inserts the passed element as a sibling of this element.
      * 
-     * @param el the element to insert
+     * @param el
+     *            the element to insert
      * @return the inserted element
      */
     public native Element insertSibling(Element el)/*-{
@@ -980,8 +1046,10 @@ public class ExtElement extends JsObject {
     /**
      * Inserts the passed element as a sibling of this element.
      * 
-     * @param el the element to insert
-     * @param before insert before or after
+     * @param el
+     *            the element to insert
+     * @param before
+     *            insert before or after
      * @return the inserted element
      */
     public native ExtElement insertSibling(Element el, boolean before)/*-{
@@ -993,7 +1061,8 @@ public class ExtElement extends JsObject {
     /**
      * Created the passed DomHelper config as a sibling of this element.
      * 
-     * @param config the DomHelper config
+     * @param config
+     *            the DomHelper config
      * @return the inserted element
      */
     public native Element insertSibling(DOMConfig config)/*-{
@@ -1005,8 +1074,10 @@ public class ExtElement extends JsObject {
     /**
      * Created the passed DomHelper config as a sibling of this element.
      * 
-     * @param config the DomHelper config
-     * @param before to insert before or after
+     * @param config
+     *            the DomHelper config
+     * @param before
+     *            to insert before or after
      * @return the inserted element
      */
     public native ExtElement insertSibling(DOMConfig config, boolean before)/*-{
@@ -1021,7 +1092,8 @@ public class ExtElement extends JsObject {
      * Returns true if this element matches the passed simple selector (e.g.
      * div.some-class or span:first-child)
      * 
-     * @param selector the simple selector to test
+     * @param selector
+     *            the simple selector to test
      * @return true if this element matches the selector, else false
      */
     public native boolean is(String selector)/*-{
@@ -1085,7 +1157,8 @@ public class ExtElement extends JsObject {
      * Checks whether the element is currently visible using both visibility and
      * display properties.
      * 
-     * @param deep true to walk the dom and see if parent elements are hidden
+     * @param deep
+     *            true to walk the dom and see if parent elements are hidden
      *            (defaults to false)
      * @return true if visible
      */
@@ -1111,7 +1184,8 @@ public class ExtElement extends JsObject {
      * can only be applied to elements which accept child nodes. By default an
      * animated loading icon is added.
      * 
-     * @param msg a message to display in the mask
+     * @param msg
+     *            a message to display in the mask
      * @return the mask element
      */
     public ExtElement mask(String msg) {
@@ -1124,8 +1198,10 @@ public class ExtElement extends JsObject {
      * can only be applied to elements which accept child nodes. By default an
      * animated loading icon is added.
      * 
-     * @param msg a message to display in the mask
-     * @param animatedIcon true to add animated loading icon, false to skip
+     * @param msg
+     *            a message to display in the mask
+     * @param animatedIcon
+     *            true to add animated loading icon, false to skip
      * @return the mask element
      */
     public ExtElement mask(String msg, boolean animatedIcon) {
@@ -1140,8 +1216,10 @@ public class ExtElement extends JsObject {
      * Puts a mask over this element to disable user interaction. This method
      * can only be applied to elements which accept child nodes.
      * 
-     * @param msg a message to display in the mask
-     * @param msgClass a css class to apply to the msg element
+     * @param msg
+     *            a message to display in the mask
+     * @param msgClass
+     *            a css class to apply to the msg element
      * @return the mask element
      */
     public native ExtElement mask(String msg, String msgClass) /*-{
@@ -1163,7 +1241,8 @@ public class ExtElement extends JsObject {
      * Selects child nodes based on the passed CSS selector (the selector should
      * not contain an id).
      * 
-     * @param selector the CSS selector
+     * @param selector
+     *            the CSS selector
      * @return an array of the matched nodes
      */
     public native Element[] query(String selector)/*-{
@@ -1177,7 +1256,8 @@ public class ExtElement extends JsObject {
     /**
      * Replaces the passed element with this element.
      * 
-     * @param el the element to replace
+     * @param el
+     *            the element to replace
      * @return this
      */
     public native ExtElement replace(Element el)/*-{
@@ -1200,9 +1280,10 @@ public class ExtElement extends JsObject {
     /**
      * Scrolls this element into view within the passed container
      * 
-     * @param container the container element to scroll (defaults to
-     *            document.body)
-     * @param hscroll false to disable horizontal scroll (defaults to true)
+     * @param container
+     *            the container element to scroll (defaults to document.body)
+     * @param hscroll
+     *            false to disable horizontal scroll (defaults to true)
      * @return this
      */
     public native ExtElement scrollIntoView(Element container, boolean hscroll)/*-{
@@ -1215,7 +1296,8 @@ public class ExtElement extends JsObject {
      * Creates a CompositeElement for child nodes based on the passed CSS
      * selector (the selector should not contain an id).
      * 
-     * @param selector the CSS selector
+     * @param selector
+     *            the CSS selector
      * @return the CompositeElement
      */
     public native CompositeElement select(String selector)/*-{
@@ -1229,9 +1311,11 @@ public class ExtElement extends JsObject {
      * Creates a CompositeElement for child nodes based on the passed CSS
      * selector (the selector should not contain an id).
      * 
-     * @param selector the CSS selector
-     * @param unique true to create a unique ExtElement for each child (defaults
-     *            to false, which creates a single shared flyweight object)
+     * @param selector
+     *            the CSS selector
+     * @param unique
+     *            true to create a unique ExtElement for each child (defaults to
+     *            false, which creates a single shared flyweight object)
      * @return the CompositeElement
      */
     public native CompositeElement select(String selector, boolean unique)/*-{
@@ -1250,8 +1334,10 @@ public class ExtElement extends JsObject {
      * Translates the passed page coordinates into left/top css values for this
      * element
      * 
-     * @param x the page x
-     * @param y the page y
+     * @param x
+     *            the page x
+     * @param y
+     *            the page y
      * @return array of left, top values
      */
     public native int[] translatePoints(int x, int y)/*-{
@@ -1284,10 +1370,13 @@ public class ExtElement extends JsObject {
      * Update the innerHTML of this element, optionally searching for and
      * processing scripts.
      * 
-     * @param html the new HTML
-     * @param loadScripts true to look for and process scripts
-     * @param callback for async script loading you can be notified when the
-     *            update completes
+     * @param html
+     *            the new HTML
+     * @param loadScripts
+     *            true to look for and process scripts
+     * @param callback
+     *            for async script loading you can be notified when the update
+     *            completes
      */
     public native void update(String html, boolean loadScripts, Function callback) /*-{
 		var el = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
@@ -1300,10 +1389,13 @@ public class ExtElement extends JsObject {
      * Update the innerHTML of this element, optionally searching for and
      * processing scripts.
      * 
-     * @param html the new HTML
-     * @param loadScripts true to look for and process scripts
-     * @param callback for async script loading you can be notified when the
-     *            update completes
+     * @param html
+     *            the new HTML
+     * @param loadScripts
+     *            true to look for and process scripts
+     * @param callback
+     *            for async script loading you can be notified when the update
+     *            completes
      */
     public native void update(String html) /*-{
 		var el = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
@@ -1316,7 +1408,8 @@ public class ExtElement extends JsObject {
      * search defaults to 10 or document.body. This is a shortcut for
      * findParentNode() that always returns an ExtElement
      * 
-     * @param selector the simple selector to test
+     * @param selector
+     *            the simple selector to test
      * @return the matching DOM or null if no match was found
      */
     public native ExtElement up(String selector) /*-{
@@ -1331,8 +1424,10 @@ public class ExtElement extends JsObject {
      * selector (e.g. div.some-class or span:first-child). This is a shortcut
      * for findParentNode() that always returns an ExtElement
      * 
-     * @param selector the simple selector to test
-     * @param container the container to stop at
+     * @param selector
+     *            the simple selector to test
+     * @param container
+     *            the container to stop at
      * @return the matching DOM or null if no match was found
      */
     public native ExtElement up(String selector, Element container) /*-{
@@ -1347,8 +1442,10 @@ public class ExtElement extends JsObject {
      * selector (e.g. div.some-class or span:first-child). This is a shortcut
      * for findParentNode() that always returns an ExtElement
      * 
-     * @param selector the simple selector to test
-     * @param maxDepth The max depth to search (defaults to 10 || document.body)
+     * @param selector
+     *            the simple selector to test
+     * @param maxDepth
+     *            The max depth to search (defaults to 10 || document.body)
      * @return the matching DOM or null if no match was found
      */
     public native ExtElement up(String selector, int maxDepth) /*-{
@@ -1381,7 +1478,8 @@ public class ExtElement extends JsObject {
     /**
      * Remove the specified child.
      * 
-     * @param child the child
+     * @param child
+     *            the child
      */
     public native void removeChild(Element child) /*-{
 		var elem = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
@@ -1401,7 +1499,8 @@ public class ExtElement extends JsObject {
     /**
      * Set the scroll top position.
      * 
-     * @param scrollTop the scroll top position
+     * @param scrollTop
+     *            the scroll top position
      */
     public native void setScrollTop(int scrollTop) /*-{
 		var elem = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
@@ -1411,7 +1510,8 @@ public class ExtElement extends JsObject {
     /**
      * More flexible version of {@link #setStyle} for setting style properties.
      * 
-     * @param style a style specification string, e.g. "width:100px"
+     * @param style
+     *            a style specification string, e.g. "width:100px"
      * @return this
      */
     public native ExtElement applyStyles(String style) /*-{
@@ -1423,14 +1523,46 @@ public class ExtElement extends JsObject {
     /**
      * Wrapper for setting style properties.
      * 
-     * @param style the style property to be set
-     * @param value the value to apply to the given property
+     * @param style
+     *            the style property to be set
+     * @param value
+     *            the value to apply to the given property
      * @return this
      */
     public native ExtElement setStyle(String style, String value)/*-{
 		var elem = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
 		elem.setStyle(style, value);
 		return this;
+    }-*/;
+
+    public void on(String event, Function handler) {
+        this.addListener(event, handler);
+    }
+
+    public void on(String event, ElementEventHandler handler) {
+        this.addListener(event, handler);
+    }
+
+    public native void addListener(String event, Function handler)/*-{
+		var elem = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		if (elem.addListener) {
+			elem.addListener(event, function(e) {
+				handler.@com.emitrom.touch4j.client.core.Function::execute()();
+			});
+		}
+    }-*/;
+
+    public native void addListener(String event, ElementEventHandler handler)/*-{
+		var elem = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		if (elem.addListener) {
+			elem
+					.addListener(
+							event,
+							function(e) {
+								var event = @com.emitrom.touch4j.client.core.EventObject::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+								handler.@com.emitrom.touch4j.client.core.handlers.ElementEventHandler::onEvent(Lcom/emitrom/touch4j/client/core/EventObject;)(event);
+							});
+		}
     }-*/;
 
 }

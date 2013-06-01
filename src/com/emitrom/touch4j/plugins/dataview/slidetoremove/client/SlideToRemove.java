@@ -17,6 +17,15 @@ public class SlideToRemove extends Component {
 
     }
 
+    public SlideToRemove() {
+
+    }
+
+    public SlideToRemove(String removeText) {
+        this();
+        this.setRemoveText(removeText);
+    }
+
     public void setRemoveText(String value) {
         this.setAttribute("removeText", value, true);
     }
@@ -33,7 +42,6 @@ public class SlideToRemove extends Component {
 
     @Override
     protected native JavaScriptObject create(JavaScriptObject config) /*-{
-		alert('');
 		return new $wnd.Ext.plugin.SlideToRemove(config);
     }-*/;
 

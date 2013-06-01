@@ -29,6 +29,7 @@ import com.emitrom.touch4j.client.core.handlers.dataview.DataViewRefreshHandler;
 import com.emitrom.touch4j.client.core.handlers.dataview.DataViewSelectHandler;
 import com.emitrom.touch4j.client.core.template.Template;
 import com.emitrom.touch4j.client.data.Store;
+import com.emitrom.touch4j.client.dataview.SimpleListItem;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -40,6 +41,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 public class DataView extends Container implements HasStore, ListView {
 
     protected Store store;
+    protected boolean useCompoments;
 
     protected DataView(JavaScriptObject config) {
         super(config);
@@ -104,6 +106,19 @@ public class DataView extends Container implements HasStore, ListView {
     public native String getItemCls() /*-{
 		var dataview = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		return dataview.getItemCls();
+    }-*/;
+
+    /**
+     * Returns an item at the specified index.
+     * 
+     * @param index
+     *            , the index of the item
+     * @return, an ExtElement at thie given index
+     */
+    public native SimpleListItem getItemAt(int index) /*-{
+		var dataview = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		var obj = dataview.getItemAt(index);
+		return @com.emitrom.touch4j.client.dataview.SimpleListItem::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
     }-*/;
 
     /**
@@ -345,7 +360,16 @@ public class DataView extends Container implements HasStore, ListView {
      * 
      * @param value
      */
-    public native void setUseComponents(boolean value)/*-{
+    public void setUseComponents(boolean value) {
+        this.useCompoments = value;
+        _setUseComponents(value);
+    }
+
+    public boolean isUseComponents() {
+        return this.useCompoments;
+    }
+
+    private native void _setUseComponents(boolean value)/*-{
 		var dataview = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		dataview.setUseComponents(value);
     }-*/;

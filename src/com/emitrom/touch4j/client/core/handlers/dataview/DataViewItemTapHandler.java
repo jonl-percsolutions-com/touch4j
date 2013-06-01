@@ -16,6 +16,7 @@
  **************************************************************************/
 package com.emitrom.touch4j.client.core.handlers.dataview;
 
+import com.emitrom.touch4j.client.core.EventObject;
 import com.emitrom.touch4j.client.core.handlers.AbstractHandler;
 import com.emitrom.touch4j.client.data.BaseModel;
 import com.emitrom.touch4j.client.ui.DataView;
@@ -29,16 +30,17 @@ public abstract class DataViewItemTapHandler extends AbstractHandler {
     final JavaScriptObject jsoPeer = createPeer(this);
 
     private static native JavaScriptObject createPeer(DataViewItemTapHandler listener) /*-{
-		return function(source, index, element, record, eventObject, eOpts) {
+		return function(source, index, element, record, e, eOpts) {
 			var dataView = @com.emitrom.touch4j.client.ui.DataView::new(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
 			var model = @com.emitrom.touch4j.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
-			listener.@com.emitrom.touch4j.client.core.handlers.dataview.DataViewItemTapHandler::fireOnEvent(Lcom/emitrom/touch4j/client/ui/DataView;ILcom/google/gwt/user/client/Element;Lcom/emitrom/touch4j/client/data/BaseModel;Ljava/lang/Object;Ljava/lang/Object;)(dataView, index, element, model, eventObject, eOpts);
+			var event = @com.emitrom.touch4j.client.core.EventObject::new(Lcom/google/gwt/core/client/JavaScriptObject;)(e);
+			listener.@com.emitrom.touch4j.client.core.handlers.dataview.DataViewItemTapHandler::fireOnEvent(Lcom/emitrom/touch4j/client/ui/DataView;ILcom/google/gwt/user/client/Element;Lcom/emitrom/touch4j/client/data/BaseModel;Lcom/emitrom/touch4j/client/core/EventObject;Ljava/lang/Object;)(dataView, index, element, model, event, eOpts);
 		};
     }-*/;
 
     // Called from JSNI
-    private final void fireOnEvent(DataView dataView, int index, Element element, BaseModel record, Object eventObject,
-                    Object eOpts) {
+    private final void fireOnEvent(DataView dataView, int index, Element element, BaseModel record,
+                    EventObject eventObject, Object eOpts) {
         UncaughtExceptionHandler handler = GWT.getUncaughtExceptionHandler();
 
         if (handler != null) {
@@ -49,7 +51,7 @@ public abstract class DataViewItemTapHandler extends AbstractHandler {
     }
 
     private void fireOnEventAndCatch(DataView dataView, int index, Element element, BaseModel record,
-                    Object eventObject, Object eOpts, UncaughtExceptionHandler handler) {
+                    EventObject eventObject, Object eOpts, UncaughtExceptionHandler handler) {
         try {
             onItemTap(dataView, index, element, record, eventObject, eOpts);
         } catch (Throwable e) {
@@ -62,7 +64,7 @@ public abstract class DataViewItemTapHandler extends AbstractHandler {
         return jsoPeer;
     }
 
-    public abstract void onItemTap(DataView dataView, int index, Element element, BaseModel record, Object eventObject,
-                    Object eOpts);
+    public abstract void onItemTap(DataView dataView, int index, Element element, BaseModel record,
+                    EventObject eventObject, Object eOpts);
 
 }

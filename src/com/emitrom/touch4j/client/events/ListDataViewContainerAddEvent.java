@@ -1,5 +1,6 @@
 /**************************************************************************
- * ListDataViewContainerAddEvent.java is part of Touch4j 4.0. Copyright 2012 Emitrom LLC
+ * ListDataViewContainerAddEvent.java is part of Touch4j 4.0. Copyright 2012
+ * Emitrom LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -13,37 +14,27 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  **************************************************************************/
-package com.emitrom.touch4j.client.core.handlers.tabitem;
+package com.emitrom.touch4j.client.events;
 
-import com.emitrom.touch4j.client.ui.TabItem;
-import com.google.gwt.event.shared.EventHandler;
+import com.emitrom.touch4j.client.events.handlers.ListDataViewContainerAddedHandler;
 import com.google.gwt.event.shared.GwtEvent;
 
-public class TabItemAddEvent extends GwtEvent<TabItemAddEvent.Handler> {
+public class ListDataViewContainerAddEvent extends GwtEvent<ListDataViewContainerAddedHandler> {
 
-    public static final Type<Handler> TYPE = new Type<Handler>();
-    private TabItem tabItem;
-    
-    public TabItemAddEvent(TabItem tabItem) {
-        this.tabItem = tabItem;
-    }
-    
-    public interface Handler extends EventHandler {
-        public void onTabItemAdd(TabItemAddEvent event);
+    public static final Type<ListDataViewContainerAddedHandler> TYPE = new Type<ListDataViewContainerAddedHandler>();
+
+    public ListDataViewContainerAddEvent() {
+
     }
 
     @Override
-    protected void dispatch(Handler handler) {
-        handler.onTabItemAdd(this);
+    protected void dispatch(ListDataViewContainerAddedHandler handler) {
+        handler.onContainerAdded(this);
     }
 
     @Override
-    public Type<Handler> getAssociatedType() {
+    public Type<ListDataViewContainerAddedHandler> getAssociatedType() {
         return TYPE;
     }
 
-    public TabItem getTabItem() {
-        return tabItem;
-    }
-    
 }

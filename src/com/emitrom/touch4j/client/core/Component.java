@@ -1378,6 +1378,20 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
 		}
     }-*/;
 
+    public native void setListItemIndex(int index)/*-{
+		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		component.listItemIndex = index;
+    }-*/;
+
+    public native int getListItemIndex()/*-{
+		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		if (component.listItemIndex) {
+			return component.listItemIndex;
+		}
+		return 0;
+
+    }-*/;
+
     /**
      * Allow the component to fire these events.
      * 
@@ -1813,6 +1827,35 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
 			component.setDocked(value);
 		}
     }-*/;
+
+    public static Component cast(Component peer) {
+        return new Component(peer.getOrCreateJsObj()) {
+
+            @Override
+            public void setText(String text) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public String getText() {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            protected JavaScriptObject create(JavaScriptObject config) {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            protected void init() {
+                // TODO Auto-generated method stub
+
+            }
+        };
+    }
 
     private native boolean isDisabledRendered() /*-{
 		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();

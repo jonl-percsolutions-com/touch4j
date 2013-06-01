@@ -15,7 +15,6 @@
  **************************************************************************/
 package com.emitrom.touch4j.client.core;
 
-import com.emitrom.touch4j.client.core.JsObject;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -118,6 +117,12 @@ public class EventObject extends JsObject {
     public native void stopEvent() /*-{
 		var e = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
 		e.stopEvent();
+    }-*/;
+
+    public native ExtElement getTarget() /*-{
+		var e = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		var obj = e.target;
+		return @com.emitrom.touch4j.client.core.ExtElement::new(Lcom/google/gwt/core/client/JavaScriptObject;)(obj);
     }-*/;
 
     /**

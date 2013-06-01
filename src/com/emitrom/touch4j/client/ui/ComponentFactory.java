@@ -20,6 +20,7 @@ import com.emitrom.touch4j.client.core.JsoHelper;
 import com.emitrom.touch4j.client.core.config.XType;
 import com.emitrom.touch4j.client.draw.Sprite;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.Window;
 
 /**
  * Component factory class.
@@ -50,6 +51,7 @@ public class ComponentFactory {
         } else if (xtype.equalsIgnoreCase(XType.AUDIO.getValue())) {
             return new Audio(jsObj);
         } else if (xtype.equalsIgnoreCase(XType.BUTTON.getValue())) {
+            Window.alert(xtype + "??");
             return new Button(jsObj);
         } else if (xtype.equalsIgnoreCase(XType.CAROUSEL.getValue())) {
             return new Carousel(jsObj);
@@ -64,7 +66,7 @@ public class ComponentFactory {
     }
 
     private static native String getXType(JavaScriptObject jsObj) /*-{
-		var xtype = jsObj.getXType ? jsObj.getXType() : null;
+		var xtype = jsObj.xtype ? jsObj.xtype : null;
 		return xtype === undefined ? null : xtype;
     }-*/;
 

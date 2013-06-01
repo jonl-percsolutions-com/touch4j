@@ -15,17 +15,46 @@
  **************************************************************************/
 package com.emitrom.touch4j.client.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.emitrom.touch4j.client.core.Component;
+import com.emitrom.touch4j.client.core.DOMHelper;
+import com.emitrom.touch4j.client.core.EventObject;
+import com.emitrom.touch4j.client.core.Ext;
+import com.emitrom.touch4j.client.core.ExtElement;
+import com.emitrom.touch4j.client.core.Function;
 import com.emitrom.touch4j.client.core.config.XType;
+import com.emitrom.touch4j.client.core.handlers.ElementEventHandler;
+import com.emitrom.touch4j.client.core.handlers.dataview.DataViewItemTapHandler;
+import com.emitrom.touch4j.client.core.handlers.dataview.DataViewItemTouchStartHandler;
 import com.emitrom.touch4j.client.core.handlers.list.ItemDisclosureHandler;
 import com.emitrom.touch4j.client.core.template.Template;
+import com.emitrom.touch4j.client.data.BaseModel;
 import com.emitrom.touch4j.client.data.Store;
+import com.emitrom.touch4j.client.dataview.ListItemComponentRenderer;
+import com.emitrom.touch4j.client.dataview.SimpleListItem;
+import com.emitrom.touch4j.client.events.ListDataViewContainerAddEvent;
+import com.emitrom.touch4j.client.events.handlers.ListDataViewContainerAddedHandler;
+import com.emitrom.touch4j.client.layout.Layout;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.event.shared.EventBus;
+import com.google.gwt.event.shared.SimpleEventBus;
+import com.google.gwt.user.client.Element;
+import com.google.gwt.user.client.Window;
 
 /**
  * ListDataView is a custom styled DataView which allows Grouping, Indexing,
  * Icons, and a Disclosure.
  */
-public class ListDataView extends DataView implements ListElement {
+public class ListDataView extends DataView implements ListElement, ListDataViewContainerAddedHandler {
+
+    private String containerCls = "touch-list-comp-container";
+    private final static EventBus eventBus = new SimpleEventBus();
+    List<Container> containerList;
+    List<List<Component>> componentList;
+    private boolean componentContainersCreated = false;
+    private ListItemComponentRenderer itemComponentRender;
 
     protected ListDataView(JavaScriptObject config) {
         super(config);
@@ -51,13 +80,77 @@ public class ListDataView extends DataView implements ListElement {
      * Create a new ListDataView.
      */
     public ListDataView() {
+        eventBus.addHandler(ListDataViewContainerAddEvent.TYPE, this);
+        this.addListener("painted", new Function() {
+            @Override
+            public void execute() {
+                if (componentContainersCreated == false) {
+                    SimpleListItem item;
+                    containerList = new ArrayList<Container>();
+                    int size = store.getCount();
+
+                    for (int i = 0; i < size; i++) {
+                        item = ListDataView.this.getItemAt(i);
+                        DOMHelper.append(item.getEl(), "<div class='touch-list-comp-container'></div>");
+                        final Container container = new Container();
+                        container.setRenderTo(item.getEl().down("." + containerCls));
+                        container.setLayout(Layout.HBOX);
+                        container.addListener("painted", new Function() {
+                            @Override
+                            public void execute() {
+                                container.getEl().on("tap", new ElementEventHandler() {
+                                    @Override
+                                    public void onEvent(EventObject event) {
+                                        event.stopEvent();
+                                    }
+                                });
+                            }
+
+                        });
+
+                        container.setRight(15);
+                        container.setTop(5);
+                        container.show();
+                        containerList.add(container);
+
+                    }
+                    componentContainersCreated = true;
+                    eventBus.fireEvent(new ListDataViewContainerAddEvent());
+                }
+            }
+        });
+        this.addItemTapHandler(new DataViewItemTapHandler() {
+            @Override
+            public void onItemTap(DataView dataView, int index, Element element, BaseModel record,
+                            EventObject eventObject, Object eOpts) {
+                ExtElement item = Ext.get(eventObject.getTarget());
+                if (!item.hasClass("x-innerhtml")) {
+                    eventObject.stopEvent();
+                    Window.alert("stoped");
+                }
+
+            }
+        });
+        this.addItemTouchStartHandler(new DataViewItemTouchStartHandler() {
+            @Override
+            public void onItemTouchStart(DataView dataView, int index, SimpleListItem element, BaseModel record,
+                            EventObject eventObject) {
+                ExtElement item = Ext.get(eventObject.getTarget());
+                if (!item.hasClass("x-innerhtml")) {
+                    eventObject.stopEvent();
+                }
+
+            }
+        });
     }
 
     public ListDataView(Store store) {
+        this();
         setStore(store);
     }
 
     public ListDataView(String itemTemplate, Store store) {
+        this();
         setStore(store);
         setItemTpl(itemTemplate);
     }
@@ -225,4 +318,40 @@ public class ListDataView extends DataView implements ListElement {
 		list.setUi(listStyle);
     }-*/;
 
+    public void addItemComponent(int itemIndex, Component component) {
+        List<Component> list;
+        int size = this.getStore().getCount();
+        if (componentList == null) {
+            componentList = new ArrayList<List<Component>>(this.getStore().getCount());
+            for (int i = 0; i < size; i++) {
+                componentList.add(new ArrayList<Component>());
+            }
+        }
+        list = componentList.get(itemIndex);
+        component.setListItemIndex(itemIndex);
+        list.add(component);
+    }
+
+    @Override
+    public void onContainerAdded(ListDataViewContainerAddEvent event) {
+        if (this.itemComponentRender != null) {
+            for (int i = 0; i < containerList.size(); i++) {
+                Container c = containerList.get(i);
+                List<Component> components = itemComponentRender.getComponents();
+                if (components != null) {
+                    for (Component component : components) {
+                        component.setListItemIndex(i);
+                        component.setMargin(2);
+                        c.add(component);
+                    }
+
+                }
+            }
+        }
+
+    }
+
+    public void setItemComponentRenderer(ListItemComponentRenderer itemCompomentRenderer) {
+        this.itemComponentRender = itemCompomentRenderer;
+    }
 }

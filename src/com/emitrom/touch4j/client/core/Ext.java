@@ -259,6 +259,13 @@ public class Ext {
 				: @com.emitrom.touch4j.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
     }-*/;
 
+    public static native ExtElement get(ExtElement element) /*-{
+		var el = $wnd.Ext
+				.get(element.@com.emitrom.touch4j.client.core.JsObject::getJsObj()());
+		return el == null ? null
+				: @com.emitrom.touch4j.client.core.ExtElement::instance(Lcom/google/gwt/core/client/JavaScriptObject;)(el);
+    }-*/;
+
     /**
      * Attempts to destroy the objects by removing all event listeners, removing
      * them from the DOM (if applicable) and calling their destroy functions (if
@@ -545,6 +552,10 @@ public class Ext {
 
     public static native boolean isIPod()/*-{
 		return $wnd.Ext.is.iPod;
+    }-*/;
+
+    public static native int getRandomInt(int min, int max)/*-{
+		return $wnd.Math.floor(Math.random() * (max - min + 1)) + min;
     }-*/;
 
     public static void defineModel(String name, Set<String> fields) {

@@ -238,7 +238,7 @@ public class Store extends JsObject {
 
     public native int count()/*-{
 		var jso = this.@com.emitrom.touch4j.client.core.JsObject::jsObj;
-		return jso.count();
+		return jso.getCount();
     }-*/;
 
     /**

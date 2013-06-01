@@ -60,11 +60,26 @@ public class PullRefresh extends Component {
 		return pr.getPullRefreshText();
     }-*/;
 
-    /**
-     * The text that will be shown to display when the list was last updated
-     * 
-     * @param value
-     */
+    public native void setAutoSnapBack(boolean value)/*-{
+		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		pr.setPullRefreshText(value);
+    }-*/;
+
+    public native boolean isAutoSnapBack()/*-{
+		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		return pr.getAutoSnapBack();
+    }-*/;
+
+    public native void setLastUpdatedDateFormat(String value)/*-{
+		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		pr.setLastUpdatedDateFormat(value);
+    }-*/;
+
+    public native String getLastUpdatedDateFormat()/*-{
+		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		return pr.getLastUpdatedDateFormat();
+    }-*/;
+
     public native void setLastUpdatedText(String value)/*-{
 		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		pr.setLastUpdatedText(value);
@@ -75,48 +90,16 @@ public class PullRefresh extends Component {
 		return pr.getLastUpdatedText();
     }-*/;
 
-    /**
-     * The template being used for the pull to refresh markup
-     * 
-     * @param value
-     */
-    public native void setPullTemplate(String value)/*-{
+    public native void setLoadedText(String value)/*-{
 		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		pr.setPullTpl(value);
+		pr.setLoadedText(value);
     }-*/;
 
-    /**
-     * The template being used for the pull to refresh markup
-     * 
-     * @param value
-     */
-    public native void setPullTemplate(Template value)/*-{
+    public native String getLoadedText()/*-{
 		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		pr
-				.setPullTpl(value.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()());
+		return pr.getLoadedText();
     }-*/;
 
-    /**
-     * The text that will be shown after you have pulled down enough to show the
-     * release message.
-     * 
-     * @param value
-     */
-    public native void setReleaseRefreshText(String value)/*-{
-		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		pr.setReleaseRefreshText(value);
-    }-*/;
-
-    public native String getReleaseRefreshText()/*-{
-		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		return pr.getReleaseRefreshText();
-    }-*/;
-
-    /**
-     * The text that will be shown while the list is refreshing.
-     * 
-     * @param value
-     */
     public native void setLoadingText(String value)/*-{
 		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		pr.setLoadingText(value);
@@ -127,20 +110,50 @@ public class PullRefresh extends Component {
 		return pr.getLoadingText();
     }-*/;
 
-    /**
-     * The duration for snapping back animation after the data has been
-     * refreshed
-     * 
-     * @param value
-     */
-    public native void setSnapAnimationDuration(int value)/*-{
+    public native void setOverpullSnapBackDuration(int value)/*-{
 		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		pr.setSnapAnimationDuration(value);
+		pr.setOverpullSnapBackDuration(value);
     }-*/;
 
-    public native int getSnapAnimationDuration()/*-{
+    public native int getOverpullSnapBackDuration()/*-{
 		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		return pr.getSnapAnimationDuration();
+		return pr.getOverpullSnapBackDuration();
+    }-*/;
+
+    public native void setPullTpl(String value)/*-{
+		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		pr.setPullTpl(value);
+    }-*/;
+
+    public native void setPullTpl(Template value)/*-{
+		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		pr
+				.setPullTpl(value.@com.emitrom.touch4j.client.core.JsObject::getJsObj()());
+    }-*/;
+
+    public native String getPullTpl()/*-{
+		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		return pr.getPullTpl();
+    }-*/;
+
+    public native void setReleaseRefreshText(String value)/*-{
+		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		pr.setReleaseRefreshText(value);
+    }-*/;
+
+    public native String getReleaseRefreshText()/*-{
+		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		return pr.getReleaseRefreshText();
+    }-*/;
+
+    public native void setSnappingAnimationDuration(int value)/*-{
+		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		pr.setSnappingAnimationDuration(value);
+    }-*/;
+
+    public native int getSnappingAnimationDuration()/*-{
+		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		return pr.getSnappingAnimationDuration();
     }-*/;
 
     /**
@@ -151,9 +164,11 @@ public class PullRefresh extends Component {
     public native void addPullRefreshHandler(PullRefreshHandler callback)/*-{
 		var pr = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		pr
-				.setRefreshFn($entry(function(plugin) {
-					callback.@com.emitrom.touch4j.plugins.dataview.pullrefresh.client.PullRefreshHandler::onRefresh()();
-				}));
+				.on(
+						'latestfetched',
+						$entry(function(plugin) {
+							callback.@com.emitrom.touch4j.plugins.dataview.pullrefresh.client.PullRefreshHandler::onRefresh()();
+						}));
     }-*/;
 
     @Override
