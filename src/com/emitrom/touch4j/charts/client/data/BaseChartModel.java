@@ -16,13 +16,14 @@
 package com.emitrom.touch4j.charts.client.data;
 
 import com.emitrom.touch4j.client.core.JsoHelper;
+import com.emitrom.touch4j.client.data.BaseModel;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Base class to use for data in charts
  * 
  */
-public class BaseChartModel extends com.pilot.shared.client.data.BaseModel {
+public class BaseChartModel extends BaseModel {
 
     protected BaseChartModel() {
         jsObj = JsoHelper.createObject();
