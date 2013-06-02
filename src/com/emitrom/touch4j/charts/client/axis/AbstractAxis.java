@@ -25,6 +25,7 @@ import com.emitrom.touch4j.client.draw.SpriteConfig;
 import com.emitrom.touch4j.client.laf.Color;
 import com.emitrom.touch4j.client.laf.Position;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.client.JsArrayString;
 
 /**
@@ -123,6 +124,14 @@ public abstract class AbstractAxis extends JsObject {
             array.push(string);
         }
         JsoHelper.setAttribute(jsObj, "fields", array);
+    }
+
+    public void setVisibleRange(double... values) {
+        JsArrayNumber array = JsArrayNumber.createArray().cast();
+        for (double value : values) {
+            array.push(value);
+        }
+        JsoHelper.setAttribute(jsObj, "visibleRange", array);
     }
 
     public void setLabel(Label label) {

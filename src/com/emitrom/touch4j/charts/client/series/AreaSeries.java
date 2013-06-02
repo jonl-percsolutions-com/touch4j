@@ -28,7 +28,7 @@ public class AreaSeries extends StackedCartesianSeries {
 
     public AreaSeries() {
         jsObj = JsoHelper.createObject();
-        setType("Area");
+        setType("area");
     }
 
     AreaSeries(JavaScriptObject obj) {

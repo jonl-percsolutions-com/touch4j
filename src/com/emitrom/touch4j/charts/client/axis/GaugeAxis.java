@@ -29,7 +29,7 @@ public class GaugeAxis extends AbstractAxis {
 
     public GaugeAxis() {
         jsObj = JsoHelper.createObject();
-        this.setType("Gauge");
+        this.setType("gauge");
         this.setPosition(Position.GAUGE);
     }
 

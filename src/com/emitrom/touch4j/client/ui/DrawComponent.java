@@ -51,8 +51,8 @@ public class DrawComponent extends Container {
      * Create a new Panel.
      */
     public DrawComponent() {
-        init();
-        createSurface();
+        // init();
+        // createSurface();
     }
 
     protected DrawComponent(JavaScriptObject jsObj) {

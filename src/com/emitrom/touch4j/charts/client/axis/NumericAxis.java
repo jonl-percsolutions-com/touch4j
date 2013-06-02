@@ -28,7 +28,7 @@ public class NumericAxis extends AbstractAxis {
 
     public NumericAxis() {
         jsObj = JsoHelper.createObject();
-        this.setType("Numeric");
+        this.setType("numeric");
 
     }
 

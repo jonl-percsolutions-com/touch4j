@@ -29,7 +29,7 @@ public class RadialAxis extends AbstractAxis {
 
     public RadialAxis() {
         jsObj = JsoHelper.createObject();
-        this.setType("Radial");
+        this.setType("radial");
 
     }
 

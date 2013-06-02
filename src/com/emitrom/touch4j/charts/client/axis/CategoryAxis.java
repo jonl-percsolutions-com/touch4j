@@ -28,7 +28,7 @@ public class CategoryAxis extends AbstractAxis {
 
     public CategoryAxis() {
         jsObj = JsoHelper.createObject();
-        this.setType("Category");
+        this.setType("category");
     }
 
 }

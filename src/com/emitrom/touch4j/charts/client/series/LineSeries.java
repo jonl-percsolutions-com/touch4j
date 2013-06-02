@@ -22,7 +22,7 @@ public class LineSeries extends CartesianSeries {
 
     public LineSeries() {
         jsObj = JsoHelper.createObject();
-        this.setType("Line");
+        this.setType("line");
     }
 
     public LineSeries(MarkerConfig markerConfig) {

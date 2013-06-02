@@ -28,7 +28,7 @@ public class TimeAxis extends AbstractAxis {
 
     public TimeAxis() {
         jsObj = JsoHelper.createObject();
-        this.setType("Time");
+        this.setType("time");
     }
 
     public void setGroupBy(String value) {

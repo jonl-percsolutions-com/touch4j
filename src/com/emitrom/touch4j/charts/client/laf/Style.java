@@ -21,10 +21,35 @@ import com.emitrom.touch4j.client.core.config.BaseConfig;
 public class Style extends BaseConfig {
 
     public Style() {
+        jsObj = JsoHelper.createObject();
     }
 
     public void setOpacity(double value) {
         JsoHelper.setAttribute(jsObj, "opacity", value);
+    }
+
+    public void setSmooth(boolean value) {
+        JsoHelper.setAttribute(jsObj, "smooth", value);
+    }
+
+    public void setStroke(String value) {
+        JsoHelper.setAttribute(jsObj, "stroke", value);
+    }
+
+    public void setFill(String value) {
+        JsoHelper.setAttribute(jsObj, "fill", value);
+    }
+
+    public void setMiterLimit(int value) {
+        JsoHelper.setAttribute(jsObj, "miterLimit", value);
+    }
+
+    public void setLineWidth(int value) {
+        JsoHelper.setAttribute(jsObj, "lineWidth", value);
+    }
+
+    public void setLineCap(String value) {
+        JsoHelper.setAttribute(jsObj, "lineCap", value);
     }
 
 }

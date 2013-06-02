@@ -22,7 +22,7 @@ public class ColumnSeries extends BaseSeries {
 
     public ColumnSeries() {
         jsObj = JsoHelper.createObject();
-        this.setType("Column");
+        this.setType("column");
     }
 
     public void setXField(String value) {

@@ -23,7 +23,7 @@ public class PieSeries extends BaseSeries {
 
     public PieSeries() {
         jsObj = JsoHelper.createObject();
-        this.setType("Pie");
+        this.setType("pie");
     }
 
     /**

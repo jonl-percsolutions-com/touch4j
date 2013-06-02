@@ -31,7 +31,7 @@ public class GaugeSeries extends BaseSeries {
 
     public GaugeSeries() {
         jsObj = JsoHelper.createObject();
-        setType("Gauge");
+        setType("gauge");
 
     }
 
