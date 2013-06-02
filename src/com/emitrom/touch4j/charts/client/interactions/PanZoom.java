@@ -53,4 +53,9 @@ public class PanZoom extends AbstractInteraction {
 		jso.overflowArrowOptions = value;
     }-*/;
 
+    public native void setZoomOnPanGesture(boolean value)/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		jso.zoomOnPanGesture = value;
+    }-*/;
+
 }

@@ -15,17 +15,42 @@
  **************************************************************************/
 package com.emitrom.touch4j.charts.client.marker;
 
+import com.emitrom.touch4j.charts.client.Animation;
 import com.emitrom.touch4j.client.core.JsObject;
 import com.emitrom.touch4j.client.core.JsoHelper;
 
 public abstract class MarkerConfig extends JsObject {
 
-	protected MarkerConfig() {
-		
-	}
-	
+    protected MarkerConfig() {
+
+    }
+
     public void setSize(int value) {
         JsoHelper.setAttribute(jsObj, "size", value);
+    }
+
+    public void setX(int value) {
+        JsoHelper.setAttribute(jsObj, "x", value);
+    }
+
+    public void setY(int value) {
+        JsoHelper.setAttribute(jsObj, "y", value);
+    }
+
+    public void setHeight(int value) {
+        JsoHelper.setAttribute(jsObj, "height", value);
+    }
+
+    public void setWidth(int value) {
+        JsoHelper.setAttribute(jsObj, "width", value);
+    }
+
+    public void setScale(double value) {
+        JsoHelper.setAttribute(jsObj, "scale", value);
+    }
+
+    public void setFx(Animation value) {
+        JsoHelper.setAttribute(jsObj, "fx", value.getJsObj());
     }
 
     public void setRadius(int value) {
@@ -39,7 +64,7 @@ public abstract class MarkerConfig extends JsObject {
     public void setType(String value) {
         JsoHelper.setAttribute(jsObj, "type", value);
     }
-    
+
     public void setSrc(String value) {
         JsoHelper.setAttribute(jsObj, "src", value);
     }

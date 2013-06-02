@@ -28,6 +28,7 @@ public class LineSeries extends CartesianSeries {
     public LineSeries(MarkerConfig markerConfig) {
         this();
         JsoHelper.setAttribute(jsObj, "markerConfig", markerConfig.getJsObj());
+
     }
 
     public native void showMarkers(boolean value) /*-{
