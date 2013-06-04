@@ -52,4 +52,8 @@ public class Style extends BaseConfig {
         JsoHelper.setAttribute(jsObj, "lineCap", value);
     }
 
+    public void setFillOpacity(double value) {
+        JsoHelper.setAttribute(jsObj, "fillOpacity", value);
+    }
+
 }

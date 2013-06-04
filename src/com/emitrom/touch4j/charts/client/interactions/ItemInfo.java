@@ -49,4 +49,8 @@ public class ItemInfo extends AbstractInteraction {
 		};
     }-*/;
 
+    public ItemInfo cast(AbstractInteraction peer) {
+        return new ItemInfo(peer.getJsObj());
+    }
+
 }

@@ -16,6 +16,7 @@
 package com.emitrom.touch4j.charts.client.interactions;
 
 import com.emitrom.touch4j.client.core.JsoHelper;
+import com.emitrom.touch4j.client.ui.Button;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class PanZoom extends AbstractInteraction {
@@ -57,5 +58,19 @@ public class PanZoom extends AbstractInteraction {
 		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
 		jso.zoomOnPanGesture = value;
     }-*/;
+
+    public native Button getModeToggleButton()/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		if (jso.getModeToggleButton) {
+			var btn = jso.getModeToggleButton;
+			return @com.emitrom.touch4j.client.ui.Button::new(Lcom/google/gwt/core/client/JavaScriptObject;)(btn);
+		}
+		return null;
+
+    }-*/;
+
+    public PanZoom cast(AbstractInteraction peer) {
+        return new PanZoom(peer.getJsObj());
+    }
 
 }

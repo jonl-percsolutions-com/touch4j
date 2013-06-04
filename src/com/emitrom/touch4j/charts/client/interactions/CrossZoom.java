@@ -43,4 +43,8 @@ public class CrossZoom extends AbstractInteraction {
 		jso.axes = value;
     }-*/;
 
+    public CrossZoom cast(AbstractInteraction peer) {
+        return new CrossZoom(peer.getJsObj());
+    }
+
 }

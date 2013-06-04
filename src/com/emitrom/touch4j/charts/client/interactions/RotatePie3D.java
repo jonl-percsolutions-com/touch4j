@@ -29,4 +29,8 @@ public class RotatePie3D extends AbstractInteraction {
         jsObj = obj;
     }
 
+    public RotatePie3D cast(AbstractInteraction peer) {
+        return new RotatePie3D(peer.getJsObj());
+    }
+
 }

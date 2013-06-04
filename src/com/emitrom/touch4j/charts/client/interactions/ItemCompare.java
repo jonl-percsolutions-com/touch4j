@@ -84,4 +84,8 @@ public class ItemCompare extends AbstractInteraction {
 		};
     }-*/;
 
+    public ItemCompare cast(AbstractInteraction peer) {
+        return new ItemCompare(peer.getJsObj());
+    }
+
 }

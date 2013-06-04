@@ -29,4 +29,8 @@ public class ItemHighlight extends AbstractInteraction {
         jsObj = obj;
     }
 
+    public ItemHighlight cast(AbstractInteraction peer) {
+        return new ItemHighlight(peer.getJsObj());
+    }
+
 }

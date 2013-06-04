@@ -57,6 +57,21 @@ public class AbstractSeries extends JsObject {
         JsoHelper.setAttribute(jsObj, "fill", value);
     }
 
+    public void setFill(String... colors) {
+        JsArrayString values = JsArrayString.createArray().cast();
+        for (String color : colors) {
+            values.push(color);
+        }
+        setFill(values);
+    }
+
+    private native void setFill(JsArrayString colors)/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		jso.subStyle = {
+			fill : colors
+		};
+    }-*/;
+
     public void setAnimate(Animation value) {
         JsoHelper.setAttribute(jsObj, "fill", value.getJsObj());
     }

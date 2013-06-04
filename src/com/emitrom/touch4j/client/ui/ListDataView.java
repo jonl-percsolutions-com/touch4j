@@ -41,7 +41,6 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.user.client.Element;
-import com.google.gwt.user.client.Window;
 
 /**
  * ListDataView is a custom styled DataView which allows Grouping, Indexing,
@@ -54,6 +53,7 @@ public class ListDataView extends DataView implements ListElement, ListDataViewC
     List<Container> containerList;
     List<List<Component>> componentList;
     private boolean componentContainersCreated = false;
+    private boolean useComponents = false;
     private ListItemComponentRenderer itemComponentRender;
 
     protected ListDataView(JavaScriptObject config) {
@@ -81,67 +81,6 @@ public class ListDataView extends DataView implements ListElement, ListDataViewC
      */
     public ListDataView() {
         eventBus.addHandler(ListDataViewContainerAddEvent.TYPE, this);
-        this.addListener("painted", new Function() {
-            @Override
-            public void execute() {
-                if (componentContainersCreated == false) {
-                    SimpleListItem item;
-                    containerList = new ArrayList<Container>();
-                    int size = store.getCount();
-
-                    for (int i = 0; i < size; i++) {
-                        item = ListDataView.this.getItemAt(i);
-                        DOMHelper.append(item.getEl(), "<div class='touch-list-comp-container'></div>");
-                        final Container container = new Container();
-                        container.setRenderTo(item.getEl().down("." + containerCls));
-                        container.setLayout(Layout.HBOX);
-                        container.addListener("painted", new Function() {
-                            @Override
-                            public void execute() {
-                                container.getEl().on("tap", new ElementEventHandler() {
-                                    @Override
-                                    public void onEvent(EventObject event) {
-                                        event.stopEvent();
-                                    }
-                                });
-                            }
-
-                        });
-
-                        container.setRight(15);
-                        container.setTop(5);
-                        container.show();
-                        containerList.add(container);
-
-                    }
-                    componentContainersCreated = true;
-                    eventBus.fireEvent(new ListDataViewContainerAddEvent());
-                }
-            }
-        });
-        this.addItemTapHandler(new DataViewItemTapHandler() {
-            @Override
-            public void onItemTap(DataView dataView, int index, Element element, BaseModel record,
-                            EventObject eventObject, Object eOpts) {
-                ExtElement item = Ext.get(eventObject.getTarget());
-                if (!item.hasClass("x-innerhtml")) {
-                    eventObject.stopEvent();
-                    Window.alert("stoped");
-                }
-
-            }
-        });
-        this.addItemTouchStartHandler(new DataViewItemTouchStartHandler() {
-            @Override
-            public void onItemTouchStart(DataView dataView, int index, SimpleListItem element, BaseModel record,
-                            EventObject eventObject) {
-                ExtElement item = Ext.get(eventObject.getTarget());
-                if (!item.hasClass("x-innerhtml")) {
-                    eventObject.stopEvent();
-                }
-
-            }
-        });
     }
 
     public ListDataView(Store store) {
@@ -353,5 +292,72 @@ public class ListDataView extends DataView implements ListElement, ListDataViewC
 
     public void setItemComponentRenderer(ListItemComponentRenderer itemCompomentRenderer) {
         this.itemComponentRender = itemCompomentRenderer;
+    }
+
+    public void setUseComponents(boolean value) {
+        this.useCompoments = value;
+        if (value == true) {
+            this.addListener("painted", new Function() {
+                @Override
+                public void execute() {
+                    if (componentContainersCreated == false) {
+                        SimpleListItem item;
+                        containerList = new ArrayList<Container>();
+                        int size = store.getCount();
+
+                        for (int i = 0; i < size; i++) {
+                            item = ListDataView.this.getItemAt(i);
+                            DOMHelper.append(item.getEl(), "<div class='touch-list-comp-container'></div>");
+                            final Container container = new Container();
+                            container.setRenderTo(item.getEl().down("." + containerCls));
+                            container.setLayout(Layout.HBOX);
+                            container.addListener("painted", new Function() {
+                                @Override
+                                public void execute() {
+                                    container.getEl().on("tap", new ElementEventHandler() {
+                                        @Override
+                                        public void onEvent(EventObject event) {
+                                            event.stopEvent();
+                                        }
+                                    });
+                                }
+
+                            });
+
+                            container.setRight(15);
+                            container.setTop(5);
+                            container.show();
+                            containerList.add(container);
+
+                        }
+                        componentContainersCreated = true;
+                        eventBus.fireEvent(new ListDataViewContainerAddEvent());
+                    }
+                }
+            });
+            this.addItemTapHandler(new DataViewItemTapHandler() {
+                @Override
+                public void onItemTap(DataView dataView, int index, Element element, BaseModel record,
+                                EventObject eventObject, Object eOpts) {
+                    ExtElement item = Ext.get(eventObject.getTarget());
+                    if (!item.hasClass("x-innerhtml")) {
+                        eventObject.stopEvent();
+                    }
+
+                }
+            });
+            this.addItemTouchStartHandler(new DataViewItemTouchStartHandler() {
+                @Override
+                public void onItemTouchStart(DataView dataView, int index, SimpleListItem element, BaseModel record,
+                                EventObject eventObject) {
+                    ExtElement item = Ext.get(eventObject.getTarget());
+                    if (!item.hasClass("x-innerhtml")) {
+                        eventObject.stopEvent();
+                    }
+
+                }
+            });
+
+        }
     }
 }

@@ -29,4 +29,8 @@ public class Rotate extends AbstractInteraction {
         jsObj = obj;
     }
 
+    public Rotate cast(AbstractInteraction peer) {
+        return new Rotate(peer.getJsObj());
+    }
+
 }

@@ -454,7 +454,7 @@ public class Button extends Component implements HasUi, HasIcon, HasTapHandlers,
     @Override
     public native void setIconMask(boolean value) /*-{
 		var button = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		button.setIconMask(value);
+		//button.setIconMask(value);
     }-*/;
 
     /**
@@ -463,7 +463,7 @@ public class Button extends Component implements HasUi, HasIcon, HasTapHandlers,
     @Override
     public native void setIconMaskCls(String value) /*-{
 		var button = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		button.setIconMaksCls(value);
+		//button.setIconMaksCls(value);
     }-*/;
 
     /**

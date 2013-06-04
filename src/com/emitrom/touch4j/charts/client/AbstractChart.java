@@ -151,7 +151,7 @@ public abstract class AbstractChart extends DrawComponent {
     private native JavaScriptObject _getAxis()/*-{
 		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		if (component) {
-			return component.axis.items;
+			return $wnd.Ext.ComponentQuery.query('axis', component);
 		}
 		return null;
     }-*/;
@@ -212,7 +212,8 @@ public abstract class AbstractChart extends DrawComponent {
         if (nativePeers != null) {
             int size = JsoHelper.getArrayLength(nativePeers);
             for (int i = 0; i < size; i++) {
-                AbstractSeries serie = AbstractSeries.create(JsoHelper.getValueFromJavaScriptObjectArray(nativePeers, i));
+                AbstractSeries serie = AbstractSeries.create(JsoHelper
+                                .getValueFromJavaScriptObjectArray(nativePeers, i));
                 toReturn.add(serie);
             }
         }
@@ -222,7 +223,7 @@ public abstract class AbstractChart extends DrawComponent {
     private native JavaScriptObject _getSeries()/*-{
 		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		if (component) {
-			return component.series.items;
+			return $wnd.Ext.ComponentQuery.query('series', component);
 		}
 		return null;
     }-*/;
@@ -532,6 +533,32 @@ public abstract class AbstractChart extends DrawComponent {
         _setInteractions(values);
     }
 
+    public List<AbstractInteraction> getInteractions() {
+        return _getInteraction();
+    }
+
+    private List<AbstractInteraction> _getInteraction() {
+        List<AbstractInteraction> toReturn = new ArrayList<AbstractInteraction>();
+        JavaScriptObject nativePeers = _getAxis();
+        if (nativePeers != null) {
+            int size = JsoHelper.getArrayLength(nativePeers);
+            for (int i = 0; i < size; i++) {
+                AbstractInteraction serie = AbstractInteraction.create(JsoHelper.getValueFromJavaScriptObjectArray(
+                                nativePeers, i));
+                toReturn.add(serie);
+            }
+        }
+        return toReturn;
+    }
+
+    private native JavaScriptObject _getInteractions()/*-{
+		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		if (component) {
+			return component.getInteraction();
+		}
+		return null;
+    }-*/;
+
     /**
      * Changes the data store bound to this chart and refreshes it.
      * 
@@ -589,6 +616,16 @@ public abstract class AbstractChart extends DrawComponent {
     public native void reset(boolean skipRedraw)/*-{
 		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		component.reset(skipRedraw);
+    }-*/;
+
+    public native void resetLegendStore()/*-{
+		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		component.resetLegendStore();
+    }-*/;
+
+    public native void refreshLegendStore()/*-{
+		var component = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		component.refreshLegendStore();
     }-*/;
 
     /**

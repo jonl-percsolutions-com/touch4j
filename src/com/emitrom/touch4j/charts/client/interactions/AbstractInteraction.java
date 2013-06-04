@@ -66,4 +66,9 @@ public class AbstractInteraction extends JsObject {
 		jso.enabled = value;
     }-*/;
 
+    public static AbstractInteraction create(JavaScriptObject obj) {
+        return new AbstractInteraction(obj) {
+        };
+    }
+
 }

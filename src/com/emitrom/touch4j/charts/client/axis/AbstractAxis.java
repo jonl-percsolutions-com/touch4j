@@ -46,6 +46,10 @@ public abstract class AbstractAxis extends JsObject {
         JsoHelper.setAttribute(jsObj, "title", title);
     }
 
+    public void setTitle(AxisTitle title) {
+        JsoHelper.setAttribute(jsObj, "title", title.getJsObj());
+    }
+
     /**
      * The size of the dash marker. Default's 3.
      * 
@@ -131,8 +135,18 @@ public abstract class AbstractAxis extends JsObject {
         for (double value : values) {
             array.push(value);
         }
-        JsoHelper.setAttribute(jsObj, "visibleRange", array);
+        _setVisibleRange(array);
     }
+
+    private native void _setVisibleRange(JavaScriptObject value)/*-{
+		var axis = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		if (axis.setVisibleRange) {
+			axis.setVisibleRange(value);
+		} else {
+			axis.visibleRange = value;
+		}
+
+    }-*/;
 
     public void setLabel(Label label) {
         JsoHelper.setAttribute(jsObj, "label", label.getJsObj());

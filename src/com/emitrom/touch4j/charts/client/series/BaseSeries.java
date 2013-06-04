@@ -20,6 +20,7 @@ import com.emitrom.touch4j.charts.client.handlers.RecordHandler;
 import com.emitrom.touch4j.charts.client.handlers.TitleChangeHandler;
 import com.emitrom.touch4j.charts.client.interactions.ChartItem;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayString;
 
 public abstract class BaseSeries extends AbstractSeries {
 
@@ -62,6 +63,19 @@ public abstract class BaseSeries extends AbstractSeries {
     }-*/;
 
     public native void setTitle(String value)/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		jso.title = value;
+    }-*/;
+
+    public void setTitle(String... values) {
+        JsArrayString peers = JsArrayString.createArray().cast();
+        for (String s : values) {
+            peers.push(s);
+        }
+        setTitle(peers);
+    }
+
+    public native void setTitle(JsArrayString value)/*-{
 		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
 		jso.title = value;
     }-*/;
