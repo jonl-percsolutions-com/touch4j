@@ -49,7 +49,7 @@ public abstract class BaseSeries extends AbstractSeries {
 
     public native void setHighLightCfg(HighLightConfig value)/*-{
 		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
-		jso.highLightConfig = value.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		jso.highlightCfg = value.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
     }-*/;
 
     public native void setShowInLegend(boolean value)/*-{

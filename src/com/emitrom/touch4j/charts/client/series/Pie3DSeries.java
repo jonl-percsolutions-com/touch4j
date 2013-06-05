@@ -29,7 +29,7 @@ public class Pie3DSeries extends PolarSeries {
 
     public Pie3DSeries() {
         jsObj = JsoHelper.createObject();
-        setType("pie3D");
+        setType("pie3d");
 
     }
 
@@ -41,6 +41,16 @@ public class Pie3DSeries extends PolarSeries {
     public native void setDonut(double value)/*-{
 		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
 		series.donut = value;
+    }-*/;
+
+    public native void setRotation(double value)/*-{
+		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		series.rotation = value;
+    }-*/;
+
+    public native void setDistortion(double value)/*-{
+		var series = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		series.distortion = value;
     }-*/;
 
     public void setField(String value) {

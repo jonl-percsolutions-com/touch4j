@@ -33,6 +33,11 @@ public abstract class MarkerConfig extends JsObject {
         JsoHelper.setAttribute(jsObj, "x", value);
     }
 
+    public void setXY(int x, int y) {
+        this.setX(x);
+        this.setY(y);
+    }
+
     public void setY(int value) {
         JsoHelper.setAttribute(jsObj, "y", value);
     }
@@ -51,6 +56,12 @@ public abstract class MarkerConfig extends JsObject {
 
     public void setFx(Animation value) {
         JsoHelper.setAttribute(jsObj, "fx", value.getJsObj());
+    }
+
+    public void setAnimationDuration(int duration) {
+        Animation animation = new Animation();
+        animation.setDuration(duration);
+        this.setFx(animation);
     }
 
     public void setRadius(int value) {

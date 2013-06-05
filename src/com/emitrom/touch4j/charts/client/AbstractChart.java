@@ -23,6 +23,7 @@ import com.emitrom.touch4j.charts.client.handlers.BeforeRefreshHandler;
 import com.emitrom.touch4j.charts.client.handlers.ChartChangeHandler;
 import com.emitrom.touch4j.charts.client.handlers.ChartEventHandler;
 import com.emitrom.touch4j.charts.client.interactions.AbstractInteraction;
+import com.emitrom.touch4j.charts.client.interactions.InteractionType;
 import com.emitrom.touch4j.charts.client.interactions.SavingType;
 import com.emitrom.touch4j.charts.client.laf.Gradient;
 import com.emitrom.touch4j.charts.client.laf.Shadow;
@@ -336,6 +337,10 @@ public abstract class AbstractChart extends DrawComponent {
         setAttribute("insetPadding", value, true, true);
     }
 
+    public void setInnerPadding(int value) {
+        setAttribute("innerPadding", value, true, true);
+    }
+
     /**
      * Set the chart background
      * 
@@ -398,6 +403,14 @@ public abstract class AbstractChart extends DrawComponent {
         JsArrayString colors = JsArray.createArray().cast();
         for (Color c : values) {
             colors.push(c.getValue());
+        }
+        setAttribute("colors", colors, true, true);
+    }
+
+    public void setColors(String... values) {
+        JsArrayString colors = JsArray.createArray().cast();
+        for (String c : values) {
+            colors.push(c);
         }
         setAttribute("colors", colors, true, true);
     }
@@ -529,6 +542,22 @@ public abstract class AbstractChart extends DrawComponent {
         JsArray<JavaScriptObject> values = JsArray.createArray().cast();
         for (AbstractInteraction interaction : interactions) {
             values.push(interaction.getJsObj());
+        }
+        _setInteractions(values);
+    }
+
+    public void setInteractions(InteractionType... interactions) {
+        JsArrayString values = JsArrayString.createArray().cast();
+        for (InteractionType type : interactions) {
+            values.push(type.getValue());
+        }
+        _setInteractions(values);
+    }
+
+    public void setInteractions(String... interactions) {
+        JsArrayString values = JsArrayString.createArray().cast();
+        for (String s : interactions) {
+            values.push(s);
         }
         _setInteractions(values);
     }

@@ -39,9 +39,19 @@ public class ImageMarker extends MarkerConfig {
         setHeight(value);
     }
 
+    public void setSize(int width, int height) {
+        this.setWidth(width);
+        this.setHeight(height);
+    }
+
     public void setSize(String value) {
         setWidth(value);
         setHeight(value);
+    }
+
+    public void setSize(String width, String height) {
+        this.setWidth(width);
+        this.setHeight(height);
     }
 
     public void setWidth(int value) {

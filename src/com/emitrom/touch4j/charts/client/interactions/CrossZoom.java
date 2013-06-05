@@ -16,6 +16,7 @@
 package com.emitrom.touch4j.charts.client.interactions;
 
 import com.emitrom.touch4j.client.core.JsoHelper;
+import com.emitrom.touch4j.client.ui.Button;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class CrossZoom extends AbstractInteraction {
@@ -43,7 +44,26 @@ public class CrossZoom extends AbstractInteraction {
 		jso.axes = value;
     }-*/;
 
-    public CrossZoom cast(AbstractInteraction peer) {
+    public native Button getUngoButton()/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		if (jso.getUngoButton) {
+			var btn = jso.getUngoButton();
+			return @com.emitrom.touch4j.client.ui.Button::new(Lcom/google/gwt/core/client/JavaScriptObject;)(btn);
+		}
+		return null;
+
+    }-*/;
+
+    public native void setGesture(String value)/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		if (jso.setGesture) {
+			jso.setGesture(value);
+		} else {
+			jso.gesture = value;
+		}
+    }-*/;
+
+    public static CrossZoom cast(AbstractInteraction peer) {
         return new CrossZoom(peer.getJsObj());
     }
 

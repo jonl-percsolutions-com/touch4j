@@ -19,7 +19,7 @@ import com.emitrom.touch4j.client.core.JsoHelper;
 import com.emitrom.touch4j.client.laf.Color;
 import com.google.gwt.core.client.JsArrayString;
 
-public class PieSeries extends BaseSeries {
+public class PieSeries extends PolarSeries {
 
     public PieSeries() {
         jsObj = JsoHelper.createObject();
@@ -106,6 +106,15 @@ public class PieSeries extends BaseSeries {
      */
     public void setRotation(double value) {
         JsoHelper.setAttribute(jsObj, "rotation", value);
+    }
+
+    /**
+     * The store record field name to be used for the pie slice labels.
+     * 
+     * @param value
+     */
+    public void setLabelField(String value) {
+        JsoHelper.setAttribute(jsObj, "labelField", value);
     }
 
 }

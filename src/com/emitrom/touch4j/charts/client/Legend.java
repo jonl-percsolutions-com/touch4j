@@ -40,6 +40,18 @@ public class Legend extends JsObject {
         JsoHelper.setAttribute(jsObj, "position", position.getValue());
     }
 
+    public void setDocked(Position position) {
+        JsoHelper.setAttribute(jsObj, "docked", position.getValue());
+    }
+
+    public void setVertialWidth(int value) {
+        JsoHelper.setAttribute(jsObj, "verticalWidth", value);
+    }
+
+    public void setHorizontalWidth(int value) {
+        JsoHelper.setAttribute(jsObj, "horizontalWidth", value);
+    }
+
     public void setPosition(LegendPosition position) {
         JsoHelper.setAttribute(jsObj, "position", position.getJsObj());
     }

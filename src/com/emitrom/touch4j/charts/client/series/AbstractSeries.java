@@ -113,7 +113,7 @@ public class AbstractSeries extends JsObject {
     }
 
     public void setMarker(MarkerConfig marker) {
-        JsoHelper.setAttribute(jsObj, "markerConfig", marker.getJsObj());
+        JsoHelper.setAttribute(jsObj, "marker", marker.getJsObj());
     }
 
     public void setShowInLegend(boolean value) {
@@ -214,6 +214,11 @@ public class AbstractSeries extends JsObject {
 		};
 		component.addListener(event, listener);
 
+    }-*/;
+
+    public native void setHighLightCfg(HighLightConfig value)/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		jso.highlightCfg = value.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
     }-*/;
 
 }

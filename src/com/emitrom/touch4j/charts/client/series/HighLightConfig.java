@@ -28,4 +28,8 @@ public class HighLightConfig extends JsObject {
         JsoHelper.setAttribute(jsObj, "scale", value);
     }
 
+    public void setMargin(double value) {
+        JsoHelper.setAttribute(jsObj, "margin", value);
+    }
+
 }

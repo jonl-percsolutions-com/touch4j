@@ -29,7 +29,16 @@ public class ItemHighlight extends AbstractInteraction {
         jsObj = obj;
     }
 
-    public ItemHighlight cast(AbstractInteraction peer) {
+    public native void setGesture(String value)/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		if (jso.setGesture) {
+			jso.setGesture(value);
+		} else {
+			jso.gesture = value;
+		}
+    }-*/;
+
+    public static ItemHighlight cast(AbstractInteraction peer) {
         return new ItemHighlight(peer.getJsObj());
     }
 

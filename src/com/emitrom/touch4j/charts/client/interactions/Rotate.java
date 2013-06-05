@@ -29,7 +29,16 @@ public class Rotate extends AbstractInteraction {
         jsObj = obj;
     }
 
-    public Rotate cast(AbstractInteraction peer) {
+    public native void setGesture(String value)/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		if (jso.setGesture) {
+			jso.setGesture(value);
+		} else {
+			jso.gesture = value;
+		}
+    }-*/;
+
+    public static Rotate cast(AbstractInteraction peer) {
         return new Rotate(peer.getJsObj());
     }
 

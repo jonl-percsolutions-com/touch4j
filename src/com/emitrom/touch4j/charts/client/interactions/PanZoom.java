@@ -62,14 +62,34 @@ public class PanZoom extends AbstractInteraction {
     public native Button getModeToggleButton()/*-{
 		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
 		if (jso.getModeToggleButton) {
-			var btn = jso.getModeToggleButton;
+			var btn = jso.getModeToggleButton();
 			return @com.emitrom.touch4j.client.ui.Button::new(Lcom/google/gwt/core/client/JavaScriptObject;)(btn);
 		}
 		return null;
 
     }-*/;
 
-    public PanZoom cast(AbstractInteraction peer) {
+    public native void setPanGesture(String value)/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		if (jso.setPanGesture) {
+			jso.setPanGesture(value);
+		} else {
+			jso.panGesture = value;
+		}
+
+    }-*/;
+
+    public native void setZoomPanGesture(String value)/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		if (jso.setZoomPanGesture) {
+			jso.setZoomPanGesture(value);
+		} else {
+			jso.zoomPanGesture = value;
+		}
+
+    }-*/;
+
+    public static PanZoom cast(AbstractInteraction peer) {
         return new PanZoom(peer.getJsObj());
     }
 

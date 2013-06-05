@@ -18,18 +18,18 @@ package com.emitrom.touch4j.charts.client.interactions;
 import com.emitrom.touch4j.client.core.JsoHelper;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class RotatePie3D extends AbstractInteraction {
+public class RotatePie3D extends Rotate {
 
     public RotatePie3D() {
         jsObj = JsoHelper.createObject();
-        setType(InteractionType.ROTATE_3D);
+        setType(InteractionType.ROTATE_PIE_3D);
     }
 
     RotatePie3D(JavaScriptObject obj) {
         jsObj = obj;
     }
 
-    public RotatePie3D cast(AbstractInteraction peer) {
+    public static RotatePie3D cast(AbstractInteraction peer) {
         return new RotatePie3D(peer.getJsObj());
     }
 

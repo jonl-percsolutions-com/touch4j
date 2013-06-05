@@ -49,6 +49,15 @@ public class ItemInfo extends AbstractInteraction {
 		};
     }-*/;
 
+    public native void setGesture(String value)/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
+		if (jso.setGesture) {
+			jso.setGesture(value);
+		} else {
+			jso.gesture = value;
+		}
+    }-*/;
+
     public ItemInfo cast(AbstractInteraction peer) {
         return new ItemInfo(peer.getJsObj());
     }

@@ -17,8 +17,8 @@ package com.emitrom.touch4j.charts.client.interactions;
 
 public enum InteractionType {
     PANZOOM("panzoom"), ITEM_COMPARE("itemcompare"), ITEM_HIGHTLIGH("itemhighlight"), ITEM_INFO("iteminfo"), PIE_GROUPING(
-                    "piegrouping"), ROTATE("rotate"), ROTATE_3D("rotate3d"), RESET("reset"), CROSS_ZOOM("crosszoom"), PAN_ZOOM(
-                    "panzoom"), TOGGLE_STACKED("togglestacked");
+                    "piegrouping"), ROTATE("rotate"), ROTATE_PIE_3D("rotatePie3d"), RESET("reset"), CROSS_ZOOM(
+                    "crosszoom"), PAN_ZOOM("panzoom"), TOGGLE_STACKED("togglestacked");
 
     private String value;
 
