@@ -161,7 +161,7 @@ public class MessageBoxConfig extends BaseConfig {
      *            the message
      */
     public void setMessage(String msg) {
-        JsoHelper.setAttribute(jsObj, Attribute.MSG.getValue(), msg);
+        JsoHelper.setAttribute(jsObj, "message", msg);
     }
 
     /**
