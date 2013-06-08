@@ -1,8 +1,7 @@
-package com.emitrom.touch4j.formfactor.client;
+package com.emitrom.touch4j.client.core;
 
-import com.emitrom.touch4j.client.core.InitHandler;
-import com.emitrom.touch4j.client.core.Touch;
-import com.emitrom.touch4j.client.core.TouchConfig;
+import com.emitrom.pilot.core.formfactor.client.JsLoadCallback;
+import com.emitrom.pilot.core.formfactor.client.ResourceInjector;
 
 /**
  * Utility class to inject Touch4j resources. This class should ve used while
