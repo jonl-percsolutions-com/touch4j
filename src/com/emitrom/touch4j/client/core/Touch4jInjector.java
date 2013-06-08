@@ -4,9 +4,9 @@ import com.emitrom.pilot.core.formfactor.client.JsLoadCallback;
 import com.emitrom.pilot.core.formfactor.client.ResourceInjector;
 
 /**
- * Utility class to inject Touch4j resources. This class should ve used while
- * developing for different devices with the goal to provide a different UI for
- * each device.
+ * Utility class to inject Touch4j resources. This class should be used while
+ * developing for different devices and form factors. The class will help you
+ * inject Touch4j on demand
  * 
  */
 public class Touch4jInjector extends ResourceInjector {
