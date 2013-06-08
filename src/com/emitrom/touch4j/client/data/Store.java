@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.emitrom.pilot.core.shared.client.data.Bean;
 import com.emitrom.touch4j.client.core.Ext;
 import com.emitrom.touch4j.client.core.Function;
 import com.emitrom.touch4j.client.core.JsObject;
@@ -87,6 +88,14 @@ public class Store extends JsObject {
         assert !data.isEmpty() : "BaseModel list cannot be empty.";
         Set<String> fields = new HashSet<String>(data.get(0).getFields());
         init(data, fields);
+    }
+
+    public static Store from(List<? extends Bean> beans) {
+        List<BaseModel> models = new ArrayList<BaseModel>();
+        for (Bean bean : beans) {
+            models.add(BaseModel.from(bean.getJsObj()));
+        }
+        return new Store(models);
     }
 
     /**
