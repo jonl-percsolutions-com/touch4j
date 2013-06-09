@@ -1,36 +1,36 @@
-/**
- Copyright (c) 2012 Emitrom LLC. All rights reserved.
- For licensing questions, please contact us at licensing@emitrom.com
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- */
+/************************************************************************
+ * Bean.java is part of Touch4j 4.2.2.1 Copyright 2013 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ **************************************************************************/
 package com.emitrom.pilot.core.shared.client.data;
-
-import com.emitrom.pilot.core.shared.client.core.FastMap;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.naming.factory.BeanFactory;
+
+import com.emitrom.pilot.core.shared.client.core.FastMap;
 
 /**
  * A <code>BaseModel</code> instance that wraps a bean. BeanModels cannot be
  * instantiated directly, rather, they are returned by {@link BeanFactory}.
  * 
  * <p/>
- * Nested beans are supported when creating Bean instances with limited
- * support for nested lists of beans. Any child lists must be defined with
- * java.util.List and must be paramertized with a BeanTag class or
- * subclass.
+ * Nested beans are supported when creating Bean instances with limited support
+ * for nested lists of beans. Any child lists must be defined with
+ * java.util.List and must be paramertized with a BeanTag class or subclass.
  * 
  * <p/>
  * When working with bean models, avoid setting beans as values, rather, set the

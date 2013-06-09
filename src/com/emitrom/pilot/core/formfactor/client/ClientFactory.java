@@ -1,6 +1,5 @@
-/**
- * Copyright (c) 2012 Emitrom LLC. All rights reserved. For licensing questions,
- * please contact us at licensing@emitrom.com
+/************************************************************************
+ * ClientFactory.java is part of Touch4j 4.2.2.1 Copyright 2013 Emitrom LLC
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -13,7 +12,7 @@
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
- */
+ **************************************************************************/
 package com.emitrom.pilot.core.formfactor.client;
 
 /**
