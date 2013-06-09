@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+   <inherits name='com.google.gwt.core.Core' />
+   <inherits name='com.google.gwt.user.DOM' />
+   
+   <generate-with class="com.emitrom.pilot.core.shared.rebind.BeanModelGenerator">
+		<when-type-assignable class="com.emitrom.pilot.core.shared.client.data.BeanLookup" />
+	</generate-with>
+</module>
