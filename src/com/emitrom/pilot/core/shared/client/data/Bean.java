@@ -19,8 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.naming.factory.BeanFactory;
-
 import com.emitrom.pilot.core.shared.client.core.FastMap;
 
 /**
