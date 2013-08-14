@@ -1,18 +1,18 @@
 /************************************************************************
-  WidgetComponent.java is part of Touch4j 4.2.2.1  Copyright 2013 Emitrom LLC
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-**************************************************************************/
+ * WidgetComponent.java is part of Touch4j 4.2.2.1 Copyright 2013 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ **************************************************************************/
 package com.emitrom.touch4j.client.core;
 
 import com.emitrom.touch4j.client.core.config.XType;
@@ -44,7 +44,7 @@ public class WidgetComponent extends Component {
 
     @Override
     protected native JavaScriptObject create(JavaScriptObject config) /*-{
-		return new $wnd.Ext.ux.WidgetComponent(config);
+		return new $wnd.Ext.ux.WidgetComponent();
     }-*/;
 
     @Override
@@ -58,8 +58,8 @@ public class WidgetComponent extends Component {
 			xtype : 'widgetComponent',
 			widget : null,
 			constructor : function(config) {
-				var me = this;
-				me.callParent(config);
+				this.initConfig(config);
+				this.callParent(config);
 			}
 		});
     }-*/;
@@ -85,19 +85,20 @@ public class WidgetComponent extends Component {
     }
 
     public native void setWidget(Widget w)/*-{
-		var jso = this.@com.emitrom.touch4j.client.core.WidgetComponent::getOrCreateJsObj()();
+		var jso = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+
 		jso.widget = w;
 		//a GWT widget must be attached to a GWT Panel for its events to fire.
 		var attached = jso.widget.@com.google.gwt.user.client.ui.Widget::isAttached()();
 		if (!attached) {
 			var rp = @com.google.gwt.user.client.ui.RootPanel::get(Ljava/lang/String;)('__touch4j_hidden');
 			rp.@com.google.gwt.user.client.ui.HasWidgets::add(Lcom/google/gwt/user/client/ui/Widget;)(jso.widget);
-
 		}
 		var widgetEl = jso.widget.@com.google.gwt.user.client.ui.UIObject::getElement()();
 		widgetEl.width = "100%";
 		widgetEl.height = "100%";
 		jso.element.dom.insertBefore(widgetEl);
+
     }-*/;
 
     @Override
