@@ -26,7 +26,7 @@ public abstract class SelectChangeHandler extends AbstractHandler {
     final JavaScriptObject jsoPeer = createPeer(this);
 
     private static native JavaScriptObject createPeer(SelectChangeHandler listener) /*-{
-		return function(source, oldValue, newValue, eOpts) {
+		return function(source, newValue, oldValue, eOpts) {
 			var select = @com.emitrom.touch4j.client.ui.Select::new(Lcom/google/gwt/core/client/JavaScriptObject;)(source);
 			listener.@com.emitrom.touch4j.client.core.handlers.field.select.SelectChangeHandler::fireOnEvent(Lcom/emitrom/touch4j/client/ui/Select;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)(select, newValue, oldValue, eOpts);
 		};
