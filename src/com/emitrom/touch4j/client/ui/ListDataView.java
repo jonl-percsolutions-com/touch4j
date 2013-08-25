@@ -1,18 +1,18 @@
 /************************************************************************
-  ListDataView.java is part of Touch4j 4.2.2.1  Copyright 2013 Emitrom LLC
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-**************************************************************************/
+ * ListDataView.java is part of Touch4j 4.2.2.1 Copyright 2013 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ **************************************************************************/
 package com.emitrom.touch4j.client.ui;
 
 import java.util.ArrayList;
@@ -241,6 +241,39 @@ public class ListDataView extends DataView implements ListElement, ListDataViewC
         }
 
     }
+
+    public static enum ListSelectMode {
+
+        SINGLE("SINGLE"), SIMPLE("SIMPLE"), MULTI("MULTI");
+
+        private String value;
+
+        private ListSelectMode(String value) {
+            this.value = value;
+        }
+
+        /**
+         * @return the value
+         */
+        public String getValue() {
+            return value;
+        }
+
+    }
+
+    /**
+     * Modes of selection. Valid values are 'SINGLE', 'SIMPLE', and 'MULTI'.
+     * 
+     * Defaults to: 'SINGLE'
+     */
+    public void setMode(ListSelectMode mode) {
+        _setMode(mode.getValue());
+    }
+
+    private native void _setMode(String mode) /*-{
+		var list = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		list.setMode(mode);
+    }-*/;
 
     /**
      * 
