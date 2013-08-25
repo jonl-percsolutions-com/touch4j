@@ -290,6 +290,20 @@ public class ListDataView extends DataView implements ListElement, ListDataViewC
 		list.setUi(listStyle);
     }-*/;
 
+    /**
+     * Returns an array of the currently selected records.
+     * 
+     * @return
+     */
+    public List<BaseModel> getSelection() {
+        return BaseModel.fromJsArray(_getSelection());
+    }
+
+    private native JavaScriptObject _getSelection() /*-{
+		var list = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		return list.getSelection();
+    }-*/;
+
     public void addItemComponent(int itemIndex, Component component) {
         List<Component> list;
         int size = this.getStore().getCount();
