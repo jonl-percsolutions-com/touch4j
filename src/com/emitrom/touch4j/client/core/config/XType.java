@@ -1,18 +1,18 @@
 /************************************************************************
-  XType.java is part of Touch4j 4.2.2.1  Copyright 2013 Emitrom LLC
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-**************************************************************************/
+ * XType.java is part of Touch4j 4.2.2.1 Copyright 2013 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ **************************************************************************/
 package com.emitrom.touch4j.client.core.config;
 
 /**
@@ -28,11 +28,12 @@ public enum XType {
                     "media"), NAVIGATION_VIEW("navigationview"), NESTEDLIST("nestedlist"), NUMBER_FIELD("numberfield"), PANEL(
                     "panel"), PASSWORD_FIELD("passwordfield"), PICKER("picker"), POLAR_CHART("polar"), RADIO_FIELD(
                     "radiofield"), RATING("rating"), SEARCH_FIELD("searchfield"), SEGMENTED_BUTTON("segmentedbutton"), SELECT_FIELD(
-                    "selectfield"), SHEET("sheet"), SLIDER_FIELD("sliderfield"), SPACER("spacer"), SPINNER_FIELD(
-                    "spinnerfield"), SPACE_FILLING_CHART("spacefilling"), TAB_PANEL("tabpanel"), TEXT_FIELD("textfield"), TEXTAREA_FIELD(
-                    "textareafield"), TEXTAREA_INPUT_FIELD("textareainput"), TITLEBAR("titlebar"), TOGGLE_FIELD(
-                    "togglefield"), TOOLBAR("toolbar"), URL_FIELD("urlfield"), VIDEO("video"), TITLE("title"), TOUCH_GRID(
-                    "touchgridpanel"), WIDGET_COMPONENT("widgetComponent"), TABAR("tabbar");
+                    "selectfield"), SHEET("sheet"), PROGRESS_INDICATOR("progressindicator"), MENU("menu"), GRID("grid"), SLIDER_FIELD(
+                    "sliderfield"), SPACER("spacer"), SPINNER_FIELD("spinnerfield"), SPACE_FILLING_CHART("spacefilling"), TAB_PANEL(
+                    "tabpanel"), TEXT_FIELD("textfield"), TEXTAREA_FIELD("textareafield"), TEXTAREA_INPUT_FIELD(
+                    "textareainput"), TITLEBAR("titlebar"), TOGGLE_FIELD("togglefield"), TOOLBAR("toolbar"), URL_FIELD(
+                    "urlfield"), VIDEO("video"), TITLE("title"), TOUCH_GRID("touchgridpanel"), WIDGET_COMPONENT(
+                    "widgetComponent"), TABAR("tabbar");
 
     private String value;
 

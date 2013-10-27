@@ -1,18 +1,18 @@
 /************************************************************************
-  ViewPort.java is part of Touch4j 4.2.2.1  Copyright 2013 Emitrom LLC
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-**************************************************************************/
+ * ViewPort.java is part of Touch4j 4.2.2.1 Copyright 2013 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ **************************************************************************/
 package com.emitrom.touch4j.client.ui;
 
 import java.util.ArrayList;
@@ -20,6 +20,8 @@ import java.util.List;
 
 import com.emitrom.touch4j.client.core.Component;
 import com.emitrom.touch4j.client.core.config.Event;
+import com.emitrom.touch4j.client.core.config.MenuConfig;
+import com.emitrom.touch4j.client.core.config.MenuSide;
 import com.emitrom.touch4j.client.core.handlers.CallbackRegistration;
 import com.emitrom.touch4j.client.core.handlers.component.OrientationChangeHandler;
 import com.emitrom.touch4j.client.fx.layout.card.Animation;
@@ -64,8 +66,8 @@ public class ViewPort extends Container implements AcceptsOneWidget {
     }-*/;
 
     private native static ViewPort initViewPort() /*-{
-		var viewport = $wnd.Ext.Viewport;
-		var container = @com.emitrom.touch4j.client.ui.ViewPort::new(Lcom/google/gwt/core/client/JavaScriptObject;)(viewport);
+		var viewPort = $wnd.Ext.Viewport;
+		var container = @com.emitrom.touch4j.client.ui.ViewPort::new(Lcom/google/gwt/core/client/JavaScriptObject;)(viewPort);
 		return container;
     }-*/;
 
@@ -115,7 +117,7 @@ public class ViewPort extends Container implements AcceptsOneWidget {
     }
 
     /**
-     * Whether or not to always automatically maximize the viewport on first
+     * Whether or not to always automatically maximize the viewPort on first
      * load and all subsequent orientation changes.
      * 
      * This is set to false by default for a number of reasons:
@@ -147,7 +149,7 @@ public class ViewPort extends Container implements AcceptsOneWidget {
     }-*/;
 
     /**
-     * true if the viewport prevents panning
+     * true if the viewPort prevents panning
      * 
      * @return
      */
@@ -157,7 +159,7 @@ public class ViewPort extends Container implements AcceptsOneWidget {
     }-*/;
 
     /**
-     * true if the viewport prevents zooming
+     * true if the viewPort prevents zooming
      * 
      * @return
      */
@@ -187,23 +189,177 @@ public class ViewPort extends Container implements AcceptsOneWidget {
     }-*/;
 
     /**
-     * true to prevent panning on the viewport
+     * true to prevent panning on the viewPort
      * 
      * @return
      */
     public native void setPreventPanning(boolean value)/*-{
 		var viewPort = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		return viewPort.setPreventPanning(value);
+		viewPort.setPreventPanning(value);
     }-*/;
 
     /**
-     * true to prevent zooming on the viewport
+     * true to prevent zooming on the viewPort
      * 
      * @return
      */
     public native void setPreventZooming(boolean value)/*-{
 		var viewPort = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
-		return viewPort.setPreventZooming(value);
+		viewPort.setPreventZooming(value);
+    }-*/;
+
+    /**
+     * Sets a menu for a given side of the Viewport.
+     * <p>
+     * Adds functionality to show the menu by swiping from the side of the
+     * screen from the given side.
+     * <p>
+     * If a menu is already set for a given side, it will be removed.
+     * <p>
+     * Available sides are: left, right, top, and bottom.
+     * 
+     * @param menu
+     *            ,the menu to assign to the viewPort
+     * @param side
+     *            , the side to put the menu on.
+     */
+
+    public void setMenu(Menu menu, MenuSide side) {
+        _setMenu(menu, side.getValue(), true, false);
+    }
+
+    /**
+     * Sets a menu for a given side of the Viewport.
+     * <p>
+     * Adds functionality to show the menu by swiping from the side of the
+     * screen from the given side.
+     * 
+     * @param menu
+     * @param config
+     */
+    public native void setMenu(Menu menu, MenuConfig config)/*-{
+		var viewPort = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		viewPort
+				.setMenu(
+						menu.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()(),
+						config.@com.emitrom.touch4j.client.core.JsObject::getJsObj()());
+    }-*/;
+
+    /**
+     * Sets a menu for a given side of the Viewport.
+     * <p>
+     * Adds functionality to show the menu by swiping from the side of the
+     * screen from the given side.
+     * <p>
+     * If a menu is already set for a given side, it will be removed.
+     * <p>
+     * Available sides are: left, right, top, and bottom.
+     * 
+     * @param menu
+     *            ,the menu to assign to the viewPort
+     * @param side
+     *            , the side to put the menu on.
+     * 
+     * @param cover
+     *            , true to cover the viewPort content. Defaults to true.
+     */
+
+    public void setMenu(Menu menu, MenuSide side, boolean cover) {
+        _setMenu(menu, side.getValue(), cover, true);
+    }
+
+    public void setMenu(Menu menu, MenuSide side, boolean cover, boolean reveal) {
+        _setMenu(menu, side.getValue(), cover, reveal);
+    }
+
+    /**
+     * Hides all visible menus.
+     */
+    public native void hideAllMenus()/*-{
+		var viewPort = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		viewPort.hideAllMenus();
+    }-*/;
+
+    /**
+     * Hides a menu specified by the menu's side.
+     */
+    public void hideMenu(MenuSide side) {
+        _hideMenu(side.getValue());
+    }
+
+    /**
+     * Shows a menu specified by the menu's side.
+     * 
+     * @param side
+     *            , The side which the menu is placed.
+     */
+    public void showMenu(MenuSide side) {
+        _showMenu(side.getValue());
+    }
+
+    /**
+     * Toggles the menu specified by side
+     * 
+     * @param side
+     *            , The side which the menu is placed.
+     */
+    public void toggleMenu(MenuSide side) {
+        _toggleMenu(side.getValue());
+    }
+
+    /**
+     * Removes a menu from a specified side.
+     * 
+     * @param side
+     *            , The side to remove the menu from
+     */
+    public void removeMenu(MenuSide side) {
+        _removeMenu(side.getValue());
+    }
+
+    /**
+     * Hides all menus except for the side specified
+     */
+    public void hideOtherMenus(MenuSide side, String animation) {
+        _hideOtherMenus(side.getValue(), animation);
+    }
+
+    private native void _hideOtherMenus(String side, String animation)/*-{
+		var viewPort = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		viewPort.hideOtherMenus(side, animation);
+    }-*/;
+
+    private native void _hideMenu(String side)/*-{
+		var viewPort = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		viewPort.hideMenu(side);
+    }-*/;
+
+    private native void _removeMenu(String side)/*-{
+		var viewPort = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		viewPort.removeMenu(side);
+    }-*/;
+
+    private native void _showMenu(String side)/*-{
+		var viewPort = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		viewPort.showMenu(side);
+    }-*/;
+
+    private native void _toggleMenu(String side)/*-{
+		var viewPort = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		viewPort.toggleMenu(side);
+    }-*/;
+
+    private native void _setMenu(Menu menu, String menuSide, boolean menuCover, boolean menuReveal)/*-{
+		var viewPort = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+		viewPort
+				.setMenu(
+						menu.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()(),
+						{
+							side : menuSide,
+							cover : menuCover,
+							reveal : menuReveal
+
+						});
     }-*/;
 
     /**
