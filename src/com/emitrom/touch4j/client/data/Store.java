@@ -138,14 +138,12 @@ public class Store extends JsObject {
      * @param value
      */
     public void add(BaseModel... values) {
-        for (BaseModel baseModel : values) {
-            this.insert(this.count() - 1, baseModel);
-        }
+        this.addAll(Arrays.asList(values));
     }
 
     public void addAll(List<? extends BaseModel> data) {
         for (BaseModel baseModel : data) {
-            this.insert(this.count() - 1, baseModel);
+            this.add(baseModel);
         }
     }
 
