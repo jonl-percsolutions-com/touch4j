@@ -68,6 +68,7 @@ public class ListDataView extends DataView implements ListElement, ListDataViewC
 
     @Override
     protected native JavaScriptObject create(JavaScriptObject config) /*-{
+		//config.grouped = true;
 		return new $wnd.Ext.dataview.List(config);
     }-*/;
 
@@ -143,11 +144,15 @@ public class ListDataView extends DataView implements ListElement, ListDataViewC
      * 
      * @see com.emitrom.touch4j.client.dataview.ListElement#setGrouped(boolean)
      */
-    @Override
-    public native void setGrouped(boolean value)/*-{
+    private native void _setGrouped(boolean value)/*-{
 		var list = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
 		list.setGrouped(value);
     }-*/;
+
+    @Override
+    public void setGrouped(boolean value) {
+        this.setAttribute("grouped", value, true);
+    }
 
     /*
      * (non-Javadoc)
@@ -222,6 +227,10 @@ public class ListDataView extends DataView implements ListElement, ListDataViewC
 					handler.@com.emitrom.touch4j.client.core.handlers.list.ItemDisclosureHandler::onItemDisclosure(Lcom/emitrom/touch4j/client/data/BaseModel;Lcom/google/gwt/core/client/JavaScriptObject;I)(model,node,index);
 				});
     }-*/;
+
+    public void setItemDisclosure(boolean value) {
+        this.setAttribute("onItemDisclosure", value, true);
+    }
 
     public static enum ListStyle {
 
@@ -407,4 +416,5 @@ public class ListDataView extends DataView implements ListElement, ListDataViewC
 
         }
     }
+
 }
