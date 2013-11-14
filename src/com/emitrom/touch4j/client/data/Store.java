@@ -599,9 +599,11 @@ public class Store extends JsObject {
     public native String setGrouper(Grouper grouper)/*-{
 		var j = this.@com.emitrom.touch4j.client.core.JsObject::getJsObj()();
 		j
-				.setGrouper(function(record) {
-					var model = @com.emitrom.touch4j.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
-					return grouper.@com.emitrom.touch4j.client.data.Grouper::onGroup(Lcom/emitrom/touch4j/client/data/BaseModel;)(model);
+				.setGrouper({
+					groupFn : function(record) {
+						var model = @com.emitrom.touch4j.client.data.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(record);
+						return grouper.@com.emitrom.touch4j.client.data.Grouper::onGroup(Lcom/emitrom/touch4j/client/data/BaseModel;)(model);
+					}
 				});
 
     }-*/;
