@@ -1,18 +1,18 @@
 /************************************************************************
-  Component.java is part of Touch4j 4.2.2.1  Copyright 2013 Emitrom LLC
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-**************************************************************************/
+ * Component.java is part of Touch4j 4.2.2.1 Copyright 2013 Emitrom LLC
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ **************************************************************************/
 package com.emitrom.touch4j.client.core;
 
 import com.emitrom.touch4j.client.core.config.Attribute;
@@ -151,9 +151,11 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
         if (config == null) {
             config = JsoHelper.createObject();
         }
+
         JsoHelper.setAttribute(config, Attribute.COMP_J.getValue(), this);
         JsoHelper.setAttribute(config, Attribute.ID.getValue(), id);
         JsoHelper.setAttribute(config, Attribute.XTYPE.getValue(), getXType());
+        onConfigCreated();
         init();
     }
 
@@ -1744,6 +1746,14 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
      */
     public void hide(Animation animation) {
         _hide(animation.getJSO());
+    }
+
+    /**
+     * Certain properties can only be set right after the config has been
+     * created Override this method to set set those type of properties
+     */
+    protected void onConfigCreated() {
+
     }
 
     /**
