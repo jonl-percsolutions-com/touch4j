@@ -16,15 +16,15 @@ Get high quality support through Emitrom (Note that Touch4j is FREE to use with 
 
 
 ##Downloads
-* [Latest Jar in Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ctouch4j) - Download jar from maven central.
-* [Latest Jar on Emitrom's home page ](http://emitrom.com/touch4j/download) - Download jar from Emtirom' site.
+* [Latest Jar in Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ctouch4j)
+* [Latest Jar on Emitrom's home page ](http://emitrom.com/touch4j/download)
 
-###Current Release
+##Current Release
 4.2-2.2.3 (Touch4j 4.2 with Sencha Touch 2.3.1 support) - Released on 11/25/2013
 
 ##Demos
-* [Touch4j Samples Project](http://touch4j.appspot.com/) - Touch4j KitchenSink
-* [Touch4j Charting Sample](http://touch4j-charts.appspot.com/) - Touch4j charting
+* [Touch4j KitchenSink](http://touch4j.appspot.com/)
+* [Touch4j Charting](http://touch4j-charts.appspot.com/)
 
 ##License
 * Touch4j is freely distributable under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html)
