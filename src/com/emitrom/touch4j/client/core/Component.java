@@ -231,7 +231,7 @@ public abstract class Component extends TouchWidget implements BoxWidget, HasBox
         if (!isRendered()) {
             initDisabled = true;
             setAttribute(Attribute.DISABLED.getValue(), true, true);
-            addListener(Attribute.RENDER.getValue(), new Function() {
+            addListener("painted", new Function() {
                 public void execute() {
                     disableRendered();
                 }
