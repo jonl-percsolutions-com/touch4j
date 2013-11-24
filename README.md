@@ -8,4 +8,4 @@ Get high quality support through Emitrom (Note that Touch4j is FREE to use with 
 
 * <a href="http://emitrom.com/pricing">Buy Enterprise Support</a>
 
-![](http://emitrom.com/sites/all/themes/corporateclean/images/ph_demo4.jpg)
+![](http://emitrom.com/sites/all/themes/corporateclean/images/touch4j/4.2.2/touch4j_4.png)
