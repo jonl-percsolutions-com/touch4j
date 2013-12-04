@@ -16,7 +16,6 @@
  */
 package com.emitrom.touch4j.client.data;
 
-import com.google.gwt.user.client.Window;
 
 /**
  * creates BaseModel object out of Java Beans
@@ -28,8 +27,6 @@ public class ModelLocator {
     }
 
     public static BeanModelFactory locate(Class<?> bean) {
-        BeanModelFactory f = BeanModelLookup.get().getFactory(bean);
-        Window.alert("" + f);
-        return f;
+        return BeanModelLookup.get().getFactory(bean);
     }
 }
