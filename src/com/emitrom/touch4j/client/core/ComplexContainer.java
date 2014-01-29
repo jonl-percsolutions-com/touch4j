@@ -1,18 +1,18 @@
 /**
- Copyright (c) 2013 Emitrom LLC. All rights reserved.
- For licensing questions, please contact us at licensing@emitrom.com
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+ * Copyright (c) 2013 Emitrom LLC. All rights reserved. For licensing questions,
+ * please contact us at licensing@emitrom.com
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 package com.emitrom.touch4j.client.core;
 
@@ -22,6 +22,8 @@ import java.util.List;
 import com.emitrom.touch4j.client.ui.Container;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.AttachDetachException;
@@ -43,6 +45,29 @@ public abstract class ComplexContainer extends Component implements HasWidgets, 
 
     private WidgetCollection children = new WidgetCollection(this);
     private AttachDetachException.Command orphanCommand;
+
+    static class RemoveFromParentHelperCommand implements ScheduledCommand {
+        private Widget widget;
+        private Object parent;
+
+        public RemoveFromParentHelperCommand(Widget widget, Object parent) {
+            this.widget = widget;
+            this.parent = parent;
+        }
+
+        /*
+         * (non-Javadoc)
+         * 
+         * @see com.google.gwt.core.client.Scheduler.ScheduledCommand#execute()
+         */
+        @Override
+        public void execute() {
+            if (widget.isAttached() && widget.getParent() == parent) {
+                widget.removeFromParent();
+            }
+        }
+
+    }
 
     public ComplexContainer() {
     }
@@ -132,7 +157,7 @@ public abstract class ComplexContainer extends Component implements HasWidgets, 
             } else {
                 component = new WidgetComponent(widget);
             }
-
+            component.setParentWidget(this);
             // Logical attach.
             getChildren().add(widget);
 
@@ -159,23 +184,31 @@ public abstract class ComplexContainer extends Component implements HasWidgets, 
     }
 
     @Override
-    public boolean remove(Widget w) {
+    public boolean remove(final Widget w) {
+        if (getChildren().contains(w)) {
+            try {
+                if (w instanceof Component) {
+                    try {
+                        // Orphan.
+                        orphan(w);
+                    } finally {
+                        // Physical detach.
+                        remove((Component) w, true);
+                        // Logical detach.
+                    }
+                } else if (w.getParent() != this && w.getParent() != null) {
+                    // In presence of a GWT component that has been added using
+                    // a WidgetComponent,
+                    // use a finally scheduled command to cleanup removal.
+                    Scheduler.get().scheduleFinally(new RemoveFromParentHelperCommand(w, w.getParent()));
+                }
+            } finally {
+                getChildren().remove(w);
+            }
+            return true;
 
-        // Validate.
-        if (w.getParent() != this) {
-            return false;
         }
-        // Orphan.
-        try {
-            orphan(w);
-        } finally {
-            // Physical detach.
-            remove((Component) w, true);
-            // Logical detach.
-            getChildren().remove(w);
-        }
-
-        return true;
+        return false;
 
     }
 
