@@ -18,6 +18,9 @@ package com.emitrom.touch4j.client.core;
 
 import com.emitrom.touch4j.client.core.config.XType;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.event.logical.shared.AttachEvent;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -29,6 +32,7 @@ import com.google.gwt.user.client.ui.Widget;
 public class WidgetComponent extends Component {
 
     private static int widgetComponentId = 0;
+    private HandlerRegistration detachHandler;
 
     public static final String hiddenDivID = "__touch4j_hidden";
     private Widget widget;
@@ -95,6 +99,7 @@ public class WidgetComponent extends Component {
 			var rp = @com.google.gwt.user.client.ui.RootPanel::get(Ljava/lang/String;)('__touch4j_hidden');
 			rp.@com.google.gwt.user.client.ui.HasWidgets::add(Lcom/google/gwt/user/client/ui/Widget;)(jso.widget);
 		}
+		this.@com.emitrom.touch4j.client.core.WidgetComponent::addWidgetDetachHandler()();
 		var widgetEl = jso.widget.@com.google.gwt.user.client.ui.UIObject::getElement()();
 		widgetEl.width = "100%";
 		widgetEl.height = "100%";
@@ -114,5 +119,33 @@ public class WidgetComponent extends Component {
     @Override
     public void setText(String text) {
     }
+
+    protected void addWidgetDetachHandler() {
+        if (this.widget != null) {
+            detachHandler = this.widget.addAttachHandler(new AttachEvent.Handler() {
+                boolean detaching = false;
+
+                @Override
+                public void onAttachOrDetach(AttachEvent event) {
+                    if (!detaching) {
+                        detaching = true;
+                        if (!event.isAttached() && getParent() instanceof HasWidgets) {
+                            ((HasWidgets) getParent()).remove((Widget) event.getSource());
+                        }
+                        widget = null;
+                        if (detachHandler != null) {
+                            detachHandler.removeHandler();
+                            detachHandler = null;
+                        }
+                        setParentWidget(null);
+                    }
+                }
+            });
+        }
+    }
+
+    public native void setParentWidget(final Widget parent) /*-{
+		this.@com.google.gwt.user.client.ui.Widget::parent = parent;
+    }-*/;
 
 }
