@@ -1,7 +1,7 @@
 Touch4j
 =====
 
-Create amazing HTML5 based mobile applcation in Java
+Create amazing HTML5 based mobile applications in Java
 
 ![](http://emitrom.com/sites/all/themes/corporateclean/images/touch4j/4.2.2/touch4j_4.png)
 
