@@ -29,40 +29,35 @@ import com.google.gwt.user.client.ui.Widget;
  * {@link com.emitrom.touch4j.client.core.Component}'s. This class enables the
  * use of pure GWT component inside Touch4j panels
  */
-public class WidgetComponent extends Component
-{
+public class WidgetComponent extends Component {
 
-	private static int widgetComponentId = 0;
+    private static int widgetComponentId = 0;
+    private HandlerRegistration detachHandler;
 
-	public static final String hiddenDivID = "__touch4j_hidden";
-	private Widget widget;
-	private HandlerRegistration detachHandler;
-	private JavaScriptObject jsComponent;
+    public static final String hiddenDivID = "__touch4j_hidden";
+    private Widget widget;
 
-	static
-	{
-		bootstrap();
-	}
+    static {
+        bootstrap();
+    }
 
-	public WidgetComponent()
-	{
-		id = new StringBuilder().append("ext-").append(this.getXType())
-		        .append("-").append(++widgetComponentId).toString();
-		JsoHelper.setAttribute(config, "id", id);
-	}
+    public WidgetComponent() {
+        id = new StringBuilder().append("ext-").append(this.getXType()).append("-").append(++widgetComponentId)
+                        .toString();
+        JsoHelper.setAttribute(config, "id", id);
+    }
 
-	@Override
-	protected native JavaScriptObject create(JavaScriptObject config) /*-{
+    @Override
+    protected native JavaScriptObject create(JavaScriptObject config) /*-{
 		return new $wnd.Ext.ux.WidgetComponent();
-	}-*/;
+    }-*/;
 
-	@Override
-	public String getXType()
-	{
-		return XType.WIDGET_COMPONENT.getValue();
-	}
+    @Override
+    public String getXType() {
+        return XType.WIDGET_COMPONENT.getValue();
+    }
 
-	private static native void bootstrap()/*-{
+    private static native void bootstrap()/*-{
 		$wnd.Ext.define('Ext.ux.WidgetComponent', {
 			extend : 'Ext.Component',
 			xtype : 'widgetComponent',
@@ -72,130 +67,85 @@ public class WidgetComponent extends Component
 				this.callParent(config);
 			}
 		});
-	}-*/;
+    }-*/;
 
-	public WidgetComponent(final Widget widget)
-	{
-		this();
-		createHiddenDiv();
-		this.widget = widget;
-		setWidget(widget);
-	}
+    public WidgetComponent(final Widget widget) {
+        this();
+        createHiddenDiv();
+        this.widget = widget;
+        setWidget(widget);
+    }
 
-	public static void createHiddenDiv()
-	{
-		ExtElement hiddenDiv = Ext.get(hiddenDivID);
-		if (hiddenDiv == null)
-		{
-			DOMConfig domConfig = new DOMConfig("div", hiddenDivID, null);
-			domConfig.setStyle("display:none;");
-			DOMHelper.append(RootPanel.getBodyElement(), domConfig);
+    public static void createHiddenDiv() {
+        ExtElement hiddenDiv = Ext.get(hiddenDivID);
+        if (hiddenDiv == null) {
+            DOMConfig domConfig = new DOMConfig("div", hiddenDivID, null);
+            domConfig.setStyle("display:none;");
+            DOMHelper.append(RootPanel.getBodyElement(), domConfig);
+        }
+    }
+
+    protected WidgetComponent(JavaScriptObject jsObj) {
+        super(jsObj);
+    }
+
+    public native void setWidget(Widget w)/*-{
+		var jso = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+
+		jso.widget = w;
+		//a GWT widget must be attached to a GWT Panel for its events to fire.
+		var attached = jso.widget.@com.google.gwt.user.client.ui.Widget::isAttached()();
+		if (!attached) {
+			var rp = @com.google.gwt.user.client.ui.RootPanel::get(Ljava/lang/String;)('__touch4j_hidden');
+			rp.@com.google.gwt.user.client.ui.HasWidgets::add(Lcom/google/gwt/user/client/ui/Widget;)(jso.widget);
 		}
-	}
+		this.@com.emitrom.touch4j.client.core.WidgetComponent::addWidgetDetachHandler()();
+		var widgetEl = jso.widget.@com.google.gwt.user.client.ui.UIObject::getElement()();
+		widgetEl.width = "100%";
+		widgetEl.height = "100%";
+		jso.element.dom.insertBefore(widgetEl, null);
 
-	protected WidgetComponent(JavaScriptObject jsObj)
-	{
-		super(jsObj);
-	}
+    }-*/;
 
-	protected native void setWidget(Widget w)/*-{
-		if (w) {
-			var jso = this.@com.emitrom.touch4j.client.core.Component::getOrCreateJsObj()();
+    @Override
+    protected void init() {
+    }
 
-			jso.widget = w;
-			//a GWT widget must be attached to a GWT Panel for its events to fire.
-			var attached = w.@com.google.gwt.user.client.ui.Widget::isAttached()();
-			if (!attached) {
-				var rp = @com.google.gwt.user.client.ui.RootPanel::get(Ljava/lang/String;)('__touch4j_hidden');
-				rp.@com.google.gwt.user.client.ui.HasWidgets::add(Lcom/google/gwt/user/client/ui/Widget;)(jso.widget);
-			}
-			this.@com.emitrom.touch4j.client.core.WidgetComponent::addWidgetDetachHandler()();
+    @Override
+    public String getText() {
+        return "";
+    }
 
-			var widgetEl = jso.widget.@com.google.gwt.user.client.ui.UIObject::getElement()();
-			widgetEl.width = "100%";
-			widgetEl.height = "100%";
-			jso.element.dom.insertBefore(widgetEl, null); // insert at end
-			this.@com.emitrom.touch4j.client.core.WidgetComponent::jsComponent = jso;
-		}
-	}-*/;
+    @Override
+    public void setText(String text) {
+    }
 
-	protected native void cleanUpJsComponent() /*-{
-		var jso = this.@com.emitrom.touch4j.client.core.WidgetComponent::jsComponent;
-		if (jso) {
-			var element = jso.element;
-			var parent = element.dom.parentNode;
-			if (parent) {
-				parent.removeChild(element.dom);
-			}
-		}
-		this.@com.emitrom.touch4j.client.core.WidgetComponent::jsComponent = null;
-	}-*/;
+    protected void addWidgetDetachHandler() {
+        if (this.widget != null) {
+            detachHandler = this.widget.addAttachHandler(new AttachEvent.Handler() {
+                boolean detaching = false;
 
-	protected void addWidgetDetachHandler()
-	{
-		if (this.widget != null)
-		{
-			detachHandler = this.widget
-			        .addAttachHandler(new AttachEvent.Handler()
-			        {
-				        boolean detaching = false;
+                @Override
+                public void onAttachOrDetach(AttachEvent event) {
+                    if (!detaching) {
+                        detaching = true;
+                        if (!event.isAttached() && getParent() instanceof HasWidgets) {
+                            ((HasWidgets) getParent()).remove((Widget) event.getSource());
+                        }
+                        widget = null;
+                        if (detachHandler != null) {
+                            detachHandler.removeHandler();
+                            detachHandler = null;
+                        }
+                        setParentWidget(null);
+                    }
+                }
+            });
+        }
+    }
 
-				        @Override
-				        public void onAttachOrDetach(AttachEvent event)
-				        {
-					        if (!detaching)
-					        {
-						        detaching = true;
-						        if (!event.isAttached()
-						                && getParent() instanceof HasWidgets)
-						        {
-							        ((HasWidgets) getParent())
-							                .remove((Widget) event.getSource());
-						        }
-						        widget = null;
-						        if (detachHandler != null)
-						        {
-							        detachHandler.removeHandler();
-							        detachHandler = null;
-						        }
-						        setParentWidget(null);
-						        removeFromParent();
-					        }
-				        }
-			        });
-		}
-	}
-
-	public native void setParentWidget(final Widget parent) /*-{
+    public native void setParentWidget(final Widget parent) /*-{
 		this.@com.google.gwt.user.client.ui.Widget::parent = parent;
-	}-*/;
-
-	@Override
-	protected void init()
-	{
-	}
-
-	@Override
-	public String getText()
-	{
-		return "";
-	}
-
-	@Override
-	public void setText(String text)
-	{
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.google.gwt.user.client.ui.Widget#removeFromParent()
-	 */
-	@Override
-	public void removeFromParent()
-	{
-		super.removeFromParent();
-		cleanUpJsComponent();
-	}
+    }-*/;
 
 }
